@@ -43,14 +43,21 @@
 <body>
 <table border="0">
 	<tr>
+		<td colspan=3>
+			<table align="center" border="0">
+				<tr>
+					<td><img id="kana_hiragana" src="img/hiragana-a.png" value="0" onclick="select_hiragana()">hiragana</td>
+					<td><img id="kana_katagana" src="img/katakana-a.png" onclick="select_katakana()">katakana</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
 		<td width="40%"><img id="kana_img" src=""></td>
 		<td align="left" rowspan="2">
 			<input type="radio" name="exercise" value="kana" checked="checked" onchange="change_exercise()">hiragana<br><br>
 			<input type="radio" name="exercise" value="romanji" onchange="change_exercise()">romanji</td>
 		<td width="40%"><input type="text" id="kana_romanji" value="" readonly=""></td>
-	</tr>
-	<tr>
-		<td colspan="4" align="center"></td>
 	</tr>
 	<tr>
 		<td colspan="4" align="center"><button class="btn" onclick="next_exercise()">suivant</button></td>

@@ -41,6 +41,22 @@ function delete_soluce () {
   }
 }
 
+function select_hiragana () {
+  var kana_hiragana = document.getElementById('kana_hiragana')
+  if (kana_hiragana.value == 0) {
+    kana_hiragana.src = 'img/hiragana-a_selected.png'
+    kana_hiragana.value = 1
+  }
+  else {
+    kana_hiragana.src = 'img/hiragana-a.png'
+    kana_hiragana.value = 0
+  }
+}
+
+function select_katakana () {
+  console.log('katakana selected')  
+}
+
 function show_kana () {
   var kana_img = document.getElementById('kana_img')
   kana_img.src = complete_kana(i_next_random)

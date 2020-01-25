@@ -2,6 +2,9 @@ var array_kana = ['a', 'i', 'u', 'e', 'o', 'ka', 'ki', 'ku', 'ke', 'ko', 'sa', '
 
 var i_next_random
 
+var b_kana_hiragana = false
+var b_kana_katakana = false
+
 function next_exercise () {
   var radios = document.getElementsByName('exercise')
 
@@ -46,10 +49,12 @@ function select_hiragana () {
   if (kana_hiragana.value == '0') {
     kana_hiragana.src = 'img/hiragana-a_selected.png'
     kana_hiragana.value = 1
+    b_kana_hiragana = true
   }
   else {
     kana_hiragana.src = 'img/hiragana-a.png'
     kana_hiragana.value = 0
+    b_kana_hiragana = false
   }
 }
 
@@ -58,10 +63,12 @@ function select_katakana () {
   if (kana_katakana.value == '0') {
     kana_katakana.src = 'img/katakana-a_selected.png'
     kana_katakana.value = 1
+    b_kana_katakana = true
   }
   else {
     kana_katakana.src = 'img/katakana-a.png'
     kana_katakana.value = 0
+    b_kana_katakana = false
   }
 }
 
@@ -72,6 +79,7 @@ function show_kana () {
 
 function show_romanji () {
   var kana_romanji = document.querySelector('#kana_romanji')
+
   kana_romanji.value = array_kana[i_next_random]
 }
 
@@ -81,7 +89,12 @@ function change_exercise () {
 }
 
 function complete_kana (i_random) {
-  var kana_random = 'hiragana/' + array_kana[i_random] + '.png'
+  var kana_random 
+
+  if (b_kana_hiragana) kana_random = 'hiragana/' + array_kana[i_random] + '.png'
+
+  if (b_kana_katakana) kana_random = 'katakana/' + array_kana[i_random] + '.png'
+
   return kana_random
 }
 

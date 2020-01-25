@@ -43,7 +43,7 @@ function delete_soluce () {
 
 function select_hiragana () {
   var kana_hiragana = document.getElementById('kana_hiragana')
-  if (kana_hiragana.value == 0) {
+  if (kana_hiragana.value == '0') {
     kana_hiragana.src = 'img/hiragana-a_selected.png'
     kana_hiragana.value = 1
   }
@@ -54,7 +54,15 @@ function select_hiragana () {
 }
 
 function select_katakana () {
-  console.log('katakana selected')  
+  var kana_katakana = document.getElementById('kana_katakana')
+  if (kana_katakana.value == '0') {
+    kana_katakana.src = 'img/katakana-a_selected.png'
+    kana_katakana.value = 1
+  }
+  else {
+    kana_katakana.src = 'img/katakana-a.png'
+    kana_katakana.value = 0
+  }
 }
 
 function show_kana () {

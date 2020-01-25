@@ -60,6 +60,9 @@ function select_hiragana () {
 
 function select_katakana () {
   var kana_katakana = document.getElementById('kana_katakana')
+  
+  // TODO bug le premier est vide (clic 2 fois sur l'image)
+
   if (kana_katakana.value == '0') {
     kana_katakana.src = 'img/katakana-a_selected.png'
     kana_katakana.value = 1
@@ -94,6 +97,8 @@ function complete_kana (i_random) {
   if (b_kana_hiragana) kana_random = 'hiragana/' + array_kana[i_random] + '.png'
 
   if (b_kana_katakana) kana_random = 'katakana/' + array_kana[i_random] + '.png'
+
+  // TODO bug sélectionner les 2 alphabets en même temps
 
   return kana_random
 }

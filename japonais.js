@@ -1,4 +1,4 @@
-var array_kana = ['a', 'i', 'u', 'e', 'o', 'ka', 'ki', 'ku', 'ke', 'ko', 'sa', 'shi', 'su', 'se', 'so', 'ta', 'chi', 'tsu', 'te', 'to']
+var array_kana = ['h-a', 'h-i', 'h-u', 'h-e', 'h-o', 'h-ka', 'h-ki', 'h-ku', 'h-ke', 'h-ko', 'h-sa', 'h-shi', 'h-su', 'h-se', 'h-so', 'k-a', 'k-i', 'k-u', 'k-e', 'k-o']
 
 var i_next_random
 
@@ -10,7 +10,6 @@ function next_exercise () {
 
   i_next_random = next_random()
 
-  // show the exercise
   if (radios[0].checked) {
     show_kana()
   } else {
@@ -77,13 +76,46 @@ function select_katakana () {
 
 function show_kana () {
   var kana_img = document.getElementById('kana_img')
-  kana_img.src = complete_kana(i_next_random)
+  var onekana = array_kana[i_next_random]
+  console.log('show_kana, i : ' + i_next_random)
+  onekana = onekana.split('-')
+
+  if (b_kana_hiragana == false && b_kana_katakana == false) {
+    alert('choose one or two kana !')
+  }
+  else {
+    if ((onekana[0] === 'h' && b_kana_hiragana) || (onekana[0] === 'k' && b_kana_katakana))
+	  kana_img.src = complete_kana(onekana)    
+	else {
+	  console.log('incohérence alphabet')
+      i_next_random = next_random()
+	  show_kana()
+	}
+  }
 }
 
 function show_romanji () {
   var kana_romanji = document.querySelector('#kana_romanji')
 
-  kana_romanji.value = array_kana[i_next_random]
+  var onekana = array_kana[i_next_random]
+
+  console.log('show_romanji, i : ' + i_next_random)
+
+  onekana = onekana.split('-')
+
+  if (b_kana_hiragana == false && b_kana_katakana == false) {
+    alert('choose one or two kana !')
+  }
+  else {
+    if ((onekana[0] === 'h' && b_kana_hiragana) || (onekana[0] === 'k' && b_kana_katakana))
+      kana_romanji.value = onekana[1]
+	else {
+	  console.log('incohérence alphabet')
+      i_next_random = next_random()
+	  show_romanji()
+	}
+  }
+
 }
 
 function change_exercise () {
@@ -91,16 +123,15 @@ function change_exercise () {
   kana_romanji.value = ''
 }
 
-function complete_kana (i_random) {
-  var kana_random 
+function complete_kana (kana) {
+  var url_kana
 
-  if (b_kana_hiragana) kana_random = 'hiragana/' + array_kana[i_random] + '.png'
+  if (kana[0] === 'h')
+    url_kana = 'hiragana/' + kana[1] + '.png'
+  else if (kana[0] === 'k')
+    url_kana = 'katakana/' + kana[1] + '.png'
 
-  if (b_kana_katakana) kana_random = 'katakana/' + array_kana[i_random] + '.png'
-
-  // TODO bug sélectionner les 2 alphabets en même temps
-
-  return kana_random
+  return url_kana
 }
 
 function getRandomInt (max) {
@@ -108,6 +139,6 @@ function getRandomInt (max) {
 }
 
 function next_random () {
-  var i_random = getRandomInt(15)
+  var i_random = getRandomInt(array_kana.length)
   return i_random
 }

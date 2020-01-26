@@ -80,6 +80,8 @@ function show_kana () {
   console.log('show_kana, i : ' + i_next_random)
   onekana = onekana.split('-')
 
+// TODO 2 fois le même code dans show_kana et show_romanji
+
   if (b_kana_hiragana == false && b_kana_katakana == false) {
     alert('choose one or two kana !')
   }

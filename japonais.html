@@ -33,7 +33,7 @@
 		}
 		.btn {
 			width: 80px;
-			height: 30px;
+			height: 40px;
 		}
 		.img {
 			vertical-align : middle;
@@ -54,16 +54,21 @@
 	</tr>
 	<tr>
 		<td width="40%"><img id="kana_img" src=""></td>
-		<td align="left" rowspan="2">
-			<input type="radio" name="exercise" value="kana" checked="checked" onchange="change_exercise()">translate kana to romanji<br><br>
-			<input type="radio" name="exercise" value="romanji" onchange="change_exercise()">translate romanji to kana</td>
 		<td width="40%"><input type="text" id="kana_romanji" value="" readonly=""></td>
 	</tr>
 	<tr>
-		<td colspan="4" align="center"><button class="btn" onclick="next_exercise()">next</button></td>
+		<td>
+			<input type="radio" name="exercise" value="kana" checked="checked" onchange="change_exercise()">translate kana to romanji
+		</td>
+		<td>
+			<input type="radio" name="exercise" value="romanji" onchange="change_exercise()">translate romanji to kana
+		</td>
 	</tr>
 	<tr>
-		<td colspan="4" align="center"><button class="btn" onclick="show_soluce()">soluce</button></td>
+		<td colspan="2" align="center"><button class="btn" onclick="next_exercise()">next</button></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><button class="btn" onclick="show_soluce()">soluce</button></td>
 	</tr>
 </table>
 

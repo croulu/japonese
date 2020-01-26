@@ -77,7 +77,6 @@ function select_katakana () {
 function show_kana () {
   var kana_img = document.getElementById('kana_img')
   var onekana = array_kana[i_next_random]
-  console.log('show_kana, i : ' + i_next_random)
   onekana = onekana.split('-')
 
 // TODO 2 fois le même code dans show_kana et show_romanji
@@ -98,11 +97,7 @@ function show_kana () {
 
 function show_romanji () {
   var kana_romanji = document.querySelector('#kana_romanji')
-
   var onekana = array_kana[i_next_random]
-
-  console.log('show_romanji, i : ' + i_next_random)
-
   onekana = onekana.split('-')
 
   if (b_kana_hiragana == false && b_kana_katakana == false) {

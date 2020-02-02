@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>japonese</title>
+	<script type="text/javascript" src="japonese.js"></script>
+	<link rel="stylesheet" type="text/css" href="japonese.css" /> 
+</head>
+<body>
+<table border="0">
+	<tr>
+		<td colspan="3">
+			home&nbsp;
+			<a href="hiragana.html">choose hiragana</a>&nbsp;
+			<a href="katakana.html">choose katakana</a>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=3>
+			<table align="center" border="0">
+				<tr>
+					<td><img id="kana_hiragana" src="img/hiragana-a.png" onclick="select_hiragana()">hiragana</td>
+					<td><img id="kana_katakana" src="img/katakana-a.png" onclick="select_katakana()">katakana</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="40%"><img id="kana_img" src=""></td>
+		<td width="40%"><input type="text" id="kana_romanji" value="" readonly=""></td>
+	</tr>
+	<tr>
+		<td>
+			<input type="radio" name="exercise" value="kana" checked="checked" onchange="change_exercise()">translate kana to romanji
+		</td>
+		<td>
+			<input type="radio" name="exercise" value="romanji" onchange="change_exercise()">translate romanji to kana
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><button class="btn" onclick="next_exercise()">next</button></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><button class="btn" onclick="show_soluce()">soluce</button></td>
+	</tr>
+</table>
+
+</body>
+</html>

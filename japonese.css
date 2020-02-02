@@ -1,0 +1,45 @@
+table
+{
+    height : 100%;
+    width : 100%;
+    margin : 0;
+    padding : 0;
+}
+td {
+    font-family: Courier New;
+    text-align: center;
+}
+#kana_img {
+    width: 50;
+    box-sizing: border-box;
+    padding: 2px;
+}
+#kana_romanji {
+    background: yellow;
+    color: black;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2px;
+    font-size: 6em;
+}
+.btn {
+    width: 80px;
+    height: 40px;
+}
+img {
+    vertical-align : middle;
+}
+
+.table_kana
+{
+    height : 100%;
+    width : 100%;
+    margin : 0;
+    padding : 0;
+}
+.td_kana {
+    font-family: Courier New;
+    text-align: center;
+    width: 20%;
+}

@@ -9,12 +9,12 @@ td {
     font-family: Courier New;
     text-align: center;
 }
-#kana_img {
+#kanaImg {
     width: 50;
     box-sizing: border-box;
     padding: 2px;
 }
-#kana_romanji {
+#kanaRomanji {
     background: rgba(255, 38, 0, 0.74);
     color: black;
     text-align: right;
@@ -31,19 +31,19 @@ img {
     vertical-align : top;
 }
 
-.table_kana
+.tableKana
 {
     height : 100%;
     width : 100%;
     margin : 0;
     padding : 0;
 }
-.td_kana {
+.tdKana {
     font-family: Courier New;
     text-align: center;
     width: 20%;
 }
-.img_selected {
+.imgSelected {
     vertical-align : middle;
     border: 2px solid rgba(255, 38, 0, 0.74);
     display:block;

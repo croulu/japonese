@@ -1,117 +1,116 @@
-var array_kana = []
+var arrayKana = []
 
-var i_next_random
+var iNextRandom
 
-var b_kana_hiragana = false
-var b_kana_katakana = false
+var bKanaHiragana = false
+var bKanaKatakana = false
 
-function next_exercise () {
+function nextExercise () {
   var radios = document.getElementsByName('exercise')
 
-  i_next_random = next_random()
+  iNextRandom = nextRandom()
 
   if (radios[0].checked) {
-    show_kana()
+    showKana()
   } else {
-    show_romanji()
+    showRomanji()
   }
 
-  delete_soluce()
+  deleteSoluce()
 }
 
-function show_soluce () {
+function showSoluce () {
   var radios = document.getElementsByName('exercise')
 
   // show the opposite
   if (radios[0].checked) {
-    show_romanji()
+    showRomanji()
   } else {
-    show_kana()
+    showKana()
   }
 }
 
-function delete_soluce () {
+function deleteSoluce () {
   var radios = document.getElementsByName('exercise')
 
-  var kana_img = document.getElementById('kana_img')
-  var kana_romanji = document.querySelector('#kana_romanji')
+  var kanaImg = document.getElementById('kanaImg')
+  var kanaRomanji = document.querySelector('#kanaRomanji')
 
   if (radios[0].checked) {
-    kana_romanji.value = ''
+    kanaRomanji.value = ''
   } else {
-    kana_img.src = ''
+    kanaImg.src = ''
   }
 }
 
-function select_one_kana (o_kana) {
-  var a_kana 
-  var one_kana
-  var s_kana
-  var i_index_kana
+function selectOneKana (oKana) {
+  var aKana 
+  var oneKana
+  var sKana
+  var iIndexKana
 
-  a_kana = split_a_kana(o_kana.id)
-  s_kana = a_kana[0] + '-' + a_kana[1]
-  one_kana = document.getElementById(s_kana)
+  aKana = splitAKana(oKana.id)
+  sKana = aKana[0] + '-' + aKana[1]
+  oneKana = document.getElementById(sKana)
 
-  i_index_kana = array_kana.indexOf(s_kana)
+  iIndexKana = arrayKana.indexOf(sKana)
 
-  if (i_index_kana === -1) {
-    one_kana.className = 'img_selected'
-    array_kana.push(s_kana)
+  if (iIndexKana === -1) {
+    oneKana.className = 'imgSelected'
+    arrayKana.push(sKana)
   }
   else {
-    one_kana.className = ''
-    array_kana.splice(i_index_kana, 1)
+    oneKana.className = ''
+    arrayKana.splice(iIndexKana, 1)
   }
 }
 
-function select_hiragana () {
-  var kana_hiragana = document.getElementById('kana_hiragana')
+function selectHiragana () {
+  var kanaHiragana = document.getElementById('kanaHiragana')
 
-  if (!b_kana_hiragana) {
-    kana_hiragana.src = 'img/kana/hiragana-a_selected.png'
-    b_kana_hiragana = true
+  if (!bKanaHiragana) {
+    kanaHiragana.src = 'img/kana/hiragana-a_selected.png'
+    bKanaHiragana = true
   }
   else {
-    kana_hiragana.src = 'img/kana/hiragana-a.png'
-    b_kana_hiragana = false
+    kanaHiragana.src = 'img/kana/hiragana-a.png'
+    bKanaHiragana = false
   }
 }
 
-function select_katakana () {
-  var kana_katakana = document.getElementById('kana_katakana')
+function selectKatakana () {
+  var kanaKatakana = document.getElementById('kanaKatakana')
 
-  if (!b_kana_katakana) {
-    kana_katakana.src = 'img/kana/katakana-a_selected.png'
-    b_kana_katakana = true
+  if (!bKanaKatakana) {
+    kanaKatakana.src = 'img/kana/katakana-a_selected.png'
+    bKanaKatakana = true
   }
   else {
-    kana_katakana.src = 'img/kana/katakana-a.png'
-    b_kana_katakana = false
+    kanaKatakana.src = 'img/kana/katakana-a.png'
+    bKanaKatakana = false
   }
 }
 
 // TODO à revoir
-function show_kana () {
-  var kana_img
+function showKana () {
+  var kanaImg
   var onekana
 
-  kana_img = document.getElementById('kana_img')
-  if (b_kana_hiragana == false && b_kana_katakana == false) {
+  kanaImg = document.getElementById('kanaImg')
+  if (bKanaHiragana === false && bKanaKatakana === false) {
     alert('choose one or two kana')
   } else {
-
-    if (array_kana.length != 0) {
-      onekana = array_kana[i_next_random]
+    if (arrayKana.length !== 0) {
+      onekana = arrayKana[iNextRandom]
       onekana = onekana.split('-')
     
-      if ((onekana[0] === 'h' && b_kana_hiragana) || (onekana[0] === 'k' && b_kana_katakana)) {
-        kana_img.src = complete_kana(onekana)
+      if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
+        kanaImg.src = completeKana(onekana)
       }
       else {
         console.log('incohérence alphabet')
-        i_next_random = next_random()
-        show_kana()
+        iNextRandom = nextRandom()
+        showKana()
       }
     } else {
       alert('choose the kana to study on the dedicated tab')
@@ -119,55 +118,55 @@ function show_kana () {
   }
 }
 
-function show_romanji () {
-  var kana_romanji = document.querySelector('#kana_romanji')
-  var onekana = array_kana[i_next_random]
+function showRomanji () {
+  var kanaRomanji = document.querySelector('#kanaRomanji')
+  var onekana = arrayKana[iNextRandom]
   onekana = onekana.split('-')
 
-  if (b_kana_hiragana == false && b_kana_katakana == false) {
+  if (bKanaHiragana == false && bKanaKatakana == false) {
     alert ('choose one or two kana !')
   }
   else {
-    if ((onekana[0] === 'h' && b_kana_hiragana) || (onekana[0] === 'k' && b_kana_katakana)) {
-      kana_romanji.value = onekana[1]
+    if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
+      kanaRomanji.value = onekana[1]
     }
     else {
       console.log('incohérence alphabet')
-      i_next_random = next_random()
-      show_romanji()
+      iNextRandom = nextRandom()
+      showRomanji()
     }
   }
 }
 
-function change_exercise () {
-  kana_img.src = ''
-  kana_romanji.value = ''
+function changeExercise () {
+  kanaImg.src = ''
+  kanaRomanji.value = ''
 }
 
-function complete_kana (kana) {
-  var url_kana
+function completeKana (kana) {
+  var urlKana
 
   if (kana[0] === 'h') {
-    url_kana = 'img/hiragana/' + kana[1] + '.png'
+    urlKana = 'img/hiragana/' + kana[1] + '.png'
   }
   else if (kana[0] === 'k') {
-    url_kana = 'img/katakana/' + kana[1] + '.png'
+    urlKana = 'img/katakana/' + kana[1] + '.png'
   }
 
-  return url_kana
+  return urlKana
+}
+
+function nextRandom () {
+  var iRandom = getRandomInt(arrayKana.length)
+  return iRandom
 }
 
 function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-function next_random () {
-  var i_random = getRandomInt(array_kana.length)
-  return i_random
-}
-
-function split_a_kana(s_kana) {
-  var a_kana
-  a_kana = s_kana.split('-')
-  return a_kana
+function splitAKana (sKana) {
+  var aKana
+  aKana = sKana.split('-')
+  return aKana
 }

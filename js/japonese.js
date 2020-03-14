@@ -1,40 +1,34 @@
-var arrayKana = []
+// kana === hiragana or katagana
+// romanji === latin alphabet
+const arrayKana = []
 
-var iNextRandom
+let iNextRandom
 
-var bKanaHiragana = false
-var bKanaKatakana = false
+let bKanaHiragana = false
+let bKanaKatakana = false
 
 function nextExercise () {
-  var radios = document.getElementsByName('exercise')
+  let radios = document.getElementsByName('exercise')
 
   iNextRandom = nextRandom()
 
-  if (radios[0].checked) {
-    showKana()
-  } else {
-    showRomanji()
-  }
+  radios[0].checked ? showKanaOrRomanji('kana') : showKanaOrRomanji('romanji')
 
   deleteSoluce()
 }
 
 function showSoluce () {
-  var radios = document.getElementsByName('exercise')
+  let radios = document.getElementsByName('exercise')
 
-  // show the opposite
-  if (radios[0].checked) {
-    showRomanji()
-  } else {
-    showKana()
-  }
+console.log ('showSoluce ' + radios[0].checked)
+
+  radios[0].checked ? showKanaOrRomanji('romanji') : showKanaOrRomanji('kana')
 }
 
 function deleteSoluce () {
-  var radios = document.getElementsByName('exercise')
-
-  var kanaImg = document.getElementById('kanaImg')
-  var kanaRomanji = document.querySelector('#kanaRomanji')
+  let radios = document.getElementsByName('exercise')
+  let kanaImg = document.getElementById('kanaImg')
+  let kanaRomanji = document.querySelector('#kanaRomanji')
 
   if (radios[0].checked) {
     kanaRomanji.value = ''
@@ -44,13 +38,14 @@ function deleteSoluce () {
 }
 
 function selectOneKana (oKana) {
-  var aKana 
-  var oneKana
-  var sKana
-  var iIndexKana
+  let aKana
+  let oneKana
+  let sKana
+  let iIndexKana
 
   aKana = splitAKana(oKana.id)
   sKana = aKana[0] + '-' + aKana[1]
+  // sKana = `${aKana[0]}-${aKana[1]}`
   oneKana = document.getElementById(sKana)
 
   iIndexKana = arrayKana.indexOf(sKana)
@@ -58,56 +53,54 @@ function selectOneKana (oKana) {
   if (iIndexKana === -1) {
     oneKana.className = 'imgSelected'
     arrayKana.push(sKana)
-  }
-  else {
+  } else {
     oneKana.className = ''
     arrayKana.splice(iIndexKana, 1)
   }
 }
 
 function selectHiragana () {
-  var kanaHiragana = document.getElementById('kanaHiragana')
+  let kanaHiragana = document.getElementById('kanaHiragana')
 
   if (!bKanaHiragana) {
     kanaHiragana.src = 'img/kana/hiragana-a_selected.png'
     bKanaHiragana = true
-  }
-  else {
+  } else {
     kanaHiragana.src = 'img/kana/hiragana-a.png'
     bKanaHiragana = false
   }
 }
 
 function selectKatakana () {
-  var kanaKatakana = document.getElementById('kanaKatakana')
+  let kanaKatakana = document.getElementById('kanaKatakana')
 
   if (!bKanaKatakana) {
     kanaKatakana.src = 'img/kana/katakana-a_selected.png'
     bKanaKatakana = true
-  }
-  else {
+  } else {
     kanaKatakana.src = 'img/kana/katakana-a.png'
     bKanaKatakana = false
   }
 }
 
-// TODO à revoir
-function showKana () {
-  var kanaImg
-  var onekana
+function showKanaOrRomanji (guessWhat) {
+  let kanaImg
+  let kanaRomanji
+  let onekana
 
   kanaImg = document.getElementById('kanaImg')
-  if (bKanaHiragana === false && bKanaKatakana === false) {
+  kanaRomanji = document.querySelector('#kanaRomanji')
+
+  if (!bKanaHiragana && !bKanaKatakana) {
     alert('choose one or two kana')
   } else {
     if (arrayKana.length !== 0) {
       onekana = arrayKana[iNextRandom]
       onekana = onekana.split('-')
-    
+
       if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
-        kanaImg.src = completeKana(onekana)
-      }
-      else {
+        guessWhat === 'kana' ? kanaImg.src = completeKana(onekana) : kanaRomanji.value = onekana[1]
+      } else {
         console.log('incohérence alphabet')
         iNextRandom = nextRandom()
         showKana()
@@ -118,38 +111,17 @@ function showKana () {
   }
 }
 
-function showRomanji () {
-  var kanaRomanji = document.querySelector('#kanaRomanji')
-  var onekana = arrayKana[iNextRandom]
-  onekana = onekana.split('-')
-
-  if (bKanaHiragana == false && bKanaKatakana == false) {
-    alert ('choose one or two kana !')
-  }
-  else {
-    if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
-      kanaRomanji.value = onekana[1]
-    }
-    else {
-      console.log('incohérence alphabet')
-      iNextRandom = nextRandom()
-      showRomanji()
-    }
-  }
-}
-
 function changeExercise () {
   kanaImg.src = ''
   kanaRomanji.value = ''
 }
 
 function completeKana (kana) {
-  var urlKana
+  let urlKana
 
   if (kana[0] === 'h') {
     urlKana = 'img/hiragana/' + kana[1] + '.png'
-  }
-  else if (kana[0] === 'k') {
+  } else if (kana[0] === 'k') {
     urlKana = 'img/katakana/' + kana[1] + '.png'
   }
 
@@ -157,7 +129,7 @@ function completeKana (kana) {
 }
 
 function nextRandom () {
-  var iRandom = getRandomInt(arrayKana.length)
+  let iRandom = getRandomInt(arrayKana.length)
   return iRandom
 }
 
@@ -166,7 +138,7 @@ function getRandomInt (max) {
 }
 
 function splitAKana (sKana) {
-  var aKana
+  let aKana
   aKana = sKana.split('-')
   return aKana
 }

@@ -1,0 +1,50 @@
+table
+{
+    height : 100%;
+    width : 100%;
+    margin : 0;
+    padding : 0;
+}
+td {
+    font-family: Courier New;
+    text-align: center;
+}
+#kanaImg {
+    width: 50;
+    box-sizing: border-box;
+    padding: 2px;
+}
+#kanaRomanji {
+    background: rgba(255, 38, 0, 0.74);
+    color: black;
+    text-align: right;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2px;
+    font-size: 6em;
+}
+.btn {
+    width: 80px;
+    height: 40px;
+}
+img {
+    vertical-align : top;
+}
+
+.tableKana
+{
+    height : 100%;
+    width : 100%;
+    margin : 0;
+    padding : 0;
+}
+.tdKana {
+    font-family: Courier New;
+    text-align: center;
+    width: 20%;
+}
+.imgSelected {
+    vertical-align : middle;
+    border: 2px solid rgba(255, 38, 0, 0.74);
+    display:block;
+}

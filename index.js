@@ -7,8 +7,11 @@ import {
   splitAKana
 } from './js/helpers.js'
 
-import fs from 'fs'
 import {} from './initImg.js'
+
+import kana from './img/kana/*.*'
+import hiragana from './img/hiragana/*.*'
+import katakana from './img/katakana/*.*'
 
 const arrayKana = []
 
@@ -70,36 +73,42 @@ function selectOneKana (idSelected) {
 }
 
 function selectHiragana () {
-  let buffer = ''
+  let imageFileName = ''
+  let specificHiraganaImage = ''
 
   if (!bKanaHiragana) {
-    buffer = fs.readFileSync(__dirname + '/img/kana/hiragana-a_selected.png')
+    imageFileName = '/img/kana/hiragana-a_selected.png'
     bKanaHiragana = true
   } else {
-    buffer = fs.readFileSync(__dirname + '/img/kana/hiragana-a.png')
+    imageFileName = '/img/kana/hiragana-a.png'
     bKanaHiragana = false
   }
-  imgKanaHiragana.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
+  specificHiraganaImage = hiragana[`${imageFileName}.png`]
+  imgKanaHiragana.setAttribute('src', specificHiraganaImage)
 }
 
 function selectKatakana () {
-  let buffer = ''
+  let imageFileName = ''
+  let specificKatakanaImage = ''
 
   if (!bKanaKatakana) {
-    buffer = fs.readFileSync(__dirname + '/img/kana/katakana-a_selected.png')
+    imageFileName = '/img/kana/katakana-a_selected.png'
     bKanaKatakana = true
   } else {
-    buffer = fs.readFileSync(__dirname + '/img/kana/katakana-a.png')
+    imageFileName = '/img/kana/katakana-a.png'
     bKanaKatakana = false
   }
-  imgKanaKatakana.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
+  specificKatakanaImage = katakana[`${imageFileName}.png`]
+  imgKanaKatakana.setAttribute('src', specificKatakanaImage)
 }
 
 function showKanaOrRomanji (guessWhat) {
   let kanaImg
   let kanaRomanji
   let onekana
-  let buffer = ''
+
+  let imageFileName = ''
+  let specificKatakanaImage = ''
 
   kanaImg = document.getElementById('kanaImg')
   kanaRomanji = document.querySelector('#kanaRomanji')
@@ -113,9 +122,13 @@ function showKanaOrRomanji (guessWhat) {
 
       if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
         if (guessWhat === 'kana') {
-          console.log(completeKana(onekana))
-          buffer = fs.readFileSync(__dirname + completeKana(onekana))
-          kanaImg.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
+
+          var cc = completeKana(onekana)
+          console.log(cc)
+
+          specificKatakanaImage = katakana[`${imageFileName}.png`]
+          kanaImg.setAttribute('src', specificKatakanaImage)
+        
         } else {
           kanaRomanji.value = onekana[1]
         }

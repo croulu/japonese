@@ -30,6 +30,7 @@ td {
 img {
     vertical-align : top;
 }
+@import url(sanitize.css);
 
 .tableKana
 {

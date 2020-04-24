@@ -1,14 +1,14 @@
 import {
-
+  arrayKana
 } from '../index.js'
 
 function completeKana (kana) {
   let urlKana
-
+  
   if (kana[0] === 'h') {
-    urlKana = 'img/hiragana/' + kana[1] + '.png'
+    urlKana = '/img/hiragana/' + kana[1] + '.png'
   } else if (kana[0] === 'k') {
-    urlKana = 'img/katakana/' + kana[1] + '.png'
+    urlKana = '/img/katakana/' + kana[1] + '.png'
   }
 
   return urlKana

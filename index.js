@@ -7,6 +7,9 @@ import {
   splitAKana
 } from './js/helpers.js'
 
+import fs from 'fs'
+import {} from './initImg.js'
+
 const arrayKana = []
 
 let iNextRandom
@@ -44,15 +47,15 @@ function deleteSoluce () {
   }
 }
 
-function selectOneKana (oKana) {
+function selectOneKana (idSelected) {
   let aKana
   let oneKana
   let sKana
   let iIndexKana
 
-  aKana = splitAKana(oKana.id)
+  aKana = splitAKana(idSelected)
   sKana = aKana[0] + '-' + aKana[1]
-  // sKana = `${aKana[0]}-${aKana[1]}`
+
   oneKana = document.getElementById(sKana)
 
   iIndexKana = arrayKana.indexOf(sKana)
@@ -67,33 +70,36 @@ function selectOneKana (oKana) {
 }
 
 function selectHiragana () {
-  let kanaHiragana = document.getElementById('kanaHiragana')
+  let buffer = ''
 
   if (!bKanaHiragana) {
-    kanaHiragana.src = 'img/kana/hiragana-a_selected.png'
+    buffer = fs.readFileSync(__dirname + '/img/kana/hiragana-a_selected.png')
     bKanaHiragana = true
   } else {
-    kanaHiragana.src = 'img/kana/hiragana-a.png'
+    buffer = fs.readFileSync(__dirname + '/img/kana/hiragana-a.png')
     bKanaHiragana = false
   }
+  imgKanaHiragana.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
 }
 
 function selectKatakana () {
-  let kanaKatakana = document.getElementById('kanaKatakana')
+  let buffer = ''
 
   if (!bKanaKatakana) {
-    kanaKatakana.src = 'img/kana/katakana-a_selected.png'
+    buffer = fs.readFileSync(__dirname + '/img/kana/katakana-a_selected.png')
     bKanaKatakana = true
   } else {
-    kanaKatakana.src = 'img/kana/katakana-a.png'
+    buffer = fs.readFileSync(__dirname + '/img/kana/katakana-a.png')
     bKanaKatakana = false
   }
+  imgKanaKatakana.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
 }
 
 function showKanaOrRomanji (guessWhat) {
   let kanaImg
   let kanaRomanji
   let onekana
+  let buffer = ''
 
   kanaImg = document.getElementById('kanaImg')
   kanaRomanji = document.querySelector('#kanaRomanji')
@@ -106,7 +112,13 @@ function showKanaOrRomanji (guessWhat) {
       onekana = onekana.split('-')
 
       if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
-        guessWhat === 'kana' ? kanaImg.src = completeKana(onekana) : kanaRomanji.value = onekana[1]
+        if (guessWhat === 'kana') {
+          console.log(completeKana(onekana))
+          buffer = fs.readFileSync(__dirname + completeKana(onekana))
+          kanaImg.setAttribute('src', `data:image/png;base64,${buffer.toString('base64')}`)
+        } else {
+          kanaRomanji.value = onekana[1]
+        }
       } else {
         console.log('incohérence alphabet')
         iNextRandom = nextRandom()
@@ -124,5 +136,11 @@ function changeExercise () {
 }
 
 export {
-
+  arrayKana, 
+  selectHiragana,
+  selectKatakana,
+  selectOneKana,
+  nextExercise,
+  showSoluce,
+  changeExercise
 }

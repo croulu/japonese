@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "autoprefixer": "^9.7.6",
+    "img": "^3.0.3",
+    "node-sass": "^4.14.0",
     "postcss-modules": "^2.0.0"
   }
 }

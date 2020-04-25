@@ -7,7 +7,9 @@ import {
   splitAKana
 } from './js/helpers.js'
 
-import {} from './initImg.js'
+import {} from './js/init.js'
+import {} from './js/initHiragana.js'
+import {} from './js/initKatakana.js'
 
 import kana from './img/kana/*.*'
 import hiragana from './img/hiragana/*.*'

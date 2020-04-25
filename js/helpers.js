@@ -26,7 +26,7 @@ function splitAKana (sKana) {
 }
 
 export {
-  completeKana, 
+  completeKana,
   nextRandom,
   splitAKana
 }

@@ -2,24 +2,55 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>japonese</title>
+	<title>Japonese</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script defer src="index.js"></script>
+	<script defer src="js/menu.js"></script>	
 </head>
 <body>
-
-	<div id="tabs">
-		<ul>
-		  <li><a href="#tabs-1">welcome</a></li>
-		  <li><a href="#tabs-2">hiragana</a></li>
-		  <li><a href="#tabs-3">katakana</a></li>
-		</ul>
-		<div id="tabs-1">
-		  <p>Before to start, be sure you have selected the hiragana of katakana to study.</p>
-		</div>
-		<div id="tabs-2">
-		  <p>
-		  <table class="tableKana">
+	<div align="center">
+		<p>Before to start, be sure you have selected the hiragana of katakana to learn.</p>
+	</div>
+	<div align="right">
+		<button id="togg1">Hiragana</button>
+		<button id="togg2">Katakana</button>
+	</div>
+	<br/>
+	<div>
+		<table border="0">
+			<tr>
+				<td colspan=3>
+					<table align="center" border="0">
+						<tr>
+							<td><img id="imgKanaHiragana" src="img/kana/hiragana-a.png">hiragana</td>
+							<td><img id="imgKanaKatakana" src="img/kana/katakana-a.png">katakana</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%"><img id="kanaImg" src=""></td>
+				<td width="40%"><input type="text" id="kanaRomanji" value="" readonly=""></td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="exercise" value="kana" checked="checked" id="brToRomanji">translate kana to romanji
+				</td>
+				<td>
+					<input type="radio" name="exercise" value="romanji" id="brToKana">translate romanji to kana
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button class="btn" id="btnNext">next</button>&nbsp;
+					<button class="btn" id="btnSoluce">soluce</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="d1">
+		<h1>Hiragana</h1>
+        <table class="tableKana">
 			<tr>
 				<td class="tdKana"><img src="img/hiragana/a.png" id="h-a" data-key="h-a"></td>
 				<td class="tdKana"><img src="img/hiragana/i.png" id="h-i" data-key="h-i"></td>
@@ -175,10 +206,9 @@
 				<td>n</td>
 			</tr>	
 		</table>
-	  </p>
 	</div>
-	<div id="tabs-3">
-	  <p>
+	<div id="d2">
+		<h1>Katakana</h1>
 		<table class="tableKana">
 			<tr>
 				<td class="tdKana"><img src="img/katakana/a.png" id="k-a" data-key="k-a"></td>
@@ -335,39 +365,6 @@
 				<td>n</td>
 			</tr>	
 		</table>
-	 </p>
 	</div>
-</div>
-<table border="1">
-	<tr>
-		<td colspan=3>
-			<table align="center" border="0">
-				<tr>
-					<td><img id="imgKanaHiragana" src="img/kana/hiragana-a.png">hiragana</td>
-					<td><img id="imgKanaKatakana" src="img/kana/katakana-a.png">katakana</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td width="40%"><img id="kanaImg" src=""></td>
-		<td width="40%"><input type="text" id="kanaRomanji" value="" readonly=""></td>
-	</tr>
-	<tr>
-		<td>
-			<input type="radio" name="exercise" value="kana" checked="checked" id="brToRomanji">translate kana to romanji
-		</td>
-		<td>
-			<input type="radio" name="exercise" value="romanji" id="brToKana">translate romanji to kana
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<button class="btn" id="btnNext">next</button>&nbsp;
-			<button class="btn" id="btnSoluce">soluce</button>
-		</td>
-	</tr>
-</table>
-
 </body>
 </html>

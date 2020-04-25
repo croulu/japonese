@@ -1,3 +1,12 @@
+@import url(sanitize.css);
+
+* {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+#d1{background-color: #ffffff;}
+#d2{background-color: #ffffff;}
+
 table
 {
     height : 100%;
@@ -6,7 +15,6 @@ table
     padding : 0;
 }
 td {
-    font-family: Courier New;
     text-align: center;
 }
 #kanaImg {
@@ -30,7 +38,6 @@ td {
 img {
     vertical-align : top;
 }
-@import url(sanitize.css);
 
 .tableKana
 {
@@ -40,7 +47,6 @@ img {
     padding : 0;
 }
 .tdKana {
-    font-family: Courier New;
     text-align: center;
     width: 20%;
 }

@@ -21,7 +21,7 @@ let bKanaHiragana = false
 let bKanaKatakana = false
 
 function nextExercise () {
-  let radios = document.getElementsByName('exercise')
+  const radios = document.getElementsByName('exercise')
 
   iNextRandom = nextRandom()
 
@@ -31,17 +31,15 @@ function nextExercise () {
 }
 
 function showSoluce () {
-  let radios = document.getElementsByName('exercise')
-
-console.log ('showSoluce ' + radios[0].checked)
+  const radios = document.getElementsByName('exercise')
 
   radios[0].checked ? showKanaOrRomanji('romanji') : showKanaOrRomanji('kana')
 }
 
 function deleteSoluce () {
-  let radios = document.getElementsByName('exercise')
-  let kanaImg = document.getElementById('kanaImg')
-  let kanaRomanji = document.querySelector('#kanaRomanji')
+  const radios = document.getElementsByName('exercise')
+  const kanaImg = document.getElementById('kanaImg')
+  const kanaRomanji = document.querySelector('#kanaRomanji')
 
   if (radios[0].checked) {
     kanaRomanji.value = ''
@@ -51,17 +49,10 @@ function deleteSoluce () {
 }
 
 function selectOneKana (idSelected) {
-  let aKana
-  let oneKana
-  let sKana
-  let iIndexKana
-
-  aKana = splitAKana(idSelected)
-  sKana = aKana[0] + '-' + aKana[1]
-
-  oneKana = document.getElementById(sKana)
-
-  iIndexKana = arrayKana.indexOf(sKana)
+  const aKana = splitAKana(idSelected)
+  const sKana = aKana[0] + '-' + aKana[1]
+  const oneKana = document.getElementById(sKana)
+  const iIndexKana = arrayKana.indexOf(sKana)
 
   if (iIndexKana === -1) {
     oneKana.className = 'imgSelected'
@@ -74,32 +65,32 @@ function selectOneKana (idSelected) {
 
 function selectHiragana () {
   let imageFileName = ''
-  let specificHiraganaImage = ''
+  let specificImage = ''
 
   if (!bKanaHiragana) {
-    imageFileName = '/img/kana/hiragana-a_selected.png'
+    imageFileName = 'hiragana-a_selected'
     bKanaHiragana = true
   } else {
-    imageFileName = '/img/kana/hiragana-a.png'
+    imageFileName = 'hiragana-a'
     bKanaHiragana = false
   }
-  specificHiraganaImage = hiragana[`${imageFileName}.png`]
-  imgKanaHiragana.setAttribute('src', specificHiraganaImage)
+  specificImage = kana[`${imageFileName}`]
+  imgKanaHiragana.setAttribute('src', specificImage.png)
 }
 
 function selectKatakana () {
   let imageFileName = ''
-  let specificKatakanaImage = ''
+  let specificImage = ''
 
   if (!bKanaKatakana) {
-    imageFileName = '/img/kana/katakana-a_selected.png'
+    imageFileName = 'katakana-a_selected'
     bKanaKatakana = true
   } else {
-    imageFileName = '/img/kana/katakana-a.png'
+    imageFileName = 'katakana-a'
     bKanaKatakana = false
   }
-  specificKatakanaImage = katakana[`${imageFileName}.png`]
-  imgKanaKatakana.setAttribute('src', specificKatakanaImage)
+  specificImage = kana[`${imageFileName}`]
+  imgKanaKatakana.setAttribute('src', specificImage.png)
 }
 
 function showKanaOrRomanji (guessWhat) {
@@ -107,8 +98,8 @@ function showKanaOrRomanji (guessWhat) {
   let kanaRomanji
   let onekana
 
-  let imageFileName = ''
-  let specificKatakanaImage = ''
+  let kanaToDisplay = ''
+  let specificImage = ''
 
   kanaImg = document.getElementById('kanaImg')
   kanaRomanji = document.querySelector('#kanaRomanji')
@@ -123,12 +114,16 @@ function showKanaOrRomanji (guessWhat) {
       if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
         if (guessWhat === 'kana') {
 
-          var cc = completeKana(onekana)
-          console.log(cc)
+          kanaToDisplay = completeKana(onekana)
 
-          specificKatakanaImage = katakana[`${imageFileName}.png`]
-          kanaImg.setAttribute('src', specificKatakanaImage)
-        
+          if (onekana[0] === 'h') { 
+            specificImage = hiragana[`${kanaToDisplay}`]
+          } else if (onekana[0] === 'k') {
+            specificImage = katakana[`${kanaToDisplay}`]
+          }
+
+          kanaImg.setAttribute('src', specificImage.png)
+
         } else {
           kanaRomanji.value = onekana[1]
         }

@@ -2,10 +2,23 @@ import {
   arrayKana
 } from '../index.js'
 
+function Kana (alphabet, letter) {
+  this.alphabet = alphabet
+  this.letter = letter
+}
+
+function makeObjetKana (sKana) {
+  let aKana = []
+  aKana = sKana.split('-')
+  const oneKana = new Kana(aKana[0], aKana[1])
+
+  return oneKana
+}
+
 function completeKana (kana) {
   let urlKana = ''
 
-  urlKana = kana[1]
+  urlKana = kana.letter
 
   return urlKana
 }
@@ -28,5 +41,6 @@ function splitAKana (sKana) {
 export {
   completeKana,
   nextRandom,
-  splitAKana
+  splitAKana,
+  makeObjetKana
 }

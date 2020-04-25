@@ -1,26 +1,120 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
+import imgKana from './img/kana/*.*'
+import imgHiragana from './img/hiragana/*.*'
+import imgKatakana from './img/katakana/*.*'
+
+import {} from './js/init.js'
+import {} from './js/initHiragana.js'
+import {} from './js/initKatakana.js'
+
 import {
   completeKana,
   nextRandom,
   splitAKana
 } from './js/helpers.js'
 
-import {} from './js/init.js'
-import {} from './js/initHiragana.js'
-import {} from './js/initKatakana.js'
+import iNextRandom from './js/lessons.js'
 
-import kana from './img/kana/*.*'
-import hiragana from './img/hiragana/*.*'
-import katakana from './img/katakana/*.*'
-
-const arrayKana = []
-
-let iNextRandom
+let arrayKana = []
 
 let bKanaHiragana = false
 let bKanaKatakana = false
+
+function showKanaOrRomanji (guessWhat) {
+  let kanaImg
+  let onekana = ''
+  let kanaToDisplay = ''
+  let specificImage = ''
+
+  kanaImg = document.getElementById('kanaImg')
+
+  onekana = arrayKana[iNextRandom]
+
+  kanaToDisplay = completeKana(onekana)
+
+  choice1.style.backgroundColor = '#164fca'
+  choice2.style.backgroundColor = '#164fca'
+  choice3.style.backgroundColor = '#164fca'
+  choice4.style.backgroundColor = '#164fca'
+  choice5.style.backgroundColor = '#164fca'
+
+  choice1.innerText = arrayKana[0].letter
+  choice2.innerText = arrayKana[1].letter
+  choice3.innerText = arrayKana[2].letter
+  choice4.innerText = arrayKana[3].letter
+  choice5.innerText = arrayKana[4].letter
+
+  if (onekana.letter === choice1.innerText) {
+    choice1.setAttribute('data-key', 'true')
+  } else {
+    choice1.setAttribute('data-key', 'false')
+  }
+  if (onekana.letter === choice2.innerText) {
+    choice2.setAttribute('data-key', 'true')
+  } else {
+    choice2.setAttribute('data-key', 'false')
+  }
+  if (onekana.letter === choice3.innerText) {
+    choice3.setAttribute('data-key', 'true')
+  } else {
+    choice3.setAttribute('data-key', 'false')
+  }
+  if (onekana.letter === choice4.innerText) {
+    choice4.setAttribute('data-key', 'true')
+  } else {
+    choice4.setAttribute('data-key', 'false')
+  }
+  if (onekana.letter === choice5.innerText) {
+    choice5.setAttribute('data-key', 'true')
+  } else {
+    choice5.setAttribute('data-key', 'false')
+  }
+
+  if (onekana.alphabet === 'h') {
+    specificImage = imgHiragana[`${kanaToDisplay}`]
+  } else if (onekana.alphabet === 'k') {
+    specificImage = imgKatakana[`${kanaToDisplay}`]
+  }
+
+  kanaImg.setAttribute('src', specificImage.png)
+}
+
+function makeAChoice (choiceSelected, result) {
+
+  if (result === 'true') {
+    if (choiceSelected === 1) {
+      choice1.style.backgroundColor = '#16ca52'
+    } else if (choiceSelected === 2) {
+      choice2.style.backgroundColor = '#16ca52'
+    } else if (choiceSelected === 3) {
+      choice3.style.backgroundColor = '#16ca52'
+    } else if (choiceSelected === 4) {
+      choice4.style.backgroundColor = '#16ca52'
+    } else if (choiceSelected === 5) {
+      choice5.style.backgroundColor = '#16ca52'
+    }
+    setTimeout(kanaSuivant, 500)
+  } else {
+    if (choiceSelected === 1) {
+      choice1.style.backgroundColor = '#ca2716'
+    } else if (choiceSelected === 2) {
+      choice2.style.backgroundColor = '#ca2716'
+    } else if (choiceSelected === 3) {
+      choice3.style.backgroundColor = '#ca2716'
+    } else if (choiceSelected === 4) {
+      choice4.style.backgroundColor = '#ca2716'
+    } else if (choiceSelected === 5) {
+      choice5.style.backgroundColor = '#ca2716'
+    }
+  }
+}
+
+function kanaSuivant () {
+  iNextRandom = nextRandom()
+  showKanaOrRomanji('kana')
+}
 
 function nextExercise () {
   const radios = document.getElementsByName('exercise')
@@ -43,11 +137,8 @@ function deleteSoluce () {
   const kanaImg = document.getElementById('kanaImg')
   const kanaRomanji = document.querySelector('#kanaRomanji')
 
-  if (radios[0].checked) {
-    kanaRomanji.value = ''
-  } else {
-    kanaImg.src = ''
-  }
+  kanaRomanji.value = ''
+  kanaImg.src = ''
 }
 
 function selectOneKana (idSelected) {
@@ -76,7 +167,7 @@ function selectHiragana () {
     imageFileName = 'hiragana-a'
     bKanaHiragana = false
   }
-  specificImage = kana[`${imageFileName}`]
+  specificImage = imgKana[`${imageFileName}`]
   imgKanaHiragana.setAttribute('src', specificImage.png)
 }
 
@@ -91,53 +182,8 @@ function selectKatakana () {
     imageFileName = 'katakana-a'
     bKanaKatakana = false
   }
-  specificImage = kana[`${imageFileName}`]
+  specificImage = imgKana[`${imageFileName}`]
   imgKanaKatakana.setAttribute('src', specificImage.png)
-}
-
-function showKanaOrRomanji (guessWhat) {
-  let kanaImg
-  let kanaRomanji
-  let onekana
-
-  let kanaToDisplay = ''
-  let specificImage = ''
-
-  kanaImg = document.getElementById('kanaImg')
-  kanaRomanji = document.querySelector('#kanaRomanji')
-
-  if (!bKanaHiragana && !bKanaKatakana) {
-    alert('choose one or two kana')
-  } else {
-    if (arrayKana.length !== 0) {
-      onekana = arrayKana[iNextRandom]
-      onekana = onekana.split('-')
-
-      if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
-        if (guessWhat === 'kana') {
-
-          kanaToDisplay = completeKana(onekana)
-
-          if (onekana[0] === 'h') { 
-            specificImage = hiragana[`${kanaToDisplay}`]
-          } else if (onekana[0] === 'k') {
-            specificImage = katakana[`${kanaToDisplay}`]
-          }
-
-          kanaImg.setAttribute('src', specificImage.png)
-
-        } else {
-          kanaRomanji.value = onekana[1]
-        }
-      } else {
-        console.log('incohérence alphabet')
-        iNextRandom = nextRandom()
-        showKana()
-      }
-    } else {
-      alert('choose the kana to study on the dedicated tab')
-    }
-  }
 }
 
 function changeExercise () {
@@ -146,11 +192,13 @@ function changeExercise () {
 }
 
 export {
-  arrayKana, 
+  arrayKana,
   selectHiragana,
   selectKatakana,
   selectOneKana,
   nextExercise,
+  iNextRandom,
   showSoluce,
-  changeExercise
+  changeExercise,
+  makeAChoice
 }

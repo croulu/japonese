@@ -1,6 +1,6 @@
 import {
   arrayKana
-} from '../index.js'
+} from './lessons.js'
 
 function Kana (alphabet, letter) {
   this.alphabet = alphabet

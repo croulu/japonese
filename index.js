@@ -15,12 +15,15 @@ import {
   splitAKana
 } from './js/helpers.js'
 
-import iNextRandom from './js/lessons.js'
-
-let arrayKana = []
+import {
+  getOneKana,
+  arrayKana
+} from './js/lessons.js'
 
 let bKanaHiragana = false
 let bKanaKatakana = false
+
+let iNextRandom
 
 function showKanaOrRomanji (guessWhat) {
   let kanaImg
@@ -30,7 +33,8 @@ function showKanaOrRomanji (guessWhat) {
 
   kanaImg = document.getElementById('kanaImg')
 
-  onekana = arrayKana[iNextRandom]
+  iNextRandom = nextRandom()
+  onekana = getOneKana (iNextRandom)
 
   kanaToDisplay = completeKana(onekana)
 
@@ -95,7 +99,7 @@ function makeAChoice (choiceSelected, result) {
     } else if (choiceSelected === 5) {
       choice5.style.backgroundColor = '#16ca52'
     }
-    setTimeout(kanaSuivant, 500)
+    setTimeout(kanaSuivant, 400)
   } else {
     if (choiceSelected === 1) {
       choice1.style.backgroundColor = '#ca2716'
@@ -192,13 +196,12 @@ function changeExercise () {
 }
 
 export {
-  arrayKana,
   selectHiragana,
   selectKatakana,
   selectOneKana,
   nextExercise,
-  iNextRandom,
   showSoluce,
   changeExercise,
-  makeAChoice
+  makeAChoice,
+  showKanaOrRomanji
 }

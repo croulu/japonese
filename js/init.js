@@ -4,9 +4,12 @@ import {
   hToRK,
   kToRK,
   hToRS,
-  kToRS,
-  makeAChoice
+  kToRS
 } from './lessons.js'
+
+import {
+  makeAChoice
+} from './../index.js'
 
 const btnHToRA = document.getElementById('hToRA')
 const btnKToRA = document.getElementById('kToRA')

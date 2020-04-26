@@ -1,18 +1,18 @@
 import {
-  arrayKana,
-  showKanaOrRomanji,
-  makeObjetKana
+  showKanaOrRomanji
 } from '../index.js'
 
 import {
-  nextRandom
+  makeObjetKana
 } from './helpers.js'
 
-let iNextRandom
+let arrayKana = []
+
+function getOneKana (i) {
+  return arrayKana[i]
+}
 
 function hToRA () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('h-a'))
@@ -25,8 +25,6 @@ function hToRA () {
 }
 
 function kToRA () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('k-a'))
@@ -39,8 +37,6 @@ function kToRA () {
 }
 
 function hToRK () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('h-ka'))
@@ -53,22 +49,18 @@ function hToRK () {
 }
 
 function kToRK () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('k-ka'))
-  arrayKana.push(makeObjetKana('k-ki'))
-  arrayKana.push(makeObjetKana('k-ku'))
-  arrayKana.push(makeObjetKana('k-ke'))
-  arrayKana.push(makeObjetKana('k-ko'))
+  arrayKana.push(makeObjetKana('k-ka'))
+  arrayKana.push(makeObjetKana('k-ka'))
+  arrayKana.push(makeObjetKana('k-ka'))
+  arrayKana.push(makeObjetKana('k-ka'))
 
   showKanaOrRomanji('kana')
 }
 
 function hToRS () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('h-sa'))
@@ -81,13 +73,11 @@ function hToRS () {
 }
 
 function kToRS () {
-  iNextRandom = nextRandom()
-
   arrayKana = []
 
   arrayKana.push(makeObjetKana('k-sa'))
   arrayKana.push(makeObjetKana('k-shi'))
-  arrayKana.push(makeObjetKana('k-su'))
+  arrayKana.push(makeObjetKana('k-si'))
   arrayKana.push(makeObjetKana('k-se'))
   arrayKana.push(makeObjetKana('k-so'))
 
@@ -95,11 +85,12 @@ function kToRS () {
 }
 
 export {
+  getOneKana,
+  arrayKana,
   hToRA,
   kToRA,
   hToRK,
   kToRK,
   hToRS,
-  kToRS,
-  iNextRandom
+  kToRS
 }

@@ -17,10 +17,15 @@ table
 td {
     text-align: center;
 }
+.tdKana {
+    height: 100px;
+    width: 100%;
+}
 #kanaImg {
     width: 50;
     box-sizing: border-box;
     padding: 2px;
+    /* border: 1px solid rgba(255, 38, 0, 0.74); */
 }
 #kanaRomanji {
     background: rgba(255, 38, 0, 0.74);
@@ -34,6 +39,31 @@ td {
 .btn {
     width: 80px;
     height: 40px;
+}
+.btnMenu {
+    width: 220px;
+    height: 25px;
+    font-size: 1em;
+    text-align: left;
+}
+.btnBigMenu {
+    width: 200px;
+    height: 150px;
+    font-size: 1em;    
+}
+.choice {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    border-radius: 5%;
+    transition: 0.5s;
+    background-color: #B8B8B8;
+}
+.choice > *:hover {
+    filter: brightness(120%);
+}
+.choice > *:active {
+    filter: brightness(170%);
 }
 img {
     vertical-align : top;

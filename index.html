@@ -9,42 +9,42 @@
 </head>
 <body>
 	<div align="center">
-		<p>Before to start, be sure you have selected the hiragana of katakana to learn.</p>
+		<h1>Learn japonese</h1>
 	</div>
-	<div align="right">
-		<button id="togg1">Hiragana</button>
-		<button id="togg2">Katakana</button>
+	<div align="center">
+		<button id="hToRA" class="btnMenu">hiragana : a i u e o</button>
+		<button id="kToRA" class="btnMenu">katakana : a i u e o</button>
+		<button id="hToRK" class="btnMenu">hiragana : ka ki ku ke ko</button>
+		<button id="kToRK" class="btnMenu">katakana : ka ki ku ke ko</button>
+		<button id="hToRS" class="btnMenu">hiragana : sa shi su se so</button>
+		<button id="kToRS" class="btnMenu">katakana : sa shi su se so</button>
+		<button id="hToRT" class="btnMenu">hiragana : ta chi tu te to</button>
+		<button id="kToRT" class="btnMenu">katakana : ta chi tu te to</button>
+		<button id="hToRN" class="btnMenu">hiragana : na ni nu ne no</button>
+		<button id="kToRN" class="btnMenu">katakana : na ni nu ne no</button>
+		<button id="hToRH" class="btnMenu">hiragana : ha hi fu he ho</button>
+		<button id="kToRH" class="btnMenu">katakana : ha hi fu he ho</button>
+		<button id="hToRM" class="btnMenu">hiragana : ma mi mu me mo</button>
+		<button id="kToRM" class="btnMenu">katakana : ma mi mu me mo</button>
+		<button id="hToRY" class="btnMenu">hiragana : ya yu yo</button>
+		<button id="kToRY" class="btnMenu">katakana : ya yu yo</button>
+		<button id="hToRR" class="btnMenu">hiragana : ra ri ru re ro</button>
+		<button id="kToRR" class="btnMenu">katakana : ra ri ru re ro</button>
+		<button id="hToRW" class="btnMenu">hiragana : wa wo n</button>
+		<button id="kToRW" class="btnMenu">katakana : wa wo n</button>
 	</div>
-	<br/>
 	<div>
 		<table border="0">
 			<tr>
-				<td colspan=3>
-					<table align="center" border="0">
-						<tr>
-							<td><img id="imgKanaHiragana" src="img/kana/hiragana-a.png">hiragana</td>
-							<td><img id="imgKanaKatakana" src="img/kana/katakana-a.png">katakana</td>
-						</tr>
-					</table>
-				</td>
+				<td class="tdKana"><img id="kanaImg" src="" class="kanaImg"></td>
 			</tr>
-			<tr>
-				<td width="40%"><img id="kanaImg" src=""></td>
-				<td width="40%"><input type="text" id="kanaRomanji" value="" readonly=""></td>
+			<tr class="choice">
+				<td><div id="choice1" class="choice" data-key=""> </div></td>
+				<td><div id="choice2" class="choice" data-key=""> </div></td>
+				<td><div id="choice3" class="choice" data-key=""> </div></td>
+				<td><div id="choice4" class="choice" data-key=""> </div></td>
+				<td><div id="choice5" class="choice" data-key=""> </div></td>
 			</tr>
-			<tr>
-				<td>
-					<input type="radio" name="exercise" value="kana" checked="checked" id="brToRomanji">translate kana to romanji
-				</td>
-				<td>
-					<input type="radio" name="exercise" value="romanji" id="brToKana">translate romanji to kana
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<button class="btn" id="btnNext">next</button>&nbsp;
-					<button class="btn" id="btnSoluce">soluce</button>
-				</td>
 			</tr>
 		</table>
 	</div>

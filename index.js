@@ -1,35 +1,73 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
-import {
-  completeKana,
-  nextRandom,
-  splitAKana
-} from './js/helpers.js'
+import imgKana from './img/kana/*.*'
+import imgHiragana from './img/hiragana/*.*'
+import imgKatakana from './img/katakana/*.*'
 
 import {} from './js/init.js'
 import {} from './js/initHiragana.js'
 import {} from './js/initKatakana.js'
 
-import kana from './img/kana/*.*'
-import hiragana from './img/hiragana/*.*'
-import katakana from './img/katakana/*.*'
+import {
+  completeKana,
+  nextRandom,
+  splitAKana,
+  fnCall
+} from './js/helpers.js'
 
-const arrayKana = []
+import {
+  oneLesson,
+  getOneKana,
+  arrayKana
+} from './js/lessons.js'
 
-let iNextRandom
+import {
+  clearChoice,
+  writeChoice,
+  writeChoiceTrueFalse,
+  displayColorChoice,
+  displayCorrectNumberOfChoice
+} from './js/choice.js'
 
 let bKanaHiragana = false
 let bKanaKatakana = false
 
-function nextExercise () {
-  const radios = document.getElementsByName('exercise')
+let iNextRandom
+
+function showKanaOrRomanji (guessWhat) {
+  let kanaImg
+  let onekana = ''
+  let kanaToDisplay = ''
+  let specificImage = ''
+
+  kanaImg = document.getElementById('kanaImg')
 
   iNextRandom = nextRandom()
+  onekana = getOneKana(iNextRandom)
 
-  radios[0].checked ? showKanaOrRomanji('kana') : showKanaOrRomanji('romanji')
+  kanaToDisplay = completeKana(onekana)
 
-  deleteSoluce()
+  displayCorrectNumberOfChoice(oneLesson.choice)
+
+  clearChoice(oneLesson.choice)
+
+  writeChoice(oneLesson.choice, arrayKana)
+
+  writeChoiceTrueFalse(oneLesson.choice, onekana.letter)
+
+  if (onekana.alphabet === 'h') {
+    specificImage = imgHiragana[`${kanaToDisplay}`]
+  } else if (onekana.alphabet === 'k') {
+    specificImage = imgKatakana[`${kanaToDisplay}`]
+  }
+
+  kanaImg.setAttribute('src', specificImage.png)
+}
+
+function nextKana () {
+  iNextRandom = nextRandom()
+  showKanaOrRomanji('kana')
 }
 
 function showSoluce () {
@@ -43,11 +81,8 @@ function deleteSoluce () {
   const kanaImg = document.getElementById('kanaImg')
   const kanaRomanji = document.querySelector('#kanaRomanji')
 
-  if (radios[0].checked) {
-    kanaRomanji.value = ''
-  } else {
-    kanaImg.src = ''
-  }
+  kanaRomanji.value = ''
+  kanaImg.src = ''
 }
 
 function selectOneKana (idSelected) {
@@ -76,7 +111,7 @@ function selectHiragana () {
     imageFileName = 'hiragana-a'
     bKanaHiragana = false
   }
-  specificImage = kana[`${imageFileName}`]
+  specificImage = imgKana[`${imageFileName}`]
   imgKanaHiragana.setAttribute('src', specificImage.png)
 }
 
@@ -91,53 +126,8 @@ function selectKatakana () {
     imageFileName = 'katakana-a'
     bKanaKatakana = false
   }
-  specificImage = kana[`${imageFileName}`]
+  specificImage = imgKana[`${imageFileName}`]
   imgKanaKatakana.setAttribute('src', specificImage.png)
-}
-
-function showKanaOrRomanji (guessWhat) {
-  let kanaImg
-  let kanaRomanji
-  let onekana
-
-  let kanaToDisplay = ''
-  let specificImage = ''
-
-  kanaImg = document.getElementById('kanaImg')
-  kanaRomanji = document.querySelector('#kanaRomanji')
-
-  if (!bKanaHiragana && !bKanaKatakana) {
-    alert('choose one or two kana')
-  } else {
-    if (arrayKana.length !== 0) {
-      onekana = arrayKana[iNextRandom]
-      onekana = onekana.split('-')
-
-      if ((onekana[0] === 'h' && bKanaHiragana) || (onekana[0] === 'k' && bKanaKatakana)) {
-        if (guessWhat === 'kana') {
-
-          kanaToDisplay = completeKana(onekana)
-
-          if (onekana[0] === 'h') { 
-            specificImage = hiragana[`${kanaToDisplay}`]
-          } else if (onekana[0] === 'k') {
-            specificImage = katakana[`${kanaToDisplay}`]
-          }
-
-          kanaImg.setAttribute('src', specificImage.png)
-
-        } else {
-          kanaRomanji.value = onekana[1]
-        }
-      } else {
-        console.log('incohérence alphabet')
-        iNextRandom = nextRandom()
-        showKana()
-      }
-    } else {
-      alert('choose the kana to study on the dedicated tab')
-    }
-  }
 }
 
 function changeExercise () {
@@ -146,11 +136,11 @@ function changeExercise () {
 }
 
 export {
-  arrayKana, 
   selectHiragana,
   selectKatakana,
   selectOneKana,
-  nextExercise,
   showSoluce,
-  changeExercise
+  changeExercise,
+  showKanaOrRomanji,
+  nextKana
 }

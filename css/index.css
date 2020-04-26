@@ -41,8 +41,14 @@ td {
     height: 40px;
 }
 .btnMenu {
+    width: 220px;
+    height: 25px;
+    font-size: 1em;
+    text-align: left;
+}
+.btnBigMenu {
     width: 200px;
-    height: 80px;
+    height: 150px;
     font-size: 1em;    
 }
 .choice {
@@ -51,8 +57,7 @@ td {
     height: 10vh;
     border-radius: 5%;
     transition: 0.5s;
-    color: #ECEFF1;
-    background-color: #164fca;
+    background-color: #B8B8B8;
 }
 .choice > *:hover {
     filter: brightness(120%);

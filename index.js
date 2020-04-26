@@ -12,13 +12,23 @@ import {} from './js/initKatakana.js'
 import {
   completeKana,
   nextRandom,
-  splitAKana
+  splitAKana,
+  fnCall
 } from './js/helpers.js'
 
 import {
+  oneLesson,
   getOneKana,
   arrayKana
 } from './js/lessons.js'
+
+import {
+  clearChoice,
+  writeChoice,
+  writeChoiceTrueFalse,
+  displayColorChoice,
+  displayCorrectNumberOfChoice
+} from './js/choice.js'
 
 let bKanaHiragana = false
 let bKanaKatakana = false
@@ -34,47 +44,17 @@ function showKanaOrRomanji (guessWhat) {
   kanaImg = document.getElementById('kanaImg')
 
   iNextRandom = nextRandom()
-  onekana = getOneKana (iNextRandom)
+  onekana = getOneKana(iNextRandom)
 
   kanaToDisplay = completeKana(onekana)
 
-  choice1.style.backgroundColor = '#164fca'
-  choice2.style.backgroundColor = '#164fca'
-  choice3.style.backgroundColor = '#164fca'
-  choice4.style.backgroundColor = '#164fca'
-  choice5.style.backgroundColor = '#164fca'
+  displayCorrectNumberOfChoice(oneLesson.choice)
 
-  choice1.innerText = arrayKana[0].letter
-  choice2.innerText = arrayKana[1].letter
-  choice3.innerText = arrayKana[2].letter
-  choice4.innerText = arrayKana[3].letter
-  choice5.innerText = arrayKana[4].letter
+  clearChoice(oneLesson.choice)
 
-  if (onekana.letter === choice1.innerText) {
-    choice1.setAttribute('data-key', 'true')
-  } else {
-    choice1.setAttribute('data-key', 'false')
-  }
-  if (onekana.letter === choice2.innerText) {
-    choice2.setAttribute('data-key', 'true')
-  } else {
-    choice2.setAttribute('data-key', 'false')
-  }
-  if (onekana.letter === choice3.innerText) {
-    choice3.setAttribute('data-key', 'true')
-  } else {
-    choice3.setAttribute('data-key', 'false')
-  }
-  if (onekana.letter === choice4.innerText) {
-    choice4.setAttribute('data-key', 'true')
-  } else {
-    choice4.setAttribute('data-key', 'false')
-  }
-  if (onekana.letter === choice5.innerText) {
-    choice5.setAttribute('data-key', 'true')
-  } else {
-    choice5.setAttribute('data-key', 'false')
-  }
+  writeChoice(oneLesson.choice, arrayKana)
+
+  writeChoiceTrueFalse(oneLesson.choice, onekana.letter)
 
   if (onekana.alphabet === 'h') {
     specificImage = imgHiragana[`${kanaToDisplay}`]
@@ -85,49 +65,9 @@ function showKanaOrRomanji (guessWhat) {
   kanaImg.setAttribute('src', specificImage.png)
 }
 
-function makeAChoice (choiceSelected, result) {
-
-  if (result === 'true') {
-    if (choiceSelected === 1) {
-      choice1.style.backgroundColor = '#16ca52'
-    } else if (choiceSelected === 2) {
-      choice2.style.backgroundColor = '#16ca52'
-    } else if (choiceSelected === 3) {
-      choice3.style.backgroundColor = '#16ca52'
-    } else if (choiceSelected === 4) {
-      choice4.style.backgroundColor = '#16ca52'
-    } else if (choiceSelected === 5) {
-      choice5.style.backgroundColor = '#16ca52'
-    }
-    setTimeout(kanaSuivant, 400)
-  } else {
-    if (choiceSelected === 1) {
-      choice1.style.backgroundColor = '#ca2716'
-    } else if (choiceSelected === 2) {
-      choice2.style.backgroundColor = '#ca2716'
-    } else if (choiceSelected === 3) {
-      choice3.style.backgroundColor = '#ca2716'
-    } else if (choiceSelected === 4) {
-      choice4.style.backgroundColor = '#ca2716'
-    } else if (choiceSelected === 5) {
-      choice5.style.backgroundColor = '#ca2716'
-    }
-  }
-}
-
-function kanaSuivant () {
+function nextKana () {
   iNextRandom = nextRandom()
   showKanaOrRomanji('kana')
-}
-
-function nextExercise () {
-  const radios = document.getElementsByName('exercise')
-
-  iNextRandom = nextRandom()
-
-  radios[0].checked ? showKanaOrRomanji('kana') : showKanaOrRomanji('romanji')
-
-  deleteSoluce()
 }
 
 function showSoluce () {
@@ -199,9 +139,8 @@ export {
   selectHiragana,
   selectKatakana,
   selectOneKana,
-  nextExercise,
   showSoluce,
   changeExercise,
-  makeAChoice,
-  showKanaOrRomanji
+  showKanaOrRomanji,
+  nextKana
 }

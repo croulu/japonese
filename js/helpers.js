@@ -38,9 +38,16 @@ function splitAKana (sKana) {
   return aKana
 }
 
+function fnCall (fn, ...args) {
+  let func = (typeof fn === 'string') ? window[fn] : fn
+  if (typeof func === 'function') func(...args)
+  else throw new Error(`${fn} is Not a function!`)
+}
+
 export {
   completeKana,
   nextRandom,
   splitAKana,
-  makeObjetKana
+  makeObjetKana,
+  fnCall
 }

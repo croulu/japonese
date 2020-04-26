@@ -5,22 +5,18 @@ import imgKana from './img/kana/*.*'
 import imgHiragana from './img/hiragana/*.*'
 import imgKatakana from './img/katakana/*.*'
 
-import {} from './js/init.js'
+import {
+  oneLesson
+} from './js/init.js'
+
 import {} from './js/initHiragana.js'
 import {} from './js/initKatakana.js'
 
 import {
   completeKana,
   nextRandom,
-  splitAKana,
-  fnCall
+  splitAKana
 } from './js/helpers.js'
-
-import {
-  oneLesson,
-  getOneKana,
-  arrayKana
-} from './js/lessons.js'
 
 import {
   clearChoice,
@@ -44,7 +40,7 @@ function showKanaOrRomanji (guessWhat) {
   kanaImg = document.getElementById('kanaImg')
 
   iNextRandom = nextRandom()
-  onekana = getOneKana(iNextRandom)
+  onekana = oneLesson.getOneKana(iNextRandom)
 
   kanaToDisplay = completeKana(onekana)
 
@@ -52,7 +48,7 @@ function showKanaOrRomanji (guessWhat) {
 
   clearChoice(oneLesson.choice)
 
-  writeChoice(oneLesson.choice, arrayKana)
+  writeChoice(oneLesson.choice, oneLesson.kanaToStudy)
 
   writeChoiceTrueFalse(oneLesson.choice, onekana.letter)
 

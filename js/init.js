@@ -1,29 +1,12 @@
 import {
-  hToRA,
-  kToRA,
-  hToRK,
-  kToRK,
-  hToRS,
-  kToRS,
-  hToRT,
-  kToRT,
-  hToRN,
-  kToRN,
-  hToRH,
-  kToRH,
-  hToRM,
-  kToRM,
-  hToRY,
-  kToRY,
-  hToRR,
-  kToRR,
-  hToRW,
-  kToRW
-} from './lessons.js'
+  Lesson
+} from '../component/lesson.js'
 
 import {
   makeAChoice
 } from './choice.js'
+
+const oneLesson = new Lesson()
 
 const btnHToRA = document.getElementById('hToRA')
 const btnKToRA = document.getElementById('kToRA')
@@ -52,29 +35,33 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-btnHToRA.addEventListener('click', () => hToRA())
-btnKToRA.addEventListener('click', () => kToRA())
-btnHToRK.addEventListener('click', () => hToRK())
-btnKToRK.addEventListener('click', () => kToRK())
-btnHToRS.addEventListener('click', () => hToRS())
-btnKToRS.addEventListener('click', () => kToRS())
-btnHToRT.addEventListener('click', () => hToRT())
-btnKToRT.addEventListener('click', () => kToRT())
-btnHToRN.addEventListener('click', () => hToRN())
-btnKToRN.addEventListener('click', () => kToRN())
-btnHToRH.addEventListener('click', () => hToRH())
-btnKToRH.addEventListener('click', () => kToRH())
-btnHToRM.addEventListener('click', () => hToRM())
-btnKToRM.addEventListener('click', () => kToRM())
-btnHToRY.addEventListener('click', () => hToRY())
-btnKToRY.addEventListener('click', () => kToRY())
-btnHToRR.addEventListener('click', () => hToRR())
-btnKToRR.addEventListener('click', () => kToRR())
-btnHToRW.addEventListener('click', () => hToRW())
-btnKToRW.addEventListener('click', () => kToRW())
+btnHToRA.addEventListener('click', () => oneLesson.hToRA())
+btnKToRA.addEventListener('click', () => oneLesson.kToRA())
+btnHToRK.addEventListener('click', () => oneLesson.hToRK())
+btnKToRK.addEventListener('click', () => oneLesson.kToRK())
+btnHToRS.addEventListener('click', () => oneLesson.hToRS())
+btnKToRS.addEventListener('click', () => oneLesson.kToRS())
+btnHToRT.addEventListener('click', () => oneLesson.hToRT())
+btnKToRT.addEventListener('click', () => oneLesson.kToRT())
+btnHToRN.addEventListener('click', () => oneLesson.hToRN())
+btnKToRN.addEventListener('click', () => oneLesson.kToRN())
+btnHToRH.addEventListener('click', () => oneLesson.hToRH())
+btnKToRH.addEventListener('click', () => oneLesson.kToRH())
+btnHToRM.addEventListener('click', () => oneLesson.hToRM())
+btnKToRM.addEventListener('click', () => oneLesson.kToRM())
+btnHToRY.addEventListener('click', () => oneLesson.hToRY())
+btnKToRY.addEventListener('click', () => oneLesson.kToRY())
+btnHToRR.addEventListener('click', () => oneLesson.hToRR())
+btnKToRR.addEventListener('click', () => oneLesson.kToRR())
+btnHToRW.addEventListener('click', () => oneLesson.hToRW())
+btnKToRW.addEventListener('click', () => oneLesson.kToRW())
 
 choice1.addEventListener('click', () => makeAChoice(1, choice1.getAttribute('data-key')))
 choice2.addEventListener('click', () => makeAChoice(2, choice2.getAttribute('data-key')))
 choice3.addEventListener('click', () => makeAChoice(3, choice3.getAttribute('data-key')))
 choice4.addEventListener('click', () => makeAChoice(4, choice4.getAttribute('data-key')))
 choice5.addEventListener('click', () => makeAChoice(5, choice5.getAttribute('data-key')))
+
+export {
+ oneLesson
+}

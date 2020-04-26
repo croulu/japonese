@@ -1,6 +1,6 @@
 import {
-  arrayKana
-} from './lessons.js'
+  oneLesson
+} from './init.js'
 
 function Kana (alphabet, letter) {
   this.alphabet = alphabet
@@ -24,7 +24,7 @@ function completeKana (kana) {
 }
 
 function nextRandom () {
-  let iRandom = getRandomInt(arrayKana.length)
+  let iRandom = getRandomInt(oneLesson.kanaToStudy.length)
   return iRandom
 }
 
@@ -48,6 +48,5 @@ export {
   completeKana,
   nextRandom,
   splitAKana,
-  makeObjetKana,
-  fnCall
+  makeObjetKana
 }

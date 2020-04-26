@@ -1,6 +1,7 @@
 import {
   nextKana
 } from './../index.js'
+import { oneLesson } from './init.js'
 
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
@@ -66,10 +67,12 @@ function displayColorChoice (i, result) {
 function makeAChoice (choiceSelected, result) {
 
   if (result === 'true') {
+    oneLesson.success += 1
     displayColorChoice(choiceSelected, result)
     setTimeout(nextKana, 400)
   } else {
     displayColorChoice(choiceSelected, result)
+    setTimeout(nextKana, 400)
   }
 
 }

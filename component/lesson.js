@@ -10,10 +10,18 @@ class Lesson {
   constructor () {
     this.choice = 0
     this.kanaToStudy = []
+    this.play = 0
+    this.playAllowed = 10
+    this.pourcentageReussite = 0
+    this.success = 0
   }
 
   getOneKana (i) {
     return this.kanaToStudy[i]
+  }
+
+  makePourcentage () {
+    this.pourcentageReussite = this.success / this.playAllowed * 100
   }
 
   hToRA () {

@@ -37,6 +37,8 @@ function showKanaOrRomanji (guessWhat) {
   let kanaToDisplay = ''
   let specificImage = ''
 
+  oneLesson.play++
+
   kanaImg = document.getElementById('kanaImg')
 
   iNextRandom = nextRandom()
@@ -62,8 +64,14 @@ function showKanaOrRomanji (guessWhat) {
 }
 
 function nextKana () {
-  iNextRandom = nextRandom()
-  showKanaOrRomanji('kana')
+  oneLesson.makePourcentage()
+  if (oneLesson.play < oneLesson.playAllowed) {
+    iNextRandom = nextRandom()
+    showKanaOrRomanji('kana')
+  } else {
+    alert(`success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`)
+    clearChoice(oneLesson.choice)    
+  }
 }
 
 function showSoluce () {

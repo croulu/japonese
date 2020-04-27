@@ -6,6 +6,12 @@ import {
   makeObjetKana
 } from '../js/helpers.js'
 
+import {
+  disableChoice,
+  deleteChoice,
+  clearChoice
+} from '../js/choice.js'
+
 class Lesson {
   constructor () {
     this.choice = 0
@@ -17,7 +23,33 @@ class Lesson {
   }
 
   init () {
+    let kanaImg = document.getElementById('kanaImg')
+    let info = document.getElementById('info')
+
     this.kanaToStudy = []
+    this.play = 0
+    this.success = 0
+    this.pourcentageReussite = 0
+
+    kanaImg.setAttribute('src', '')
+    info.innerText = ''
+
+    this.initPourcentage()
+
+    deleteChoice(this.choice)
+    clearChoice(this.choice)
+  }
+
+  stop () {
+    this.kanaToStudy = []
+    this.play = 0
+    this.success = 0
+    this.pourcentageReussite = 0
+
+    disableChoice(this.choice)
+  }
+
+  initPourcentage () {
     this.play = 0
     this.success = 0
     this.pourcentageReussite = 0

@@ -1,87 +1,97 @@
 @import url(sanitize.css);
 
-* {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-}
-
 #d1{background-color: #ffffff;}
 #d2{background-color: #ffffff;}
 
-table
-{
-    height : 100%;
-    width : 100%;
-    margin : 0;
-    padding : 0;
+.kana {
+    display: flex;  
+    flex-direction: column;    
+    height: 100vh;
+    color: #000000;
+    background-color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* 
+        type fluid  (type responsive) 
+
+        font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+
+        credit Mike Riethmuller
+    */
+    font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));
+    /* border: 5px solid seagreen;     */
 }
-td {
-    text-align: center;
-}
-.tdKana {
-    height: 100px;
-    width: 100%;
-}
-#kanaImg {
-    width: 50;
-    box-sizing: border-box;
-    padding: 2px;
-    /* border: 1px solid rgba(255, 38, 0, 0.74); */
-}
-#kanaRomanji {
-    background: rgba(255, 38, 0, 0.74);
-    color: black;
-    text-align: right;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 2px;
-    font-size: 6em;
-}
-.btn {
-    width: 80px;
-    height: 40px;
-}
-.btnMenu {
-    width: 220px;
-    height: 25px;
-    font-size: 1em;
-    text-align: left;
-}
-.btnBigMenu {
-    width: 200px;
-    height: 150px;
-    font-size: 1em;    
-}
-.choice {
+
+.title {
     display: flex;
-    flex-direction: column;
+    justify-content:center;
+    align-items: top;
+    height: 15vh;
+    /* border: 5px solid goldenrod; */
+}
+
+.info {
+    display: flex;
+    justify-content:center;
+    align-items: top;
     height: 10vh;
+    font-size: 25px;
+    /* border: 5px solid goldenrod; */
+}
+
+.lessons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 1vh;
+    height: 30vh;
+    /* border: 5px solid red; */
+}
+
+.kanaImg {
+    display: flex;
+    justify-content:center;
+    align-items: top;
+    height: 10vh;
+    /* border: 5px solid goldenrod; */
+}
+
+.choice {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh; 
+    height: 15vh;
+    /* border: 5px solid skyblue; */
+}
+
+.choice > * {
+    display: flex;
+    justify-content:center;
+    align-items: top;
     border-radius: 5%;
     transition: 0.5s;
-    background-color: #B8B8B8;
+    border: 1px solid grey;
 }
+
 .choice > *:hover {
-    filter: brightness(120%);
+    filter: brightness(130%);
 }
+
 .choice > *:active {
     filter: brightness(170%);
 }
-img {
-    vertical-align : top;
-}
 
-.tableKana
-{
-    height : 100%;
-    width : 100%;
-    margin : 0;
-    padding : 0;
+.disabled {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh;
+    height: 10vh;
+    background-color: #B8B8B8;    
+    border: 5px solid skyblue;
 }
-.tdKana {
-    text-align: center;
-    width: 20%;
-}
-.imgSelected {
-    vertical-align : middle;
-    border: 2px solid rgba(255, 38, 0, 0.74);
-    display:block;
+.disabled > * {
+    display: flex;
+    border-radius: 5%;
+    /* border: 1px solid grey; */
 }

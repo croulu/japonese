@@ -1,11 +1,28 @@
 import {
   nextKana
 } from './../index.js'
+
 import { oneLesson } from './init.js'
 
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
 const colorFalse = '#ca2716'
+
+function disableChoice (number) {
+  let myExpression = ''
+  for (let i = 0; i < number; i++) {
+    myExpression = `choice${i + 1}.style = '.disabled'`
+    eval(myExpression)
+  }
+}
+
+function deleteChoice (number) {
+  let myExpression = ''
+  for (let i = 0; i < number; i++) {
+    myExpression = `choice${i + 1}.style.display = 'none'`
+    eval(myExpression)
+  }
+}
 
 function displayCorrectNumberOfChoice (number) {
   let myExpression = ''
@@ -15,14 +32,14 @@ function displayCorrectNumberOfChoice (number) {
     } else {
       myExpression = `choice${i}.style.display = 'block'`
     }
-    eval(myExpression)    
+    eval(myExpression)
   }
 }
 
 function clearChoice (number) {
   let myExpression = ''
   for (let i = 0; i < number; i++) {
-    myExpression = `choice${i+1}.style.backgroundColor = colorClear`
+    myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
     eval(myExpression)
   }
 }
@@ -31,7 +48,7 @@ function writeChoice (number, arrayKana) {
   let myExpression = ''
 
   for (let i = 0; i < number; i++) {
-    myExpression = `choice${i+1}.innerText = '${arrayKana[i].letter}'`
+    myExpression = `choice${i + 1}.innerText = '${arrayKana[i].letter}'`
     eval(myExpression)
   }
 }
@@ -41,11 +58,11 @@ function writeChoiceTrueFalse (number, result) {
   let oneChoice = ''
 
   for (let i = 0; i < number; i++) {
-    oneChoice = eval(`choice${i+1}.innerText`)
+    oneChoice = eval(`choice${i + 1}.innerText`)
     if (result === oneChoice) {
-      myExpression = `choice${i+1}.setAttribute('data-key', 'true')`
+      myExpression = `choice${i + 1}.setAttribute('data-key', 'true')`
     } else {
-      myExpression = `choice${i+1}.setAttribute('data-key', 'false')`
+      myExpression = `choice${i + 1}.setAttribute('data-key', 'false')`
     }
     eval(myExpression)
   }
@@ -74,14 +91,14 @@ function makeAChoice (choiceSelected, result) {
     displayColorChoice(choiceSelected, result)
     setTimeout(nextKana, 400)
   }
-
 }
 
 export {
+  disableChoice,
+  deleteChoice,
   clearChoice,
   writeChoice,
   writeChoiceTrueFalse,
-  displayColorChoice,
   displayCorrectNumberOfChoice,
   makeAChoice
 }

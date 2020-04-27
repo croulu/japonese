@@ -8,46 +8,44 @@
 	<script defer type="module" src="js/menu.js"></script>	
 </head>
 <body>
-	<div align="center">
-		<h1>Learn japonese</h1>
+    <div class="kana">
+		<div class="title">Learn japanese</div>
+		<div class="lessons">
+			<button id="hToRA">hiragana: a i u e o</button>
+			<button id="hToRK">hiragana: ka ki ku ke ko</button>
+			<button id="hToRS">hiragana: sa shi su se so</button>
+			<button id="hToRT">hiragana: ta chi tu te to</button>
+			<button id="hToRN">hiragana: na ni nu ne no</button>
+			<button id="hToRH">hiragana: ha hi fu he ho</button>
+			<button id="hToRM">hiragana: ma mi mu me mo</button>
+			<button id="hToRY">hiragana: ya yu yo</button>
+			<button id="hToRR">hiragana: ra ri ru re ro</button>
+			<button id="hToRW">hiragana: wa wo n</button>
+			<button id="kToRA">katakana: a i u e o</button>
+			<button id="kToRK">katakana: ka ki ku ke ko</button>
+			<button id="kToRS">katakana: sa shi su se so</button>
+			<button id="kToRT">katakana: ta chi tu te to</button>
+			<button id="kToRN">katakana: na ni nu ne no</button>
+			<button id="kToRH">katakana: ha hi fu he ho</button>
+			<button id="kToRM">katakana: ma mi mu me mo</button>
+			<button id="kToRY">katakana: ya yu yo</button>
+			<button id="kToRR">katakana: ra ri ru re ro</button>
+			<button id="kToRW">katakana: wa wo n</button>
+		</div>
+
+		<div id="info" class="info"></div>
+
+		<div class="kanaImg"><img id="kanaImg" src=""></div>
+	
+		<div class="choice">
+			<div id="choice1" data-key=""> </div>
+			<div id="choice2" data-key=""> </div>
+			<div id="choice3" data-key=""> </div>
+			<div id="choice4" data-key=""> </div>
+			<div id="choice5" data-key=""> </div>
+		</div>
 	</div>
-	<div align="center">
-		<button id="hToRA" class="btnMenu">hiragana : a i u e o</button>
-		<button id="kToRA" class="btnMenu">katakana : a i u e o</button>
-		<button id="hToRK" class="btnMenu">hiragana : ka ki ku ke ko</button>
-		<button id="kToRK" class="btnMenu">katakana : ka ki ku ke ko</button>
-		<button id="hToRS" class="btnMenu">hiragana : sa shi su se so</button>
-		<button id="kToRS" class="btnMenu">katakana : sa shi su se so</button>
-		<button id="hToRT" class="btnMenu">hiragana : ta chi tu te to</button>
-		<button id="kToRT" class="btnMenu">katakana : ta chi tu te to</button>
-		<button id="hToRN" class="btnMenu">hiragana : na ni nu ne no</button>
-		<button id="kToRN" class="btnMenu">katakana : na ni nu ne no</button>
-		<button id="hToRH" class="btnMenu">hiragana : ha hi fu he ho</button>
-		<button id="kToRH" class="btnMenu">katakana : ha hi fu he ho</button>
-		<button id="hToRM" class="btnMenu">hiragana : ma mi mu me mo</button>
-		<button id="kToRM" class="btnMenu">katakana : ma mi mu me mo</button>
-		<button id="hToRY" class="btnMenu">hiragana : ya yu yo</button>
-		<button id="kToRY" class="btnMenu">katakana : ya yu yo</button>
-		<button id="hToRR" class="btnMenu">hiragana : ra ri ru re ro</button>
-		<button id="kToRR" class="btnMenu">katakana : ra ri ru re ro</button>
-		<button id="hToRW" class="btnMenu">hiragana : wa wo n</button>
-		<button id="kToRW" class="btnMenu">katakana : wa wo n</button>
-	</div>
-	<div>
-		<table border="0">
-			<tr>
-				<td class="tdKana"><img id="kanaImg" src="" class="kanaImg"></td>
-			</tr>
-			<tr class="choice">
-				<td><div id="choice1" class="choice" data-key=""> </div></td>
-				<td><div id="choice2" class="choice" data-key=""> </div></td>
-				<td><div id="choice3" class="choice" data-key=""> </div></td>
-				<td><div id="choice4" class="choice" data-key=""> </div></td>
-				<td><div id="choice5" class="choice" data-key=""> </div></td>
-			</tr>
-			</tr>
-		</table>
-	</div>
+	
 	<div id="d1">
 		<h1>Hiragana</h1>
         <table class="tableKana">

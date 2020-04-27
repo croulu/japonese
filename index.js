@@ -22,7 +22,6 @@ import {
   clearChoice,
   writeChoice,
   writeChoiceTrueFalse,
-  displayColorChoice,
   displayCorrectNumberOfChoice
 } from './js/choice.js'
 
@@ -64,13 +63,16 @@ function showKanaOrRomanji (guessWhat) {
 }
 
 function nextKana () {
-  oneLesson.makePourcentage()
+  let info = document.getElementById('info')
+
   if (oneLesson.play < oneLesson.playAllowed) {
     iNextRandom = nextRandom()
     showKanaOrRomanji('kana')
   } else {
-    alert(`success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`)
-    clearChoice(oneLesson.choice)    
+    oneLesson.makePourcentage()
+    info.innerText = `success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
+    oneLesson.stop()
+    document.getElementById('choice1').disabled = true
   }
 }
 

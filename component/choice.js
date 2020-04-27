@@ -1,12 +1,44 @@
 import {
   nextKana
-} from './../index.js'
+} from '../index.js'
 
-import { oneLesson } from './init.js'
+import { oneLesson } from '../js/init.js'
 
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
 const colorFalse = '#ca2716'
+
+class Choice {
+  constructor () {
+    this.selected = ''
+    this.result = false
+  }
+
+  displayColorChoice (i, result) {
+    let colorChoice = ''
+    let myExpression = ''
+
+    if (result === 'true') {
+      colorChoice = 'colorTrue'
+    } else {
+      colorChoice = 'colorFalse'
+    }
+    myExpression = `choice${i}.style.backgroundColor = ${colorChoice}`
+
+    eval(myExpression)
+  }
+
+  makeAChoice () {
+    if (this.result === 'true') {
+      oneLesson.success += 1
+      this.displayColorChoice(this.selected, this.result)
+      setTimeout(nextKana, 400)
+    } else {
+      this.displayColorChoice(this.selected, this.result)
+      setTimeout(nextKana, 400)
+    }
+  }
+}
 
 function disableChoice (number) {
   let myExpression = ''
@@ -14,6 +46,16 @@ function disableChoice (number) {
     myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
     eval(myExpression)
     myExpression = `choice${i + 1}.style.pointerEvents = 'none'`
+    eval(myExpression)
+  }
+}
+
+function enableChoice (number) {
+  let myExpression = ''
+  for (let i = 0; i < number; i++) {
+    myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+    eval(myExpression)
+    myExpression = `choice${i + 1}.style.pointerEvents = 'auto'`
     eval(myExpression)
   }
 }
@@ -70,37 +112,13 @@ function writeChoiceTrueFalse (number, result) {
   }
 }
 
-function displayColorChoice (i, result) {
-  let colorChoice = ''
-
-  if (result === 'true') {
-    colorChoice = 'colorTrue'
-  } else {
-    colorChoice = 'colorFalse'
-  }
-  const myExpression = `choice${i}.style.backgroundColor = ${colorChoice}`
-
-  eval(myExpression)
-}
-
-function makeAChoice (choiceSelected, result) {
-
-  if (result === 'true') {
-    oneLesson.success += 1
-    displayColorChoice(choiceSelected, result)
-    setTimeout(nextKana, 400)
-  } else {
-    displayColorChoice(choiceSelected, result)
-    setTimeout(nextKana, 400)
-  }
-}
-
 export {
+  Choice,
   disableChoice,
+  enableChoice,
   deleteChoice,
+  displayCorrectNumberOfChoice,
   clearChoice,
   writeChoice,
-  writeChoiceTrueFalse,
-  displayCorrectNumberOfChoice,
-  makeAChoice
+  writeChoiceTrueFalse
 }

@@ -66,8 +66,7 @@
 
 .choice > * {
     display: flex;
-    justify-content:center;
-    align-items: top;
+    text-align: center;
     border-radius: 5%;
     transition: 0.5s;
     /* border: 1px solid grey; */
@@ -79,19 +78,4 @@
 
 .choice > *:active {
     filter: brightness(170%);
-}
-
-.disabled {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 1vh;
-    height: 10vh;
-    background-color: blue;    
-    border: 5px solid red;
-}
-.disabled > * {
-    display: flex;
-    border-radius: 5%;
-    /* border: 1px solid grey; */
 }

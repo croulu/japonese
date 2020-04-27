@@ -3,19 +3,24 @@ import {
 } from '../index.js'
 
 import {
-  makeObjetKana
+  makeObjetKana,
+  nextRandom
 } from '../js/helpers.js'
 
 import {
   disableChoice,
+  enableChoice,
   deleteChoice,
   clearChoice
-} from '../js/choice.js'
+} from './choice.js'
 
 class Lesson {
   constructor () {
-    this.choice = 0
+    this.nbChoice = 0
     this.kanaToStudy = []
+    this.previousKanaIndex = undefined
+    this.currentKanaIndex = undefined
+    this.currentKanaObject = undefined
     this.play = 0
     this.playAllowed = 10
     this.success = 0
@@ -36,8 +41,14 @@ class Lesson {
 
     this.initPourcentage()
 
-    deleteChoice(this.choice)
-    clearChoice(this.choice)
+    deleteChoice(this.nbChoice)
+    clearChoice(this.nbChoice)
+    enableChoice(this.nbChoice)
+  }
+
+  next () {
+    const iNextRandom = nextRandom()
+    this.getOneKana(iNextRandom)
   }
 
   stop () {
@@ -46,7 +57,7 @@ class Lesson {
     this.success = 0
     this.pourcentageReussite = 0
 
-    disableChoice(this.choice)
+    disableChoice(this.nbChoice)
   }
 
   initPourcentage () {
@@ -56,7 +67,8 @@ class Lesson {
   }
 
   getOneKana (i) {
-    return this.kanaToStudy[i]
+    this.currentKanaIndex = i
+    this.currentKanaObject = this.kanaToStudy[i]
   }
 
   makePourcentage () {
@@ -65,7 +77,7 @@ class Lesson {
 
   hToRA () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-a'))
     this.kanaToStudy.push(makeObjetKana('h-i'))
@@ -73,12 +85,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-e'))
     this.kanaToStudy.push(makeObjetKana('h-o'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRA () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-a'))
     this.kanaToStudy.push(makeObjetKana('k-i'))
@@ -86,12 +100,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-e'))
     this.kanaToStudy.push(makeObjetKana('k-o'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRK () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-ka'))
     this.kanaToStudy.push(makeObjetKana('h-ki'))
@@ -99,25 +115,29 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-ke'))
     this.kanaToStudy.push(makeObjetKana('h-ko'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRK () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-ka'))
     this.kanaToStudy.push(makeObjetKana('k-ka'))
     this.kanaToStudy.push(makeObjetKana('k-ka'))
     this.kanaToStudy.push(makeObjetKana('k-ka'))
     this.kanaToStudy.push(makeObjetKana('k-ka'))
+
+    this.next()
 
     showKanaOrRomanji('kana')
   }
 
   hToRS () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-sa'))
     this.kanaToStudy.push(makeObjetKana('h-shi'))
@@ -125,12 +145,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-se'))
     this.kanaToStudy.push(makeObjetKana('h-so'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRS () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-sa'))
     this.kanaToStudy.push(makeObjetKana('k-shi'))
@@ -138,12 +160,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-se'))
     this.kanaToStudy.push(makeObjetKana('k-so'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRT () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-ta'))
     this.kanaToStudy.push(makeObjetKana('h-chi'))
@@ -151,12 +175,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-te'))
     this.kanaToStudy.push(makeObjetKana('h-to'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRT () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-ta'))
     this.kanaToStudy.push(makeObjetKana('k-chi'))
@@ -164,12 +190,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-te'))
     this.kanaToStudy.push(makeObjetKana('k-to'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRN () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-na'))
     this.kanaToStudy.push(makeObjetKana('h-ni'))
@@ -177,12 +205,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-ne'))
     this.kanaToStudy.push(makeObjetKana('h-no'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRN () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-na'))
     this.kanaToStudy.push(makeObjetKana('k-ni'))
@@ -190,12 +220,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-ne'))
     this.kanaToStudy.push(makeObjetKana('k-no'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRH () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-ha'))
     this.kanaToStudy.push(makeObjetKana('h-hi'))
@@ -203,12 +235,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-he'))
     this.kanaToStudy.push(makeObjetKana('h-ho'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRH () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-ha'))
     this.kanaToStudy.push(makeObjetKana('k-hi'))
@@ -216,12 +250,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-he'))
     this.kanaToStudy.push(makeObjetKana('k-ho'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRM () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-ma'))
     this.kanaToStudy.push(makeObjetKana('h-mi'))
@@ -229,12 +265,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-me'))
     this.kanaToStudy.push(makeObjetKana('h-mo'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRM () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-ma'))
     this.kanaToStudy.push(makeObjetKana('k-mi'))
@@ -242,34 +280,40 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-me'))
     this.kanaToStudy.push(makeObjetKana('k-mo'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRY () {
     this.init()
-    this.choice = 3
+    this.nbChoice = 3
 
     this.kanaToStudy.push(makeObjetKana('h-ya'))
     this.kanaToStudy.push(makeObjetKana('h-yu'))
     this.kanaToStudy.push(makeObjetKana('h-yo'))
+
+    this.next()
 
     showKanaOrRomanji('kana')
   }
 
   kToRY () {
     this.init()
-    this.choice = 3
+    this.nbChoice = 3
 
     this.kanaToStudy.push(makeObjetKana('k-ya'))
     this.kanaToStudy.push(makeObjetKana('k-yu'))
     this.kanaToStudy.push(makeObjetKana('k-yo'))
+
+    this.next()
 
     showKanaOrRomanji('kana')
   }
 
   hToRR () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('h-ra'))
     this.kanaToStudy.push(makeObjetKana('h-ri'))
@@ -277,12 +321,14 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('h-re'))
     this.kanaToStudy.push(makeObjetKana('h-ro'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   kToRR () {
     this.init()
-    this.choice = 5
+    this.nbChoice = 5
 
     this.kanaToStudy.push(makeObjetKana('k-ra'))
     this.kanaToStudy.push(makeObjetKana('k-ri'))
@@ -290,27 +336,33 @@ class Lesson {
     this.kanaToStudy.push(makeObjetKana('k-re'))
     this.kanaToStudy.push(makeObjetKana('k-ro'))
 
+    this.next()
+
     showKanaOrRomanji('kana')
   }
 
   hToRW () {
     this.init()
-    this.choice = 3
+    this.nbChoice = 3
 
     this.kanaToStudy.push(makeObjetKana('h-wa'))
     this.kanaToStudy.push(makeObjetKana('h-wo'))
     this.kanaToStudy.push(makeObjetKana('h-n'))
+
+    this.next()
 
     showKanaOrRomanji('kana')
   }
 
   kToRW () {
     this.init()
-    this.choice = 3
+    this.nbChoice = 3
 
     this.kanaToStudy.push(makeObjetKana('k-wa'))
     this.kanaToStudy.push(makeObjetKana('k-wo'))
     this.kanaToStudy.push(makeObjetKana('k-n'))
+
+    this.next()
 
     showKanaOrRomanji('kana')
   }

@@ -3,10 +3,11 @@ import {
 } from '../component/lesson.js'
 
 import {
-  makeAChoice
-} from './choice.js'
+  Choice
+} from '../component/choice.js'
 
 const oneLesson = new Lesson()
+const oneChoice = new Choice()
 
 const btnHToRA = document.getElementById('hToRA')
 const btnKToRA = document.getElementById('kToRA')
@@ -56,12 +57,36 @@ btnKToRR.addEventListener('click', () => oneLesson.kToRR())
 btnHToRW.addEventListener('click', () => oneLesson.hToRW())
 btnKToRW.addEventListener('click', () => oneLesson.kToRW())
 
-choice1.addEventListener('click', () => makeAChoice(1, choice1.getAttribute('data-key')))
-choice2.addEventListener('click', () => makeAChoice(2, choice2.getAttribute('data-key')))
-choice3.addEventListener('click', () => makeAChoice(3, choice3.getAttribute('data-key')))
-choice4.addEventListener('click', () => makeAChoice(4, choice4.getAttribute('data-key')))
-choice5.addEventListener('click', () => makeAChoice(5, choice5.getAttribute('data-key')))
+choice1.addEventListener('click', () => {
+  oneChoice.selected = 1
+  oneChoice.result = choice1.getAttribute('data-key')
+  oneChoice.makeAChoice(choice1.getAttribute('data-key'))
+})
+
+choice2.addEventListener('click', () => {
+  oneChoice.selected = 2
+  oneChoice.result = choice2.getAttribute('data-key')
+  oneChoice.makeAChoice()
+})
+
+choice3.addEventListener('click', () => {
+  oneChoice.selected = 3
+  oneChoice.result = choice3.getAttribute('data-key')
+  oneChoice.makeAChoice(choice3.getAttribute('data-key'))
+})
+
+choice4.addEventListener('click', () => {
+  oneChoice.selected = 4
+  oneChoice.result = choice4.getAttribute('data-key')
+  oneChoice.makeAChoice(choice4.getAttribute('data-key'))
+})
+
+choice5.addEventListener('click', () => {
+  oneChoice.selected = 5
+  oneChoice.result = choice5.getAttribute('data-key')
+  oneChoice.makeAChoice(choice5.getAttribute('data-key'))
+})
 
 export {
- oneLesson
+  oneLesson
 }

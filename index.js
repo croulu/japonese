@@ -23,7 +23,7 @@ import {
   writeChoice,
   writeChoiceTrueFalse,
   displayCorrectNumberOfChoice
-} from './js/choice.js'
+} from './component/choice.js'
 
 let bKanaHiragana = false
 let bKanaKatakana = false
@@ -40,18 +40,17 @@ function showKanaOrRomanji (guessWhat) {
 
   kanaImg = document.getElementById('kanaImg')
 
-  iNextRandom = nextRandom()
-  onekana = oneLesson.getOneKana(iNextRandom)
+  onekana = oneLesson.currentKanaObject
 
   kanaToDisplay = completeKana(onekana)
 
-  displayCorrectNumberOfChoice(oneLesson.choice)
+  displayCorrectNumberOfChoice(oneLesson.nbChoice)
 
-  clearChoice(oneLesson.choice)
+  clearChoice(oneLesson.nbChoice)
 
-  writeChoice(oneLesson.choice, oneLesson.kanaToStudy)
+  writeChoice(oneLesson.nbChoice, oneLesson.kanaToStudy)
 
-  writeChoiceTrueFalse(oneLesson.choice, onekana.letter)
+  writeChoiceTrueFalse(oneLesson.nbChoice, onekana.letter)
 
   if (onekana.alphabet === 'h') {
     specificImage = imgHiragana[`${kanaToDisplay}`]
@@ -66,7 +65,14 @@ function nextKana () {
   let info = document.getElementById('info')
 
   if (oneLesson.play < oneLesson.playAllowed) {
+    oneLesson.previousKanaIndex = oneLesson.currentKanaIndex
     iNextRandom = nextRandom()
+    oneLesson.getOneKana(iNextRandom)
+    while (oneLesson.previousKanaIndex === oneLesson.currentKanaIndex) {
+      iNextRandom = nextRandom()
+      oneLesson.getOneKana(iNextRandom)
+    }
+
     showKanaOrRomanji('kana')
   } else {
     oneLesson.makePourcentage()

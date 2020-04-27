@@ -70,7 +70,7 @@
     align-items: top;
     border-radius: 5%;
     transition: 0.5s;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
 }
 
 .choice > *:hover {
@@ -87,8 +87,8 @@
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
     height: 10vh;
-    background-color: #B8B8B8;    
-    border: 5px solid skyblue;
+    background-color: blue;    
+    border: 5px solid red;
 }
 .disabled > * {
     display: flex;

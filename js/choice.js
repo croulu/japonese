@@ -11,7 +11,9 @@ const colorFalse = '#ca2716'
 function disableChoice (number) {
   let myExpression = ''
   for (let i = 0; i < number; i++) {
-    myExpression = `choice${i + 1}.style = '.disabled'`
+    myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+    eval(myExpression)
+    myExpression = `choice${i + 1}.style.pointerEvents = 'none'`
     eval(myExpression)
   }
 }

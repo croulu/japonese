@@ -18,9 +18,7 @@ import {
 
 import {
   displayCorrectNumberOfChoice,
-  clearChoice,
-  writeChoice,
-  writeChoiceTrueFalse
+  clearChoice
 } from './component/kana.js'
 
 function showKanaOrRomanji (guessWhat) {
@@ -38,9 +36,9 @@ function showKanaOrRomanji (guessWhat) {
 
   clearChoice(oneLesson.nbChoice)
 
-  writeChoice(oneLesson.nbChoice, oneLesson.kanaToStudy)
+  oneLesson.writeChoice(oneLesson.nbChoice, oneLesson.kanaToStudy)
 
-  writeChoiceTrueFalse(oneLesson.nbChoice, onekana.letter)
+  oneLesson.writeChoiceTrueFalse(onekana.letter)
 
   if (onekana.alphabet === 'h') {
     specificImage = imgHiragana[`${onekana.letter}`]

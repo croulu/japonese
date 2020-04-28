@@ -75,6 +75,27 @@ class Lesson {
     this.pourcentageReussite = this.success / this.playAllowed * 100
   }
 
+  writeChoice () {
+    let myExpression = ''
+    for (let i = 0; i < this.nbChoice; i++) {
+      myExpression = `choice${i + 1}.innerText = '${this.kanaToStudy[i].letter}'`
+      eval(myExpression)
+    }
+  }
+
+  writeChoiceTrueFalse (letterToGuess) {
+    let myExpression = ''
+
+    for (let i = 0; i < this.nbChoice; i++) {
+      if (letterToGuess === this.kanaToStudy[i].letter) {
+        myExpression = `choice${i + 1}.setAttribute('data-key', 'true')`
+      } else {
+        myExpression = `choice${i + 1}.setAttribute('data-key', 'false')`
+      }
+      eval(myExpression)
+    }
+  }
+
   hToRA () {
     this.init()
     this.nbChoice = 5

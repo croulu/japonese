@@ -11,6 +11,8 @@ class Kana {
 
 }
 
+
+
 function disableChoice (number) {
     let myExpression = ''
     for (let i = 0; i < number; i++) {
@@ -58,29 +60,7 @@ function disableChoice (number) {
       eval(myExpression)
     }
   }
-  
-  function writeChoice (number, arrayKana) {
-    let myExpression = ''
-    for (let i = 0; i < number; i++) {
-      myExpression = `choice${i + 1}.innerText = '${arrayKana[i].letter}'`
-      eval(myExpression)
-    }
-  }
-  
-  function writeChoiceTrueFalse (number, result) {
-    let myExpression = ''
-    let oneChoice = ''
-  
-    for (let i = 0; i < number; i++) {
-      oneChoice = eval(`choice${i + 1}.innerText`)
-      if (result === oneChoice) {
-        myExpression = `choice${i + 1}.setAttribute('data-key', 'true')`
-      } else {
-        myExpression = `choice${i + 1}.setAttribute('data-key', 'false')`
-      }
-      eval(myExpression)
-    }
-  }
+
 
 export {
   Kana,
@@ -88,7 +68,5 @@ export {
   enableChoice,
   deleteChoice,
   displayCorrectNumberOfChoice,
-  clearChoice,
-  writeChoice,
-  writeChoiceTrueFalse
+  clearChoice
 }

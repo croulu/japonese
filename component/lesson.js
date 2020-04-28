@@ -3,16 +3,16 @@ import {
 } from '../index.js'
 
 import {
-  makeObjetKana,
   nextRandom
 } from '../js/helpers.js'
 
 import {
+  Kana,
   disableChoice,
+  clearChoice,
   enableChoice,
-  deleteChoice,
-  clearChoice
-} from './choice.js'
+  deleteChoice
+} from './kana.js'
 
 class Lesson {
   constructor () {
@@ -25,6 +25,11 @@ class Lesson {
     this.playAllowed = 10
     this.success = 0
     this.pourcentageReussite = 0
+  }
+
+  getOneKana (i) {
+    this.currentKanaIndex = i
+    this.currentKanaObject = this.kanaToStudy[i]
   }
 
   init () {
@@ -66,11 +71,6 @@ class Lesson {
     this.pourcentageReussite = 0
   }
 
-  getOneKana (i) {
-    this.currentKanaIndex = i
-    this.currentKanaObject = this.kanaToStudy[i]
-  }
-
   makePourcentage () {
     this.pourcentageReussite = this.success / this.playAllowed * 100
   }
@@ -79,11 +79,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-a'))
-    this.kanaToStudy.push(makeObjetKana('h-i'))
-    this.kanaToStudy.push(makeObjetKana('h-u'))
-    this.kanaToStudy.push(makeObjetKana('h-e'))
-    this.kanaToStudy.push(makeObjetKana('h-o'))
+    this.kanaToStudy.push(new Kana('h', 'a'))
+    this.kanaToStudy.push(new Kana('h', 'i'))
+    this.kanaToStudy.push(new Kana('h', 'u'))
+    this.kanaToStudy.push(new Kana('h', 'e'))
+    this.kanaToStudy.push(new Kana('h', 'o'))
 
     this.next()
 
@@ -94,11 +94,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-a'))
-    this.kanaToStudy.push(makeObjetKana('k-i'))
-    this.kanaToStudy.push(makeObjetKana('k-u'))
-    this.kanaToStudy.push(makeObjetKana('k-e'))
-    this.kanaToStudy.push(makeObjetKana('k-o'))
+    this.kanaToStudy.push(new Kana('k', 'a'))
+    this.kanaToStudy.push(new Kana('k', 'i'))
+    this.kanaToStudy.push(new Kana('k', 'u'))
+    this.kanaToStudy.push(new Kana('k', 'e'))
+    this.kanaToStudy.push(new Kana('k', 'o'))
 
     this.next()
 
@@ -109,11 +109,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-ka'))
-    this.kanaToStudy.push(makeObjetKana('h-ki'))
-    this.kanaToStudy.push(makeObjetKana('h-ku'))
-    this.kanaToStudy.push(makeObjetKana('h-ke'))
-    this.kanaToStudy.push(makeObjetKana('h-ko'))
+    this.kanaToStudy.push(new Kana('h', 'ka'))
+    this.kanaToStudy.push(new Kana('h', 'ki'))
+    this.kanaToStudy.push(new Kana('h', 'ku'))
+    this.kanaToStudy.push(new Kana('h', 'ke'))
+    this.kanaToStudy.push(new Kana('h', 'ko'))
 
     this.next()
 
@@ -124,11 +124,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-ka'))
-    this.kanaToStudy.push(makeObjetKana('k-ka'))
-    this.kanaToStudy.push(makeObjetKana('k-ka'))
-    this.kanaToStudy.push(makeObjetKana('k-ka'))
-    this.kanaToStudy.push(makeObjetKana('k-ka'))
+    this.kanaToStudy.push(new Kana('k', 'ka'))
+    this.kanaToStudy.push(new Kana('k', 'ki'))
+    this.kanaToStudy.push(new Kana('k', 'ku'))
+    this.kanaToStudy.push(new Kana('k', 'ke'))
+    this.kanaToStudy.push(new Kana('k', 'ko'))
 
     this.next()
 
@@ -139,11 +139,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-sa'))
-    this.kanaToStudy.push(makeObjetKana('h-shi'))
-    this.kanaToStudy.push(makeObjetKana('h-su'))
-    this.kanaToStudy.push(makeObjetKana('h-se'))
-    this.kanaToStudy.push(makeObjetKana('h-so'))
+    this.kanaToStudy.push(new Kana('h', 'sa'))
+    this.kanaToStudy.push(new Kana('h', 'shi'))
+    this.kanaToStudy.push(new Kana('h', 'su'))
+    this.kanaToStudy.push(new Kana('h', 'se'))
+    this.kanaToStudy.push(new Kana('h', 'so'))
 
     this.next()
 
@@ -154,11 +154,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-sa'))
-    this.kanaToStudy.push(makeObjetKana('k-shi'))
-    this.kanaToStudy.push(makeObjetKana('k-si'))
-    this.kanaToStudy.push(makeObjetKana('k-se'))
-    this.kanaToStudy.push(makeObjetKana('k-so'))
+    this.kanaToStudy.push(new Kana('k', 'sa'))
+    this.kanaToStudy.push(new Kana('k', 'shi'))
+    this.kanaToStudy.push(new Kana('k', 'su'))
+    this.kanaToStudy.push(new Kana('k', 'se'))
+    this.kanaToStudy.push(new Kana('k', 'so'))
 
     this.next()
 
@@ -169,11 +169,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-ta'))
-    this.kanaToStudy.push(makeObjetKana('h-chi'))
-    this.kanaToStudy.push(makeObjetKana('h-tu'))
-    this.kanaToStudy.push(makeObjetKana('h-te'))
-    this.kanaToStudy.push(makeObjetKana('h-to'))
+    this.kanaToStudy.push(new Kana('h', 'ta'))
+    this.kanaToStudy.push(new Kana('h', 'chi'))
+    this.kanaToStudy.push(new Kana('h', 'tsu'))
+    this.kanaToStudy.push(new Kana('h', 'te'))
+    this.kanaToStudy.push(new Kana('h', 'to'))
 
     this.next()
 
@@ -184,11 +184,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-ta'))
-    this.kanaToStudy.push(makeObjetKana('k-chi'))
-    this.kanaToStudy.push(makeObjetKana('k-ti'))
-    this.kanaToStudy.push(makeObjetKana('k-te'))
-    this.kanaToStudy.push(makeObjetKana('k-to'))
+    this.kanaToStudy.push(new Kana('k', 'ta'))
+    this.kanaToStudy.push(new Kana('k', 'chi'))
+    this.kanaToStudy.push(new Kana('k', 'tsu'))
+    this.kanaToStudy.push(new Kana('k', 'te'))
+    this.kanaToStudy.push(new Kana('k', 'to'))
 
     this.next()
 
@@ -199,11 +199,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-na'))
-    this.kanaToStudy.push(makeObjetKana('h-ni'))
-    this.kanaToStudy.push(makeObjetKana('h-nu'))
-    this.kanaToStudy.push(makeObjetKana('h-ne'))
-    this.kanaToStudy.push(makeObjetKana('h-no'))
+    this.kanaToStudy.push(new Kana('h', 'na'))
+    this.kanaToStudy.push(new Kana('h', 'ni'))
+    this.kanaToStudy.push(new Kana('h', 'nu'))
+    this.kanaToStudy.push(new Kana('h', 'ne'))
+    this.kanaToStudy.push(new Kana('h', 'no'))
 
     this.next()
 
@@ -214,11 +214,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-na'))
-    this.kanaToStudy.push(makeObjetKana('k-ni'))
-    this.kanaToStudy.push(makeObjetKana('k-ni'))
-    this.kanaToStudy.push(makeObjetKana('k-ne'))
-    this.kanaToStudy.push(makeObjetKana('k-no'))
+    this.kanaToStudy.push(new Kana('k', 'na'))
+    this.kanaToStudy.push(new Kana('k', 'ni'))
+    this.kanaToStudy.push(new Kana('k', 'nu'))
+    this.kanaToStudy.push(new Kana('k', 'ne'))
+    this.kanaToStudy.push(new Kana('k', 'no'))
 
     this.next()
 
@@ -229,11 +229,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-ha'))
-    this.kanaToStudy.push(makeObjetKana('h-hi'))
-    this.kanaToStudy.push(makeObjetKana('h-hu'))
-    this.kanaToStudy.push(makeObjetKana('h-he'))
-    this.kanaToStudy.push(makeObjetKana('h-ho'))
+    this.kanaToStudy.push(new Kana('h', 'ha'))
+    this.kanaToStudy.push(new Kana('h', 'hi'))
+    this.kanaToStudy.push(new Kana('h', 'fu'))
+    this.kanaToStudy.push(new Kana('h', 'he'))
+    this.kanaToStudy.push(new Kana('h', 'ho'))
 
     this.next()
 
@@ -244,11 +244,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-ha'))
-    this.kanaToStudy.push(makeObjetKana('k-hi'))
-    this.kanaToStudy.push(makeObjetKana('k-hi'))
-    this.kanaToStudy.push(makeObjetKana('k-he'))
-    this.kanaToStudy.push(makeObjetKana('k-ho'))
+    this.kanaToStudy.push(new Kana('k', 'ha'))
+    this.kanaToStudy.push(new Kana('k', 'hi'))
+    this.kanaToStudy.push(new Kana('k', 'fu'))
+    this.kanaToStudy.push(new Kana('k', 'he'))
+    this.kanaToStudy.push(new Kana('k', 'ho'))
 
     this.next()
 
@@ -259,11 +259,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-ma'))
-    this.kanaToStudy.push(makeObjetKana('h-mi'))
-    this.kanaToStudy.push(makeObjetKana('h-mu'))
-    this.kanaToStudy.push(makeObjetKana('h-me'))
-    this.kanaToStudy.push(makeObjetKana('h-mo'))
+    this.kanaToStudy.push(new Kana('h', 'ma'))
+    this.kanaToStudy.push(new Kana('h', 'mi'))
+    this.kanaToStudy.push(new Kana('h', 'mu'))
+    this.kanaToStudy.push(new Kana('h', 'me'))
+    this.kanaToStudy.push(new Kana('h', 'mo'))
 
     this.next()
 
@@ -274,11 +274,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-ma'))
-    this.kanaToStudy.push(makeObjetKana('k-mi'))
-    this.kanaToStudy.push(makeObjetKana('k-mi'))
-    this.kanaToStudy.push(makeObjetKana('k-me'))
-    this.kanaToStudy.push(makeObjetKana('k-mo'))
+    this.kanaToStudy.push(new Kana('k', 'ma'))
+    this.kanaToStudy.push(new Kana('k', 'mi'))
+    this.kanaToStudy.push(new Kana('k', 'mu'))
+    this.kanaToStudy.push(new Kana('k', 'me'))
+    this.kanaToStudy.push(new Kana('k', 'mo'))
 
     this.next()
 
@@ -289,9 +289,9 @@ class Lesson {
     this.init()
     this.nbChoice = 3
 
-    this.kanaToStudy.push(makeObjetKana('h-ya'))
-    this.kanaToStudy.push(makeObjetKana('h-yu'))
-    this.kanaToStudy.push(makeObjetKana('h-yo'))
+    this.kanaToStudy.push(new Kana('h', 'ya'))
+    this.kanaToStudy.push(new Kana('h', 'yu'))
+    this.kanaToStudy.push(new Kana('h', 'yo'))
 
     this.next()
 
@@ -302,9 +302,9 @@ class Lesson {
     this.init()
     this.nbChoice = 3
 
-    this.kanaToStudy.push(makeObjetKana('k-ya'))
-    this.kanaToStudy.push(makeObjetKana('k-yu'))
-    this.kanaToStudy.push(makeObjetKana('k-yo'))
+    this.kanaToStudy.push(new Kana('k', 'ya'))
+    this.kanaToStudy.push(new Kana('k', 'yu'))
+    this.kanaToStudy.push(new Kana('k', 'yo'))
 
     this.next()
 
@@ -315,11 +315,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('h-ra'))
-    this.kanaToStudy.push(makeObjetKana('h-ri'))
-    this.kanaToStudy.push(makeObjetKana('h-ru'))
-    this.kanaToStudy.push(makeObjetKana('h-re'))
-    this.kanaToStudy.push(makeObjetKana('h-ro'))
+    this.kanaToStudy.push(new Kana('h', 'ra'))
+    this.kanaToStudy.push(new Kana('h', 'ri'))
+    this.kanaToStudy.push(new Kana('h', 'ru'))
+    this.kanaToStudy.push(new Kana('h', 're'))
+    this.kanaToStudy.push(new Kana('h', 'ro'))
 
     this.next()
 
@@ -330,11 +330,11 @@ class Lesson {
     this.init()
     this.nbChoice = 5
 
-    this.kanaToStudy.push(makeObjetKana('k-ra'))
-    this.kanaToStudy.push(makeObjetKana('k-ri'))
-    this.kanaToStudy.push(makeObjetKana('k-ri'))
-    this.kanaToStudy.push(makeObjetKana('k-re'))
-    this.kanaToStudy.push(makeObjetKana('k-ro'))
+    this.kanaToStudy.push(new Kana('k', 'ra'))
+    this.kanaToStudy.push(new Kana('k', 'ri'))
+    this.kanaToStudy.push(new Kana('k', 'ru'))
+    this.kanaToStudy.push(new Kana('k', 're'))
+    this.kanaToStudy.push(new Kana('k', 'ro'))
 
     this.next()
 
@@ -345,9 +345,9 @@ class Lesson {
     this.init()
     this.nbChoice = 3
 
-    this.kanaToStudy.push(makeObjetKana('h-wa'))
-    this.kanaToStudy.push(makeObjetKana('h-wo'))
-    this.kanaToStudy.push(makeObjetKana('h-n'))
+    this.kanaToStudy.push(new Kana('h', 'wa'))
+    this.kanaToStudy.push(new Kana('h', 'wo'))
+    this.kanaToStudy.push(new Kana('h', 'n'))
 
     this.next()
 
@@ -358,9 +358,9 @@ class Lesson {
     this.init()
     this.nbChoice = 3
 
-    this.kanaToStudy.push(makeObjetKana('k-wa'))
-    this.kanaToStudy.push(makeObjetKana('k-wo'))
-    this.kanaToStudy.push(makeObjetKana('k-n'))
+    this.kanaToStudy.push(new Kana('k', 'wa'))
+    this.kanaToStudy.push(new Kana('k', 'wo'))
+    this.kanaToStudy.push(new Kana('k', 'n'))
 
     this.next()
 

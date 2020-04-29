@@ -29,11 +29,7 @@ class Guess {
 
   firstToGuess (oneLesson) {
     const nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
-    this.getOneKana(oneLesson.kanaToStudy[nextRandomIndex])
-  }
-
-  getOneKana (kana) {
-    this.kana = kana
+    this.kana = oneLesson.kanaToStudy[nextRandomIndex]
   }
 
   writeChoiceTrueFalse (oneLesson) {
@@ -90,17 +86,16 @@ class Guess {
 
   nextKana (oneLesson) {
     const info = document.getElementById('info')
-    let nextRandomIndex = oneLesson.kanaToStudy[nextRandom(oneLesson.kanaToStudy.length)]
+    let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
 
     if (oneLesson.play < oneLesson.playAllowed) {
       this.previousKana = this.kana
-      this.getOneKana(nextRandomIndex)
-      this.writeChoiceTrueFalse(oneLesson)      
+      this.kana = oneLesson.kanaToStudy[nextRandomIndex]    
       while (this.previousKana.letter === this.kana.letter) {
-        nextRandomIndex = oneLesson.kanaToStudy[nextRandom(oneLesson.kanaToStudy.length)]
-        this.getOneKana(nextRandomIndex)
-        this.writeChoiceTrueFalse(oneLesson)        
+        nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
+        this.kana = oneLesson.kanaToStudy[nextRandomIndex]
       }
+      this.writeChoiceTrueFalse(oneLesson)        
       oneLesson.clearChoice()
       this.guessKana(oneLesson)
     } else {

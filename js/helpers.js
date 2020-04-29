@@ -1,9 +1,5 @@
-import {
-  oneLesson
-} from './init.js'
-
-function nextRandom () {
-  const iRandom = getRandomInt(oneLesson.kanaToStudy.length)
+function nextRandom (number) {
+  const iRandom = getRandomInt(number)
   return iRandom
 }
 

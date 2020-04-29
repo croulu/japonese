@@ -1,35 +1,21 @@
-import {
-  showKanaOrRomanji
-} from '../index.js'
+import {} from '../index.js'
 
-import {
-  nextRandom
-} from '../js/helpers.js'
+import { Kana } from './kana.js'
 
-import {
-  Kana,
-  disableChoice,
-  clearChoice,
-  enableChoice,
-  deleteChoice
-} from './kana.js'
+import { Guess } from './guess.js'
+
+const colorClear = '#B8B8B8'
+const colorTrue = '#16ca52'
+const colorFalse = '#ca2716'
 
 class Lesson {
   constructor () {
     this.nbChoice = 0
     this.kanaToStudy = []
-    this.previousKanaIndex = undefined
-    this.currentKanaIndex = undefined
-    this.currentKanaObject = undefined
     this.play = 0
     this.playAllowed = 10
     this.success = 0
     this.pourcentageReussite = 0
-  }
-
-  getOneKana (i) {
-    this.currentKanaIndex = i
-    this.currentKanaObject = this.kanaToStudy[i]
   }
 
   init () {
@@ -46,14 +32,10 @@ class Lesson {
 
     this.initPourcentage()
 
-    deleteChoice(this.nbChoice)
-    clearChoice(this.nbChoice)
-    enableChoice(this.nbChoice)
-  }
-
-  next () {
-    const iNextRandom = nextRandom()
-    this.getOneKana(iNextRandom)
+    this.deleteChoice()
+    this.clearChoice()
+    this.enableChoice()
+    this.displayCorrectNumberOfChoice()
   }
 
   stop () {
@@ -62,7 +44,7 @@ class Lesson {
     this.success = 0
     this.pourcentageReussite = 0
 
-    disableChoice(this.nbChoice)
+    this.disableChoice()
   }
 
   initPourcentage () {
@@ -83,22 +65,57 @@ class Lesson {
     }
   }
 
-  writeChoiceTrueFalse (letterToGuess) {
+  disableChoice () {
     let myExpression = ''
-
     for (let i = 0; i < this.nbChoice; i++) {
-      if (letterToGuess === this.kanaToStudy[i].letter) {
-        myExpression = `choice${i + 1}.setAttribute('data-key', 'true')`
+      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      eval(myExpression)
+      myExpression = `choice${i + 1}.style.pointerEvents = 'none'`
+      eval(myExpression)
+    }
+  }
+
+  enableChoice () {
+    let myExpression = ''
+    for (let i = 0; i < this.nbChoice; i++) {
+      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      eval(myExpression)
+      myExpression = `choice${i + 1}.style.pointerEvents = 'auto'`
+      eval(myExpression)
+    }
+  }
+
+  deleteChoice () {
+    let myExpression = ''
+    for (let i = 0; i < this.nbChoice; i++) {
+      myExpression = `choice${i + 1}.style.display = 'none'`
+      eval(myExpression)
+    }
+  }
+
+  displayCorrectNumberOfChoice () {
+    let myExpression = ''
+    for (let i = 5; i > 0; i--) {
+      if (i > this.nbChoice) {
+        myExpression = `choice${i}.style.display = 'none'`
       } else {
-        myExpression = `choice${i + 1}.setAttribute('data-key', 'false')`
+        myExpression = `choice${i}.style.display = 'block'`
       }
       eval(myExpression)
     }
   }
 
-  hToRA () {
-    this.init()
+  clearChoice () {
+    let myExpression = ''
+    for (let i = 0; i < this.nbChoice; i++) {
+      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      eval(myExpression)
+    }
+  }
+
+  hToRA (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'a'))
     this.kanaToStudy.push(new Kana('h', 'i'))
@@ -106,14 +123,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'e'))
     this.kanaToStudy.push(new Kana('h', 'o'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  kToRA () {
-    this.init()
+  kToRA (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'a'))
     this.kanaToStudy.push(new Kana('k', 'i'))
@@ -121,14 +139,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'e'))
     this.kanaToStudy.push(new Kana('k', 'o'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  hToRK () {
-    this.init()
+  hToRK (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ka'))
     this.kanaToStudy.push(new Kana('h', 'ki'))
@@ -136,14 +155,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'ke'))
     this.kanaToStudy.push(new Kana('h', 'ko'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  kToRK () {
-    this.init()
+  kToRK (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ka'))
     this.kanaToStudy.push(new Kana('k', 'ki'))
@@ -151,14 +171,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'ke'))
     this.kanaToStudy.push(new Kana('k', 'ko'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  hToRS () {
-    this.init()
+  hToRS (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'sa'))
     this.kanaToStudy.push(new Kana('h', 'shi'))
@@ -166,14 +187,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'se'))
     this.kanaToStudy.push(new Kana('h', 'so'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  kToRS () {
-    this.init()
+  kToRS (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'sa'))
     this.kanaToStudy.push(new Kana('k', 'shi'))
@@ -181,14 +203,15 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'se'))
     this.kanaToStudy.push(new Kana('k', 'so'))
 
-    this.next()
+    this.writeChoice()
 
-    showKanaOrRomanji('kana')
+    oneGuess.init(this)
+    oneGuess.guessKana(this)
   }
 
-  hToRT () {
-    this.init()
+  hToRT (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ta'))
     this.kanaToStudy.push(new Kana('h', 'chi'))
@@ -196,14 +219,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'te'))
     this.kanaToStudy.push(new Kana('h', 'to'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRT () {
-    this.init()
+  kToRT (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ta'))
     this.kanaToStudy.push(new Kana('k', 'chi'))
@@ -211,14 +233,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'te'))
     this.kanaToStudy.push(new Kana('k', 'to'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRN () {
-    this.init()
+  hToRN (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'na'))
     this.kanaToStudy.push(new Kana('h', 'ni'))
@@ -226,14 +247,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'ne'))
     this.kanaToStudy.push(new Kana('h', 'no'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRN () {
-    this.init()
+  kToRN (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'na'))
     this.kanaToStudy.push(new Kana('k', 'ni'))
@@ -241,14 +261,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'ne'))
     this.kanaToStudy.push(new Kana('k', 'no'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRH () {
-    this.init()
+  hToRH (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ha'))
     this.kanaToStudy.push(new Kana('h', 'hi'))
@@ -256,14 +275,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'he'))
     this.kanaToStudy.push(new Kana('h', 'ho'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRH () {
-    this.init()
+  kToRH (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ha'))
     this.kanaToStudy.push(new Kana('k', 'hi'))
@@ -271,14 +289,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'he'))
     this.kanaToStudy.push(new Kana('k', 'ho'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRM () {
-    this.init()
+  hToRM (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ma'))
     this.kanaToStudy.push(new Kana('h', 'mi'))
@@ -286,14 +303,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 'me'))
     this.kanaToStudy.push(new Kana('h', 'mo'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRM () {
-    this.init()
+  kToRM (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ma'))
     this.kanaToStudy.push(new Kana('k', 'mi'))
@@ -301,40 +317,37 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 'me'))
     this.kanaToStudy.push(new Kana('k', 'mo'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRY () {
-    this.init()
+  hToRY (oneGuess) {
     this.nbChoice = 3
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ya'))
     this.kanaToStudy.push(new Kana('h', 'yu'))
     this.kanaToStudy.push(new Kana('h', 'yo'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRY () {
-    this.init()
+  kToRY (oneGuess) {
     this.nbChoice = 3
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ya'))
     this.kanaToStudy.push(new Kana('k', 'yu'))
     this.kanaToStudy.push(new Kana('k', 'yo'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRR () {
-    this.init()
+  hToRR (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'ra'))
     this.kanaToStudy.push(new Kana('h', 'ri'))
@@ -342,14 +355,13 @@ class Lesson {
     this.kanaToStudy.push(new Kana('h', 're'))
     this.kanaToStudy.push(new Kana('h', 'ro'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRR () {
-    this.init()
+  kToRR (oneGuess) {
     this.nbChoice = 5
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'ra'))
     this.kanaToStudy.push(new Kana('k', 'ri'))
@@ -357,35 +369,32 @@ class Lesson {
     this.kanaToStudy.push(new Kana('k', 're'))
     this.kanaToStudy.push(new Kana('k', 'ro'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  hToRW () {
-    this.init()
+  hToRW (oneGuess) {
     this.nbChoice = 3
+    this.init()
 
     this.kanaToStudy.push(new Kana('h', 'wa'))
     this.kanaToStudy.push(new Kana('h', 'wo'))
     this.kanaToStudy.push(new Kana('h', 'n'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 
-  kToRW () {
-    this.init()
+  kToRW (oneGuess) {
     this.nbChoice = 3
+    this.init()
 
     this.kanaToStudy.push(new Kana('k', 'wa'))
     this.kanaToStudy.push(new Kana('k', 'wo'))
     this.kanaToStudy.push(new Kana('k', 'n'))
 
-    this.next()
-
-    showKanaOrRomanji('kana')
+    this.writeChoice()
+    oneGuess.guessKana(this)
   }
 }
 

@@ -1,13 +1,8 @@
-import {
-  Lesson
-} from '../component/lesson.js'
-
-import {
-  Choice
-} from '../component/choice.js'
+import { Lesson } from '../component/lesson.js'
+import { Guess } from '../component/guess.js'
 
 const oneLesson = new Lesson()
-const oneChoice = new Choice()
+const oneGuess = new Guess()
 
 const btnHToRA = document.getElementById('hToRA')
 const btnKToRA = document.getElementById('kToRA')
@@ -36,7 +31,7 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-btnHToRA.addEventListener('click', () => oneLesson.hToRA())
+btnHToRA.addEventListener('click', () => oneLesson.hToRA(oneGuess))
 btnKToRA.addEventListener('click', () => oneLesson.kToRA())
 btnHToRK.addEventListener('click', () => oneLesson.hToRK())
 btnKToRK.addEventListener('click', () => oneLesson.kToRK())
@@ -58,35 +53,31 @@ btnHToRW.addEventListener('click', () => oneLesson.hToRW())
 btnKToRW.addEventListener('click', () => oneLesson.kToRW())
 
 choice1.addEventListener('click', () => {
-  oneChoice.selected = 1
-  oneChoice.result = choice1.getAttribute('data-key')
-  oneChoice.makeAChoice(choice1.getAttribute('data-key'))
+  oneGuess.choiceSelectedIndex = 0
+  oneGuess.makeAChoice(oneLesson)
 })
 
 choice2.addEventListener('click', () => {
-  oneChoice.selected = 2
-  oneChoice.result = choice2.getAttribute('data-key')
-  oneChoice.makeAChoice()
+  oneGuess.choiceSelectedIndex = 1
+  oneGuess.makeAChoice(oneLesson)
 })
 
 choice3.addEventListener('click', () => {
-  oneChoice.selected = 3
-  oneChoice.result = choice3.getAttribute('data-key')
-  oneChoice.makeAChoice(choice3.getAttribute('data-key'))
+  oneGuess.choiceSelectedIndex = 2
+  oneGuess.makeAChoice(oneLesson)
 })
 
 choice4.addEventListener('click', () => {
-  oneChoice.selected = 4
-  oneChoice.result = choice4.getAttribute('data-key')
-  oneChoice.makeAChoice(choice4.getAttribute('data-key'))
+  oneGuess.choiceSelectedIndex = 3
+  oneGuess.makeAChoice(oneLesson)
 })
 
 choice5.addEventListener('click', () => {
-  oneChoice.selected = 5
-  oneChoice.result = choice5.getAttribute('data-key')
-  oneChoice.makeAChoice(choice5.getAttribute('data-key'))
+  oneGuess.choiceSelectedIndex = 4
+  oneGuess.makeAChoice(oneLesson)
 })
 
 export {
-  oneLesson
+  oneLesson,
+  oneGuess
 }

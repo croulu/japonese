@@ -1,6 +1,3 @@
-import {} from '../js/initHiragana.js'
-import {} from '../js/initKatakana.js'
-
 import imgHiragana from '../img/hiragana/*.*'
 import imgKatakana from '../img/katakana/*.*'
 

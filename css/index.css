@@ -33,17 +33,26 @@
     display: flex;
     justify-content:center;
     align-items: top;
-    height: 10vh;
+    height: 20vh;
     font-size: 25px;
     /* border: 5px solid goldenrod; */
 }
 
-.lessons {
+.btnAlphabet {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
-    height: 30vh;
+    height: 7vh;
+    /* border: 5px solid blueviolet; */
+}
+
+.btnLessons {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1vh;
+    height: 25vh;
     /* border: 5px solid red; */
 }
 
@@ -60,7 +69,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh; 
-    height: 15vh;
+    height: 10vh;
     /* border: 5px solid skyblue; */
 }
 
@@ -78,4 +87,28 @@
 
 .choice > *:active {
     filter: brightness(170%);
+}
+
+.alphabet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh;
+    height: 110vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 20px;
+    /* border: 5px solid greenyellow; */
+}
+
+.alphabet > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    transition: 0.5s;
+    /* border: 1px solid grey; */
+}
+
+div[data-key="h-title"] {
+    grid-column: 1/7;
 }

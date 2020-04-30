@@ -10,27 +10,176 @@
 <body>
     <div class="kana">
 		<div class="title">Learn japanese</div>
-		<div class="lessons">
-			<button id="hToRA">hiragana: a i u e o</button>
-			<button id="hToRK">hiragana: ka ki ku ke ko</button>
-			<button id="hToRS">hiragana: sa shi su se so</button>
-			<button id="hToRT">hiragana: ta chi tu te to</button>
-			<button id="hToRN">hiragana: na ni nu ne no</button>
-			<button id="hToRH">hiragana: ha hi fu he ho</button>
-			<button id="hToRM">hiragana: ma mi mu me mo</button>
-			<button id="hToRY">hiragana: ya yu yo</button>
-			<button id="hToRR">hiragana: ra ri ru re ro</button>
-			<button id="hToRW">hiragana: wa wo n</button>
-			<button id="kToRA">katakana: a i u e o</button>
-			<button id="kToRK">katakana: ka ki ku ke ko</button>
-			<button id="kToRS">katakana: sa shi su se so</button>
-			<button id="kToRT">katakana: ta chi tu te to</button>
-			<button id="kToRN">katakana: na ni nu ne no</button>
-			<button id="kToRH">katakana: ha hi fu he ho</button>
-			<button id="kToRM">katakana: ma mi mu me mo</button>
-			<button id="kToRY">katakana: ya yu yo</button>
-			<button id="kToRR">katakana: ra ri ru re ro</button>
-			<button id="kToRW">katakana: wa wo n</button>
+		<div class="btnAlphabet">
+			<button id="btnAlphabetHiragana">hiragana</button>
+			<button id="btnAlphabetKatakana">katakana</button>
+			<button id="btnAlphabetBothHK">hiragana and katakana</button>
+			<button id="btnRomanji">romanji</button>
+		</div>
+
+		<div id="divAlphabetHiragana" class="alphabet">
+			<div></div>
+			<div id="r-h-a">a</div>
+			<div id="r-h-i">i</div>
+			<div id="r-h-u">u</div>
+			<div id="r-h-e">e</div>
+			<div id="r-h-o">o</div>
+			<div id="r-h-c">-</div>
+			<div data-key="h-a"><img src="img/hiragana/a.png" id="h-a"></div>
+			<div data-key="h-i"><img src="img/hiragana/i.png" id="h-i"></div>
+			<div data-key="h-u"><img src="img/hiragana/u.png" id="h-u"></div>
+			<div data-key="h-e"><img src="img/hiragana/e.png" id="h-e"></div>
+			<div data-key="h-o"><img src="img/hiragana/o.png" id="h-o"></div>
+			<div id="r-h-ck">k</div>
+			<div data-key="h-ka"><img src="img/hiragana/ka.png" id="h-ka"></div>
+			<div data-key="h-ki"><img src="img/hiragana/ki.png" id="h-ki"></div>
+			<div data-key="h-ku"><img src="img/hiragana/ku.png" id="h-ku"></div>
+			<div data-key="h-ke"><img src="img/hiragana/ke.png" id="h-ke"></div>
+			<div data-key="h-ko"><img src="img/hiragana/ko.png" id="h-ko"></div>
+			<div id="r-h-cs">s</div>
+			<div data-key="h-sa"><img src="img/hiragana/sa.png" id="h-sa"></div>
+			<div data-key="h-shi"><img src="img/hiragana/shi.png" id="h-shi"><div id="r-h-shi">shi</div></div>
+			<div data-key="h-su"><img src="img/hiragana/su.png" id="h-su"></div>
+			<div data-key="h-se"><img src="img/hiragana/se.png" id="h-se"></div>
+			<div data-key="h-so"><img src="img/hiragana/so.png" id="h-so"></div>
+			<div id="r-h-ct">t</div>
+			<div data-key="h-ta"><img src="img/hiragana/ta.png" id="h-ta"></div>
+			<div data-key="h-chi"><img src="img/hiragana/chi.png" id="h-chi"><div id="r-h-chi">chi</div></div>
+			<div data-key="h-tsu"><img src="img/hiragana/tsu.png" id="h-tsu"><div id="r-h-tsu">tsu</div></div>
+			<div data-key="h-te"><img src="img/hiragana/te.png" id="h-te"></div>
+			<div data-key="h-to"><img src="img/hiragana/to.png" id="h-to"></div>
+			<div id="r-h-cn">n</div>
+			<div data-key="h-na"><img src="img/hiragana/na.png" id="h-na"></div>
+			<div data-key="h-ni"><img src="img/hiragana/ni.png" id="h-ni"></div>
+			<div data-key="h-nu"><img src="img/hiragana/nu.png" id="h-nu"></div>
+			<div data-key="h-ne"><img src="img/hiragana/ne.png" id="h-ne"></div>
+			<div data-key="h-no"><img src="img/hiragana/no.png" id="h-no"></div>
+			<div id="r-h-ch">h</div>
+			<div data-key="h-ha"><img src="img/hiragana/ha.png" id="h-ha"></div>
+			<div data-key="h-hi"><img src="img/hiragana/hi.png" id="h-hi"></div>
+			<div data-key="h-fu"><img src="img/hiragana/fu.png" id="h-fu"><div id="r-h-fu">fu</div></div>
+			<div data-key="h-he"><img src="img/hiragana/he.png" id="h-he"></div>
+			<div data-key="h-ho"><img src="img/hiragana/ho.png" id="h-fo"></div>
+			<div id="r-h-cm">m</div>
+			<div data-key="h-ma"><img src="img/hiragana/ma.png" id="h-ma"></div>
+			<div data-key="h-mi"><img src="img/hiragana/mi.png" id="h-mi"></div>
+			<div data-key="h-mu"><img src="img/hiragana/mu.png" id="h-mu"></div>
+			<div data-key="h-me"><img src="img/hiragana/me.png" id="h-me"></div>
+			<div data-key="h-mo"><img src="img/hiragana/mo.png" id="h-mo"></div>
+			<div id="r-h-cy">y</div>
+			<div data-key="h-ya"><img src="img/hiragana/ya.png" id="h-ya"></div>
+			<div></div>
+			<div data-key="h-yu"><img src="img/hiragana/yu.png" id="h-yu"></div>
+			<div></div>
+			<div data-key="h-yo"><img src="img/hiragana/yo.png" id="h-yo"></div>
+			<div id="r-h-cr">r</div>
+			<div data-key="h-ra"><img src="img/hiragana/ra.png" id="h-ra"></div>
+			<div data-key="h-ri"><img src="img/hiragana/ri.png" id="h-ri"></div>
+			<div data-key="h-ru"><img src="img/hiragana/ru.png" id="h-ru"></div>
+			<div data-key="h-re"><img src="img/hiragana/re.png" id="h-re"></div>
+			<div data-key="h-ro"><img src="img/hiragana/ro.png" id="h-ro"></div>
+			<div id="r-h-cw">w</div>
+			<div data-key="h-wa"><img src="img/hiragana/wa.png" id="h-wa"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div data-key="h-wo"><img src="img/hiragana/wo.png" id="h-wo"></div>
+			<div id="r-h-cnn">-</div>
+			<div data-key="h-n"><img src="img/hiragana/n.png" id="h-n"></div>
+		</div>
+
+		<div id="divAlphabetKatakna" class="alphabet">
+			<div></div>
+			<div id="r-k-a">a</div>
+			<div id="r-k-i">i</div>
+			<div id="r-k-u">u</div>
+			<div id="r-k-e">e</div>
+			<div id="r-k-o">o</div>
+			<div id="r-k-c">-</div>
+			<div data-key="k-a"><img src="img/katakana/a.png" id="k-a"></div>
+			<div data-key="k-i"><img src="img/katakana/i.png" id="k-i"></div>
+			<div data-key="k-u"><img src="img/katakana/u.png" id="k-u"></div>
+			<div data-key="k-e"><img src="img/katakana/e.png" id="k-e"></div>
+			<div data-key="k-o"><img src="img/katakana/o.png" id="k-o"></div>
+			<div id="r-k-ck">k</div>
+			<div data-key="k-ka"><img src="img/katakana/ka.png" id="k-ka"></div>
+			<div data-key="k-ki"><img src="img/katakana/ki.png" id="k-ki"></div>
+			<div data-key="k-ku"><img src="img/katakana/ku.png" id="k-ku"></div>
+			<div data-key="k-ke"><img src="img/katakana/ke.png" id="k-ke"></div>
+			<div data-key="k-ko"><img src="img/katakana/ko.png" id="k-ko"></div>
+			<div id="r-k-cs">s</div>
+			<div data-key="k-sa"><img src="img/katakana/sa.png" id="k-sa"></div>
+			<div data-key="k-shi"><img src="img/katakana/shi.png" id="k-shi"><div id="r-k-shi">shi</div></div>
+			<div data-key="k-su"><img src="img/katakana/su.png" id="k-su"></div>
+			<div data-key="k-se"><img src="img/katakana/se.png" id="k-se"></div>
+			<div data-key="k-so"><img src="img/katakana/so.png" id="k-so"></div>
+			<div id="r-k-ct">t</div>
+			<div data-key="k-ta"><img src="img/katakana/ta.png" id="k-ta"></div>
+			<div data-key="k-chi"><img src="img/katakana/chi.png" id="k-chi"><div id="r-k-chi">chi</div></div>
+			<div data-key="k-tsu"><img src="img/katakana/tsu.png" id="k-tsu"><div id="r-k-tsu">tsu</div></div>
+			<div data-key="k-te"><img src="img/katakana/te.png" id="k-te"></div>
+			<div data-key="k-to"><img src="img/katakana/to.png" id="k-to"></div>
+			<div id="r-k-cn">n</div>
+			<div data-key="k-na"><img src="img/hiragana/na.png" id="k-na"></div>
+			<div data-key="k-ni"><img src="img/hiragana/ni.png" id="k-ni"></div>
+			<div data-key="k-nu"><img src="img/hiragana/nu.png" id="k-nu"></div>
+			<div data-key="k-ne"><img src="img/hiragana/ne.png" id="k-ne"></div>
+			<div data-key="k-no"><img src="img/hiragana/no.png" id="k-no"></div>
+			<div id="r-k-ch">h</div>
+			<div data-key="k-ha"><img src="img/katakana/ha.png" id="k-ha"></div>
+			<div data-key="k-hi"><img src="img/katakana/hi.png" id="k-hi"></div>
+			<div data-key="k-fu"><img src="img/katakana/fu.png" id="k-fu"><div id="r-k-fu">fu</div></div>
+			<div data-key="k-he"><img src="img/katakana/he.png" id="k-he"></div>
+			<div data-key="k-ho"><img src="img/katakana/ho.png" id="k-fo"></div>
+			<div id="r-k-cm">m</div>
+			<div data-key="k-ma"><img src="img/katakana/ma.png" id="k-ma"></div>
+			<div data-key="k-mi"><img src="img/katakana/mi.png" id="k-mi"></div>
+			<div data-key="k-mu"><img src="img/katakana/mu.png" id="k-mu"></div>
+			<div data-key="k-me"><img src="img/katakana/me.png" id="k-me"></div>
+			<div data-key="k-mo"><img src="img/katakana/mo.png" id="k-mo"></div>
+			<div id="r-k-cy">y</div>
+			<div data-key="k-ya"><img src="img/katakana/ya.png" id="k-ya"></div>
+			<div></div>
+			<div data-key="k-yu"><img src="img/katakana/yu.png" id="k-yu"></div>
+			<div></div>
+			<div data-key="k-yo"><img src="img/katakana/yo.png" id="k-yo"></div>
+			<div id="r-k-cr">r</div>
+			<div data-key="k-ra"><img src="img/katakana/ra.png" id="k-ra"></div>
+			<div data-key="k-ri"><img src="img/katakana/ri.png" id="k-ri"></div>
+			<div data-key="k-ru"><img src="img/katakana/ru.png" id="k-ru"></div>
+			<div data-key="k-re"><img src="img/katakana/re.png" id="k-re"></div>
+			<div data-key="k-ro"><img src="img/katakana/ro.png" id="k-ro"></div>
+			<div id="r-k-cw">w</div>
+			<div data-key="k-wa"><img src="img/katakana/wa.png" id="k-wa"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div data-key="k-wo"><img src="img/katakana/wo.png" id="k-wo"></div>
+			<div id="r-k-cnn">-</div>
+			<div data-key="k-n"><img src="img/katakana/n.png" id="k-n"></div>
+		</div>
+
+		<div class="btnLessons">
+			<button id="hToRA">h: a i u e o</button>
+			<button id="hToRK">h: ka ki ku ke ko</button>
+			<button id="hToRS">h: sa shi su se so</button>
+			<button id="hToRT">h: ta chi tu te to</button>
+			<button id="hToRN">h: na ni nu ne no</button>
+			<button id="hToRH">h: ha hi fu he ho</button>
+			<button id="hToRM">h: ma mi mu me mo</button>
+			<button id="hToRY">h: ya yu yo</button>
+			<button id="hToRR">h: ra ri ru re ro</button>
+			<button id="hToRW">h: wa wo n</button>
+			<button id="kToRA">k: a i u e o</button>
+			<button id="kToRK">k: ka ki ku ke ko</button>
+			<button id="kToRS">k: sa shi su se so</button>
+			<button id="kToRT">k: ta chi tu te to</button>
+			<button id="kToRN">k: na ni nu ne no</button>
+			<button id="kToRH">k: ha hi fu he ho</button>
+			<button id="kToRM">k: ma mi mu me mo</button>
+			<button id="kToRY">k: ya yu yo</button>
+			<button id="kToRR">k: ra ri ru re ro</button>
+			<button id="kToRW">k: wa wo n</button>
 		</div>
 
 		<div id="info" class="info"></div>
@@ -45,324 +194,6 @@
 			<div id="choice5" data-key=""></div>
 		</div>
 	</div>
-	
-	<div id="d1">
-		<h1>Hiragana</h1>
-        <table class="tableKana">
-			<tr>
-				<td class="tdKana"><img src="img/hiragana/a.png" id="h-a" data-key="h-a"></td>
-				<td class="tdKana"><img src="img/hiragana/i.png" id="h-i" data-key="h-i"></td>
-				<td class="tdKana"><img src="img/hiragana/u.png" id="h-u" data-key="h-u"></td>
-				<td class="tdKana"><img src="img/hiragana/e.png" id="h-e" data-key="h-e"></td>
-				<td class="tdKana"><img src="img/hiragana/o.png" id="h-o" data-key="h-o"></td>
-			</tr>
-			<tr>
-				<td>a</td>
-				<td>i</td>
-				<td>u</td>
-				<td>e</td>
-				<td>o</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/ka.png" id="h-ka" data-key="h-ka"></td>
-				<td><img src="img/hiragana/ki.png" id="h-ki" data-key="h-ki"></td>
-				<td><img src="img/hiragana/ku.png" id="h-ku" data-key="h-ku"></td>
-				<td><img src="img/hiragana/ke.png" id="h-ke" data-key="h-ke"></td>
-				<td><img src="img/hiragana/ko.png" id="h-ko" data-key="h-ko"></td>
-			</tr>
-			<tr>
-				<td>ka</td>
-				<td>ki</td>
-				<td>ku</td>
-				<td>ke</td>
-				<td>ko</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/sa.png" id="h-sa" data-key="h-sa"></td>
-				<td><img src="img/hiragana/shi.png" id="h-shi" data-key="h-shi"></td>
-				<td><img src="img/hiragana/su.png" id="h-su" data-key="h-su"></td>
-				<td><img src="img/hiragana/se.png" id="h-se" data-key="h-se"></td>
-				<td><img src="img/hiragana/so.png" id="h-so" data-key="h-so"></td>
-			</tr>
-			<tr>
-				<td>sa</td>
-				<td>shi</td>
-				<td>su</td>
-				<td>se</td>
-				<td>so</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/ta.png" id="h-ta" data-key="h-ta"></td>
-				<td><img src="img/hiragana/chi.png" id="h-chi" data-key="h-chi"></td>
-				<td><img src="img/hiragana/tsu.png" id="h-tsu" data-key="h-tsu"></td>
-				<td><img src="img/hiragana/te.png" id="h-te" data-key="h-te"></td>
-				<td><img src="img/hiragana/to.png" id="h-to" data-key="h-to"></td>
-			</tr>
-			<tr>
-				<td>ta</td>
-				<td>chi</td>
-				<td>tsu</td>
-				<td>te</td>
-				<td>to</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/na.png" id="h-na" data-key="h-na"></td>
-				<td><img src="img/hiragana/ni.png" id="h-ni" data-key="h-ni"></td>
-				<td><img src="img/hiragana/nu.png" id="h-nu" data-key="h-nu"></td>
-				<td><img src="img/hiragana/ne.png" id="h-ne" data-key="h-ne"></td>
-				<td><img src="img/hiragana/no.png" id="h-no" data-key="h-no"></td>
-			</tr>
-			<tr>
-				<td>na</td>
-				<td>ni</td>
-				<td>nu</td>
-				<td>ne</td>
-				<td>no</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/ha.png" id="h-ha" data-key="h-ha"></td>
-				<td><img src="img/hiragana/hi.png" id="h-hi" data-key="h-hi"></td>
-				<td><img src="img/hiragana/fu.png" id="h-fu" data-key="h-fu"></td>
-				<td><img src="img/hiragana/he.png" id="h-he" data-key="h-he"></td>
-				<td><img src="img/hiragana/ho.png" id="h-ho" data-key="h-ho"></td>
-			</tr>
-			<tr>
-				<td>ha</td>
-				<td>hi</td>
-				<td>fu</td>
-				<td>he</td>
-				<td>ho</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/ma.png" id="h-ma" data-key="h-ma"></td>
-				<td><img src="img/hiragana/mi.png" id="h-mi" data-key="h-mi"></td>
-				<td><img src="img/hiragana/mu.png" id="h-mu" data-key="h-mu"></td>
-				<td><img src="img/hiragana/me.png" id="h-me" data-key="h-me"></td>
-				<td><img src="img/hiragana/mo.png" id="h-mo" data-key="h-mo"></td>
-			</tr>
-			<tr>
-				<td>ma</td>
-				<td>mi</td>
-				<td>mu</td>
-				<td>me</td>
-				<td>mo</td>
-			</tr>	
-			<tr>
-				<td><img src="img/hiragana/ya.png" id="h-ya" data-key="h-ya"></td>
-				<td>&nbsp;</td>
-				<td><img src="img/hiragana/yu.png" id="h-yu" data-key="h-yu"></td>
-				<td>&nbsp;</td>
-				<td><img src="img/hiragana/yo.png" id="h-yo" data-key="h-yo"></td>
-			</tr>
-			<tr>
-				<td>ya</td>
-				<td>&nbsp;</td>
-				<td>yu</td>
-				<td>&nbsp;</td>
-				<td>yo</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/ra.png" id="h-ra" data-key="h-ra"></td>
-				<td><img src="img/hiragana/ri.png" id="h-ri" data-key="h-ri"></td>
-				<td><img src="img/hiragana/ru.png" id="h-ru" data-key="h-ru"></td>
-				<td><img src="img/hiragana/re.png" id="h-re" data-key="h-re"></td>
-				<td><img src="img/hiragana/ro.png" id="h-ro" data-key="h-ro"></td>
-			</tr>
-			<tr>
-				<td>ra</td>
-				<td>ri</td>
-				<td>ru</td>
-				<td>re</td>
-				<td>ro</td>
-			</tr>
-			<tr>
-				<td><img src="img/hiragana/wa.png" id="h-wa" data-key="h-wa"></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><img src="img/hiragana/wo.png" id="h-wo" data-key="h-wo"></td>
-			</tr>
-			<tr>
-				<td>wa</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>wo</td>
-			</tr>	
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><img src="img/hiragana/n.png" id="h-n" data-key="h-n"></td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>n</td>
-			</tr>	
-		</table>
-	</div>
-	<div id="d2">
-		<h1>Katakana</h1>
-		<table class="tableKana">
-			<tr>
-				<td class="tdKana"><img src="img/katakana/a.png" id="k-a" data-key="k-a"></td>
-				<td class="tdKana"><img src="img/katakana/i.png" id="k-i" data-key="k-i"></td>
-				<td class="tdKana"><img src="img/katakana/u.png" id="k-u" data-key="k-u"></td>
-				<td class="tdKana"><img src="img/katakana/e.png" id="k-e" data-key="k-e"></td>
-				<td class="tdKana"><img src="img/katakana/o.png" id="k-o" data-key="k-o"></td>
-				</tr>
-			<tr>
-				<td>a</td>
-				<td>i</td>
-				<td>u</td>
-				<td>e</td>
-				<td>o</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/ka.png" id="k-ka" data-key="k-ka"></td>
-				<td><img src="img/katakana/ki.png" id="k-ki" data-key="k-ki"></td>
-				<td><img src="img/katakana/ku.png" id="k-ku" data-key="k-ku"></td>
-				<td><img src="img/katakana/ke.png" id="k-ke" data-key="k-ke"></td>
-				<td><img src="img/katakana/ko.png" id="k-ko" data-key="k-ko"></td>
-			</tr>
-			<tr>
-				<td>ka</td>
-				<td>ki</td>
-				<td>ku</td>
-				<td>ke</td>
-				<td>ko</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/sa.png" id="k-sa" data-key="k-sa"></td>
-				<td><img src="img/katakana/shi.png" id="k-shi" data-key="k-shi"></td>
-				<td><img src="img/katakana/su.png" id="k-su" data-key="k-su"></td>
-				<td><img src="img/katakana/se.png" id="k-se" data-key="k-se"></td>
-				<td><img src="img/katakana/so.png" id="k-so" data-key="k-so"></td>
-			</tr>
-			<tr>
-				<td>sa</td>
-				<td>shi</td>
-				<td>su</td>
-				<td>se</td>
-				<td>so</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/ta.png" id="k-ta" data-key="k-ta"></td>
-				<td><img src="img/katakana/chi.png" id="k-chi" data-key="k-chi"></td>
-				<td><img src="img/katakana/tsu.png" id="k-tsu" data-key="k-tsu"></td>
-				<td><img src="img/katakana/te.png" id="k-te" data-key="k-te"></td>
-				<td><img src="img/katakana/to.png" id="k-to" data-key="k-to"></td>
-			</tr>
-			<tr>
-				<td>ta</td>
-				<td>chi</td>
-				<td>tsu</td>
-				<td>te</td>
-				<td>to</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/na.png" id="k-na" data-key="k-na"></td>
-				<td><img src="img/katakana/ni.png" id="k-ni" data-key="k-ni"></td>
-				<td><img src="img/katakana/nu.png" id="k-nu" data-key="k-nu"></td>
-				<td><img src="img/katakana/ne.png" id="k-ne" data-key="k-ne"></td>
-				<td><img src="img/katakana/no.png" id="k-no" data-key="k-no"></td>
-			</tr>
-			<tr>
-				<td>na</td>
-				<td>ni</td>
-				<td>nu</td>
-				<td>ne</td>
-				<td>no</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/ha.png" id="k-ha" data-key="k-ha"></td>
-				<td><img src="img/katakana/hi.png" id="k-hi" data-key="k-hi"></td>
-				<td><img src="img/katakana/fu.png" id="k-fu" data-key="k-fu"></td>
-				<td><img src="img/katakana/he.png" id="k-he" data-key="k-he"></td>
-				<td><img src="img/katakana/ho.png" id="k-ho" data-key="k-ho"></td>
-			</tr>
-			<tr>
-				<td>ha</td>
-				<td>hi</td>
-				<td>fu</td>
-				<td>he</td>
-				<td>ho</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/ma.png" id="k-ma" data-key="k-ma"></td>
-				<td><img src="img/katakana/mi.png" id="k-mi" data-key="k-mi"></td>
-				<td><img src="img/katakana/mu.png" id="k-mu" data-key="k-mu"></td>
-				<td><img src="img/katakana/me.png" id="k-me" data-key="k-me"></td>
-				<td><img src="img/katakana/mo.png" id="k-mo" data-key="k-mo"></td>
-			</tr>
-			<tr>
-				<td>ma</td>
-				<td>mi</td>
-				<td>mu</td>
-				<td>me</td>
-				<td>mo</td>
-			</tr>	
-			<tr>
-				<td><img src="img/katakana/ya.png" id="k-ya" data-key="k-ya"></td>
-				<td>&nbsp;</td>
-				<td><img src="img/katakana/yu.png" id="k-yu" data-key="k-yu"></td>
-				<td>&nbsp;</td>
-				<td><img src="img/katakana/yo.png" id="k-yo" data-key="k-yo"></td>
-			</tr>
-			<tr>
-				<td>ya</td>
-				<td>&nbsp;</td>
-				<td>yu</td>
-				<td>&nbsp;</td>
-				<td>yo</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/ra.png" id="k-ra" data-key="k-ra"></td>
-				<td><img src="img/katakana/ri.png" id="k-ri" data-key="k-ri"></td>
-				<td><img src="img/katakana/ru.png" id="k-ru" data-key="k-ru"></td>
-				<td><img src="img/katakana/re.png" id="k-re" data-key="k-re"></td>
-				<td><img src="img/katakana/ro.png" id="k-ro" data-key="k-ro"></td>
-			</tr>
-			<tr>
-				<td>ra</td>
-				<td>ri</td>
-				<td>ru</td>
-				<td>re</td>
-				<td>ro</td>
-			</tr>
-			<tr>
-				<td><img src="img/katakana/wa.png" id="k-wa" data-key="k-wa"></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><img src="img/katakana/wo.png" id="k-wo" data-key="k-wo"></td>
-			</tr>
-			<tr>
-				<td>wa</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>wo</td>
-			</tr>	
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td><img src="img/katakana/n.png" id="k-n" data-key="k-n"></td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>n</td>
-			</tr>	
-		</table>
-	</div>
+
 </body>
 </html>

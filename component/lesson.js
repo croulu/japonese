@@ -53,6 +53,7 @@ class Lesson {
   init () {
     let kanaImg = document.getElementById('kanaImg')
     let info = document.getElementById('info')
+    let localStorageDoneName = `oneLesson${strUcFirst(this.setCodeSimple())}Done`
 
     kanaImg.setAttribute('src', '')
     info.innerText = ''
@@ -68,6 +69,23 @@ class Lesson {
     this.clearChoice()
     this.enableChoice()
     this.displayCorrectNumberOfChoice()
+
+console.log(localStorageDoneName)
+
+    // si localstoragedone est true, le laisser à true
+    // if (typeof (eval (localStorageDoneName)) === 'undefined') {
+    try {
+      if (eval (localStorageDoneName) === true) {
+        console.log ('truuuuuuuuue')
+      } else {
+        console.log ('le passer à false')
+      }
+    } catch (e) {
+      console.log(`la variable n'existe pas !`)
+    }
+
+    // sinon le passer à false
+
   }
 
   stop () {
@@ -77,6 +95,16 @@ class Lesson {
     this.pourcentageReussite = 0
 
     this.disableChoice()
+  }
+
+  setCodeSimple () {
+    const arrayCode = this.code.split('-')
+    let codeSimple = ''
+
+    for (let i = 0; i < arrayCode.length; i++) {
+      codeSimple += arrayCode[i]
+    }
+    return codeSimple
   }
 
   initPourcentage () {
@@ -225,306 +253,43 @@ console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
     this.allLesson.push('k-wa-wo-n')
   }
 
-  lessonHaiueo (oneGuess) {
+  makeLesson () {
+    const arrayCode = this.code.split('-')
+
+    for (let i = 1; i < arrayCode.length; i++) {
+      this.kanaToStudy.push(new Kana(arrayCode[0], arrayCode[i]))
+    }
+  }
+
+  setLessonTitle () {
+    const arrayCode = this.code.split('-')
+    let lesson = ''
+
+    if (arrayCode[0] === 'h') {
+      lesson = 'hiragana : '
+    } else {
+      lesson = 'katakana : '
+    }
+
+    for (let i = 1; i < arrayCode.length; i++) {
+      lesson += arrayCode[i] + ' '
+    }
+
+    this.title = `${lesson} (deviner le romanji)`
+  }
+
+  launchLesson (lessonText, oneGuess) {
+    this.code = lessonText
+    this.setLessonTitle()
+
+    this.displayButtonLesson()
     this.nbChoice = 5
     this.init()
 
-    this.kanaToStudy.push(new Kana('h', 'a'))
-    this.kanaToStudy.push(new Kana('h', 'i'))
-    this.kanaToStudy.push(new Kana('h', 'u'))
-    this.kanaToStudy.push(new Kana('h', 'e'))
-    this.kanaToStudy.push(new Kana('h', 'o'))
-
+    this.makeLesson()
     this.writeChoice()
 
     oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonKaiueo (oneGuess) {
-    this.title = 'katakana : a i u e o (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'a'))
-    this.kanaToStudy.push(new Kana('k', 'i'))
-    this.kanaToStudy.push(new Kana('k', 'u'))
-    this.kanaToStudy.push(new Kana('k', 'e'))
-    this.kanaToStudy.push(new Kana('k', 'o'))
-
-    this.writeChoice()
-
-    oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonHkakikukeko (oneGuess) {
-    this.title = 'hiragana : ka ki ku ke ko (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ka'))
-    this.kanaToStudy.push(new Kana('h', 'ki'))
-    this.kanaToStudy.push(new Kana('h', 'ku'))
-    this.kanaToStudy.push(new Kana('h', 'ke'))
-    this.kanaToStudy.push(new Kana('h', 'ko'))
-
-    this.writeChoice()
-
-    oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonKkakikukeko (oneGuess) {
-    this.title = 'katakana : kak ki ku ke ko (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ka'))
-    this.kanaToStudy.push(new Kana('k', 'ki'))
-    this.kanaToStudy.push(new Kana('k', 'ku'))
-    this.kanaToStudy.push(new Kana('k', 'ke'))
-    this.kanaToStudy.push(new Kana('k', 'ko'))
-
-    this.writeChoice()
-
-    oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonHsashisuseso (oneGuess) {
-    this.title = 'hiragana : sa shi su se so (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'sa'))
-    this.kanaToStudy.push(new Kana('h', 'shi'))
-    this.kanaToStudy.push(new Kana('h', 'su'))
-    this.kanaToStudy.push(new Kana('h', 'se'))
-    this.kanaToStudy.push(new Kana('h', 'so'))
-
-    this.writeChoice()
-
-    oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonKsashisuseso (oneGuess) {
-    this.title = 'katakana : sa shi su se so (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'sa'))
-    this.kanaToStudy.push(new Kana('k', 'shi'))
-    this.kanaToStudy.push(new Kana('k', 'su'))
-    this.kanaToStudy.push(new Kana('k', 'se'))
-    this.kanaToStudy.push(new Kana('k', 'so'))
-
-    this.writeChoice()
-
-    oneGuess.init(this)
-    oneGuess.guessKana(this)
-  }
-
-  lessonHtachitsuteto (oneGuess) {
-    this.title = 'hiragana : ta chi tsu te to (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ta'))
-    this.kanaToStudy.push(new Kana('h', 'chi'))
-    this.kanaToStudy.push(new Kana('h', 'tsu'))
-    this.kanaToStudy.push(new Kana('h', 'te'))
-    this.kanaToStudy.push(new Kana('h', 'to'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  lessonKtachitsuteto (oneGuess) {
-    this.title = 'katakana : ta chi tsu te to (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ta'))
-    this.kanaToStudy.push(new Kana('k', 'chi'))
-    this.kanaToStudy.push(new Kana('k', 'tsu'))
-    this.kanaToStudy.push(new Kana('k', 'te'))
-    this.kanaToStudy.push(new Kana('k', 'to'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHnaninuneno (oneGuess) {
-    this.title = 'hiragana : na ni nu ne no (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'na'))
-    this.kanaToStudy.push(new Kana('h', 'ni'))
-    this.kanaToStudy.push(new Kana('h', 'nu'))
-    this.kanaToStudy.push(new Kana('h', 'ne'))
-    this.kanaToStudy.push(new Kana('h', 'no'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKnaninuneno (oneGuess) {
-    this.title = 'katakana : na ni nu ne no (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'na'))
-    this.kanaToStudy.push(new Kana('k', 'ni'))
-    this.kanaToStudy.push(new Kana('k', 'nu'))
-    this.kanaToStudy.push(new Kana('k', 'ne'))
-    this.kanaToStudy.push(new Kana('k', 'no'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHhahifuheho (oneGuess) {
-    this.title = 'hiragana : ha hi fu he ho (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ha'))
-    this.kanaToStudy.push(new Kana('h', 'hi'))
-    this.kanaToStudy.push(new Kana('h', 'fu'))
-    this.kanaToStudy.push(new Kana('h', 'he'))
-    this.kanaToStudy.push(new Kana('h', 'ho'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKhahifuheho (oneGuess) {
-    this.title = 'katakana : ha hi fu he ho (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ha'))
-    this.kanaToStudy.push(new Kana('k', 'hi'))
-    this.kanaToStudy.push(new Kana('k', 'fu'))
-    this.kanaToStudy.push(new Kana('k', 'he'))
-    this.kanaToStudy.push(new Kana('k', 'ho'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHmamimumemo (oneGuess) {
-    this.title = 'hiragana : ma mi mu me mo (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ma'))
-    this.kanaToStudy.push(new Kana('h', 'mi'))
-    this.kanaToStudy.push(new Kana('h', 'mu'))
-    this.kanaToStudy.push(new Kana('h', 'me'))
-    this.kanaToStudy.push(new Kana('h', 'mo'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKmamimumemo (oneGuess) {
-    this.title = 'katakana : ma mi mu me mo (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ma'))
-    this.kanaToStudy.push(new Kana('k', 'mi'))
-    this.kanaToStudy.push(new Kana('k', 'mu'))
-    this.kanaToStudy.push(new Kana('k', 'me'))
-    this.kanaToStudy.push(new Kana('k', 'mo'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHyayuyo (oneGuess) {
-    this.title = 'hiragana : ya yu yo (deviner le romanji)'
-    this.nbChoice = 3
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ya'))
-    this.kanaToStudy.push(new Kana('h', 'yu'))
-    this.kanaToStudy.push(new Kana('h', 'yo'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKyayuyo (oneGuess) {
-    this.title = 'katakana : ya yu yo (deviner le romanji)'
-    this.nbChoice = 3
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ya'))
-    this.kanaToStudy.push(new Kana('k', 'yu'))
-    this.kanaToStudy.push(new Kana('k', 'yo'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHrarirurero (oneGuess) {
-    this.title = 'hiragana : ra ri ru re ro (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'ra'))
-    this.kanaToStudy.push(new Kana('h', 'ri'))
-    this.kanaToStudy.push(new Kana('h', 'ru'))
-    this.kanaToStudy.push(new Kana('h', 're'))
-    this.kanaToStudy.push(new Kana('h', 'ro'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKrarirurero (oneGuess) {
-    this.title = 'katakana : ra ri ru re ro (deviner le romanji)'
-    this.nbChoice = 5
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'ra'))
-    this.kanaToStudy.push(new Kana('k', 'ri'))
-    this.kanaToStudy.push(new Kana('k', 'ru'))
-    this.kanaToStudy.push(new Kana('k', 're'))
-    this.kanaToStudy.push(new Kana('k', 'ro'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonHwawon (oneGuess) {
-    this.title = 'hiragana : wa wo n (deviner le romanji)'
-    this.nbChoice = 3
-    this.init()
-
-    this.kanaToStudy.push(new Kana('h', 'wa'))
-    this.kanaToStudy.push(new Kana('h', 'wo'))
-    this.kanaToStudy.push(new Kana('h', 'n'))
-
-    this.writeChoice()
-    oneGuess.guessKana(this)
-  }
-
-  hTolessonKwawon (oneGuess) {
-    this.title = 'katakana : wa wo n (deviner le romanji)'
-    this.nbChoice = 3
-    this.init()
-
-    this.kanaToStudy.push(new Kana('k', 'wa'))
-    this.kanaToStudy.push(new Kana('k', 'wo'))
-    this.kanaToStudy.push(new Kana('k', 'n'))
-
-    this.writeChoice()
     oneGuess.guessKana(this)
   }
 }

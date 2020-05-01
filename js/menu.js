@@ -1,53 +1,15 @@
-let btnHiragana = document.getElementById('btnAlphabetHiragana')
-let btnKatakana = document.getElementById('btnAlphabetKatakana')
-let btnRomanji = document.getElementById('btnRomanji')
+const btnHiragana = document.getElementById('btnAlphabetHiragana')
+const btnKatakana = document.getElementById('btnAlphabetKatakana')
+const btnRomanji = document.getElementById('btnRomanji')
+const alphabetHiragana = document.getElementById('divAlphabetHiragana')
+const alphabetKatakana = document.getElementById('divAlphabetKatakna')
 
-let alphabetHiragana = document.getElementById('divAlphabetHiragana')
-let alphabetKatakana = document.getElementById('divAlphabetKatakna')
+btnHiragana.onclick = displayAlphabetHiragana
+btnKatakana.onclick = displayAlphabetKatakana
+btnRomanji.onclick = displayRomanji
 
-let romanjiHa = document.getElementById('r-h-a')
-let romanjiHi = document.getElementById('r-h-i')
-let romanjiHu = document.getElementById('r-h-u')
-let romanjiHe = document.getElementById('r-h-e')
-let romanjiHo = document.getElementById('r-h-o')
-
-let romanjiKa = document.getElementById('r-k-a')
-let romanjiKi = document.getElementById('r-k-i')
-let romanjiKu = document.getElementById('r-k-u')
-let romanjiKe = document.getElementById('r-k-e')
-let romanjiKo = document.getElementById('r-k-o')
-
-let romanjiHC = document.getElementById('r-h-c')
-let romanjiHCk = document.getElementById('r-h-ck')
-let romanjiHCs = document.getElementById('r-h-cs')
-let romanjiHshi = document.getElementById('r-h-shi')
-let romanjiHCt = document.getElementById('r-h-ct')
-let romanjiHchi = document.getElementById('r-h-chi')
-let romanjiHtsu = document.getElementById('r-h-tsu')
-let romanjiHCn = document.getElementById('r-h-cn')
-let romanjiHCh = document.getElementById('r-h-ch')
-let romanjiHfu = document.getElementById('r-h-fu')
-let romanjiHCm = document.getElementById('r-h-cm')
-let romanjiHCy = document.getElementById('r-h-cy')
-let romanjiHCr = document.getElementById('r-h-cr')
-let romanjiHCw = document.getElementById('r-h-cw')
-let romanjiHCnn = document.getElementById('r-h-cnn')
-
-let romanjiKC = document.getElementById('r-k-c')
-let romanjiKCk = document.getElementById('r-k-ck')
-let romanjiKCs = document.getElementById('r-k-cs')
-let romanjiKshi = document.getElementById('r-k-shi')
-let romanjiKCt = document.getElementById('r-k-ct')
-let romanjiKchi = document.getElementById('r-k-chi')
-let romanjiKtsu = document.getElementById('r-k-tsu')
-let romanjiKCn = document.getElementById('r-k-cn')
-let romanjiKCh = document.getElementById('r-k-ch')
-let romanjiKfu = document.getElementById('r-k-fu')
-let romanjiKCm = document.getElementById('r-k-cm')
-let romanjiKCy = document.getElementById('r-k-cy')
-let romanjiKCr = document.getElementById('r-k-cr')
-let romanjiKCw = document.getElementById('r-k-cw')
-let romanjiKCnn = document.getElementById('r-k-cnn')
+alphabetHiragana.style.display = 'none'
+alphabetKatakana.style.display = 'none'
 
 function displayAlphabetHiragana () {
   if (getComputedStyle(alphabetHiragana).display !== 'none') {
@@ -68,6 +30,50 @@ function displayAlphabetKatakana () {
 }
 
 function displayRomanji () {
+  let romanjiHa = document.getElementById('r-h-a')
+  let romanjiHi = document.getElementById('r-h-i')
+  let romanjiHu = document.getElementById('r-h-u')
+  let romanjiHe = document.getElementById('r-h-e')
+  let romanjiHo = document.getElementById('r-h-o')
+  
+  let romanjiKa = document.getElementById('r-k-a')
+  let romanjiKi = document.getElementById('r-k-i')
+  let romanjiKu = document.getElementById('r-k-u')
+  let romanjiKe = document.getElementById('r-k-e')
+  let romanjiKo = document.getElementById('r-k-o')
+  
+  let romanjiHC = document.getElementById('r-h-c')
+  let romanjiHCk = document.getElementById('r-h-ck')
+  let romanjiHCs = document.getElementById('r-h-cs')
+  let romanjiHshi = document.getElementById('r-h-shi')
+  let romanjiHCt = document.getElementById('r-h-ct')
+  let romanjiHchi = document.getElementById('r-h-chi')
+  let romanjiHtsu = document.getElementById('r-h-tsu')
+  let romanjiHCn = document.getElementById('r-h-cn')
+  let romanjiHCh = document.getElementById('r-h-ch')
+  let romanjiHfu = document.getElementById('r-h-fu')
+  let romanjiHCm = document.getElementById('r-h-cm')
+  let romanjiHCy = document.getElementById('r-h-cy')
+  let romanjiHCr = document.getElementById('r-h-cr')
+  let romanjiHCw = document.getElementById('r-h-cw')
+  let romanjiHCnn = document.getElementById('r-h-cnn')
+  
+  let romanjiKC = document.getElementById('r-k-c')
+  let romanjiKCk = document.getElementById('r-k-ck')
+  let romanjiKCs = document.getElementById('r-k-cs')
+  let romanjiKshi = document.getElementById('r-k-shi')
+  let romanjiKCt = document.getElementById('r-k-ct')
+  let romanjiKchi = document.getElementById('r-k-chi')
+  let romanjiKtsu = document.getElementById('r-k-tsu')
+  let romanjiKCn = document.getElementById('r-k-cn')
+  let romanjiKCh = document.getElementById('r-k-ch')
+  let romanjiKfu = document.getElementById('r-k-fu')
+  let romanjiKCm = document.getElementById('r-k-cm')
+  let romanjiKCy = document.getElementById('r-k-cy')
+  let romanjiKCr = document.getElementById('r-k-cr')
+  let romanjiKCw = document.getElementById('r-k-cw')
+  let romanjiKCnn = document.getElementById('r-k-cnn')
+
   if (romanjiHa.innerHTML === 'a') {
     romanjiHa.innerHTML = ''
     romanjiHi.innerHTML = ''
@@ -159,10 +165,3 @@ function displayRomanji () {
     romanjiKCnn.innerHTML = '-'
   }
 }
-
-btnHiragana.onclick = displayAlphabetHiragana
-btnKatakana.onclick = displayAlphabetKatakana
-btnRomanji.onclick = displayRomanji
-
-alphabetHiragana.style.display = 'none'
-alphabetKatakana.style.display = 'none'

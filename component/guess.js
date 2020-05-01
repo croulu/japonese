@@ -3,9 +3,12 @@ import imgKatakana from '../img/katakana/*.*'
 
 import { Kana } from './kana.js'
 
-import { nextRandom } from '../js/helpers.js'
+import { 
+  strUcFirst,
+  nextRandom
+} from '../js/helpers.js'
 
-import { oneLesson, oneGuess } from '../js/init.js'
+
 
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
@@ -50,7 +53,9 @@ class Guess {
     eval(myExpression)
   }
 
-  makeAChoice (oneLesson) {
+  makeAChoice (choiceSelected, oneLesson) {
+    this.choiceSelectedIndex = choiceSelected
+
     let myMethod = (function (sPropriété) {
       this.nextKana(oneLesson)
     }).bind(this)
@@ -104,6 +109,9 @@ class Guess {
       if (oneLesson.pourcentageReussite === 100) {
         oneLesson.done = true
         oneLesson.displayButtonLesson()
+        localStorage.setItem(`oneLesson${oneLesson.setCodeSimple()}`, oneLesson)
+        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple())}Code`, oneLesson.code)
+        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple())}Done`, oneLesson.done)
       }
       oneLesson.stop()
     }

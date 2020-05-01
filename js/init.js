@@ -33,151 +33,32 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-btnToRHaiueo.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : a i u e o (deviner le romanji)'
-  oneLesson.code = 'h-a-i-u-e-o'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHaiueo(oneGuess)
-})
-btnToRKaiueo.addEventListener('click', () => {
-  oneLesson.title = 'katakana : a i u e o (deviner le romanji)'
-  oneLesson.code = 'k-a-i-u-e-o'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKaiueo(oneGuess)
-})
-btnToRHkakikukeko.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ka ki ku ke ko (deviner le romanji)'
-  oneLesson.code = 'h-ka-ki-ku-ke-ko'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHkakikukeko(oneGuess)
-})
-btnToRKkakikukeko.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ka ki ku ke ko (deviner le romanji)'
-  oneLesson.code = 'k-ka-ki-ku-ke-ko'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKkakikukeko(oneGuess)
-})
-btnToRHsashisuseso.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : sa shi su se so (deviner le romanji)'
-  oneLesson.code = 'h-sa-shi-su-se-so'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHsashisuseso(oneGuess)
-})
-btnToRKsashisuseso.addEventListener('click', () => {
-  oneLesson.title = 'katakana : sa shi su se so (deviner le romanji)'
-  oneLesson.code = 'k-sa-shi-su-se-so'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKsashisuseso(oneGuess)
-})
-btnToRHtachitsuteto.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ta chi tsu te to (deviner le romanji)'
-  oneLesson.code = 'h-ta-chi-tsu-te-to'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHtachitsuteto(oneGuess)
-})
-btnToRKtachitsuteto.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ta chi tsu te to (deviner le romanji)'
-  oneLesson.code = 'k-ta-chi-tsu-te-to'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKtachitsuteto(oneGuess)
-})
-btnToRHnaninuneno.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : na ni nu ne no (deviner le romanji)'
-  oneLesson.code = 'h-na-ni-nu-ne-no'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHnaninuneno(oneGuess)
-})
-btnToRKnaninuneno.addEventListener('click', () => {
-  oneLesson.title = 'katakana : na ni nu ne no (deviner le romanji)'
-  oneLesson.code = 'k-na-ni-nu-ne-no'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKnaninuneno(oneGuess)
-})
-btnToRHhahifuheho.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ha hi fu he ho (deviner le romanji)'
-  oneLesson.code = 'h-ha-hi-fu-he-ho'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHhahifuheho(oneGuess)
-})
-btnToRKhahifuheho.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ha hi fu he ho (deviner le romanji)'
-  oneLesson.code = 'k-ha-hi-fu-he-ho'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKhahifuheho(oneGuess)
-})
-btnToRHmamimumemo.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ma mi mu me mo (deviner le romanji)'
-  oneLesson.code = 'h-ma-mi-mu-me-mo'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHmamimumemo(oneGuess)
-})
-btnToRKmamimumemo.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ma mi mu me mo (deviner le romanji)'
-  oneLesson.code = 'k-ma-mi-mu-me-mo'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKmamimumemo(oneGuess)
-})
-btnToRHyayuyo.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ya yu yo (deviner le romanji)'
-  oneLesson.code = 'h-ya-yu-yo'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHyayuyo(oneGuess)
-})
-btnToRKyayuyo.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ya yu yo (deviner le romanji)'
-  oneLesson.code = 'k-ya-yu-yo'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKyayuyo(oneGuess)
-})
-btnToRHrarirurero.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : ra ri ru re ro (deviner le romanji)'
-  oneLesson.code = 'h-ra-ri-ru-re-ro'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHrarirurero(oneGuess)
-})
-btnToRKrarirurero.addEventListener('click', () => {
-  oneLesson.title = 'katakana : ra ri ru re ro (deviner le romanji)'
-  oneLesson.code = 'k-ra-ri-ru-re-ro'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKrarirurero(oneGuess)
-})
-btnToRHwawon.addEventListener('click', () => {
-  oneLesson.title = 'hiragana : wa wo n (deviner le romanji)'
-  oneLesson.code = 'h-wa-wo-n'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonHwawon(oneGuess)
-})
-btnToRKwawon.addEventListener('click', () => {
-  oneLesson.title = 'katakana : wa wo n (deviner le romanji)'
-  oneLesson.code = 'k-wo-n'
-  oneLesson.displayButtonLesson()
-  oneLesson.lessonKwawon(oneGuess)
-})
+btnToRHaiueo.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o', oneGuess))
+btnToRKaiueo.addEventListener('click', () => oneLesson.launchLesson('k-a-i-u-e-o', oneGuess))
+btnToRHkakikukeko.addEventListener('click', () => oneLesson.launchLesson('h-ka-ki-ku-ke-ko', oneGuess))
+btnToRKkakikukeko.addEventListener('click', () => oneLesson.launchLesson('k-ka-ki-ku-ke-ko', oneGuess))
+btnToRHsashisuseso.addEventListener('click', () => oneLesson.launchLesson('h-sa-shi-su-se-so', oneGuess))
+btnToRKsashisuseso.addEventListener('click', () => oneLesson.launchLesson('k-sa-shi-su-se-so', oneGuess))
+btnToRHtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('h-ta-chi-tsu-te-to', oneGuess))
+btnToRKtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('k-ta-chi-tsu-te-to', oneGuess))
+btnToRHnaninuneno.addEventListener('click', () => oneLesson.launchLesson('h-na-ni-nu-ne-no', oneGuess))
+btnToRKnaninuneno.addEventListener('click', () => oneLesson.launchLesson('k-na-ni-nu-ne-no', oneGuess))
+btnToRHhahifuheho.addEventListener('click', () => oneLesson.launchLesson('h-ha-hi-fu-he-ho', oneGuess))
+btnToRKhahifuheho.addEventListener('click', () => oneLesson.launchLesson('k-ha-hi-fu-he-ho', oneGuess))
+btnToRHmamimumemo.addEventListener('click', () => oneLesson.launchLesson('h-ma-mi-mu-me-mo', oneGuess))
+btnToRKmamimumemo.addEventListener('click', () => oneLesson.launchLesson('k-ma-mi-mu-me-mo', oneGuess))
+btnToRHyayuyo.addEventListener('click', () => oneLesson.launchLesson('h-ya-yu-yo', oneGuess))
+btnToRKyayuyo.addEventListener('click', () => oneLesson.launchLesson('k-ya-yu-yo', oneGuess))
+btnToRHrarirurero.addEventListener('click', () => oneLesson.launchLesson('h-ra-ri-ru-re-ro', oneGuess))
+btnToRKrarirurero.addEventListener('click', () => oneLesson.launchLesson('k-ra-ri-ru-re-ro', oneGuess))
+btnToRHwawon.addEventListener('click', () => oneLesson.launchLesson('h-wa-wo-n', oneGuess))
+btnToRKwawon.addEventListener('click', () => oneLesson.launchLesson('k-wa-wo-n', oneGuess))
 
-choice1.addEventListener('click', () => {
-  oneGuess.choiceSelectedIndex = 0
-  oneGuess.makeAChoice(oneLesson)
-})
-
-choice2.addEventListener('click', () => {
-  oneGuess.choiceSelectedIndex = 1
-  oneGuess.makeAChoice(oneLesson)
-})
-
-choice3.addEventListener('click', () => {
-  oneGuess.choiceSelectedIndex = 2
-  oneGuess.makeAChoice(oneLesson)
-})
-
-choice4.addEventListener('click', () => {
-  oneGuess.choiceSelectedIndex = 3
-  oneGuess.makeAChoice(oneLesson)
-})
-
-choice5.addEventListener('click', () => {
-  oneGuess.choiceSelectedIndex = 4
-  oneGuess.makeAChoice(oneLesson)
-})
+choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
+choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))
+choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson))
+choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson))
+choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson))
 
 export {
   oneLesson,

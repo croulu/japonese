@@ -36,6 +36,8 @@ const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
 const colorFalse = '#ca2716'
 
+const colorMenuActivated = '#e0762f'
+
 class Lesson {
   constructor () {
     this.title = ''
@@ -53,7 +55,7 @@ class Lesson {
   init () {
     let kanaImg = document.getElementById('kanaImg')
     let info = document.getElementById('info')
-    let localStorageDoneName = `oneLesson${strUcFirst(this.setCodeSimple())}Done`
+    const statusLessonDoneInStorage = this.getStatusCurrentLesson(this.code)
 
     kanaImg.setAttribute('src', '')
     info.innerText = ''
@@ -70,21 +72,13 @@ class Lesson {
     this.enableChoice()
     this.displayCorrectNumberOfChoice()
 
-console.log(localStorageDoneName)
-
-    // si localstoragedone est true, le laisser à true
-    // if (typeof (eval (localStorageDoneName)) === 'undefined') {
-    try {
-      if (eval (localStorageDoneName) === true) {
-        console.log ('truuuuuuuuue')
-      } else {
-        console.log ('le passer à false')
-      }
-    } catch (e) {
-      console.log(`la variable n'existe pas !`)
+    if (statusLessonDoneInStorage === 'true') {
+      // lesson is done, keep it done
+      this.done = true
+    } else {
+      // init done to false by default
+      this.done = false
     }
-
-    // sinon le passer à false
 
   }
 
@@ -97,13 +91,14 @@ console.log(localStorageDoneName)
     this.disableChoice()
   }
 
-  setCodeSimple () {
-    const arrayCode = this.code.split('-')
+  setCodeSimple (code) {
+    const arrayCode = code.split('-')
     let codeSimple = ''
 
     for (let i = 0; i < arrayCode.length; i++) {
       codeSimple += arrayCode[i]
     }
+
     return codeSimple
   }
 
@@ -174,26 +169,70 @@ console.log(localStorageDoneName)
   }
 
   displayButtonLesson () {
-    let indexCurrentLesson = this.getIdCurrentLesson()
+    let indexCurrentLesson = this.getIdCurrentLesson(this.code)
 
-    this.setActivateCurrentLesson(indexCurrentLesson)
-    this.setDesactivateNextLesson(indexCurrentLesson)
-console.log(this)
-    if (this.done === true) {
-console.log(`leçon done ${this.code}`)
-      this.setActivateNextLesson(indexCurrentLesson)
-    } 
+    this.setDisableAllLessons()
+    this.setActivateLessons()
+
+    // this.setActivateCurrentLesson(indexCurrentLesson)
+    // if (this.done === true) {
+    //   this.setActivateNextLesson(indexCurrentLesson)
+    // }
   }
 
-  getIdCurrentLesson () {
+  getStatusCurrentLesson (code) {
+    const localStorageDoneName = `oneLesson${strUcFirst(this.setCodeSimple(code))}Done`
+    const statusLessonDoneInStorage = localStorage.getItem(localStorageDoneName)
+    return statusLessonDoneInStorage
+  }
+
+  getIdCurrentLesson (code) {
     let indexCurrentLesson
     for (let i = 0; i < this.allLesson.length; i++) {
-      if (this.allLesson[i] === this.code) {
+      if (this.allLesson[i] === code) {
         indexCurrentLesson = i
       }
     }
-console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
     return indexCurrentLesson
+  }
+
+  setDisableAllLessons () {
+    let myExpression = ''
+    let buttonName = 'btnToR'
+    let lessonName = ''
+    let statusLessonDoneInStorage = ''
+
+    for (let i = 0; i < this.allLesson.length; i++) {
+      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
+      
+      lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
+
+      myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'none'`
+      eval(myExpression)
+
+      myExpression = `${buttonName}${lessonName}.style.background = colorClear`
+      eval(myExpression)
+    }
+  }
+
+  setActivateLessons () {
+    let myExpression = ''
+    let buttonName = 'btnToR'
+    let lessonName = ''
+    let statusLessonDoneInStorage = ''
+
+    for (let i = 0; i < this.allLesson.length; i++) {
+      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
+      // info : localstorage is string
+      if (statusLessonDoneInStorage === 'true') {
+        lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
+
+        myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
+        eval(myExpression)
+        myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
+        eval(myExpression)
+      }
+    }
   }
 
   setActivateCurrentLesson (indexCurrentLesson) {
@@ -201,20 +240,8 @@ console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
     let buttonName = 'btnToR'
     let lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson], '-', ''))
 
-    myExpression = `${buttonName}${lessonName}.removeAttribute('disabled')`
+    myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
     eval(myExpression)
-  }
-
-  setDesactivateNextLesson (indexCurrentLesson) {
-    let myExpression = ''
-    let buttonName = 'btnToR'
-    let lessonName = ''
-
-    for (let i = indexCurrentLesson + 1; i < this.allLesson.length; i++) {
-      lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
-      myExpression = `${buttonName}${lessonName}.setAttribute('disabled', 'disabled')`
-      eval(myExpression)
-    }
   }
 
   setActivateNextLesson (indexCurrentLesson) {
@@ -225,7 +252,10 @@ console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
     if (indexCurrentLesson < this.allLesson.length) {
       lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson + 1], '-', ''))
 
-      myExpression = `${buttonName}${lessonName}.removeAttribute('disabled')`
+      myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
+      eval(myExpression)
+
+      myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
       eval(myExpression)
     }
   }
@@ -282,9 +312,10 @@ console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
     this.code = lessonText
     this.setLessonTitle()
 
-    this.displayButtonLesson()
     this.nbChoice = 5
     this.init()
+
+    this.displayButtonLesson()
 
     this.makeLesson()
     this.writeChoice()

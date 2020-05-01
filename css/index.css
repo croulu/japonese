@@ -104,7 +104,7 @@ div[data-key="h-title"] {
 }
 
 div.scrollmenu {
-    background-color: rgb(224, 118, 47);
+    background-color: #e0762f;
     overflow: auto;
     white-space: nowrap;
     font-size: 15px;
@@ -120,9 +120,5 @@ div.scrollmenu a {
 }
   
 div.scrollmenu a:hover {
-    background-color: rgb(156, 88, 31);
-}
-
-div.scrollmenu a:disabled {
-    background-color: rgb(224, 118, 47);
+    background-color: #9c581f;
 }

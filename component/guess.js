@@ -103,15 +103,16 @@ class Guess {
       this.writeChoiceTrueFalse(oneLesson)        
       oneLesson.clearChoice()
       this.guessKana(oneLesson)
+
     } else {
       oneLesson.makePourcentage()
       info.innerText += ` - success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
       if (oneLesson.pourcentageReussite === 100) {
         oneLesson.done = true
+
+        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple(oneLesson.code))}Done`, oneLesson.done)
         oneLesson.displayButtonLesson()
-        localStorage.setItem(`oneLesson${oneLesson.setCodeSimple()}`, oneLesson)
-        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple())}Code`, oneLesson.code)
-        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple())}Done`, oneLesson.done)
+        oneLesson.setActivateNextLesson(oneLesson.getIdCurrentLesson (oneLesson.code))
       }
       oneLesson.stop()
     }

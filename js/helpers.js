@@ -13,6 +13,16 @@ function fnCall (fn, ...args) {
   else throw new Error(`${fn} is Not a function!`)
 }
 
+function strUcFirst (a) {
+  return (a + '').charAt(0).toUpperCase() + a.substr(1)
+}
+
+function strReplaceAll (myString, stringToReplace, stringToUse) {
+  return myString.replace(new RegExp(stringToReplace, 'g'), stringToUse)
+}
+
 export {
-  nextRandom
+  nextRandom,
+  strUcFirst,
+  strReplaceAll
 }

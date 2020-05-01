@@ -4,31 +4,63 @@ import { Kana } from './kana.js'
 
 import { Guess } from './guess.js'
 
+import { 
+  strUcFirst,
+  strReplaceAll
+} from '../js/helpers.js'
+
+import  { 
+  btnToRHaiueo,
+  btnToRKaiueo,
+  btnToRHkakikukeko,
+  btnToRKkakikukeko,
+  btnToRHsashisuseso,
+  btnToRKsashisuseso,
+  btnToRHtachitsuteto,
+  btnToRKtachitsuteto,
+  btnToRHnaninuneno,
+  btnToRKnaninuneno,
+  btnToRHhahifuheho,
+  btnToRKhahifuheho,
+  btnToRHmamimumemo,
+  btnToRKmamimumemo,
+  btnToRHyayuyo,
+  btnToRKyayuyo,
+  btnToRHrarirurero,
+  btnToRKrarirurero,
+  btnToRHwawon,
+  btnToRKwawon
+} from '../js/init.js'
+
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
 const colorFalse = '#ca2716'
 
 class Lesson {
   constructor () {
+    this.title = ''
+    this.code = ''
     this.nbChoice = 0
     this.kanaToStudy = []
     this.play = 0
     this.playAllowed = 10
     this.success = 0
     this.pourcentageReussite = 0
+    this.done = false
+    this.allLesson = []
   }
 
   init () {
     let kanaImg = document.getElementById('kanaImg')
     let info = document.getElementById('info')
 
+    kanaImg.setAttribute('src', '')
+    info.innerText = ''
+
     this.kanaToStudy = []
     this.play = 0
     this.success = 0
     this.pourcentageReussite = 0
-
-    kanaImg.setAttribute('src', '')
-    info.innerText = ''
 
     this.initPourcentage()
 
@@ -113,7 +145,87 @@ class Lesson {
     }
   }
 
-  hToRA (oneGuess) {
+  displayButtonLesson () {
+    let indexCurrentLesson = this.getIdCurrentLesson()
+
+    this.setActivateCurrentLesson(indexCurrentLesson)
+    this.setDesactivateNextLesson(indexCurrentLesson)
+console.log(this)
+    if (this.done === true) {
+console.log(`leçon done ${this.code}`)
+      this.setActivateNextLesson(indexCurrentLesson)
+    } 
+  }
+
+  getIdCurrentLesson () {
+    let indexCurrentLesson
+    for (let i = 0; i < this.allLesson.length; i++) {
+      if (this.allLesson[i] === this.code) {
+        indexCurrentLesson = i
+      }
+    }
+console.log(`indexCurrentLesson = ${indexCurrentLesson}`)
+    return indexCurrentLesson
+  }
+
+  setActivateCurrentLesson (indexCurrentLesson) {
+    let myExpression = ''
+    let buttonName = 'btnToR'
+    let lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson], '-', ''))
+
+    myExpression = `${buttonName}${lessonName}.removeAttribute('disabled')`
+    eval(myExpression)
+  }
+
+  setDesactivateNextLesson (indexCurrentLesson) {
+    let myExpression = ''
+    let buttonName = 'btnToR'
+    let lessonName = ''
+
+    for (let i = indexCurrentLesson + 1; i < this.allLesson.length; i++) {
+      lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
+      myExpression = `${buttonName}${lessonName}.setAttribute('disabled', 'disabled')`
+      eval(myExpression)
+    }
+  }
+
+  setActivateNextLesson (indexCurrentLesson) {
+    let myExpression = ''
+    let buttonName = 'btnToR'
+    let lessonName = ''
+
+    if (indexCurrentLesson < this.allLesson.length) {
+      lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson + 1], '-', ''))
+
+      myExpression = `${buttonName}${lessonName}.removeAttribute('disabled')`
+      eval(myExpression)
+    }
+  }
+
+  setAllLesson () {
+    this.allLesson.push('h-a-i-u-e-o')
+    this.allLesson.push('h-ka-ki-ku-ke-ko')
+    this.allLesson.push('h-sa-shi-su-se-so')
+    this.allLesson.push('h-ta-chi-tsu-te-to')
+    this.allLesson.push('h-na-ni-nu-ne-no')
+    this.allLesson.push('h-ha-hi-fu-he-ho')
+    this.allLesson.push('h-ma-mi-mu-me-mo')
+    this.allLesson.push('h-ya-yu-yo')
+    this.allLesson.push('h-ra-ri-ru-re-ro')
+    this.allLesson.push('h-wa-wo-n')
+    this.allLesson.push('k-a-i-u-e-o')
+    this.allLesson.push('k-ka-ki-ku-ke-ko')
+    this.allLesson.push('k-sa-shi-su-se-so')
+    this.allLesson.push('k-ta-chi-tsu-te-to')
+    this.allLesson.push('k-na-ni-nu-ne-no')
+    this.allLesson.push('k-ha-hi-fu-he-ho')
+    this.allLesson.push('k-ma-mi-mu-me-mo')
+    this.allLesson.push('k-ya-yu-yo')
+    this.allLesson.push('k-ra-ri-ru-re-ro')
+    this.allLesson.push('k-wa-wo-n')
+  }
+
+  lessonHaiueo (oneGuess) {
     this.nbChoice = 5
     this.init()
 
@@ -129,7 +241,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRA (oneGuess) {
+  lessonKaiueo (oneGuess) {
+    this.title = 'katakana : a i u e o (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -145,7 +258,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRK (oneGuess) {
+  lessonHkakikukeko (oneGuess) {
+    this.title = 'hiragana : ka ki ku ke ko (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -161,7 +275,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRK (oneGuess) {
+  lessonKkakikukeko (oneGuess) {
+    this.title = 'katakana : kak ki ku ke ko (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -177,7 +292,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRS (oneGuess) {
+  lessonHsashisuseso (oneGuess) {
+    this.title = 'hiragana : sa shi su se so (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -193,7 +309,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRS (oneGuess) {
+  lessonKsashisuseso (oneGuess) {
+    this.title = 'katakana : sa shi su se so (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -209,7 +326,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRT (oneGuess) {
+  lessonHtachitsuteto (oneGuess) {
+    this.title = 'hiragana : ta chi tsu te to (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -223,7 +341,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRT (oneGuess) {
+  lessonKtachitsuteto (oneGuess) {
+    this.title = 'katakana : ta chi tsu te to (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -237,7 +356,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRN (oneGuess) {
+  hTolessonHnaninuneno (oneGuess) {
+    this.title = 'hiragana : na ni nu ne no (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -251,7 +371,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRN (oneGuess) {
+  hTolessonKnaninuneno (oneGuess) {
+    this.title = 'katakana : na ni nu ne no (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -265,7 +386,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRH (oneGuess) {
+  hTolessonHhahifuheho (oneGuess) {
+    this.title = 'hiragana : ha hi fu he ho (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -279,7 +401,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRH (oneGuess) {
+  hTolessonKhahifuheho (oneGuess) {
+    this.title = 'katakana : ha hi fu he ho (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -293,7 +416,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRM (oneGuess) {
+  hTolessonHmamimumemo (oneGuess) {
+    this.title = 'hiragana : ma mi mu me mo (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -307,7 +431,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRM (oneGuess) {
+  hTolessonKmamimumemo (oneGuess) {
+    this.title = 'katakana : ma mi mu me mo (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -321,7 +446,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRY (oneGuess) {
+  hTolessonHyayuyo (oneGuess) {
+    this.title = 'hiragana : ya yu yo (deviner le romanji)'
     this.nbChoice = 3
     this.init()
 
@@ -333,7 +459,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRY (oneGuess) {
+  hTolessonKyayuyo (oneGuess) {
+    this.title = 'katakana : ya yu yo (deviner le romanji)'
     this.nbChoice = 3
     this.init()
 
@@ -345,7 +472,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRR (oneGuess) {
+  hTolessonHrarirurero (oneGuess) {
+    this.title = 'hiragana : ra ri ru re ro (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -359,7 +487,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRR (oneGuess) {
+  hTolessonKrarirurero (oneGuess) {
+    this.title = 'katakana : ra ri ru re ro (deviner le romanji)'
     this.nbChoice = 5
     this.init()
 
@@ -373,7 +502,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  hToRW (oneGuess) {
+  hTolessonHwawon (oneGuess) {
+    this.title = 'hiragana : wa wo n (deviner le romanji)'
     this.nbChoice = 3
     this.init()
 
@@ -385,7 +515,8 @@ class Lesson {
     oneGuess.guessKana(this)
   }
 
-  kToRW (oneGuess) {
+  hTolessonKwawon (oneGuess) {
+    this.title = 'katakana : wa wo n (deviner le romanji)'
     this.nbChoice = 3
     this.init()
 

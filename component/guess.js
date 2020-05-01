@@ -66,8 +66,11 @@ class Guess {
   }
 
   guessKana (oneLesson) {
+    const info = document.getElementById('info')
     let kanaImg
     let specificImage = ''
+
+    info.innerText = oneLesson.title
 
     oneLesson.play++
 
@@ -97,7 +100,11 @@ class Guess {
       this.guessKana(oneLesson)
     } else {
       oneLesson.makePourcentage()
-      info.innerText = `success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
+      info.innerText += ` - success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
+      if (oneLesson.pourcentageReussite === 100) {
+        oneLesson.done = true
+        oneLesson.displayButtonLesson()
+      }
       oneLesson.stop()
     }
   }

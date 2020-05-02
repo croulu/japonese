@@ -21,8 +21,20 @@ function strReplaceAll (myString, stringToReplace, stringToUse) {
   return myString.replace(new RegExp(stringToReplace, 'g'), stringToUse)
 }
 
+function setStringWithoutCar (stringToReplace, car) {
+  const arrayString = stringToReplace.split(car)
+  let result = ''
+
+  for (let i = 0; i < arrayString.length; i++) {
+    result += arrayString[i]
+  }
+
+  return result
+}
+
 export {
   nextRandom,
   strUcFirst,
-  strReplaceAll
+  strReplaceAll,
+  setStringWithoutCar
 }

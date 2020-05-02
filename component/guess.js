@@ -5,10 +5,9 @@ import { Kana } from './kana.js'
 
 import { 
   strUcFirst,
-  nextRandom
+  nextRandom,
+  setStringWithoutCar
 } from '../js/helpers.js'
-
-
 
 const colorClear = '#B8B8B8'
 const colorTrue = '#16ca52'
@@ -110,9 +109,8 @@ class Guess {
       if (oneLesson.pourcentageReussite === 100) {
         oneLesson.done = true
 
-        localStorage.setItem(`oneLesson${strUcFirst(oneLesson.setCodeSimple(oneLesson.code))}Done`, oneLesson.done)
+        localStorage.setItem(`oneLesson${strUcFirst(setStringWithoutCar(oneLesson.code, '-'))}Done`, oneLesson.done)
         oneLesson.displayButtonLesson()
-        oneLesson.setActivateNextLesson(oneLesson.getIdCurrentLesson (oneLesson.code))
       }
       oneLesson.stop()
     }

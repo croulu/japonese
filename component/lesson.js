@@ -1,12 +1,12 @@
 import {} from '../index.js'
 
 import { Kana } from './kana.js'
-
 import { Guess } from './guess.js'
 
-import { 
+import {
   strUcFirst,
-  strReplaceAll
+  strReplaceAll,
+  setStringWithoutCar
 } from '../js/helpers.js'
 
 import  { 
@@ -79,27 +79,29 @@ class Lesson {
       // init done to false by default
       this.done = false
     }
-
   }
 
-  stop () {
-    this.kanaToStudy = []
-    this.play = 0
-    this.success = 0
-    this.pourcentageReussite = 0
-
-    this.disableChoice()
-  }
-
-  setCodeSimple (code) {
-    const arrayCode = code.split('-')
-    let codeSimple = ''
-
-    for (let i = 0; i < arrayCode.length; i++) {
-      codeSimple += arrayCode[i]
-    }
-
-    return codeSimple
+  setAllLesson () {
+    this.allLesson.push('h-a-i-u-e-o')
+    this.allLesson.push('h-ka-ki-ku-ke-ko')
+    this.allLesson.push('h-sa-shi-su-se-so')
+    this.allLesson.push('h-ta-chi-tsu-te-to')
+    this.allLesson.push('h-na-ni-nu-ne-no')
+    this.allLesson.push('h-ha-hi-fu-he-ho')
+    this.allLesson.push('h-ma-mi-mu-me-mo')
+    this.allLesson.push('h-ya-yu-yo')
+    this.allLesson.push('h-ra-ri-ru-re-ro')
+    this.allLesson.push('h-wa-wo-n')
+    this.allLesson.push('k-a-i-u-e-o')
+    this.allLesson.push('k-ka-ki-ku-ke-ko')
+    this.allLesson.push('k-sa-shi-su-se-so')
+    this.allLesson.push('k-ta-chi-tsu-te-to')
+    this.allLesson.push('k-na-ni-nu-ne-no')
+    this.allLesson.push('k-ha-hi-fu-he-ho')
+    this.allLesson.push('k-ma-mi-mu-me-mo')
+    this.allLesson.push('k-ya-yu-yo')
+    this.allLesson.push('k-ra-ri-ru-re-ro')
+    this.allLesson.push('k-wa-wo-n')
   }
 
   initPourcentage () {
@@ -110,6 +112,15 @@ class Lesson {
 
   makePourcentage () {
     this.pourcentageReussite = this.success / this.playAllowed * 100
+  }
+
+  stop () {
+    this.kanaToStudy = []
+    this.play = 0
+    this.success = 0
+    this.pourcentageReussite = 0
+
+    this.disableChoice()
   }
 
   writeChoice () {
@@ -169,42 +180,20 @@ class Lesson {
   }
 
   displayButtonLesson () {
-    let indexCurrentLesson = this.getIdCurrentLesson(this.code)
-
     this.setDisableAllLessons()
     this.setActivateLessons()
-
-    // this.setActivateCurrentLesson(indexCurrentLesson)
-    // if (this.done === true) {
-    //   this.setActivateNextLesson(indexCurrentLesson)
-    // }
-  }
-
-  getStatusCurrentLesson (code) {
-    const localStorageDoneName = `oneLesson${strUcFirst(this.setCodeSimple(code))}Done`
-    const statusLessonDoneInStorage = localStorage.getItem(localStorageDoneName)
-    return statusLessonDoneInStorage
-  }
-
-  getIdCurrentLesson (code) {
-    let indexCurrentLesson
-    for (let i = 0; i < this.allLesson.length; i++) {
-      if (this.allLesson[i] === code) {
-        indexCurrentLesson = i
-      }
-    }
-    return indexCurrentLesson
+    this.setActivateNextLesson()
   }
 
   setDisableAllLessons () {
     let myExpression = ''
-    let buttonName = 'btnToR'
+    const buttonName = 'btnToR'
     let lessonName = ''
-    let statusLessonDoneInStorage = ''
+    let statusLessonDoneInStorage
 
     for (let i = 0; i < this.allLesson.length; i++) {
       statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
-      
+
       lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
 
       myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'none'`
@@ -235,52 +224,38 @@ class Lesson {
     }
   }
 
-  setActivateCurrentLesson (indexCurrentLesson) {
-    let myExpression = ''
-    let buttonName = 'btnToR'
-    let lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson], '-', ''))
+  setActivateNextLesson () {
+    let statusLessonDoneInStorage = ''
+    let idLastLessonTrue
 
-    myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
-    eval(myExpression)
-  }
+    for (let i = 0; i < this.allLesson.length; i++) {
+      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
+      // info : localstorage is string
+      if (statusLessonDoneInStorage === 'true') {
+        idLastLessonTrue = i
+      }
+    }
 
-  setActivateNextLesson (indexCurrentLesson) {
-    let myExpression = ''
-    let buttonName = 'btnToR'
-    let lessonName = ''
-
-    if (indexCurrentLesson < this.allLesson.length) {
-      lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson + 1], '-', ''))
-
-      myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
-      eval(myExpression)
-
-      myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
-      eval(myExpression)
+    if (idLastLessonTrue + 1 < this.allLesson.length) {
+      this.setActivateCurrentLesson(idLastLessonTrue + 1)
     }
   }
 
-  setAllLesson () {
-    this.allLesson.push('h-a-i-u-e-o')
-    this.allLesson.push('h-ka-ki-ku-ke-ko')
-    this.allLesson.push('h-sa-shi-su-se-so')
-    this.allLesson.push('h-ta-chi-tsu-te-to')
-    this.allLesson.push('h-na-ni-nu-ne-no')
-    this.allLesson.push('h-ha-hi-fu-he-ho')
-    this.allLesson.push('h-ma-mi-mu-me-mo')
-    this.allLesson.push('h-ya-yu-yo')
-    this.allLesson.push('h-ra-ri-ru-re-ro')
-    this.allLesson.push('h-wa-wo-n')
-    this.allLesson.push('k-a-i-u-e-o')
-    this.allLesson.push('k-ka-ki-ku-ke-ko')
-    this.allLesson.push('k-sa-shi-su-se-so')
-    this.allLesson.push('k-ta-chi-tsu-te-to')
-    this.allLesson.push('k-na-ni-nu-ne-no')
-    this.allLesson.push('k-ha-hi-fu-he-ho')
-    this.allLesson.push('k-ma-mi-mu-me-mo')
-    this.allLesson.push('k-ya-yu-yo')
-    this.allLesson.push('k-ra-ri-ru-re-ro')
-    this.allLesson.push('k-wa-wo-n')
+  setActivateCurrentLesson (indexCurrentLesson) {
+    let myExpression = ''
+    const buttonName = 'btnToR'
+    const lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson], '-', ''))
+
+    myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
+    eval(myExpression)
+    myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
+    eval(myExpression)
+  }
+
+  getStatusCurrentLesson (code) {
+    const localStorageDoneName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Done`
+    const statusLessonDoneInStorage = localStorage.getItem(localStorageDoneName)
+    return statusLessonDoneInStorage
   }
 
   makeLesson () {

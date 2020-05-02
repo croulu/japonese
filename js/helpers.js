@@ -32,9 +32,31 @@ function setStringWithoutCar (stringToReplace, car) {
   return result
 }
 
+function randomize (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const random = Math.floor(Math.random() * arr.length);
+    [arr[i], arr[random]] = [arr[random], arr[i]]
+  }
+
+  return arr
+}
+
+function setStringWithArray (myArray, separator) {
+  let result = ''
+  for (let i = 0; i < myArray.length; i++) {
+    result += myArray[i]
+    if (i < myArray.length - 1) {
+      result += separator
+    }
+  }
+  return result
+}
+
 export {
   nextRandom,
   strUcFirst,
   strReplaceAll,
-  setStringWithoutCar
+  setStringWithoutCar,
+  randomize,
+  setStringWithArray
 }

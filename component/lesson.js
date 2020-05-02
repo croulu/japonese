@@ -13,11 +13,13 @@ import { Guess } from './guess.js'
 import {
   strUcFirst,
   strReplaceAll,
-  setStringWithoutCar
+  setStringWithoutCar,
+  setStringWithArray
 } from '../js/helpers.js'
 
 import {
   writeChoice,
+  writeChoiceMoreThanNbChoicePossible,
   disableChoice,
   enableChoice,
   deleteChoice,
@@ -158,6 +160,28 @@ class Lesson {
     }
   }
 
+  getAllLearnedHLessonsInString () {
+    let arrayResult = []
+    let statusLessonDoneInStorage
+    let arrayCode = []
+    let result = ''
+
+    for (let i = 0; i < this.allLesson.length; i++) {
+      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
+
+      if (statusLessonDoneInStorage === 'true') {
+        arrayCode = this.allLesson[i].split('-')
+        for (let i = 1; i < arrayCode.length; i++) {
+          arrayResult.push(arrayCode[i])
+        }
+      }
+    }
+    result = 'h-'
+    result += setStringWithArray(arrayResult, '-')
+
+    return result
+  }
+
   setActivateLessons () {
     let myExpression = ''
     let buttonName = 'btnToR'
@@ -238,6 +262,8 @@ class Lesson {
   }
 
   launchLesson (lessonText, oneGuess) {
+    let arrayToWrite = []
+
     this.code = lessonText
     this.setLessonTitle()
 
@@ -254,6 +280,14 @@ class Lesson {
     }
 
     oneGuess.init(this)
+
+    // write choice if number of kana to guess > of nb of choice
+    // need  oneGuess.init to display the true choice
+    if (this.kanaToStudy.length > 5) {
+      arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
+      oneGuess.writeChoiceTrueFalse(arrayToWrite)
+    }
+
     oneGuess.guessKana(this)
   }
 }

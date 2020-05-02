@@ -35,7 +35,7 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-btnAllKanaLearned.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o-ka-ki-ku-ke-ko', oneGuess))
+btnAllKanaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedHLessonsInString(), oneGuess))
 
 btnToRHaiueo.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o', oneGuess))
 btnToRKaiueo.addEventListener('click', () => oneLesson.launchLesson('k-a-i-u-e-o', oneGuess))

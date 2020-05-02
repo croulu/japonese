@@ -7,12 +7,52 @@ import {
   colorTextMenuOff
 } from '../index.js'
 
+import {
+  randomize, nextRandom
+} from './helpers.js'
+
 function writeChoice (nbChoice, kanaToStudy) {
   let myExpression = ''
   for (let i = 0; i < nbChoice; i++) {
     myExpression = `choice${i + 1}.innerText = '${kanaToStudy[i].letter}'`
     eval(myExpression)
   }
+}
+
+function writeChoiceMoreThanNbChoicePossible (nbChoice, kanaToStudy, iTrueKana) {
+  let myExpression = ''
+  let arrayToWrite = []
+  let indexNextRandom
+  let indexUsed = []
+
+  // the true kana
+  arrayToWrite.push(kanaToStudy[iTrueKana])
+  indexUsed.push(iTrueKana)
+
+  for (let j = 0; j < nbChoice - 1; j++) {
+    indexNextRandom = nextRandom(kanaToStudy.length)
+
+    // random int not selected twice
+    while (indexUsed.includes(indexNextRandom)) {
+      indexNextRandom = nextRandom(kanaToStudy.length)
+    }
+
+    // true kana not selected twice
+    while (indexNextRandom === iTrueKana) {
+      indexNextRandom = nextRandom(kanaToStudy.length)
+    }
+
+    indexUsed.push(indexNextRandom)
+    arrayToWrite.push(kanaToStudy[indexNextRandom])
+  }
+  arrayToWrite = randomize(arrayToWrite)
+
+  for (let i = 0; i < nbChoice; i++) {
+    myExpression = `choice${i + 1}.innerText = '${arrayToWrite[i].letter}'`
+    eval(myExpression)
+  }
+
+  return arrayToWrite
 }
 
 function disableChoice (nbChoice) {
@@ -76,6 +116,7 @@ function displayCorrectNumberOfChoice (nbChoice) {
 
 export {
   writeChoice,
+  writeChoiceMoreThanNbChoicePossible,
   disableChoice,
   enableChoice,
   deleteChoice,

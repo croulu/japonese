@@ -9,7 +9,8 @@ import imgKatakana from '../img/katakana/*.*'
 import { Kana } from './kana.js'
 
 import {
-  clearChoice
+  clearChoice,
+  writeChoiceMoreThanNbChoicePossible
 } from '../js/choice.js'
 
 import {
@@ -28,7 +29,7 @@ class Guess {
 
   init (oneLesson) {
     this.firstToGuess(oneLesson)
-    this.writeChoiceTrueFalse(oneLesson)
+    this.writeChoiceTrueFalse(oneLesson.kanaToStudy)
   }
 
   firstToGuess (oneLesson) {
@@ -36,9 +37,9 @@ class Guess {
     this.kana = oneLesson.kanaToStudy[nextRandomIndex]
   }
 
-  writeChoiceTrueFalse (oneLesson) {
-    for (let i = 0; i < oneLesson.nbChoice; i++) {
-      if (this.kana.letter === oneLesson.kanaToStudy[i].letter) {
+  writeChoiceTrueFalse (arrayKana) {
+    for (let i = 0; i < arrayKana.length; i++) {
+      if (this.kana.letter === arrayKana[i].letter) {
         this.choiceTrueIndex = i
       }
     }
@@ -94,16 +95,25 @@ class Guess {
   nextKana (oneLesson) {
     const info = document.getElementById('info')
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
+    let arrayToWrite = []
 
     if (oneLesson.play < oneLesson.playAllowed) {
       this.previousKana = this.kana
-      this.kana = oneLesson.kanaToStudy[nextRandomIndex]    
+      this.kana = oneLesson.kanaToStudy[nextRandomIndex]
       while (this.previousKana.letter === this.kana.letter) {
         nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
         this.kana = oneLesson.kanaToStudy[nextRandomIndex]
       }
-      this.writeChoiceTrueFalse(oneLesson)        
+      this.writeChoiceTrueFalse(oneLesson.kanaToStudy)
       clearChoice(oneLesson.nbChoice)
+
+      // write choice if number of kana to guess > of nb of choice
+      // need  oneGuess.init to display the true choice
+      if (oneLesson.kanaToStudy.length > 5) {
+        arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneLesson.nbChoice, oneLesson.kanaToStudy, this.choiceTrueIndex)
+        this.writeChoiceTrueFalse(arrayToWrite)
+      }
+
       this.guessKana(oneLesson)
 
     } else {

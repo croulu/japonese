@@ -1,3 +1,8 @@
+import {
+  colorTrueButton,
+  colorFalseButton
+} from '../index.js'
+
 import imgHiragana from '../img/hiragana/*.*'
 import imgKatakana from '../img/katakana/*.*'
 
@@ -8,10 +13,6 @@ import {
   nextRandom,
   setStringWithoutCar
 } from '../js/helpers.js'
-
-const colorClear = '#B8B8B8'
-const colorTrue = '#16ca52'
-const colorFalse = '#ca2716'
 
 class Guess {
   constructor () {
@@ -40,15 +41,13 @@ class Guess {
   }
 
   displayColorChoice (result) {
-    let colorChoice = ''
     let myExpression = ''
 
     if (result === true) {
-      colorChoice = 'colorTrue'
+      myExpression = `choice${this.choiceSelectedIndex + 1}.style.backgroundColor = '${colorTrueButton}'`
     } else {
-      colorChoice = 'colorFalse'
+      myExpression = `choice${this.choiceSelectedIndex + 1}.style.backgroundColor = '${colorFalseButton}'`
     }
-    myExpression = `choice${this.choiceSelectedIndex + 1}.style.backgroundColor = ${colorChoice}`
     eval(myExpression)
   }
 

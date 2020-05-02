@@ -112,13 +112,19 @@ div.scrollmenu {
 }
   
 div.scrollmenu a {
+    background-color: #e0762f;
     display: inline-block;
-    color: white;
+    color: #ffffff;
     text-align: center;
     padding: 14px;
     text-decoration: none;
+    pointer-events: auto;
 }
   
 div.scrollmenu a:hover {
     background-color: #9c581f;
+    border-radius: .5em;
 }
+
+
+

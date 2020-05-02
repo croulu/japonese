@@ -1,4 +1,11 @@
-import {} from '../index.js'
+import {
+  colorClearButton,
+  colorTrueButton,
+  colorFalseButton,
+  colorActivatedMenu,
+  colorTextMenuOn,
+  colorTextMenuOff
+} from '../index.js'
 
 import { Kana } from './kana.js'
 import { Guess } from './guess.js'
@@ -31,12 +38,6 @@ import  {
   btnToRHwawon,
   btnToRKwawon
 } from '../js/init.js'
-
-const colorClear = '#B8B8B8'
-const colorTrue = '#16ca52'
-const colorFalse = '#ca2716'
-
-const colorMenuActivated = '#e0762f'
 
 class Lesson {
   constructor () {
@@ -134,7 +135,7 @@ class Lesson {
   disableChoice () {
     let myExpression = ''
     for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
       eval(myExpression)
       myExpression = `choice${i + 1}.style.pointerEvents = 'none'`
       eval(myExpression)
@@ -144,7 +145,7 @@ class Lesson {
   enableChoice () {
     let myExpression = ''
     for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
       eval(myExpression)
       myExpression = `choice${i + 1}.style.pointerEvents = 'auto'`
       eval(myExpression)
@@ -174,7 +175,7 @@ class Lesson {
   clearChoice () {
     let myExpression = ''
     for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = colorClear`
+      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
       eval(myExpression)
     }
   }
@@ -198,8 +199,7 @@ class Lesson {
 
       myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'none'`
       eval(myExpression)
-
-      myExpression = `${buttonName}${lessonName}.style.background = colorClear`
+      myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOff}'`
       eval(myExpression)
     }
   }
@@ -218,9 +218,9 @@ class Lesson {
 
         myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
         eval(myExpression)
-        myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
+        myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOn}'`
         eval(myExpression)
-      }
+        }
     }
   }
 
@@ -248,9 +248,9 @@ class Lesson {
 
     myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
     eval(myExpression)
-    myExpression = `${buttonName}${lessonName}.style.background = colorMenuActivated`
+    myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOn}'`
     eval(myExpression)
-  }
+}
 
   getStatusCurrentLesson (code) {
     const localStorageDoneName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Done`

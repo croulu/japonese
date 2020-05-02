@@ -8,7 +8,11 @@ import imgKatakana from '../img/katakana/*.*'
 
 import { Kana } from './kana.js'
 
-import { 
+import {
+  clearChoice
+} from '../js/choice.js'
+
+import {
   strUcFirst,
   nextRandom,
   setStringWithoutCar
@@ -99,7 +103,7 @@ class Guess {
         this.kana = oneLesson.kanaToStudy[nextRandomIndex]
       }
       this.writeChoiceTrueFalse(oneLesson)        
-      oneLesson.clearChoice()
+      clearChoice(oneLesson.nbChoice)
       this.guessKana(oneLesson)
 
     } else {

@@ -6,6 +6,8 @@ const oneGuess = new Guess()
 
 oneLesson.setAllLesson()
 
+const btnAllKanaLearned = document.getElementById('btnAllKanaLearned')
+
 const btnToRHaiueo = document.getElementById('btnToRHaiueo')
 const btnToRKaiueo = document.getElementById('btnToRKaiueo')
 const btnToRHkakikukeko = document.getElementById('btnToRHkakikukeko')
@@ -32,6 +34,8 @@ const choice2 = document.getElementById('choice2')
 const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
+
+btnAllKanaLearned.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o-ka-ki-ku-ke-ko', oneGuess))
 
 btnToRHaiueo.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o', oneGuess))
 btnToRKaiueo.addEventListener('click', () => oneLesson.launchLesson('k-a-i-u-e-o', oneGuess))

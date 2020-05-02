@@ -16,6 +16,16 @@ import {
   setStringWithoutCar
 } from '../js/helpers.js'
 
+import {
+  writeChoice,
+  disableChoice,
+  enableChoice,
+  deleteChoice,
+  clearChoice,
+  eraseChoice,
+  displayCorrectNumberOfChoice
+} from '../js/choice.js'
+
 import  { 
   btnToRHaiueo,
   btnToRKaiueo,
@@ -68,10 +78,10 @@ class Lesson {
 
     this.initPourcentage()
 
-    this.deleteChoice()
-    this.clearChoice()
-    this.enableChoice()
-    this.displayCorrectNumberOfChoice()
+    deleteChoice(this.nbChoice)
+    clearChoice(this.nbChoice)
+    enableChoice(this.nbChoice)
+    displayCorrectNumberOfChoice(this.nbChoice)
 
     if (statusLessonDoneInStorage === 'true') {
       // lesson is done, keep it done
@@ -121,63 +131,7 @@ class Lesson {
     this.success = 0
     this.pourcentageReussite = 0
 
-    this.disableChoice()
-  }
-
-  writeChoice () {
-    let myExpression = ''
-    for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.innerText = '${this.kanaToStudy[i].letter}'`
-      eval(myExpression)
-    }
-  }
-
-  disableChoice () {
-    let myExpression = ''
-    for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
-      eval(myExpression)
-      myExpression = `choice${i + 1}.style.pointerEvents = 'none'`
-      eval(myExpression)
-    }
-  }
-
-  enableChoice () {
-    let myExpression = ''
-    for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
-      eval(myExpression)
-      myExpression = `choice${i + 1}.style.pointerEvents = 'auto'`
-      eval(myExpression)
-    }
-  }
-
-  deleteChoice () {
-    let myExpression = ''
-    for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.display = 'none'`
-      eval(myExpression)
-    }
-  }
-
-  displayCorrectNumberOfChoice () {
-    let myExpression = ''
-    for (let i = 5; i > 0; i--) {
-      if (i > this.nbChoice) {
-        myExpression = `choice${i}.style.display = 'none'`
-      } else {
-        myExpression = `choice${i}.style.display = 'block'`
-      }
-      eval(myExpression)
-    }
-  }
-
-  clearChoice () {
-    let myExpression = ''
-    for (let i = 0; i < this.nbChoice; i++) {
-      myExpression = `choice${i + 1}.style.backgroundColor = '${colorClearButton}'`
-      eval(myExpression)
-    }
+    disableChoice(this.nbChoice)
   }
 
   displayButtonLesson () {
@@ -220,7 +174,7 @@ class Lesson {
         eval(myExpression)
         myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOn}'`
         eval(myExpression)
-        }
+      }
     }
   }
 
@@ -293,7 +247,11 @@ class Lesson {
     this.displayButtonLesson()
 
     this.makeLesson()
-    this.writeChoice()
+    if (this.kanaToStudy.length <= 5) {
+      writeChoice(this.nbChoice, this.kanaToStudy)
+    } else {
+      eraseChoice(this.nbChoice, this.kanaToStudy)
+    }
 
     oneGuess.init(this)
     oneGuess.guessKana(this)

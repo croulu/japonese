@@ -160,7 +160,7 @@ class Lesson {
     }
   }
 
-  getAllLearnedHLessonsInString () {
+  getAllLearnedLessonsInString (kana) {
     let arrayResult = []
     let statusLessonDoneInStorage
     let arrayCode = []
@@ -171,13 +171,18 @@ class Lesson {
 
       if (statusLessonDoneInStorage === 'true') {
         arrayCode = this.allLesson[i].split('-')
-        for (let i = 1; i < arrayCode.length; i++) {
-          arrayResult.push(arrayCode[i])
+        if (arrayCode[0] === kana) {
+          for (let i = 1; i < arrayCode.length; i++) {
+            arrayResult.push(arrayCode[i])
+          }
         }
       }
     }
-    result = 'h-'
-    result += setStringWithArray(arrayResult, '-')
+
+    if (arrayResult.length > 0) {
+      result = kana + '-'
+      result += setStringWithArray(arrayResult, '-')
+    }
 
     return result
   }
@@ -262,6 +267,8 @@ class Lesson {
   }
 
   launchLesson (lessonText, oneGuess) {
+    const info = document.getElementById('info')
+
     let arrayToWrite = []
 
     this.code = lessonText
@@ -270,25 +277,32 @@ class Lesson {
     this.nbChoice = 5
     this.init()
 
+    this.makeLesson()
+
     this.displayButtonLesson()
 
-    this.makeLesson()
-    if (this.kanaToStudy.length <= 5) {
-      writeChoice(this.nbChoice, this.kanaToStudy)
+    if (this.kanaToStudy.length > 0) {
+      if (this.kanaToStudy.length <= 5) {
+        writeChoice(this.nbChoice, this.kanaToStudy)
+      } else {
+        eraseChoice(this.nbChoice, this.kanaToStudy)
+      }
+
+      oneGuess.init(this)
+
+      // write choice if number of kana to guess > of nb of choice
+      // need  oneGuess.init to display the true choice
+      if (this.kanaToStudy.length > 5) {
+        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
+        oneGuess.writeChoiceTrueFalse(arrayToWrite)
+      }
+
+      oneGuess.guessKana(this)
     } else {
-      eraseChoice(this.nbChoice, this.kanaToStudy)
+      // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
+      deleteChoice(this.nbChoice)
+      info.innerText = 'pas de kana à étudier !'
     }
-
-    oneGuess.init(this)
-
-    // write choice if number of kana to guess > of nb of choice
-    // need  oneGuess.init to display the true choice
-    if (this.kanaToStudy.length > 5) {
-      arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
-      oneGuess.writeChoiceTrueFalse(arrayToWrite)
-    }
-
-    oneGuess.guessKana(this)
   }
 }
 

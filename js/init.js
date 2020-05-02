@@ -6,7 +6,8 @@ const oneGuess = new Guess()
 
 oneLesson.setAllLesson()
 
-const btnAllKanaLearned = document.getElementById('btnAllKanaLearned')
+const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
+const btnAllKatakanaLearned = document.getElementById('btnAllKatakanaLearned')
 
 const btnToRHaiueo = document.getElementById('btnToRHaiueo')
 const btnToRKaiueo = document.getElementById('btnToRKaiueo')
@@ -35,7 +36,8 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-btnAllKanaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedHLessonsInString(), oneGuess))
+btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
+btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
 btnToRHaiueo.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o', oneGuess))
 btnToRKaiueo.addEventListener('click', () => oneLesson.launchLesson('k-a-i-u-e-o', oneGuess))

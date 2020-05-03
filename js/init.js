@@ -1,10 +1,28 @@
 import { Lesson } from '../component/lesson.js'
 import { Guess } from '../component/guess.js'
 
+import {
+  setStatusLessonInStorage
+} from '../js/helpers.js'
+
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
 oneLesson.setAllLesson()
+
+if (oneLesson.getNbTrueLessons() === 0) {
+  setInitLessons()
+}
+
+function setInitLessons () {
+  let arrayInitLesson = []
+  arrayInitLesson.push('h-a-i-u-e-o')
+  arrayInitLesson.push('k-a-i-u-e-o')
+
+  for (let i = 0; i < arrayInitLesson.length; i++) {
+    setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
+  }
+}
 
 const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
 const btnAllKatakanaLearned = document.getElementById('btnAllKatakanaLearned')

@@ -1,3 +1,13 @@
+
+import {
+  colorClearButton,
+  colorTrueButton,
+  colorFalseButton,
+  colorActivatedMenu,
+  colorTextMenuOn,
+  colorTextMenuOff
+} from '../index.js'
+
 function nextRandom (number) {
   const iRandom = getRandomInt(number)
   return iRandom
@@ -52,11 +62,44 @@ function setStringWithArray (myArray, separator) {
   return result
 }
 
+function getStatusLessonInStorage (code) {
+  const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
+  const statusInStorage = localStorage.getItem(localStorageName)
+  return statusInStorage
+}
+
+function setStatusLessonInStorage (code, status) {
+  const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
+  localStorage.setItem(localStorageName, status)
+}
+
+function disableButton (name) {
+  let myExpression = ''
+
+  myExpression = `${name}.style.pointerEvents = 'none'`
+  eval(myExpression)
+  myExpression = `${name}.style.color = '${colorTextMenuOff}'`
+  eval(myExpression)
+}
+
+function enableButton (name) {
+  let myExpression = ''
+
+  myExpression = `${name}.style.pointerEvents = 'auto'`
+  eval(myExpression)
+  myExpression = `${name}.style.color = '${colorTextMenuOn}'`
+  eval(myExpression)
+}
+
 export {
   nextRandom,
   strUcFirst,
   strReplaceAll,
   setStringWithoutCar,
   randomize,
-  setStringWithArray
+  setStringWithArray,
+  getStatusLessonInStorage,
+  setStatusLessonInStorage,
+  disableButton,
+  enableButton
 }

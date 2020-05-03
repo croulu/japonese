@@ -14,9 +14,8 @@ import {
 } from '../js/choice.js'
 
 import {
-  strUcFirst,
   nextRandom,
-  setStringWithoutCar
+  setStatusLessonInStorage
 } from '../js/helpers.js'
 
 class Guess {
@@ -96,6 +95,8 @@ class Guess {
     const info = document.getElementById('info')
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
+    let indexLesson
+    let nextLesson = ''
 
     if (oneLesson.play < oneLesson.playAllowed) {
       this.previousKana = this.kana
@@ -120,9 +121,13 @@ class Guess {
       oneLesson.makePourcentage()
       info.innerText += ` - success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
       if (oneLesson.pourcentageReussite === 100) {
-        oneLesson.done = true
+        oneLesson.status = 'done'
+        setStatusLessonInStorage(oneLesson.code, oneLesson.status)
 
-        localStorage.setItem(`oneLesson${strUcFirst(setStringWithoutCar(oneLesson.code, '-'))}Done`, oneLesson.done)
+        indexLesson = oneLesson.getIndexLesson(oneLesson.code)
+        nextLesson = oneLesson.getNextLesson(indexLesson)
+        setStatusLessonInStorage(nextLesson, 'inprogress')
+
         oneLesson.displayButtonLesson()
       }
       oneLesson.stop()

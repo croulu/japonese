@@ -13,8 +13,10 @@ import { Guess } from './guess.js'
 import {
   strUcFirst,
   strReplaceAll,
-  setStringWithoutCar,
-  setStringWithArray
+  setStringWithArray,
+  getStatusLessonInStorage,
+  disableButton,
+  enableButton
 } from '../js/helpers.js'
 
 import {
@@ -61,14 +63,14 @@ class Lesson {
     this.playAllowed = 10
     this.success = 0
     this.pourcentageReussite = 0
-    this.done = false
+    this.status = 'todo'
     this.allLesson = []
   }
 
   init () {
     let kanaImg = document.getElementById('kanaImg')
     let info = document.getElementById('info')
-    const statusLessonDoneInStorage = this.getStatusCurrentLesson(this.code)
+    const statusLessonInStorage = getStatusLessonInStorage(this.code)
 
     kanaImg.setAttribute('src', '')
     info.innerText = ''
@@ -80,18 +82,18 @@ class Lesson {
 
     this.initPourcentage()
 
+    if (statusLessonInStorage !== '') {
+      this.status = statusLessonInStorage
+    } else {
+      this.status = 'todo'
+    }
+
     deleteChoice(this.nbChoice)
     clearChoice(this.nbChoice)
     enableChoice(this.nbChoice)
     displayCorrectNumberOfChoice(this.nbChoice)
 
-    if (statusLessonDoneInStorage === 'true') {
-      // lesson is done, keep it done
-      this.done = true
-    } else {
-      // init done to false by default
-      this.done = false
-    }
+    this.displayButtonLesson()
   }
 
   setAllLesson () {
@@ -117,6 +119,22 @@ class Lesson {
     this.allLesson.push('k-wa-wo-n')
   }
 
+  getIndexLesson (code) {
+    for (let i = 0; i < this.allLesson.length; i++) {
+      if (this.allLesson[i] === code) {
+        return i
+      }
+    }
+  }
+
+  getNextLesson (i) {
+    let code = ''
+    if (i < this.allLesson.length) {
+      code = this.allLesson[i + 1]
+    }
+    return code
+  }
+
   initPourcentage () {
     this.play = 0
     this.success = 0
@@ -139,43 +157,53 @@ class Lesson {
   displayButtonLesson () {
     this.setDisableAllLessons()
     this.setActivateLessons()
-    this.setActivateNextLesson()
   }
 
   setDisableAllLessons () {
-    let myExpression = ''
-    const buttonName = 'btnToR'
+    let btnName = ''
     let lessonName = ''
-    let statusLessonDoneInStorage
 
     for (let i = 0; i < this.allLesson.length; i++) {
-      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
-
       lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
+      btnName = `btnToR${lessonName}`
+      disableButton(btnName)
+    }
+  }
 
-      myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'none'`
-      eval(myExpression)
-      myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOff}'`
-      eval(myExpression)
+  setActivateLessons () {
+    let btnName = ''
+    let lessonName = ''
+    let statusLessonInStorage = ''
+
+    for (let i = 0; i < this.allLesson.length; i++) {
+      statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
+
+      if (statusLessonInStorage === 'done' || statusLessonInStorage === 'inprogress') {
+        lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
+        btnName = `btnToR${lessonName}`
+        enableButton(btnName)
+      }
     }
   }
 
   getAllLearnedLessonsInString (kana) {
     let arrayResult = []
-    let statusLessonDoneInStorage
+    let statusLessonInStorage
     let arrayCode = []
     let result = ''
 
     for (let i = 0; i < this.allLesson.length; i++) {
-      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
+      statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
 
-      if (statusLessonDoneInStorage === 'true') {
+      if (statusLessonInStorage === 'done') {
         arrayCode = this.allLesson[i].split('-')
         if (arrayCode[0] === kana) {
           for (let i = 1; i < arrayCode.length; i++) {
             arrayResult.push(arrayCode[i])
           }
         }
+      } else {
+        // todo or inprogress
       }
     }
 
@@ -187,58 +215,17 @@ class Lesson {
     return result
   }
 
-  setActivateLessons () {
-    let myExpression = ''
-    let buttonName = 'btnToR'
-    let lessonName = ''
-    let statusLessonDoneInStorage = ''
+  getNbTrueLessons () {
+    let statusLessonInStorage = ''
+    let nbTrueLesson = 0
 
     for (let i = 0; i < this.allLesson.length; i++) {
-      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
-      // info : localstorage is string
-      if (statusLessonDoneInStorage === 'true') {
-        lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
-
-        myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
-        eval(myExpression)
-        myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOn}'`
-        eval(myExpression)
+      statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
+      if (statusLessonInStorage === 'true') {
+        nbTrueLesson++
       }
     }
-  }
-
-  setActivateNextLesson () {
-    let statusLessonDoneInStorage = ''
-    let idLastLessonTrue
-
-    for (let i = 0; i < this.allLesson.length; i++) {
-      statusLessonDoneInStorage = this.getStatusCurrentLesson(this.allLesson[i])
-      // info : localstorage is string
-      if (statusLessonDoneInStorage === 'true') {
-        idLastLessonTrue = i
-      }
-    }
-
-    if (idLastLessonTrue + 1 < this.allLesson.length) {
-      this.setActivateCurrentLesson(idLastLessonTrue + 1)
-    }
-  }
-
-  setActivateCurrentLesson (indexCurrentLesson) {
-    let myExpression = ''
-    const buttonName = 'btnToR'
-    const lessonName = strUcFirst(strReplaceAll(this.allLesson[indexCurrentLesson], '-', ''))
-
-    myExpression = `${buttonName}${lessonName}.style.pointerEvents = 'auto'`
-    eval(myExpression)
-    myExpression = `${buttonName}${lessonName}.style.color = '${colorTextMenuOn}'`
-    eval(myExpression)
-}
-
-  getStatusCurrentLesson (code) {
-    const localStorageDoneName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Done`
-    const statusLessonDoneInStorage = localStorage.getItem(localStorageDoneName)
-    return statusLessonDoneInStorage
+    return nbTrueLesson
   }
 
   makeLesson () {

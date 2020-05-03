@@ -1,7 +1,7 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
-import {} from './js/menu.js'
+import { displayScreenHomePage } from './js/menu.js'
 import { oneLesson } from './js/init.js'
 
 const colorClearButton = '#B8B8B8'
@@ -13,6 +13,8 @@ const colorTextMenuOn = '#FFFFFF'
 const colorTextMenuOff = '#000000'
 
 oneLesson.displayButtonLesson()
+
+displayScreenHomePage()
 
 export {
   colorClearButton,

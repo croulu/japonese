@@ -1,32 +1,58 @@
-const btnHiragana = document.getElementById('btnAlphabetHiragana')
-const btnKatakana = document.getElementById('btnAlphabetKatakana')
-const btnRomanji = document.getElementById('btnRomanji')
-const alphabetHiragana = document.getElementById('divAlphabetHiragana')
-const alphabetKatakana = document.getElementById('divAlphabetKatakna')
 
-btnHiragana.onclick = displayAlphabetHiragana
-btnKatakana.onclick = displayAlphabetKatakana
-btnRomanji.onclick = displayRomanji
+const divKanaMenu = document.getElementById('divKanaMenu')
+const divBackMenu = document.getElementById('divBackMenu')
+const divAlphabetRomanji = document.getElementById('divAlphabetRomanji')
 
-alphabetHiragana.style.display = 'none'
-alphabetKatakana.style.display = 'none'
+const divAlphabetHiragana1 = document.getElementById('divAlphabetHiragana1')
+const divAlphabetHiragana2 = document.getElementById('divAlphabetHiragana2')
+
+const divAlphabetKatakana1 = document.getElementById('divAlphabetKatakana1')
+const divAlphabetKatakana2 = document.getElementById('divAlphabetKatakana2')
+
+const divGuess = document.getElementById('divGuess')
+
+function displayScreenLesson () {
+  divKanaMenu.style.display = 'none'
+  divBackMenu.style.display = 'block'
+  divAlphabetRomanji.style.display = 'none'
+  divAlphabetHiragana1.style.display = 'none'
+  divAlphabetHiragana2.style.display = 'none'
+  divAlphabetKatakana1.style.display = 'none'
+  divAlphabetKatakana2.style.display = 'none'
+  divGuess.style.display = 'block'
+}
+
+function displayScreenHomePage () {
+  divKanaMenu.style.display = 'block'
+  divBackMenu.style.display = 'none'
+  divAlphabetRomanji.style.display = 'none'
+  divAlphabetHiragana1.style.display = 'kana'
+  divAlphabetHiragana2.style.display = 'alphabet'
+  divAlphabetKatakana1.style.display = 'kana'
+  divAlphabetKatakana2.style.display = 'alphabet'
+  divGuess.style.display = 'none'
+}
 
 function displayAlphabetHiragana () {
-  if (getComputedStyle(alphabetHiragana).display !== 'none') {
-    alphabetHiragana.style.display = 'none'
-  } else {
-    alphabetHiragana.style.display = 'block'
-    alphabetHiragana.style = 'alphabet'
-  }
+  divKanaMenu.style.display = 'none'
+  divBackMenu.style.display = 'block'
+  divAlphabetRomanji.style.display = 'block'
+  divAlphabetHiragana1.style.display = 'kana'
+  divAlphabetHiragana2.style.display = 'alphabet'
+  divAlphabetKatakana1.style.display = 'none'
+  divAlphabetKatakana2.style.display = 'none'
+  divGuess.style.display = 'none'
 }
 
 function displayAlphabetKatakana () {
-  if (getComputedStyle(alphabetKatakana).display !== 'none') {
-    alphabetKatakana.style.display = 'none'
-  } else {
-    alphabetKatakana.style.display = 'block'
-    alphabetKatakana.style = 'alphabet'
-  }
+  divKanaMenu.style.display = 'none'
+  divBackMenu.style.display = 'block'
+  divAlphabetRomanji.style.display = 'block'
+  divAlphabetHiragana1.style.display = 'none'
+  divAlphabetHiragana2.style.display = 'none'
+  divAlphabetKatakana1.style.display = 'kana'
+  divAlphabetKatakana2.style.display = 'alphabet'
+  divGuess.style.display = 'none'
 }
 
 function displayRomanji () {
@@ -164,4 +190,12 @@ function displayRomanji () {
     romanjiKCw.innerHTML = 'w'
     romanjiKCnn.innerHTML = '-'
   }
+}
+
+export {
+  displayScreenLesson,
+  displayScreenHomePage,
+  displayAlphabetHiragana,
+  displayAlphabetKatakana,
+  displayRomanji
 }

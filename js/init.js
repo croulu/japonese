@@ -2,27 +2,23 @@ import { Lesson } from '../component/lesson.js'
 import { Guess } from '../component/guess.js'
 
 import {
+  displayAlphabetHiragana,
+  displayAlphabetKatakana,
+  displayScreenHomePage,
+  displayRomanji
+} from './menu.js'
+
+import {
   setStatusLessonInStorage
-} from '../js/helpers.js'
+} from './helpers.js'
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
-oneLesson.setAllLesson()
-
-if (oneLesson.getNbTrueLessons() === 0) {
-  setInitLessons()
-}
-
-function setInitLessons () {
-  let arrayInitLesson = []
-  arrayInitLesson.push('h-a-i-u-e-o')
-  arrayInitLesson.push('k-a-i-u-e-o')
-
-  for (let i = 0; i < arrayInitLesson.length; i++) {
-    setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
-  }
-}
+const btnAlphabetHiragana = document.getElementById('btnAlphabetHiragana')
+const btnAlphabetKatakana = document.getElementById('btnAlphabetKatakana')
+const btnBackMenu = document.getElementById('btnBackMenu')
+const btnRomanji = document.getElementById('btnRomanji')
 
 const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
 const btnAllKatakanaLearned = document.getElementById('btnAllKatakanaLearned')
@@ -53,6 +49,28 @@ const choice2 = document.getElementById('choice2')
 const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
+
+oneLesson.setAllLesson()
+
+if (oneLesson.getNbTrueLessons() === 0) {
+  setInitLessons()
+}
+
+function setInitLessons () {
+  let arrayInitLesson = []
+  arrayInitLesson.push('h-a-i-u-e-o')
+  arrayInitLesson.push('k-a-i-u-e-o')
+
+  for (let i = 0; i < arrayInitLesson.length; i++) {
+    setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
+  }
+}
+
+btnAlphabetHiragana.addEventListener('click', () => displayAlphabetHiragana())
+btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())
+
+btnBackMenu.addEventListener('click', () => displayScreenHomePage())
+btnRomanji.addEventListener('click', () => displayRomanji())
 
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
@@ -86,25 +104,5 @@ choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson))
 
 export {
   oneLesson,
-  oneGuess,
-  btnToRHaiueo,
-  btnToRKaiueo,
-  btnToRHkakikukeko,
-  btnToRKkakikukeko,
-  btnToRHsashisuseso,
-  btnToRKsashisuseso,
-  btnToRHtachitsuteto,
-  btnToRKtachitsuteto,
-  btnToRHnaninuneno,
-  btnToRKnaninuneno,
-  btnToRHhahifuheho,
-  btnToRKhahifuheho,
-  btnToRHmamimumemo,
-  btnToRKmamimumemo,
-  btnToRHyayuyo,
-  btnToRKyayuyo,
-  btnToRHrarirurero,
-  btnToRKrarirurero,
-  btnToRHwawon,
-  btnToRKwawon
+  oneGuess
 }

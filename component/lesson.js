@@ -11,6 +11,10 @@ import { Kana } from './kana.js'
 import { Guess } from './guess.js'
 
 import {
+  displayScreenLesson
+} from '../js/menu.js'
+
+import {
   strUcFirst,
   strReplaceAll,
   setStringWithArray,
@@ -29,29 +33,6 @@ import {
   eraseChoice,
   displayCorrectNumberOfChoice
 } from '../js/choice.js'
-
-import  { 
-  btnToRHaiueo,
-  btnToRKaiueo,
-  btnToRHkakikukeko,
-  btnToRKkakikukeko,
-  btnToRHsashisuseso,
-  btnToRKsashisuseso,
-  btnToRHtachitsuteto,
-  btnToRKtachitsuteto,
-  btnToRHnaninuneno,
-  btnToRKnaninuneno,
-  btnToRHhahifuheho,
-  btnToRKhahifuheho,
-  btnToRHmamimumemo,
-  btnToRKmamimumemo,
-  btnToRHyayuyo,
-  btnToRKyayuyo,
-  btnToRHrarirurero,
-  btnToRKrarirurero,
-  btnToRHwawon,
-  btnToRKwawon
-} from '../js/init.js'
 
 class Lesson {
   constructor () {
@@ -202,8 +183,6 @@ class Lesson {
             arrayResult.push(arrayCode[i])
           }
         }
-      } else {
-        // todo or inprogress
       }
     }
 
@@ -258,6 +237,10 @@ class Lesson {
 
     let arrayToWrite = []
 
+    // display screen of the lesson
+    displayScreenLesson()
+
+    // prepare lesson
     this.code = lessonText
     this.setLessonTitle()
 
@@ -266,8 +249,7 @@ class Lesson {
 
     this.makeLesson()
 
-    this.displayButtonLesson()
-
+    // launch lesson
     if (this.kanaToStudy.length > 0) {
       if (this.kanaToStudy.length <= 5) {
         writeChoice(this.nbChoice, this.kanaToStudy)

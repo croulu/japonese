@@ -8,21 +8,49 @@
 	<script defer type="module" src="js/menu.js"></script>	
 </head>
 <body>
-    <div class="kana">
-		<div class="title">Learn japanese</div>
+		<div id="divKanaMenu">
+			<div class="title">Learn japanese</div>
 
-		<div id="menuAlphabet" class="scrollmenu">
-			<a id="btnAlphabetHiragana">hiragana</a>
-			<a id="btnAlphabetKatakana">katakana</a>
-			<a id="btnRomanji">romanji</a>
-		</div>
+			<div id="menuAlphabet" class="scrollmenu">
+				<a id="btnAlphabetHiragana">hiragana</a>
+				<a id="btnAlphabetKatakana">katakana</a>
+			</div>
 
-		<div id="menuAlphabet" class="scrollmenu">
-			<a id="btnAllHiraganaLearned">Tous les hiragana appris</a>
-			<a id="btnAllKatakanaLearned">Tous les katakana appris</a>
-		  </div>
+			<div id="menuAlphabetAll" class="scrollmenu">
+				<a id="btnAllHiraganaLearned">Tous les hiragana appris</a>
+				<a id="btnAllKatakanaLearned">Tous les katakana appris</a>
+			</div>
 
-		  <div id="menuKana" class="scrollmenu">
+			<div class="subTitle" id ="titleMenuGuessKana">Deviner les kana</div>
+
+			<div id="menuGuessKanaHiragana" class="scrollmenu">
+				<a id="btnToKHaiueo">h: a i u e o</a>
+				<a id="btnToKHkakikukeko">h: ka ki ku ke ko</a>
+				<a id="btnToKHsashisuseso">h: sa shi su se so</a>
+				<a id="btnToKHtachitsuteto">h: ta chi tsu te to</a>
+				<a id="btnToKHnaninuneno">h: na ni nu ne no</a>
+				<a id="btnToKHhahifuheho">h: ha hi fu he ho</a>
+				<a id="btnToKHmamimumemo">h: ma mi mu me mo</a>
+				<a id="btnToKHyayuyo">h: ya yu yo</a>
+				<a id="btnToKHrarirurero">h: ra ri ru re ro</a>
+				<a id="btnToKHwawon">h: wa wo n</a>
+			</div>
+			<div id="menuGuessKanaKatakana" class="scrollmenu">
+				<a id="btnToKKaiueo">k: a i u e o</a>
+				<a id="btnToKKkakikukeko">k: ka ki ku ke ko</a>
+				<a id="btnToKKsashisuseso">k: sa shi su se so</a>
+				<a id="btnToKKtachitsuteto">k: ta chi tsu te to</a>
+				<a id="btnToKKnaninuneno">k: na ni nu ne no</a>
+				<a id="btnToKKhahifuheho">k: ha hi fu he ho</a>
+				<a id="btnToKKmamimumemo">k: ma mi mu me mo</a>
+				<a id="btnToKKyayuyo">k: ya yu yo</a>
+				<a id="btnToKKrarirurero">k: ra ri ru re ro</a>
+				<a id="btnToKKwawon">k: wa wo n</a>
+			</div>
+
+			<div class="subTitle" id="titleMenuGuessRomanji">Deviner les romanji</div>
+
+			<div id="menuGuessRomanjiHiragana" class="scrollmenu">
 			<a id="btnToRHaiueo">h: a i u e o</a>
 			<a id="btnToRHkakikukeko">h: ka ki ku ke ko</a>
 			<a id="btnToRHsashisuseso">h: sa shi su se so</a>
@@ -35,20 +63,30 @@
 			<a id="btnToRHwawon">h: wa wo n</a>
 		</div>
 
-		<div id="menuKana" class="scrollmenu">
-			<a id="btnToRKaiueo">k: a i u e o</a>
-			<a id="btnToRKkakikukeko">k: ka ki ku ke ko</a>
-			<a id="btnToRKsashisuseso">k: sa shi su se so</a>
-			<a id="btnToRKtachitsuteto">k: ta chi tsu te to</a>
-			<a id="btnToRKnaninuneno">k: na ni nu ne no</a>
-			<a id="btnToRKhahifuheho">k: ha hi fu he ho</a>
-			<a id="btnToRKmamimumemo">k: ma mi mu me mo</a>
-			<a id="btnToRKyayuyo">k: ya yu yo</a>
-			<a id="btnToRKrarirurero">k: ra ri ru re ro</a>
-			<a id="btnToRKwawon">k: wa wo n</a>
+		<div id="menuGuessRomanjiHiragana" class="scrollmenu">
+				<a id="btnToRKaiueo">k: a i u e o</a>
+				<a id="btnToRKkakikukeko">k: ka ki ku ke ko</a>
+				<a id="btnToRKsashisuseso">k: sa shi su se so</a>
+				<a id="btnToRKtachitsuteto">k: ta chi tsu te to</a>
+				<a id="btnToRKnaninuneno">k: na ni nu ne no</a>
+				<a id="btnToRKhahifuheho">k: ha hi fu he ho</a>
+				<a id="btnToRKmamimumemo">k: ma mi mu me mo</a>
+				<a id="btnToRKyayuyo">k: ya yu yo</a>
+				<a id="btnToRKrarirurero">k: ra ri ru re ro</a>
+				<a id="btnToRKwawon">k: wa wo n</a>
+		</div>
 		</div>
 
-		<div id="divAlphabetHiragana" class="alphabet">
+		<div class="back" id="divBackMenu">
+			<a id="btnBackMenu">Back to Menu</a>
+		</div>
+
+		<div class="scrollmenu" id="divAlphabetRomanji">
+			<a id="btnRomanji">romanji</a>
+		</div>
+
+	<div class="kana" id="divAlphabetHiragana1">
+		<div class="alphabet" id="divAlphabetHiragana2">
 			<div></div>
 			<div id="r-h-a">a</div>
 			<div id="r-h-i">i</div>
@@ -118,8 +156,10 @@
 			<div id="r-h-cnn">-</div>
 			<div data-key="h-n"><img src="img/hiragana/n.png" id="h-n"></div>
 		</div>
+	</div>
 
-		<div id="divAlphabetKatakna" class="alphabet">
+    <div class="kana" id="divAlphabetKatakana1">
+        <div class="alphabet" id="divAlphabetKatakana2">
 			<div></div>
 			<div id="r-k-a">a</div>
 			<div id="r-k-i">i</div>
@@ -187,21 +227,24 @@
 			<div></div>
 			<div data-key="k-wo"><img src="img/katakana/wo.png" id="k-wo"></div>
 			<div id="r-k-cnn">-</div>
-			<div data-key="k-n"><img src="img/katakana/n.png" id="k-n"></div>
-		</div>
+			<div data-key="k-n"><img src="img/katakana/n.png" id="k-n"></div>			
+        </div>
+    </div>
 
-		<div id="info" class="info"></div>
+		<div id="divGuess">
+			<div id="info" class="info"></div>
 
-		<div class="kanaImg"><img id="kanaImg" src=""></div>
-	
-		<div class="choice">
-			<div id="choice1" data-key=""></div>
-			<div id="choice2" data-key=""></div>
-			<div id="choice3" data-key=""></div>
-			<div id="choice4" data-key=""></div>
-			<div id="choice5" data-key=""></div>
+			<div class="kanaImg"><img id="kanaImg" src=""></div>
+			<div class="kanaRomanji"></div>
+		
+			<div class="choice">
+				<div id="choice1" data-key=""></div>
+				<div id="choice2" data-key=""></div>
+				<div id="choice3" data-key=""></div>
+				<div id="choice4" data-key=""></div>
+				<div id="choice5" data-key=""></div>
+			</div>
 		</div>
-	</div>
 
 </body>
 </html>

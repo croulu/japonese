@@ -263,7 +263,8 @@ class Lesson {
       // write choice if number of kana to guess > of nb of choice
       // need  oneGuess.init to display the true choice
       if (this.kanaToStudy.length > 5) {
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
+        arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
+
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
       }
 

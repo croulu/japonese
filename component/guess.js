@@ -87,8 +87,6 @@ class Guess {
     let romanji
     let specificImage = ''
 
-    console.log(this.guessWhat)
-
     info.innerText = oneLesson.title
 
     oneLesson.play++

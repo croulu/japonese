@@ -11,7 +11,8 @@ import { Kana } from './kana.js'
 import { Guess } from './guess.js'
 
 import {
-  displayScreenLesson
+  displayScreenLesson,
+  displayWhatToGuess
 } from '../js/menu.js'
 
 import {
@@ -146,7 +147,7 @@ class Lesson {
 
     for (let i = 0; i < this.allLesson.length; i++) {
       lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
-      btnName = `btnToR${lessonName}`
+      btnName = `btnGuess${lessonName}`
       disableButton(btnName)
     }
   }
@@ -161,7 +162,7 @@ class Lesson {
 
       if (statusLessonInStorage === 'done' || statusLessonInStorage === 'inprogress') {
         lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
-        btnName = `btnToR${lessonName}`
+        btnName = `btnGuess${lessonName}`
         enableButton(btnName)
       }
     }
@@ -251,13 +252,13 @@ class Lesson {
 
     // launch lesson
     if (this.kanaToStudy.length > 0) {
-      if (this.kanaToStudy.length <= 5) {
-        writeChoice(this.nbChoice, this.kanaToStudy)
-      } else {
-        eraseChoice(this.nbChoice, this.kanaToStudy)
-      }
-
       oneGuess.init(this)
+
+      if (this.kanaToStudy.length <= 5) {
+        writeChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
+      } else {
+        eraseChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
+      }
 
       // write choice if number of kana to guess > of nb of choice
       // need  oneGuess.init to display the true choice
@@ -267,6 +268,7 @@ class Lesson {
       }
 
       oneGuess.guessKana(this)
+      displayWhatToGuess(oneGuess.guessWhat)
     } else {
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
       deleteChoice(this.nbChoice)

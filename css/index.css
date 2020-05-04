@@ -1,8 +1,5 @@
 @import url(sanitize.css);
 
-#d1{background-color: #ffffff;}
-#d2{background-color: #ffffff;}
-
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 } 
@@ -32,14 +29,6 @@
     /* border: 5px solid goldenrod; */
 }
 
-.subTitle {
-    display: flex;
-    justify-content:left;
-    align-items: top;
-    font-size: 14px;
-    /* border: 5px solid goldenrod; */
-}
-
 .info {
     display: flex;
     justify-content:center;
@@ -59,11 +48,21 @@
 }
 
 .kanaImg {
-    display: flex;
     justify-content:center;
-    align-items: top;
+    align-items: center;
+    text-align: center;
     height: 10vh;
     /* border: 5px solid goldenrod; */
+}
+
+.kanaRomanji {
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    height: 10vh;
+    color: #000000;
+    font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));    
+    /* border: 5px solid rgb(82, 91, 179); */
 }
 
 .choice {
@@ -136,6 +135,7 @@ div.scrollmenu a {
     color: #ffffff;
     text-align: center;
     padding: 14px;
+    border-radius: .5em;
     text-decoration: none;
     pointer-events: auto;
 }

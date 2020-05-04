@@ -21,59 +21,30 @@
 				<a id="btnAllKatakanaLearned">Tous les katakana appris</a>
 		</div>
 
-		<div class="subTitle" id ="titleMenuGuessKana">Deviner les kana</div>
-
-		<div id="menuGuessKanaHiragana" class="scrollmenu">
-				<a id="btnToKHaiueo">h: a i u e o</a>
-				<a id="btnToKHkakikukeko">h: ka ki ku ke ko</a>
-				<a id="btnToKHsashisuseso">h: sa shi su se so</a>
-				<a id="btnToKHtachitsuteto">h: ta chi tsu te to</a>
-				<a id="btnToKHnaninuneno">h: na ni nu ne no</a>
-				<a id="btnToKHhahifuheho">h: ha hi fu he ho</a>
-				<a id="btnToKHmamimumemo">h: ma mi mu me mo</a>
-				<a id="btnToKHyayuyo">h: ya yu yo</a>
-				<a id="btnToKHrarirurero">h: ra ri ru re ro</a>
-				<a id="btnToKHwawon">h: wa wo n</a>
-		</div>
-		<div id="menuGuessKanaKatakana" class="scrollmenu">
-				<a id="btnToKKaiueo">k: a i u e o</a>
-				<a id="btnToKKkakikukeko">k: ka ki ku ke ko</a>
-				<a id="btnToKKsashisuseso">k: sa shi su se so</a>
-				<a id="btnToKKtachitsuteto">k: ta chi tsu te to</a>
-				<a id="btnToKKnaninuneno">k: na ni nu ne no</a>
-				<a id="btnToKKhahifuheho">k: ha hi fu he ho</a>
-				<a id="btnToKKmamimumemo">k: ma mi mu me mo</a>
-				<a id="btnToKKyayuyo">k: ya yu yo</a>
-				<a id="btnToKKrarirurero">k: ra ri ru re ro</a>
-				<a id="btnToKKwawon">k: wa wo n</a>
-		</div>
-
-		<div class="subTitle" id="titleMenuGuessRomanji">Deviner les romanji</div>
-
 		<div id="menuGuessRomanjiHiragana" class="scrollmenu">
-			<a id="btnToRHaiueo">h: a i u e o</a>
-			<a id="btnToRHkakikukeko">h: ka ki ku ke ko</a>
-			<a id="btnToRHsashisuseso">h: sa shi su se so</a>
-			<a id="btnToRHtachitsuteto">h: ta chi tsu te to</a>
-			<a id="btnToRHnaninuneno">h: na ni nu ne no</a>
-			<a id="btnToRHhahifuheho">h: ha hi fu he ho</a>
-			<a id="btnToRHmamimumemo">h: ma mi mu me mo</a>
-			<a id="btnToRHyayuyo">h: ya yu yo</a>
-			<a id="btnToRHrarirurero">h: ra ri ru re ro</a>
-			<a id="btnToRHwawon">h: wa wo n</a>
+			<a id="btnGuessHaiueo">h: a i u e o</a>
+			<a id="btnGuessHkakikukeko">h: ka ki ku ke ko</a>
+			<a id="btnGuessHsashisuseso">h: sa shi su se so</a>
+			<a id="btnGuessHtachitsuteto">h: ta chi tsu te to</a>
+			<a id="btnGuessHnaninuneno">h: na ni nu ne no</a>
+			<a id="btnGuessHhahifuheho">h: ha hi fu he ho</a>
+			<a id="btnGuessHmamimumemo">h: ma mi mu me mo</a>
+			<a id="btnGuessHyayuyo">h: ya yu yo</a>
+			<a id="btnGuessHrarirurero">h: ra ri ru re ro</a>
+			<a id="btnGuessHwawon">h: wa wo n</a>
 		</div>
 
 		<div id="menuGuessRomanjiHiragana" class="scrollmenu">
-				<a id="btnToRKaiueo">k: a i u e o</a>
-				<a id="btnToRKkakikukeko">k: ka ki ku ke ko</a>
-				<a id="btnToRKsashisuseso">k: sa shi su se so</a>
-				<a id="btnToRKtachitsuteto">k: ta chi tsu te to</a>
-				<a id="btnToRKnaninuneno">k: na ni nu ne no</a>
-				<a id="btnToRKhahifuheho">k: ha hi fu he ho</a>
-				<a id="btnToRKmamimumemo">k: ma mi mu me mo</a>
-				<a id="btnToRKyayuyo">k: ya yu yo</a>
-				<a id="btnToRKrarirurero">k: ra ri ru re ro</a>
-				<a id="btnToRKwawon">k: wa wo n</a>
+				<a id="btnGuessKaiueo">k: a i u e o</a>
+				<a id="btnGuessKkakikukeko">k: ka ki ku ke ko</a>
+				<a id="btnGuessKsashisuseso">k: sa shi su se so</a>
+				<a id="btnGuessKtachitsuteto">k: ta chi tsu te to</a>
+				<a id="btnGuessKnaninuneno">k: na ni nu ne no</a>
+				<a id="btnGuessKhahifuheho">k: ha hi fu he ho</a>
+				<a id="btnGuessKmamimumemo">k: ma mi mu me mo</a>
+				<a id="btnGuessKyayuyo">k: ya yu yo</a>
+				<a id="btnGuessKrarirurero">k: ra ri ru re ro</a>
+				<a id="btnGuessKwawon">k: wa wo n</a>
 		</div>
 	</div>
 
@@ -238,15 +209,30 @@
 	<div id="divGuess">
 			<div id="info" class="info"></div>
 
-			<div class="kanaImg"><img id="kanaImg" src=""></div>
-			<div class="kanaRomanji"></div>
+			<div class="kanaImg" id="divGuessKana"><img id="kanaImg" src=""></div>
+			<div class="kanaRomanji" id="divGuessRomanji"></div>
 		
 			<div class="choice">
-				<div id="choice1" data-key=""></div>
-				<div id="choice2" data-key=""></div>
-				<div id="choice3" data-key=""></div>
-				<div id="choice4" data-key=""></div>
-				<div id="choice5" data-key=""></div>
+				<div id="choice1">
+					<div id="choice1Txt"></div>
+					<img id="choice1Img" src="">
+				</div>
+				<div id="choice2">
+					<div id="choice2Txt"></div>
+					<img id="choice2Img" src="">
+				</div>
+				<div id="choice3">
+					<div id="choice3Txt"></div>
+					<img id="choice3Img" src="">
+				</div>
+				<div id="choice4">
+					<div id="choice4Txt"></div>
+					<img id="choice4Img" src="">
+				</div>
+				<div id="choice5">
+					<div id="choice5Txt"></div>
+					<img id="choice5Img" src="">
+				</div>
 			</div>
 	</div>
 

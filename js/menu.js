@@ -8,6 +8,9 @@ const divAlphabetKatakana = document.getElementById('divAlphabetKatakana')
 
 const divGuess = document.getElementById('divGuess')
 
+const divGuessKana = document.getElementById('divGuessKana')
+const divGuessRomanji = document.getElementById('divGuessRomanji')
+
 function displayScreenLesson () {
   divKanaMenu.style.display = 'none'
   divBackMenu.style.display = 'block'
@@ -42,6 +45,19 @@ function displayAlphabetKatakana () {
   divAlphabetHiragana.style.display = 'none'
   divAlphabetKatakana.style.display = 'block'
   divGuess.style.display = 'none'
+}
+
+function displayWhatToGuess (whatToGuess) {
+  if (whatToGuess === 0) {
+    divGuessKana.style.display = 'block'
+    divGuessRomanji.style.display = 'none'
+  } else if (whatToGuess === 1) {
+    divGuessKana.style.display = 'none'
+    divGuessRomanji.style.display = 'block'
+  } else {
+    divGuessKana.style.display = 'none'
+    divGuessRomanji.style.display = 'none'
+  }
 }
 
 function displayRomanji () {
@@ -186,5 +202,6 @@ export {
   displayScreenHomePage,
   displayAlphabetHiragana,
   displayAlphabetKatakana,
-  displayRomanji
+  displayRomanji,
+  displayWhatToGuess
 }

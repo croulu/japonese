@@ -1,3 +1,6 @@
+import imgHiragana from '../img/hiragana/*.*'
+import imgKatakana from '../img/katakana/*.*'
+
 import {
   colorClearButton,
   colorTrueButton,
@@ -11,15 +14,39 @@ import {
   randomize, nextRandom
 } from './helpers.js'
 
-function writeChoice (nbChoice, kanaToStudy) {
+function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
+  let specificImage = ''
   let myExpression = ''
-  for (let i = 0; i < nbChoice; i++) {
-    myExpression = `choice${i + 1}.innerText = '${kanaToStudy[i].letter}'`
+
+  if (guessWhat === 0) {
+    myExpression = `choice${indexChoice}Txt.innerText = '${kanaLetter}'`
+    eval(myExpression)
+
+    myExpression = `choice${indexChoice}Img.src = ''`
+    eval(myExpression)
+  } else {
+
+    if (alphabet === 'h') {
+      specificImage = imgHiragana[kanaLetter]
+    } else if (this.kana.alphabet === 'k') {
+      specificImage = imgKatakana[kanaLetter]
+    }
+    myExpression = `choice${indexChoice}Txt.innerText = ''`
+    eval(myExpression)
+
+    myExpression = `choice${indexChoice}Img.src = '${specificImage.png}'`
     eval(myExpression)
   }
 }
 
-function writeChoiceMoreThanNbChoicePossible (nbChoice, kanaToStudy, iTrueKana) {
+function writeChoice (guessWhat, nbChoice, kanaToStudy) {
+  let myExpression = ''
+  for (let i = 0; i < nbChoice; i++) {
+    writeChoiceWhat(guessWhat, kanaToStudy[i].alphabet, i + 1, kanaToStudy[i].letter)
+  }
+}
+
+function writeChoiceMoreThanNbChoicePossible (guessWhat, nbChoice, kanaToStudy, iTrueKana) {
   let myExpression = ''
   let arrayToWrite = []
   let indexNextRandom
@@ -48,8 +75,7 @@ function writeChoiceMoreThanNbChoicePossible (nbChoice, kanaToStudy, iTrueKana) 
   arrayToWrite = randomize(arrayToWrite)
 
   for (let i = 0; i < nbChoice; i++) {
-    myExpression = `choice${i + 1}.innerText = '${arrayToWrite[i].letter}'`
-    eval(myExpression)
+    writeChoiceWhat(guessWhat, arrayToWrite[i].alphabet, i + 1, arrayToWrite[i].letter)
   }
 
   return arrayToWrite
@@ -115,6 +141,7 @@ function displayCorrectNumberOfChoice (nbChoice) {
 }
 
 export {
+  writeChoiceWhat,
   writeChoice,
   writeChoiceMoreThanNbChoicePossible,
   disableChoice,

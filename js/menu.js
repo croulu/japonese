@@ -3,8 +3,8 @@ const divKanaMenu = document.getElementById('divKanaMenu')
 const divBackMenu = document.getElementById('divBackMenu')
 const divAlphabetRomanji = document.getElementById('divAlphabetRomanji')
 
-const divAlphabet1 = document.getElementById('divAlphabet1')
-const divAlphabet2 = document.getElementById('divAlphabet2')
+const divAlphabetHiragana = document.getElementById('divAlphabetHiragana')
+const divAlphabetKatakana = document.getElementById('divAlphabetKatakana')
 
 const divGuess = document.getElementById('divGuess')
 
@@ -12,8 +12,8 @@ function displayScreenLesson () {
   divKanaMenu.style.display = 'none'
   divBackMenu.style.display = 'block'
   divAlphabetRomanji.style.display = 'none'
-  divAlphabet1.style.display = 'none'
-  divAlphabet2.style.display = 'none'
+  divAlphabetHiragana.style.display = 'none'
+  divAlphabetKatakana.style.display = 'none'
   divGuess.style.display = 'block'
 }
 
@@ -21,8 +21,8 @@ function displayScreenHomePage () {
   divKanaMenu.style.display = 'block'
   divBackMenu.style.display = 'none'
   divAlphabetRomanji.style.display = 'none'
-  divAlphabet1.style.display = 'none'
-  divAlphabet2.style.display = 'none'
+  divAlphabetHiragana.style.display = 'none'
+  divAlphabetKatakana.style.display = 'none'
   divGuess.style.display = 'none'
 }
 
@@ -30,8 +30,8 @@ function displayAlphabetHiragana () {
   divKanaMenu.style.display = 'none'
   divBackMenu.style.display = 'block'
   divAlphabetRomanji.style.display = 'block'
-  divAlphabet1.style.display = 'block'
-  divAlphabet2.style.display = 'none'
+  divAlphabetHiragana.style.display = 'block'
+  divAlphabetKatakana.style.display = 'none'
   divGuess.style.display = 'block'
 }
 
@@ -39,8 +39,8 @@ function displayAlphabetKatakana () {
   divKanaMenu.style.display = 'none'
   divBackMenu.style.display = 'block'
   divAlphabetRomanji.style.display = 'block'
-  divAlphabet1.style.display = 'none'
-  divAlphabet2.style.display = 'block'
+  divAlphabetHiragana.style.display = 'none'
+  divAlphabetKatakana.style.display = 'block'
   divGuess.style.display = 'none'
 }
 

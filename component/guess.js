@@ -149,13 +149,17 @@ class Guess {
       oneLesson.makePourcentage()
       info.innerText += ` - success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
       if (oneLesson.pourcentageReussite === 100) {
-        oneLesson.status = 'done'
-        setStatusLessonInStorage(oneLesson.code, oneLesson.status)
+        if (oneLesson.type === 'simple') {
+          oneLesson.status = 'done'
 
-        indexLesson = oneLesson.getIndexLesson(oneLesson.code)
-        nextLesson = oneLesson.getNextLesson(indexLesson)
-        setStatusLessonInStorage(nextLesson, 'inprogress')
+          setStatusLessonInStorage(oneLesson.code, oneLesson.status)
 
+          indexLesson = oneLesson.getIndexLesson(oneLesson.code)
+          nextLesson = oneLesson.getNextLesson(indexLesson)
+          setStatusLessonInStorage(nextLesson, 'inprogress')
+        } else {
+          // nothing, only simple lesson are "done"
+        }
         oneLesson.displayButtonLesson()
       }
       oneLesson.stop()

@@ -38,6 +38,8 @@ import {
 class Lesson {
   constructor () {
     this.title = ''
+    // possible values : learned / simple (next : selected)
+    this.type = ''
     this.code = ''
     this.nbChoice = 0
     this.kanaToStudy = []
@@ -233,7 +235,7 @@ class Lesson {
     this.title = `${lesson} (deviner le romanji)`
   }
 
-  launchLesson (lessonText, oneGuess) {
+  launchLesson (typeLesson, lessonText, oneGuess) {
     const info = document.getElementById('info')
 
     let arrayToWrite = []
@@ -244,6 +246,8 @@ class Lesson {
     // prepare lesson
     this.code = lessonText
     this.setLessonTitle()
+
+    this.type = typeLesson
 
     this.nbChoice = 5
     this.init()

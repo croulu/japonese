@@ -31,6 +31,7 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
     } else if (this.kana.alphabet === 'k') {
       specificImage = imgKatakana[kanaLetter]
     }
+
     myExpression = `choice${indexChoice}Txt.innerText = ''`
     eval(myExpression)
 
@@ -123,7 +124,7 @@ function clearChoice (nbChoice) {
 function eraseChoice (nbChoice) {
   let myExpression = ''
   for (let i = 0; i < nbChoice; i++) {
-    myExpression = `choice${i + 1}.innerText = ''`
+    myExpression = `choice${i + 1}Txt.innerText = ''`
     eval(myExpression)
   }
 }

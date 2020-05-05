@@ -9,6 +9,7 @@ import {
 } from './menu.js'
 
 import {
+  getStatusLessonInStorage,
   setStatusLessonInStorage
 } from './helpers.js'
 
@@ -58,11 +59,17 @@ if (oneLesson.getNbTrueLessons() === 0) {
 
 function setInitLessons () {
   let arrayInitLesson = []
+  let statusLessonInStorage
+
   arrayInitLesson.push('h-a-i-u-e-o')
   arrayInitLesson.push('k-a-i-u-e-o')
 
   for (let i = 0; i < arrayInitLesson.length; i++) {
-    setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
+    statusLessonInStorage = getStatusLessonInStorage(arrayInitLesson[i])
+
+    if (statusLessonInStorage === null) {
+      setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
+    }
   }
 }
 
@@ -72,29 +79,29 @@ btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())
 btnBackMenu.addEventListener('click', () => displayScreenHomePage())
 btnRomanji.addEventListener('click', () => displayRomanji())
 
-btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
-btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson(oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
+btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
+btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
-btnGuessHaiueo.addEventListener('click', () => oneLesson.launchLesson('h-a-i-u-e-o', oneGuess))
-btnGuessKaiueo.addEventListener('click', () => oneLesson.launchLesson('k-a-i-u-e-o', oneGuess))
-btnGuessHkakikukeko.addEventListener('click', () => oneLesson.launchLesson('h-ka-ki-ku-ke-ko', oneGuess))
-btnGuessKkakikukeko.addEventListener('click', () => oneLesson.launchLesson('k-ka-ki-ku-ke-ko', oneGuess))
-btnGuessHsashisuseso.addEventListener('click', () => oneLesson.launchLesson('h-sa-shi-su-se-so', oneGuess))
-btnGuessKsashisuseso.addEventListener('click', () => oneLesson.launchLesson('k-sa-shi-su-se-so', oneGuess))
-btnGuessHtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('h-ta-chi-tsu-te-to', oneGuess))
-btnGuessKtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('k-ta-chi-tsu-te-to', oneGuess))
-btnGuessHnaninuneno.addEventListener('click', () => oneLesson.launchLesson('h-na-ni-nu-ne-no', oneGuess))
-btnGuessKnaninuneno.addEventListener('click', () => oneLesson.launchLesson('k-na-ni-nu-ne-no', oneGuess))
-btnGuessHhahifuheho.addEventListener('click', () => oneLesson.launchLesson('h-ha-hi-fu-he-ho', oneGuess))
-btnGuessKhahifuheho.addEventListener('click', () => oneLesson.launchLesson('k-ha-hi-fu-he-ho', oneGuess))
-btnGuessHmamimumemo.addEventListener('click', () => oneLesson.launchLesson('h-ma-mi-mu-me-mo', oneGuess))
-btnGuessKmamimumemo.addEventListener('click', () => oneLesson.launchLesson('k-ma-mi-mu-me-mo', oneGuess))
-btnGuessHyayuyo.addEventListener('click', () => oneLesson.launchLesson('h-ya-yu-yo', oneGuess))
-btnGuessKyayuyo.addEventListener('click', () => oneLesson.launchLesson('k-ya-yu-yo', oneGuess))
-btnGuessHrarirurero.addEventListener('click', () => oneLesson.launchLesson('h-ra-ri-ru-re-ro', oneGuess))
-btnGuessKrarirurero.addEventListener('click', () => oneLesson.launchLesson('k-ra-ri-ru-re-ro', oneGuess))
-btnGuessHwawon.addEventListener('click', () => oneLesson.launchLesson('h-wa-wo-n', oneGuess))
-btnGuessKwawon.addEventListener('click', () => oneLesson.launchLesson('k-wa-wo-n', oneGuess))
+btnGuessHaiueo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-a-i-u-e-o', oneGuess))
+btnGuessKaiueo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-a-i-u-e-o', oneGuess))
+btnGuessHkakikukeko.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ka-ki-ku-ke-ko', oneGuess))
+btnGuessKkakikukeko.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ka-ki-ku-ke-ko', oneGuess))
+btnGuessHsashisuseso.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-sa-shi-su-se-so', oneGuess))
+btnGuessKsashisuseso.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-sa-shi-su-se-so', oneGuess))
+btnGuessHtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ta-chi-tsu-te-to', oneGuess))
+btnGuessKtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ta-chi-tsu-te-to', oneGuess))
+btnGuessHnaninuneno.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-na-ni-nu-ne-no', oneGuess))
+btnGuessKnaninuneno.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-na-ni-nu-ne-no', oneGuess))
+btnGuessHhahifuheho.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ha-hi-fu-he-ho', oneGuess))
+btnGuessKhahifuheho.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ha-hi-fu-he-ho', oneGuess))
+btnGuessHmamimumemo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ma-mi-mu-me-mo', oneGuess))
+btnGuessKmamimumemo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ma-mi-mu-me-mo', oneGuess))
+btnGuessHyayuyo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ya-yu-yo', oneGuess))
+btnGuessKyayuyo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ya-yu-yo', oneGuess))
+btnGuessHrarirurero.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ra-ri-ru-re-ro', oneGuess))
+btnGuessKrarirurero.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ra-ri-ru-re-ro', oneGuess))
+btnGuessHwawon.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-wa-wo-n', oneGuess))
+btnGuessKwawon.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-wa-wo-n', oneGuess))
 
 choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
 choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))

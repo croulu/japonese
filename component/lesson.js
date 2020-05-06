@@ -21,18 +21,17 @@ import {
   setStringWithArray,
   getStatusLessonInStorage,
   disableButton,
-  enableButton
+  enableButton,
+  setLessonTitle
 } from '../js/helpers.js'
 
 import {
   writeChoice,
   writeChoiceMoreThanNbChoicePossible,
   disableChoice,
-  enableChoice,
   deleteChoice,
-  clearChoice,
   eraseChoice,
-  displayCorrectNumberOfChoice
+  displayButtonChoice
 } from '../js/choice.js'
 
 class Lesson {
@@ -72,10 +71,7 @@ class Lesson {
       this.status = 'todo'
     }
 
-    deleteChoice(this.nbChoice)
-    clearChoice(this.nbChoice)
-    enableChoice(this.nbChoice)
-    displayCorrectNumberOfChoice(this.nbChoice)
+    displayButtonChoice(this.nbChoice)
 
     this.displayButtonLesson()
   }
@@ -178,7 +174,6 @@ class Lesson {
 
     for (let i = 0; i < this.allLesson.length; i++) {
       statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
-
       if (statusLessonInStorage === 'done') {
         arrayCode = this.allLesson[i].split('-')
         if (arrayCode[0] === kana) {
@@ -218,26 +213,8 @@ class Lesson {
     }
   }
 
-  setLessonTitle () {
-    const arrayCode = this.code.split('-')
-    let lesson = ''
-
-    if (arrayCode[0] === 'h') {
-      lesson = 'hiragana : '
-    } else {
-      lesson = 'katakana : '
-    }
-
-    for (let i = 1; i < arrayCode.length; i++) {
-      lesson += arrayCode[i] + ' '
-    }
-
-    this.title = `${lesson} (deviner le romanji)`
-  }
-
   launchLesson (typeLesson, lessonText, oneGuess) {
     const info = document.getElementById('info')
-
     let arrayToWrite = []
 
     // display screen of the lesson
@@ -245,10 +222,8 @@ class Lesson {
 
     // prepare lesson
     this.code = lessonText
-    this.setLessonTitle()
-
+    this.title = setLessonTitle(this.code)
     this.type = typeLesson
-
     this.nbChoice = 5
     this.init()
 
@@ -261,14 +236,10 @@ class Lesson {
       if (this.kanaToStudy.length <= 5) {
         writeChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
       } else {
+        // write choice if number of kana to guess > of nb of choice
+        // need  oneGuess.init to display the true choice
         eraseChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
-      }
-
-      // write choice if number of kana to guess > of nb of choice
-      // need  oneGuess.init to display the true choice
-      if (this.kanaToStudy.length > 5) {
         arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
-
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
       }
 

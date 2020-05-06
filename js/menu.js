@@ -35,7 +35,7 @@ function displayAlphabetHiragana () {
   divAlphabetRomanji.style.display = 'block'
   divAlphabetHiragana.style.display = 'block'
   divAlphabetKatakana.style.display = 'none'
-  divGuess.style.display = 'block'
+  divGuess.style.display = 'none'
 }
 
 function displayAlphabetKatakana () {

@@ -91,6 +91,23 @@ function enableButton (name) {
   eval(myExpression)
 }
 
+function setLessonTitle (code) {
+  let result
+  const arrayCode = code.split('-')
+
+  if (arrayCode[0] === 'h') {
+    result = 'hiragana : '
+  } else {
+    result = 'katakana : '
+  }
+
+  for (let i = 1; i < arrayCode.length; i++) {
+    result += arrayCode[i] + ' '
+  }
+
+  return result
+}
+
 export {
   nextRandom,
   strUcFirst,
@@ -101,5 +118,6 @@ export {
   getStatusLessonInStorage,
   setStatusLessonInStorage,
   disableButton,
-  enableButton
+  enableButton,
+  setLessonTitle
 }

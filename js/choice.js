@@ -82,6 +82,13 @@ function writeChoiceMoreThanNbChoicePossible (guessWhat, nbChoice, kanaToStudy, 
   return arrayToWrite
 }
 
+function displayButtonChoice (nbChoice) {
+  deleteChoice(nbChoice)
+  clearChoice(nbChoice)
+  enableChoice(nbChoice)
+  displayCorrectNumberOfChoice(nbChoice)
+}
+
 function disableChoice (nbChoice) {
   let myExpression = ''
   for (let i = 0; i < nbChoice; i++) {
@@ -150,5 +157,6 @@ export {
   deleteChoice,
   clearChoice,
   eraseChoice,
-  displayCorrectNumberOfChoice
+  displayCorrectNumberOfChoice,
+  displayButtonChoice
 }

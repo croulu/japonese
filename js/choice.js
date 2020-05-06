@@ -148,6 +148,12 @@ function displayCorrectNumberOfChoice (nbChoice) {
   }
 }
 
+function displayColorChoice (index, colorToApply) {
+  let myExpression = ''
+  myExpression = `choice${index}.style.backgroundColor = '${colorToApply}'`
+  eval(myExpression)
+}
+
 export {
   writeChoiceWhat,
   writeChoice,
@@ -158,5 +164,6 @@ export {
   clearChoice,
   eraseChoice,
   displayCorrectNumberOfChoice,
-  displayButtonChoice
+  displayButtonChoice,
+  displayColorChoice
 }

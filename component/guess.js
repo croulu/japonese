@@ -11,7 +11,8 @@ import { Kana } from './kana.js'
 import {
   writeChoice,
   clearChoice,
-  writeChoiceMoreThanNbChoicePossible
+  writeChoiceMoreThanNbChoicePossible,
+  displayColorChoice
 } from '../js/choice.js'
 
 import {
@@ -53,17 +54,6 @@ class Guess {
     }
   }
 
-  displayColorChoice (result) {
-    let myExpression = ''
-
-    if (result === true) {
-      myExpression = `choice${this.choiceSelectedIndex + 1}.style.backgroundColor = '${colorTrueButton}'`
-    } else {
-      myExpression = `choice${this.choiceSelectedIndex + 1}.style.backgroundColor = '${colorFalseButton}'`
-    }
-    eval(myExpression)
-  }
-
   makeAChoice (choiceSelected, oneLesson) {
     this.choiceSelectedIndex = choiceSelected
 
@@ -73,9 +63,9 @@ class Guess {
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
-      this.displayColorChoice(true)
+      displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
     } else {
-      this.displayColorChoice(false)
+      displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
     }
 
     setTimeout(myMethod, 400)

@@ -12,7 +12,8 @@ import {
   writeChoice,
   clearChoice,
   writeChoiceMoreThanNbChoicePossible,
-  displayColorChoice
+  displayColorChoice,
+  randomizeChoice
 } from '../js/choice.js'
 
 import {
@@ -38,7 +39,6 @@ class Guess {
     // 2 : kanji (TODO)
     this.guessWhat = nextRandom(2)
     this.firstToGuess(oneLesson)
-    this.writeChoiceTrueFalse(oneLesson.kanaToStudy)
   }
 
   firstToGuess (oneLesson) {
@@ -114,7 +114,8 @@ class Guess {
       this.guessWhat = nextRandom(2)
       displayWhatToGuess(this.guessWhat)
 
-      writeChoice(this.guessWhat, oneLesson.nbChoice, oneLesson.kanaToStudy)
+      arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
+      writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
 
       this.previousKana = this.kana
       this.kana = oneLesson.kanaToStudy[nextRandomIndex]
@@ -123,13 +124,14 @@ class Guess {
         nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
         this.kana = oneLesson.kanaToStudy[nextRandomIndex]
       }
-      this.writeChoiceTrueFalse(oneLesson.kanaToStudy)
+
+      this.writeChoiceTrueFalse(arrayToWrite)
       clearChoice(oneLesson.nbChoice)
 
       // write choice if number of kana to guess > of nb of choice
       // need  oneGuess.init to display the true choice
       if (oneLesson.kanaToStudy.length > 5) {
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, oneLesson.kanaToStudy, this.choiceTrueIndex)
+        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
         this.writeChoiceTrueFalse(arrayToWrite)
       }
 

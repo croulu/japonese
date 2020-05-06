@@ -16,6 +16,7 @@ import {
 } from '../js/menu.js'
 
 import {
+  nextRandom,
   strUcFirst,
   strReplaceAll,
   setStringWithArray,
@@ -28,6 +29,7 @@ import {
 import {
   writeChoice,
   writeChoiceMoreThanNbChoicePossible,
+  randomizeChoice,
   disableChoice,
   deleteChoice,
   eraseChoice,
@@ -62,6 +64,7 @@ class Lesson {
     this.play = 0
     this.success = 0
     this.pourcentageReussite = 0
+    this.guessWhat = nextRandom(2)
 
     this.initPourcentage()
 
@@ -233,13 +236,16 @@ class Lesson {
     if (this.kanaToStudy.length > 0) {
       oneGuess.init(this)
 
+      arrayToWrite = randomizeChoice(this.guessWhat, this.kanaToStudy)
+      oneGuess.writeChoiceTrueFalse(arrayToWrite)
+
       if (this.kanaToStudy.length <= 5) {
-        writeChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
+        writeChoice(oneGuess.guessWhat, this.nbChoice, arrayToWrite)
       } else {
         // write choice if number of kana to guess > of nb of choice
         // need  oneGuess.init to display the true choice
         eraseChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy, oneGuess.choiceTrueIndex)
+        arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, arrayToWrite, oneGuess.choiceTrueIndex)
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
       }
 

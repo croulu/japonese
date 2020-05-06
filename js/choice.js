@@ -41,14 +41,12 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
 }
 
 function writeChoice (guessWhat, nbChoice, kanaToStudy) {
-  let myExpression = ''
   for (let i = 0; i < nbChoice; i++) {
     writeChoiceWhat(guessWhat, kanaToStudy[i].alphabet, i + 1, kanaToStudy[i].letter)
   }
 }
 
 function writeChoiceMoreThanNbChoicePossible (guessWhat, nbChoice, kanaToStudy, iTrueKana) {
-  let myExpression = ''
   let arrayToWrite = []
   let indexNextRandom
   let indexUsed = []
@@ -74,12 +72,26 @@ function writeChoiceMoreThanNbChoicePossible (guessWhat, nbChoice, kanaToStudy, 
     arrayToWrite.push(kanaToStudy[indexNextRandom])
   }
   arrayToWrite = randomize(arrayToWrite)
-
   for (let i = 0; i < nbChoice; i++) {
     writeChoiceWhat(guessWhat, arrayToWrite[i].alphabet, i + 1, arrayToWrite[i].letter)
   }
 
   return arrayToWrite
+}
+
+function randomizeChoice (guessWhat, kanaToStudy) {
+  let arrayChoice = []
+
+  for (let i = 0; i < kanaToStudy.length; i++) {
+    arrayChoice.push(kanaToStudy[i])
+  }
+  // in case of rimanji to guess, do not display the kana in the alphabet order
+  // it would be too easy to guess :)
+  if (guessWhat === 1) {
+    arrayChoice = randomize(arrayChoice)
+  }
+
+  return arrayChoice
 }
 
 function displayButtonChoice (nbChoice) {
@@ -158,6 +170,7 @@ export {
   writeChoiceWhat,
   writeChoice,
   writeChoiceMoreThanNbChoicePossible,
+  randomizeChoice,
   disableChoice,
   enableChoice,
   deleteChoice,

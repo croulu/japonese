@@ -51,7 +51,7 @@
     justify-content:center;
     align-items: center;
     text-align: center;
-    height: 10vh;
+    height: 20vh;
     /* border: 5px solid goldenrod; */
 }
 
@@ -59,7 +59,7 @@
     justify-content:center;
     align-items: center;
     text-align: center;
-    height: 10vh;
+    height: 20vh;
     color: #000000;
     font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));    
     /* border: 5px solid rgb(82, 91, 179); */

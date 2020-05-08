@@ -28,7 +28,7 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
 
     if (alphabet === 'h') {
       specificImage = imgHiragana[kanaLetter]
-    } else if (this.kana.alphabet === 'k') {
+    } else if (alphabet === 'k') {
       specificImage = imgKatakana[kanaLetter]
     }
 

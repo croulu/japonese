@@ -103,7 +103,15 @@ function displayRomanji () {
   let romanjiHCr = document.getElementById('r-h-cr')
   let romanjiHCw = document.getElementById('r-h-cw')
   let romanjiHCnn = document.getElementById('r-h-cnn')
-  
+  let romanjiHCg = document.getElementById('r-h-cg')
+  let romanjiHCz = document.getElementById('r-h-cz')
+  let romanjiHCji = document.getElementById('r-h-ji')
+  let romanjiHCd = document.getElementById('r-h-cd')
+  let romanjiHCdzi = document.getElementById('r-h-dzi')
+  let romanjiHCdzu = document.getElementById('r-h-dzu')
+  let romanjiHCb = document.getElementById('r-h-cb')
+  let romanjiHCp = document.getElementById('r-h-cp')
+
   let romanjiKC = document.getElementById('r-k-c')
   let romanjiKCk = document.getElementById('r-k-ck')
   let romanjiKCs = document.getElementById('r-k-cs')
@@ -119,6 +127,14 @@ function displayRomanji () {
   let romanjiKCr = document.getElementById('r-k-cr')
   let romanjiKCw = document.getElementById('r-k-cw')
   let romanjiKCnn = document.getElementById('r-k-cnn')
+  let romanjiKCg = document.getElementById('r-k-cg')
+  let romanjiKCz = document.getElementById('r-k-cz')
+  let romanjiKCji = document.getElementById('r-k-ji')
+  let romanjiKCd = document.getElementById('r-k-cd')  
+  let romanjiKCdzi = document.getElementById('r-k-dzi')
+  let romanjiKCdzu = document.getElementById('r-k-dzu')
+  let romanjiKCb = document.getElementById('r-k-cb')
+  let romanjiKCp = document.getElementById('r-k-cp')
 
   if (romanjiHa.innerHTML === 'a') {
     romanjiHa.innerHTML = ''
@@ -142,6 +158,14 @@ function displayRomanji () {
     romanjiHCr.innerHTML = ''
     romanjiHCw.innerHTML = ''
     romanjiHCnn.innerHTML = ''
+    romanjiHCg.innerHTML = ''
+    romanjiHCz.innerHTML = ''
+    romanjiHCji.innerHTML = ''
+    romanjiHCd.innerHTML = ''
+    romanjiHCdzi.innerHTML = ''
+    romanjiHCdzu.innerHTML = ''
+    romanjiHCb.innerHTML = ''
+    romanjiHCp.innerHTML = ''
 
     romanjiKa.innerHTML = ''
     romanjiKi.innerHTML = ''
@@ -164,6 +188,14 @@ function displayRomanji () {
     romanjiKCr.innerHTML = ''
     romanjiKCw.innerHTML = ''
     romanjiKCnn.innerHTML = ''
+    romanjiKCg.innerHTML = ''
+    romanjiKCz.innerHTML = ''
+    romanjiKCji.innerHTML = ''
+    romanjiKCd.innerHTML = ''
+    romanjiKCdzi.innerHTML = ''
+    romanjiKCdzu.innerHTML = ''
+    romanjiKCb.innerHTML = ''
+    romanjiKCp.innerHTML = ''
 
   } else {
     romanjiHa.innerHTML = 'a'
@@ -187,6 +219,14 @@ function displayRomanji () {
     romanjiHCr.innerHTML = 'r'
     romanjiHCw.innerHTML = 'w'
     romanjiHCnn.innerHTML = '-'
+    romanjiHCg.innerHTML = 'g'
+    romanjiHCz.innerHTML = 'z'
+    romanjiHCji.innerHTML = 'ji'
+    romanjiHCd.innerHTML = 'd'
+    romanjiHCdzi.innerHTML = 'dzi'
+    romanjiHCdzu.innerHTML = 'dzu'
+    romanjiHCb.innerHTML = 'b'
+    romanjiHCp.innerHTML = 'p'
 
     romanjiKa.innerHTML = 'a'
     romanjiKi.innerHTML = 'i'
@@ -209,6 +249,14 @@ function displayRomanji () {
     romanjiKCr.innerHTML = 'r'
     romanjiKCw.innerHTML = 'w'
     romanjiKCnn.innerHTML = '-'
+    romanjiKCg.innerHTML = 'g'
+    romanjiKCz.innerHTML = 'z'
+    romanjiKCji.innerHTML = 'ji'
+    romanjiKCd.innerHTML = 'd'
+    romanjiKCdzi.innerHTML = 'dzi'
+    romanjiKCdzu.innerHTML = 'dzu'
+    romanjiKCb.innerHTML = 'b'
+    romanjiKCp.innerHTML = 'p'
   }
 }
 

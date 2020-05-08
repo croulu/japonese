@@ -244,6 +244,11 @@ class Lesson {
     this.makeLesson()
 
     this.nbChoice = this.kanaToStudy.length
+    // menu all learned
+    if (this.nbChoice > 5) {
+      this.nbChoice = 5
+    }
+
     this.initDisplay()
 
     // launch lesson

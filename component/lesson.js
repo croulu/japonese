@@ -73,9 +73,10 @@ class Lesson {
     } else {
       this.status = 'todo'
     }
+  }
 
+  initDisplay () {
     displayButtonChoice(this.nbChoice)
-
     this.displayButtonLesson()
   }
 
@@ -90,6 +91,11 @@ class Lesson {
     this.allLesson.push('h-ya-yu-yo')
     this.allLesson.push('h-ra-ri-ru-re-ro')
     this.allLesson.push('h-wa-wo-n')
+    this.allLesson.push('h-ga-gi-gu-ge-go')
+    this.allLesson.push('h-za-ji-zu-ze-zo')
+    this.allLesson.push('h-da-dzi-dzu-de-do')
+    this.allLesson.push('h-ba-bi-bu-be-bo')
+    this.allLesson.push('h-pa-pi-pu-pe-po')
     this.allLesson.push('k-a-i-u-e-o')
     this.allLesson.push('k-ka-ki-ku-ke-ko')
     this.allLesson.push('k-sa-shi-su-se-so')
@@ -100,6 +106,11 @@ class Lesson {
     this.allLesson.push('k-ya-yu-yo')
     this.allLesson.push('k-ra-ri-ru-re-ro')
     this.allLesson.push('k-wa-wo-n')
+    this.allLesson.push('k-ga-gi-gu-ge-go')
+    this.allLesson.push('k-za-ji-zu-ze-zo')
+    this.allLesson.push('k-da-dzi-dzu-de-do')
+    this.allLesson.push('k-ba-bi-bu-be-bo')
+    this.allLesson.push('k-pa-pi-pu-pe-po')
   }
 
   getIndexLesson (code) {
@@ -227,10 +238,13 @@ class Lesson {
     this.code = lessonText
     this.title = setLessonTitle(this.code)
     this.type = typeLesson
-    this.nbChoice = 5
+
     this.init()
 
     this.makeLesson()
+
+    this.nbChoice = this.kanaToStudy.length
+    this.initDisplay()
 
     // launch lesson
     if (this.kanaToStudy.length > 0) {

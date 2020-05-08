@@ -122,7 +122,7 @@ div[data-key="h-title"] {
 }
 
 div.scrollmenu {
-    background-color: #e0762f;
+    background-color: #eb5732;
     overflow: auto;
     white-space: normal;
     font-size: 13px;
@@ -130,7 +130,7 @@ div.scrollmenu {
 }
   
 div.scrollmenu a {
-    background-color: #e0762f;
+    background-color: #eb5732;
     display: inline-block;
     color: #ffffff;
     text-align: center;
@@ -141,7 +141,7 @@ div.scrollmenu a {
 }
   
 div.scrollmenu a:hover {
-    background-color: #9c581f;
+    background-color: #df331c;
     border-radius: .5em;
 }
 

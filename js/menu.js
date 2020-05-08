@@ -5,6 +5,7 @@ const divAlphabetRomanji = document.getElementById('divAlphabetRomanji')
 
 const divAlphabetHiragana = document.getElementById('divAlphabetHiragana')
 const divAlphabetKatakana = document.getElementById('divAlphabetKatakana')
+const divAlphabetKana = document.getElementById('divAlphabetKana')
 
 const divGuess = document.getElementById('divGuess')
 
@@ -17,6 +18,7 @@ function displayScreenLesson () {
   divAlphabetRomanji.style.display = 'none'
   divAlphabetHiragana.style.display = 'none'
   divAlphabetKatakana.style.display = 'none'
+  divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'block'
 }
 
@@ -26,6 +28,7 @@ function displayScreenHomePage () {
   divAlphabetRomanji.style.display = 'none'
   divAlphabetHiragana.style.display = 'none'
   divAlphabetKatakana.style.display = 'none'
+  divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
 }
 
@@ -35,6 +38,7 @@ function displayAlphabetHiragana () {
   divAlphabetRomanji.style.display = 'block'
   divAlphabetHiragana.style.display = 'block'
   divAlphabetKatakana.style.display = 'none'
+  divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
 }
 
@@ -44,6 +48,17 @@ function displayAlphabetKatakana () {
   divAlphabetRomanji.style.display = 'block'
   divAlphabetHiragana.style.display = 'none'
   divAlphabetKatakana.style.display = 'block'
+  divAlphabetKana.style.display = 'none'
+  divGuess.style.display = 'none'
+}
+
+function displayAlphabetKana () {
+  divKanaMenu.style.display = 'none'
+  divBackMenu.style.display = 'block'
+  divAlphabetRomanji.style.display = 'none'
+  divAlphabetHiragana.style.display = 'none'
+  divAlphabetKatakana.style.display = 'none'
+  divAlphabetKana.style.display = 'block'
   divGuess.style.display = 'none'
 }
 
@@ -202,6 +217,7 @@ export {
   displayScreenHomePage,
   displayAlphabetHiragana,
   displayAlphabetKatakana,
+  displayAlphabetKana,
   displayRomanji,
   displayWhatToGuess
 }

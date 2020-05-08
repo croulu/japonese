@@ -4,6 +4,7 @@ import { Guess } from '../component/guess.js'
 import {
   displayAlphabetHiragana,
   displayAlphabetKatakana,
+  displayAlphabetKana,
   displayScreenHomePage,
   displayRomanji
 } from './menu.js'
@@ -18,6 +19,8 @@ const oneGuess = new Guess()
 
 const btnAlphabetHiragana = document.getElementById('btnAlphabetHiragana')
 const btnAlphabetKatakana = document.getElementById('btnAlphabetKatakana')
+const btnAlphabetKana = document.getElementById('btnAlphabetKanaComplet')
+
 const btnBackMenu = document.getElementById('btnBackMenu')
 const btnRomanji = document.getElementById('btnRomanji')
 
@@ -75,6 +78,7 @@ function setInitLessons () {
 
 btnAlphabetHiragana.addEventListener('click', () => displayAlphabetHiragana())
 btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())
+btnAlphabetKana.addEventListener('click', () => displayAlphabetKana())
 
 btnBackMenu.addEventListener('click', () => displayScreenHomePage())
 btnRomanji.addEventListener('click', () => displayRomanji())

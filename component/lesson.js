@@ -8,7 +8,6 @@ import {
 } from '../index.js'
 
 import { Kana } from './kana.js'
-import { Guess } from './guess.js'
 
 import {
   displayScreenLesson,
@@ -23,7 +22,8 @@ import {
   getStatusLessonInStorage,
   disableButton,
   enableButton,
-  setLessonTitle
+  setLessonTitle,
+  setStatusLessonInStorage
 } from '../js/helpers.js'
 
 import {
@@ -45,7 +45,7 @@ class Lesson {
     this.nbChoice = 0
     this.kanaToStudy = []
     this.play = 0
-    this.playAllowed = 10
+    this.playAllowed = 20
     this.success = 0
     this.pourcentageReussite = 0
     this.status = 'todo'
@@ -113,9 +113,9 @@ class Lesson {
     this.allLesson.push('k-pa-pi-pu-pe-po')
   }
 
-  getIndexLesson (code) {
+  getIndexLesson () {
     for (let i = 0; i < this.allLesson.length; i++) {
-      if (this.allLesson[i] === code) {
+      if (this.allLesson[i] === this.code) {
         return i
       }
     }
@@ -140,10 +140,32 @@ class Lesson {
   }
 
   stop () {
-    this.kanaToStudy = []
-    this.play = 0
-    this.success = 0
-    this.pourcentageReussite = 0
+    const info = document.getElementById('info')
+    let indexLesson
+    let nextLesson = ''
+    let statusNextLesson
+
+    this.makePourcentage()
+    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.playAllowed}`
+    if (this.pourcentageReussite === 100) {
+      if (this.type === 'simple') {
+        this.status = 'done'
+
+        setStatusLessonInStorage(this.code, this.status)
+
+        indexLesson = this.getIndexLesson()
+        nextLesson = this.getNextLesson(indexLesson)
+        statusNextLesson = getStatusLessonInStorage(nextLesson)
+        if (statusNextLesson === 'done') {
+          // keep it done
+        } else {
+          setStatusLessonInStorage(nextLesson, 'inprogress')
+        }
+      } else {
+        // nothing, only simple lesson are "done"
+      }
+      this.displayButtonLesson()
+    }
 
     disableChoice(this.nbChoice)
   }
@@ -231,7 +253,6 @@ class Lesson {
     const info = document.getElementById('info')
     let arrayToWrite = []
 
-    // display screen of the lesson
     displayScreenLesson()
 
     // prepare lesson

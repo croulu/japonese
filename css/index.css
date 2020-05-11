@@ -34,7 +34,7 @@
     justify-content:center;
     align-items: top;
     height: 20vh;
-    font-size: 25px;
+    font-size: 2em;
     /* border: 5px solid goldenrod; */
 }
 
@@ -173,4 +173,10 @@ div.back a {
 div.back a:hover {
     background-color: #2f4fe0;
     border-radius: .5em;
+}
+
+.countdownTimer {
+    font-size: 2em;
+    float:right;
+    /* border: 1px solid grey;     */
 }

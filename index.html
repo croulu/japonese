@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script defer type="module" src="index.js"></script>
 	<script defer type="module" src="js/menu.js"></script>	
+	<script defer type="module" src="js/timerCountDown.js"></script>
 </head>
 <body>
 	<div id="divKanaMenu">
@@ -290,8 +291,17 @@
 	</div>
 
 	<div id="divGuess">
-			<div id="info" class="info"></div>
+		<div class="countdownTimer">
+			<div class="time">10</div>
+			<div class="buttons">
+			  <button class="start">Start</button>
+			  <button class="pause">Pause</button>
+			  <button class="reset">Reset</button>
+			</div>
+		  </div>
 
+		<div id="info" class="info"></div>
+		
 			<div class="kanaImg" id="divGuessKana"><img id="kanaImg" src=""></div>
 			<div class="kanaRomanji" id="divGuessRomanji"></div>
 		

@@ -36,6 +36,10 @@ import {
   displayButtonChoice
 } from '../js/choice.js'
 
+import {
+  countdown
+} from '../js/timerCountDown.js'
+
 class Lesson {
   constructor () {
     this.title = ''
@@ -271,6 +275,10 @@ class Lesson {
     }
 
     this.initDisplay()
+
+    // reset timer
+    countdown.reset()
+    countdown.start()
 
     // launch lesson
     if (this.kanaToStudy.length > 0) {

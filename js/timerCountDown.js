@@ -1,3 +1,5 @@
+import { oneLesson } from '../index.js'
+
 // https://www.artmann.co/articles/building-a-javascript-countdown-timer
 class Countdown {
   constructor () {
@@ -89,6 +91,8 @@ countdown.onTick = (time) => {
 countdown.onCompleted = () => {
   console.log('DONE')
   countdown.done = 1
+console.log(oneLesson)  
+  oneLesson.complete()
 }
 
 label.addEventListener('click', () => {

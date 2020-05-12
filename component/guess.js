@@ -16,12 +16,13 @@ import {
   randomizeChoice
 } from '../js/choice.js'
 
-import {
-  nextRandom,
-  setStatusLessonInStorage
+import { 
+  nextRandom
 } from '../js/helpers.js'
 
-import { displayWhatToGuess } from '../js/menu.js'
+import { 
+  displayWhatToGuess
+} from '../js/menu.js'
 
 import {
   countdown
@@ -102,11 +103,8 @@ class Guess {
   }
 
   nextKana (oneLesson) {
-    const info = document.getElementById('info')
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
-    let indexLesson
-    let nextLesson = ''
 
 console.log(countdown.done)
 
@@ -144,23 +142,7 @@ console.log(countdown.done)
       this.guessKana(oneLesson)
 
     } else {
-      oneLesson.makePourcentage()
-      info.innerText += ` - success : ${oneLesson.pourcentageReussite}% - ${oneLesson.success}/${oneLesson.playAllowed}`
-      if (oneLesson.pourcentageReussite === 100) {
-        if (oneLesson.type === 'simple') {
-          oneLesson.status = 'done'
-
-          setStatusLessonInStorage(oneLesson.code, oneLesson.status)
-
-          indexLesson = oneLesson.getIndexLesson(oneLesson.code)
-          nextLesson = oneLesson.getNextLesson(indexLesson)
-          setStatusLessonInStorage(nextLesson, 'inprogress')
-        } else {
-          // nothing, only simple lesson are "done"
-        }
-        oneLesson.displayButtonLesson()
-      }
-      oneLesson.stop()
+      oneLesson.complete()
     }
   }
 }

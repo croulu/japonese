@@ -305,6 +305,31 @@ class Lesson {
       info.innerText = 'pas de kana à étudier !'
     }
   }
+
+  complete () {
+    const info = document.getElementById('info')
+    let indexLesson
+    let nextLesson = ''
+
+    this.makePourcentage()
+    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.playAllowed}`
+    if (this.pourcentageReussite === 100) {
+      if (this.type === 'simple') {
+        this.status = 'done'
+
+        setStatusLessonInStorage(this.code, this.status)
+
+        indexLesson = this.getIndexLesson(this.code)
+        nextLesson = this.getNextLesson(indexLesson)
+        setStatusLessonInStorage(nextLesson, 'inprogress')
+      } else {
+        // nothing, only simple lesson are "done"
+      }
+      this.displayButtonLesson()
+    }
+    this.stop()
+  }
+
 }
 
 export {

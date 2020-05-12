@@ -23,6 +23,10 @@ import {
 
 import { displayWhatToGuess } from '../js/menu.js'
 
+import {
+  countdown
+} from '../js/timerCountDown.js'
+
 class Guess {
   constructor () {
     this.guessWhat = undefined
@@ -103,6 +107,8 @@ class Guess {
     let arrayToWrite = []
     let indexLesson
     let nextLesson = ''
+
+console.log(countdown.done)
 
     if (oneLesson.play < oneLesson.playAllowed) {
       // todo : faire un new !

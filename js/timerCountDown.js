@@ -1,9 +1,11 @@
+// https://www.artmann.co/articles/building-a-javascript-countdown-timer
 class Countdown {
   constructor () {
     this.duration = 0
     this.elapsed = 0
     this.isActive = false
     this.lastFrameTime = Date.now()
+    this.done = 0
 
     this.onTick = () => {}
     this.onCompleted = () => {}
@@ -24,7 +26,6 @@ class Countdown {
   }
 
   reset () {
-    console.log('reset')
     this.elapsed = 0
   }
 
@@ -62,18 +63,23 @@ class Countdown {
 
 const countdown = new Countdown().setDuration(60)
 const label = document.querySelector('.time')
+let pause = 0
 
 document.querySelector('.pause').addEventListener('click', () => {
   countdown.pause()
+  pause = 1
 })
 
 document.querySelector('.reset').addEventListener('click', () => {
   countdown.reset()
+  pause = 0
   label.innerHTML = Math.ceil(countdown.getTimeLeft())
 })
+// document.querySelector('.reset').style.display = 'none'
 
 document.querySelector('.start').addEventListener('click', () => {
   countdown.start()
+  pause = 0
 })
 
 countdown.onTick = (time) => {
@@ -82,7 +88,16 @@ countdown.onTick = (time) => {
 
 countdown.onCompleted = () => {
   console.log('DONE')
+  countdown.done = 1
 }
+
+label.addEventListener('click', () => {
+  console.log('click')
+  // todo : pourquoi appelé 2 fois ?
+  // todo 
+  // if pause launch start
+  // if not pause launch pause
+})
 
 export {
   Countdown,

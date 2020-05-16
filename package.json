@@ -26,6 +26,7 @@
     "img": "^3.0.3",
     "ngx-countdown": "^9.0.1",
     "node-sass": "^4.14.0",
-    "postcss-modules": "^2.0.0"
+    "postcss-modules": "^2.0.0",
+    "sanitize.css": "^11.0.0"
   }
 }

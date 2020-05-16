@@ -1,9 +1,5 @@
 
 import {
-  colorClearButton,
-  colorTrueButton,
-  colorFalseButton,
-  colorActivatedMenu,
   colorTextMenuOn,
   colorTextMenuOff
 } from '../index.js'

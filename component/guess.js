@@ -61,7 +61,7 @@ class Guess {
 
   makeAChoice (choiceSelected, oneLesson) {
     this.choiceSelectedIndex = choiceSelected
-
+    //TODO MMA ce parametre ne sert plus
     let myMethod = (function (sPropriété) {
       this.nextKana(oneLesson)
     }).bind(this)

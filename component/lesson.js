@@ -1,3 +1,4 @@
+// TODO MMA ces imports ne servent pas
 import {
   colorClearButton,
   colorTrueButton,
@@ -6,6 +7,8 @@ import {
   colorTextMenuOn,
   colorTextMenuOff
 } from '../index.js'
+
+
 
 import { Kana } from './kana.js'
 
@@ -85,6 +88,10 @@ class Lesson {
   }
 
   setAllLesson () {
+    // TODO MMA tu créer directement un tableau
+    // this.allLesson = [
+    // 'h-a-i-u-e-o',
+    // 'h-ka-ki-ku-ke-ko']
     this.allLesson.push('h-a-i-u-e-o')
     this.allLesson.push('h-ka-ki-ku-ke-ko')
     this.allLesson.push('h-sa-shi-su-se-so')
@@ -118,6 +125,8 @@ class Lesson {
   }
 
   getIndexLesson () {
+    // TODO MMA penses à utiliser des methodes qui existent deja ici findIndex
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
     for (let i = 0; i < this.allLesson.length; i++) {
       if (this.allLesson[i] === this.code) {
         return i
@@ -217,6 +226,7 @@ class Lesson {
       if (statusLessonInStorage === 'done') {
         arrayCode = this.allLesson[i].split('-')
         if (arrayCode[0] === kana) {
+          //TODO MMA attention, tu as definis deux fois la variable i
           for (let i = 1; i < arrayCode.length; i++) {
             arrayResult.push(arrayCode[i])
           }
@@ -225,6 +235,9 @@ class Lesson {
     }
 
     if (arrayResult.length > 0) {
+      //TODO MMA tu peux utiliser la syntaxe template literals plus lisible
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+      // result = `${kana}- ${setStringWithArray(arrayResult, '-')}`
       result = kana + '-'
       result += setStringWithArray(arrayResult, '-')
     }

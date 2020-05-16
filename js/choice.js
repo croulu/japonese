@@ -2,12 +2,7 @@ import imgHiragana from '../img/hiragana/*.*'
 import imgKatakana from '../img/katakana/*.*'
 
 import {
-  colorClearButton,
-  colorTrueButton,
-  colorFalseButton,
-  colorActivatedMenu,
-  colorTextMenuOn,
-  colorTextMenuOff
+  colorClearButton
 } from '../index.js'
 
 import {

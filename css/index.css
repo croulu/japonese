@@ -177,6 +177,7 @@ div.back a:hover {
 
 .countdownTimer {
     font-size: 2em;
+    color: #eb5732;
     float:right;
     /* border: 1px solid grey;     */
 }

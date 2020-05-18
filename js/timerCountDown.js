@@ -1,109 +1,64 @@
-import { oneLesson } from '../index.js'
+const affichage = document.querySelector('.time')
+const maxCountdown = 60
+let timePassed = 0
+let interval = null
+let isPause = false
 
-// https://www.artmann.co/articles/building-a-javascript-countdown-timer
-class Countdown {
-  constructor () {
-    this.duration = 0
-    this.elapsed = 0
-    this.isActive = false
-    this.lastFrameTime = Date.now()
-    this.done = 0
+function displayCountdown () {
+  const tempsRestant = maxCountdown - timePassed
+  const minutes = formatCountdown(Math.floor(tempsRestant / 60))
+  const secondes = formatCountdown(Math.floor(tempsRestant % 60))
 
-    this.onTick = () => {}
-    this.onCompleted = () => {}
+  affichage.innerHTML = `${minutes}:${secondes}`
+}
 
-    this.tick()
-  }
+function formatCountdown (num) {
+  return num < 10 ? `0${num}` : num
+}
 
-  getTimeLeft () {
-    const t = this.duration - this.elapsed
+function resetCountdown () {
+console.log('reset')
+console.log(`reset interval: ${interval}`)
+  clearInterval(interval)
+  isPause = false
+  timePassed = 0
+console.log(`reset time passed: ${timePassed}`)
+  startCountdown()
+}
 
-    return Math.max(0, t)
-  }
+function pauseCountdown () {
+console.log('pause')
+console.log(interval)
+  isPause = true
+console.log(`pause interval: ${interval}`)
+  clearInterval(interval)
+}
 
-  pause () {
-    this.isActive = false
-
-    return this
-  }
-
-  reset () {
-    this.elapsed = 0
-  }
-
-  setDuration (seconds) {
-    this.lastFrameTime = Date.now()
-    this.duration = seconds
-
-    return this
-  }
-
-  start () {
-    this.isActive = true
-
-    return this
-  }
-
-  tick () {
-    const currentFrameTime = Date.now()
-    const deltaTime = currentFrameTime - this.lastFrameTime
-    this.lastFrameTime = currentFrameTime
-
-    if (this.isActive) {
-      this.elapsed += deltaTime / 1000
-      this.onTick(this.getTimeLeft())
-
-      if (this.getTimeLeft() <= 0) {
-        this.pause()
-        this.onCompleted()
-      }
+function startCountdown () {
+  console.log('start')
+  isPause = false
+  interval = setInterval(() => {
+console.log(`setInterval: ${timePassed}`)
+    
+    timePassed += 1
+    displayCountdown()
+    
+    if (maxCountdown - timePassed === 0) {
+      resetCountdown()
     }
-
-    window.requestAnimationFrame(this.tick.bind(this))
-  }
+  }, 1000)
+console.log(`interval::::::: ${interval}`)
 }
 
-const countdown = new Countdown().setDuration(60)
-const label = document.querySelector('.time')
-let pause = 0
-
-document.querySelector('.pause').addEventListener('click', () => {
-  countdown.pause()
-  pause = 1
-})
-
-document.querySelector('.reset').addEventListener('click', () => {
-  countdown.reset()
-  pause = 0
-  label.innerHTML = Math.ceil(countdown.getTimeLeft())
-})
-// document.querySelector('.reset').style.display = 'none'
-
-document.querySelector('.start').addEventListener('click', () => {
-  countdown.start()
-  pause = 0
-})
-
-countdown.onTick = (time) => {
-  label.innerHTML = Math.round(time)
+function toStartOrNot () {
+console.log(`toStartOrNot isPause: ${isPause}`)
+  isPause === true ? startCountdown() : pauseCountdown()
 }
 
-countdown.onCompleted = () => {
-  console.log('DONE')
-  countdown.done = 1
-console.log(oneLesson)  
-  oneLesson.complete()
-}
-
-label.addEventListener('click', () => {
-  console.log('click')
-  // todo : pourquoi appelé 2 fois ?
-  // todo 
-  // if pause launch start
-  // if not pause launch pause
-})
+affichage.addEventListener('click', toStartOrNot)
 
 export {
-  Countdown,
-  countdown
+  interval,
+  resetCountdown,
+  startCountdown
 }

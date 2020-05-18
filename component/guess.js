@@ -24,10 +24,6 @@ import {
   displayWhatToGuess
 } from '../js/menu.js'
 
-import {
-  countdown
-} from '../js/timerCountDown.js'
-
 class Guess {
   constructor () {
     this.guessWhat = undefined
@@ -105,8 +101,6 @@ class Guess {
   nextKana (oneLesson) {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
-
-console.log(countdown.done)
 
     if (oneLesson.play < oneLesson.playAllowed) {
       // todo : faire un new !

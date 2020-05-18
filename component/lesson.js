@@ -37,7 +37,7 @@ import {
 } from '../js/choice.js'
 
 import {
-  countdown
+  resetCountdown
 } from '../js/timerCountDown.js'
 
 class Lesson {
@@ -277,8 +277,7 @@ class Lesson {
     this.initDisplay()
 
     // reset timer
-    countdown.reset()
-    countdown.start()
+    resetCountdown()
 
     // launch lesson
     if (this.kanaToStudy.length > 0) {

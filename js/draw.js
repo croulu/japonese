@@ -4,7 +4,7 @@ const r = 0
 const g = 0
 const b = 0
 const color = rgbToHex(r, g, b)
-const radius = 5
+const radius = 4
 
 // find position in canvas, from mouse event
 function getXY (canvas, evt) {

@@ -12,7 +12,8 @@ import {
 
 import {
   getStatusLessonInStorage,
-  setStatusLessonInStorage
+  setStatusLessonInStorage,
+  getLastLessonInStorage
 } from './helpers.js'
 
 const oneLesson = new Lesson()
@@ -24,6 +25,8 @@ const btnAlphabetKana = document.getElementById('btnAlphabetKanaComplet')
 
 const btnBackMenu = document.getElementById('btnBackMenu')
 const btnRomanji = document.getElementById('btnRomanji')
+
+const btnContinue = document.getElementById('btnContinue')
 
 const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
 const btnAllKatakanaLearned = document.getElementById('btnAllKatakanaLearned')
@@ -92,6 +95,9 @@ function setInitLessons () {
     }
   }
 }
+
+const lastLesson = getLastLessonInStorage()
+btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLesson, oneGuess))
 
 btnAlphabetHiragana.addEventListener('click', () => displayAlphabetHiragana())
 btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())

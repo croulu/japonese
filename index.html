@@ -16,7 +16,7 @@
 
 		<div class="scrollTitreContinue">Continuer la lesson</div>
 		<div id="menuAlphabet" class="scrollMenuContinue">
-			<a id="btnContinue">Continuer</a>
+			<a id="btnContinue"></a>
 		</div>
 
 		<div class="scrollTitre">Alphabet</div>
@@ -345,12 +345,15 @@
 			</div>
 	</div>
 
-	<div id="divDraw">
-		<!-- the canvas for drawing -->
-		<canvas id="canvas_draw" width="200" height="200" style="border:1px solid black"> </canvas>
+	<div id="divDraw" class="draw">
+		<div>
+			<!-- the canvas for drawing -->
+			<canvas id="canvas_draw" width="200" height="200" style="border:1px solid black"> </canvas>
 
-		<!-- the button for clearing canvas_draw -->
-		<button id="button_clear"> Clear </button>		
+			<!-- the button for clearing canvas_draw -->
+			<button id="button_clear"> Clear </button>		
+		</div>
+		<div><img src="img/hiragana/a.png"></div>
 	</div>
 
 </body>

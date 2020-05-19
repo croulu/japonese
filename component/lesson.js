@@ -20,10 +20,11 @@ import {
   strReplaceAll,
   setStringWithArray,
   getStatusLessonInStorage,
+  setStatusLessonInStorage,
+  setLastLessonInStorage,
   disableButton,
   enableButton,
-  setLessonTitle,
-  setStatusLessonInStorage
+  setLessonTitle
 } from '../js/helpers.js'
 
 import {
@@ -276,6 +277,8 @@ class Lesson {
 
     this.initDisplay()
 
+    this.setLastLessonPlayed('current')
+
     resetCountdown()
 
     // launch lesson
@@ -320,12 +323,18 @@ class Lesson {
         indexLesson = this.getIndexLesson(this.code)
         nextLesson = this.getNextLesson(indexLesson)
         setStatusLessonInStorage(nextLesson, 'inprogress')
+        this.setLastLessonPlayed(nextLesson)
       } else {
         // nothing, only simple lesson are "done"
       }
       this.displayButtonLesson()
     }
     this.stop()
+  }
+
+  setLastLessonPlayed (lesson) {
+    if (lesson === 'current') lesson = this.code
+    setLastLessonInStorage(lesson)
   }
 
 }

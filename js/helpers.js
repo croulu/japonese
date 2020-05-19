@@ -64,13 +64,24 @@ function setStringWithArray (myArray, separator) {
 
 function getStatusLessonInStorage (code) {
   const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
-  const statusInStorage = localStorage.getItem(localStorageName)
-  return statusInStorage
+  const inStorage = localStorage.getItem(localStorageName)
+  return inStorage
 }
 
 function setStatusLessonInStorage (code, status) {
   const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
   localStorage.setItem(localStorageName, status)
+}
+
+function getLastLessonInStorage () {
+  const localStorageName = 'oneLessonLastLesson'
+  const inStorage = localStorage.getItem(localStorageName)
+  return inStorage
+}
+
+function setLastLessonInStorage (code) {
+  const localStorageName = 'oneLessonLastLesson'
+  localStorage.setItem(localStorageName, code)
 }
 
 function disableButton (name) {
@@ -117,6 +128,8 @@ export {
   setStringWithArray,
   getStatusLessonInStorage,
   setStatusLessonInStorage,
+  getLastLessonInStorage,
+  setLastLessonInStorage,
   disableButton,
   enableButton,
   setLessonTitle

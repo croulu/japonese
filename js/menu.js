@@ -1,3 +1,16 @@
+import {
+  colorClearButton,
+  colorTrueButton,
+  colorFalseButton,
+  colorActivatedMenu,
+  colorTextMenuOn,
+  colorTextMenuOff
+} from '../index.js'
+
+import {
+  getLastLessonInStorage,
+  setLessonTitle
+} from './helpers.js'
 
 const divKanaMenu = document.getElementById('divKanaMenu')
 const divBackMenu = document.getElementById('divBackMenu')
@@ -37,6 +50,8 @@ function displayScreenLesson () {
 }
 
 function displayScreenHomePage () {
+console.log('displayScreenHomePage')
+console.log(divKanaMenu)
   divKanaMenu.style.display = 'block'
   divBackMenu.style.display = 'none'
   divAlphabetRomanji.style.display = 'none'
@@ -45,6 +60,11 @@ function displayScreenHomePage () {
   divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
   divDraw.style.display = 'none'
+
+  const btnContinue = document.getElementById('btnContinue')
+  const lastLesson = getLastLessonInStorage()
+  
+  btnContinue.innerText = setLessonTitle(lastLesson)
 }
 
 function displayAlphabetHiragana () {

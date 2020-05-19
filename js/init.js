@@ -2,6 +2,7 @@ import { Lesson } from '../component/lesson.js'
 import { Guess } from '../component/guess.js'
 
 import {
+  displayDrawLesson,
   displayAlphabetHiragana,
   displayAlphabetKatakana,
   displayAlphabetKana,
@@ -60,6 +61,9 @@ const btnGuessKzajizuzezo = document.getElementById('btnGuessKzajizuzezo')
 const btnGuessKdadzidzudedo = document.getElementById('btnGuessKdadzidzudedo')
 const btnGuessKbabibubebo = document.getElementById('btnGuessKbabibubebo')
 const btnGuessKpapipupepo = document.getElementById('btnGuessKpapipupepo')
+
+const btnDrawHaiueo = document.getElementById('btnDrawHaiueo')
+const btnDrawKaiueo = document.getElementById('btnDrawKaiueo')
 
 const choice1 = document.getElementById('choice1')
 const choice2 = document.getElementById('choice2')
@@ -132,6 +136,9 @@ btnGuessKzajizuzezo.addEventListener('click', () => oneLesson.launchLesson('simp
 btnGuessKdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-da-dzi-dzu-de-do', oneGuess))
 btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ba-bi-bu-be-bo', oneGuess))
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
+
+btnDrawHaiueo.addEventListener('click', () => displayDrawLesson())
+btnDrawKaiueo.addEventListener('click', () => displayDrawLesson())
 
 choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
 choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))

@@ -121,16 +121,62 @@ div[data-key="h-title"] {
     grid-column: 1/7;
 }
 
+div.scrollTitreContinue {
+    background-color: #eb5732;
+    color: #ffffff;
+    font-weight: bold;
+    overflow: auto;
+    white-space: nowrap;
+    font-size: 20px;
+    padding: 3px;
+    /* border: 1px solid grey; */
+}
+
+div.scrollMenuContinue {
+    background-color: #eb5732;
+    overflow: auto;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 8px;
+    /* border: 1px solid grey; */
+}
+
+div.scrollTitre {
+    background-color: #eb5732;
+    overflow: auto;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 3px;
+    /* border: 1px solid grey; */
+}
+
+div.scrollMenuContinue a {
+    background-color: #df331c;
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px;
+    border-radius: .5em;
+    text-decoration: none;
+    pointer-events: auto;
+}
+  
+div.scrollMenuContinue a:hover {
+    background-color: #831102;
+    border-radius: .5em;
+}
+
 div.scrollmenu {
     background-color: #eb5732;
     overflow: auto;
-    white-space: normal;
+    white-space: nowrap;
     font-size: 13px;
+    padding: 8px;
     /* border: 1px solid grey; */
 }
-  
+
 div.scrollmenu a {
-    background-color: #eb5732;
+    background-color: #e06e52;
     display: inline-block;
     color: #ffffff;
     text-align: center;

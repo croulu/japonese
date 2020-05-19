@@ -12,6 +12,19 @@ const divGuess = document.getElementById('divGuess')
 const divGuessKana = document.getElementById('divGuessKana')
 const divGuessRomanji = document.getElementById('divGuessRomanji')
 
+const divDraw = document.getElementById('divDraw')
+
+function displayDrawLesson () {
+  divKanaMenu.style.display = 'none'
+  divBackMenu.style.display = 'block'
+  divAlphabetRomanji.style.display = 'none'
+  divAlphabetHiragana.style.display = 'none'
+  divAlphabetKatakana.style.display = 'none'
+  divAlphabetKana.style.display = 'none'
+  divGuess.style.display = 'none'
+  divDraw.style.display = 'block'
+}
+
 function displayScreenLesson () {
   divKanaMenu.style.display = 'none'
   divBackMenu.style.display = 'block'
@@ -20,6 +33,7 @@ function displayScreenLesson () {
   divAlphabetKatakana.style.display = 'none'
   divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'block'
+  divDraw.style.display = 'none'
 }
 
 function displayScreenHomePage () {
@@ -30,6 +44,7 @@ function displayScreenHomePage () {
   divAlphabetKatakana.style.display = 'none'
   divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
+  divDraw.style.display = 'none'
 }
 
 function displayAlphabetHiragana () {
@@ -40,6 +55,7 @@ function displayAlphabetHiragana () {
   divAlphabetKatakana.style.display = 'none'
   divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
+  divDraw.style.display = 'none'
 }
 
 function displayAlphabetKatakana () {
@@ -50,6 +66,7 @@ function displayAlphabetKatakana () {
   divAlphabetKatakana.style.display = 'block'
   divAlphabetKana.style.display = 'none'
   divGuess.style.display = 'none'
+  divDraw.style.display = 'none'  
 }
 
 function displayAlphabetKana () {
@@ -60,6 +77,7 @@ function displayAlphabetKana () {
   divAlphabetKatakana.style.display = 'none'
   divAlphabetKana.style.display = 'block'
   divGuess.style.display = 'none'
+  divDraw.style.display = 'none'  
 }
 
 function displayWhatToGuess (whatToGuess) {
@@ -261,6 +279,7 @@ function displayRomanji () {
 }
 
 export {
+  displayDrawLesson,
   displayScreenLesson,
   displayScreenHomePage,
   displayAlphabetHiragana,

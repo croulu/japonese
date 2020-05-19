@@ -4,60 +4,81 @@
 	<meta charset="UTF-8">
 	<title>Japonese</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/draw.css" />
 	<script defer type="module" src="index.js"></script>
-	<script defer type="module" src="js/menu.js"></script>	
+	<script defer type="module" src="js/menu.js"></script>
+	<script defer type="module" src="js/draw.js"></script>
 	<script defer type="module" src="js/timerCountDown.js"></script>
 </head>
 <body>
 	<div id="divKanaMenu">
 		<div class="title">Learn japanese</div>
 
+		<div class="scrollTitreContinue">Continuer la lesson</div>
+		<div id="menuAlphabet" class="scrollMenuContinue">
+			<a id="btnContinue">Continuer</a>
+		</div>
+
+		<div class="scrollTitre">Alphabet</div>
 		<div id="menuAlphabet" class="scrollmenu">
 			<a id="btnAlphabetKanaComplet">kana</a>
 			<a id="btnAlphabetHiragana">hiragana</a>
 			<a id="btnAlphabetKatakana">katakana</a>
 		</div>
 
+		<div class="scrollTitre">Lire les kanas (hiragana et katakana)</div>
 		<div id="menuAlphabetAll" class="scrollmenu">
 				<a id="btnAllHiraganaLearned">Tous les hiragana appris</a>
 				<a id="btnAllKatakanaLearned">Tous les katakana appris</a>
 		</div>
 
+		<div class="scrollTitre">Lire les hiragana</div>
 		<div id="menuGuessRomanjiHiragana" class="scrollmenu">
-			<a id="btnGuessHaiueo">h: a i u e o</a>
-			<a id="btnGuessHkakikukeko">h: ka ki ku ke ko</a>
-			<a id="btnGuessHsashisuseso">h: sa shi su se so</a>
-			<a id="btnGuessHtachitsuteto">h: ta chi tsu te to</a>
-			<a id="btnGuessHnaninuneno">h: na ni nu ne no</a>
-			<a id="btnGuessHhahifuheho">h: ha hi fu he ho</a>
-			<a id="btnGuessHmamimumemo">h: ma mi mu me mo</a>
-			<a id="btnGuessHyayuyo">h: ya yu yo</a>
-			<a id="btnGuessHrarirurero">h: ra ri ru re ro</a>
-			<a id="btnGuessHwawon">h: wa wo n</a>
-			<a id="btnGuessHgagigugego">h: ga gi gu ge go</a>
-			<a id="btnGuessHzajizuzezo">h: za ji zu ze zo</a>
-			<a id="btnGuessHdadzidzudedo">h: da dzi dzu de do</a>
-			<a id="btnGuessHbabibubebo">h: ba bi bu be bo</a>
-			<a id="btnGuessHpapipupepo">h: pa pi pu pe po</a>
+			<a id="btnGuessHaiueo">Hiragana<br>a i u e o<br><img src="ico/hiragana/a.png"></a>
+			<a id="btnGuessHkakikukeko">Hiragana<br>ka ki ku ke ko<br><img src="ico/hiragana/ka.png"></a>
+			<a id="btnGuessHsashisuseso">Hiragana<br>sa shi su se so<br><img src="ico/hiragana/sa.png"></a>
+			<a id="btnGuessHtachitsuteto">Hiragana<br>ta chi tsu te tov<br><img src="ico/hiragana/ta.png"></a>
+			<a id="btnGuessHnaninuneno">Hiragana<br>na ni nu ne no<br><img src="ico/hiragana/na.png"></a>
+			<a id="btnGuessHhahifuheho">Hiragana<br>ha hi fu he ho<br><img src="ico/hiragana/ha.png"></a>
+			<a id="btnGuessHmamimumemo">Hiragana<br>ma mi mu me mo<br><img src="ico/hiragana/ma.png"></a>
+			<a id="btnGuessHyayuyo">Hiragana<br>ya yu yo<br><img src="ico/hiragana/ya.png"></a>
+			<a id="btnGuessHrarirurero">Hiragana<br>ra ri ru re ro<br><img src="ico/hiragana/ra.png"></a>
+			<a id="btnGuessHwawon">Hiragana<br>wa wo n<br><img src="ico/hiragana/wa.png"></a>
+			<a id="btnGuessHgagigugego">Hiragana<br>ga gi gu ge go<br></a>
+			<a id="btnGuessHzajizuzezo">Hiragana<br>za ji zu ze zo<br></a>
+			<a id="btnGuessHdadzidzudedo">Hiragana<br>da dzi dzu de do<br></a>
+			<a id="btnGuessHbabibubebo">Hiragana<br>ba bi bu be bo<br></a>
+			<a id="btnGuessHpapipupepo">Hiragana<br>pa pi pu pe po<br></a>
 		</div>
 
+		<div class="scrollTitre">Lire les katakana</div>
 		<div id="menuGuessRomanjiHiragana" class="scrollmenu">
-				<a id="btnGuessKaiueo">k: a i u e o</a>
-				<a id="btnGuessKkakikukeko">k: ka ki ku ke ko</a>
-				<a id="btnGuessKsashisuseso">k: sa shi su se so</a>
-				<a id="btnGuessKtachitsuteto">k: ta chi tsu te to</a>
-				<a id="btnGuessKnaninuneno">k: na ni nu ne no</a>
-				<a id="btnGuessKhahifuheho">k: ha hi fu he ho</a>
-				<a id="btnGuessKmamimumemo">k: ma mi mu me mo</a>
-				<a id="btnGuessKyayuyo">k: ya yu yo</a>
-				<a id="btnGuessKrarirurero">k: ra ri ru re ro</a>
-				<a id="btnGuessKwawon">k: wa wo n</a>
-				<a id="btnGuessKgagigugego">k: ga gi gu ge go</a>
-				<a id="btnGuessKzajizuzezo">k: za ji zu ze zo</a>
-				<a id="btnGuessKdadzidzudedo">k: da dzi dzu de do</a>
-				<a id="btnGuessKbabibubebo">k: ba bi bu be bo</a>
-				<a id="btnGuessKpapipupepo">k: pa pi pu pe po</a>
-			</div>
+				<a id="btnGuessKaiueo">Katakana<br>a i u e o<br><img src="ico/katakana/a.png"></a>
+				<a id="btnGuessKkakikukeko">Katakana<br>ka ki ku ke ko<br><img src="ico/katakana/ka.png"></a>
+				<a id="btnGuessKsashisuseso">Katakana<br>sa shi su se so<br><img src="ico/katakana/sa.png"></a>
+				<a id="btnGuessKtachitsuteto">Katakana<br>ta chi tsu te to<br><img src="ico/katakana/ta.png"></a>
+				<a id="btnGuessKnaninuneno">Katakana<br>na ni nu ne no<br><b>TODO</b></a>
+				<a id="btnGuessKhahifuheho">Katakana<br>ha hi fu he ho<br><b>TODO</b></a>
+				<a id="btnGuessKmamimumemo">Katakana<br>ma mi mu me mov<br><img src="ico/katakana/ma.png"></a>
+				<a id="btnGuessKyayuyo">Katakana<br>ya yu yo<br><img src="ico/katakana/ya.png"></a>
+				<a id="btnGuessKrarirurero">Katakana<br>ra ri ru re ro<br><img src="ico/katakana/ra.png"></a>
+				<a id="btnGuessKwawon">Katakana<br>wa wo n<br><img src="ico/katakana/wa.png"></a>
+				<a id="btnGuessKgagigugego">Katakana<br>ga gi gu ge go</a>
+				<a id="btnGuessKzajizuzezo">Katakana<br>za ji zu ze zo</a>
+				<a id="btnGuessKdadzidzudedo">Katakana<br>da dzi dzu de do</a>
+				<a id="btnGuessKbabibubebo">Katakana<br>ba bi bu be bo</a>
+				<a id="btnGuessKpapipupepo">Katakana<br>pa pi pu pe po</a>
+		</div>
+
+		<div class="scrollTitre">Dessiner les hiragana</div>
+		<div id="menuGuess" class="scrollmenu">
+				<a id="btnDrawHaiueo">Dessiner<br>a i u e o<br></a>
+		</div>
+	
+		<div class="scrollTitre">Dessiner les katakana</div>
+		<div id="menuGuess" class="scrollmenu">
+				<a id="btnDrawKaiueo">Dessiner<br>a i u e o<br></a>
+		</div>
 	</div>
 
 	<div class="back" id="divBackMenu">
@@ -322,6 +343,14 @@
 					<div><img id="choice5Img" src=""></div>
 				</div>
 			</div>
+	</div>
+
+	<div id="divDraw">
+		<!-- the canvas for drawing -->
+		<canvas id="canvas_draw" width="200" height="200" style="border:1px solid black"> </canvas>
+
+		<!-- the button for clearing canvas_draw -->
+		<button id="button_clear"> Clear </button>		
 	</div>
 
 </body>

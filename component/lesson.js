@@ -276,7 +276,6 @@ class Lesson {
 
     this.initDisplay()
 
-    // reset timer
     resetCountdown()
 
     // launch lesson

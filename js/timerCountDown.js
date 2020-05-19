@@ -26,6 +26,9 @@ console.log(`reset time passed: ${timePassed}`)
   startCountdown()
 }
 
+// todo 
+// clic sur le timer : pause est appelé 2 fois
+
 function pauseCountdown () {
 console.log('pause')
 console.log(interval)

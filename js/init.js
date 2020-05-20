@@ -74,6 +74,8 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
+displayScreenHomePage()
+
 oneLesson.setAllLesson()
 
 if (oneLesson.getNbTrueLessons() === 0) {

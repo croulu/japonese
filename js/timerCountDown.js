@@ -17,31 +17,21 @@ function formatCountdown (num) {
 }
 
 function resetCountdown () {
-console.log('reset')
-console.log(`reset interval: ${interval}`)
   clearInterval(interval)
   isPause = false
   timePassed = 0
-console.log(`reset time passed: ${timePassed}`)
+  displayCountdown()
   startCountdown()
 }
 
-// todo 
-// clic sur le timer : pause est appelé 2 fois
-
 function pauseCountdown () {
-console.log('pause')
-console.log(interval)
   isPause = true
-console.log(`pause interval: ${interval}`)
   clearInterval(interval)
 }
 
 function startCountdown () {
-  console.log('start')
   isPause = false
   interval = setInterval(() => {
-console.log(`setInterval: ${timePassed}`)
     
     timePassed += 1
     displayCountdown()
@@ -50,11 +40,10 @@ console.log(`setInterval: ${timePassed}`)
       resetCountdown()
     }
   }, 1000)
-console.log(`interval::::::: ${interval}`)
+// console.log(`interval::::::: ${interval}`)
 }
 
 function toStartOrNot () {
-console.log(`toStartOrNot isPause: ${isPause}`)
   isPause === true ? startCountdown() : pauseCountdown()
 }
 

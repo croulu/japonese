@@ -1,8 +1,13 @@
+import {
+  Lesson
+} from '../component/lesson.js'
+
 const affichage = document.querySelector('.time')
 const maxCountdown = 60
 let timePassed = 0
 let interval = null
 let isPause = false
+let isFinished = false
 
 function displayCountdown () {
   const tempsRestant = maxCountdown - timePassed
@@ -16,12 +21,12 @@ function formatCountdown (num) {
   return num < 10 ? `0${num}` : num
 }
 
-function resetCountdown () {
+function resetCountdown (oneLesson) {
   clearInterval(interval)
   isPause = false
   timePassed = 0
   displayCountdown()
-  startCountdown()
+  startCountdown(oneLesson)
 }
 
 function pauseCountdown () {
@@ -29,15 +34,18 @@ function pauseCountdown () {
   clearInterval(interval)
 }
 
-function startCountdown () {
+function startCountdown (oneLesson) {
   isPause = false
   interval = setInterval(() => {
-    
     timePassed += 1
     displayCountdown()
-    
+
     if (maxCountdown - timePassed === 0) {
-      resetCountdown()
+      clearInterval(interval)
+      isPause = true
+      isFinished = true
+      oneLesson.complete()
+      console.log(oneLesson)
     }
   }, 1000)
 // console.log(`interval::::::: ${interval}`)

@@ -1,6 +1,7 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
+import { } from './js/kana.js'
 import { oneLesson } from './js/init.js'
 import {
   getLastLessonInStorage,

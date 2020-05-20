@@ -279,7 +279,7 @@ class Lesson {
 
     this.setLastLessonPlayed('current')
 
-    resetCountdown()
+    resetCountdown(this)
 
     // launch lesson
     if (this.kanaToStudy.length > 0) {
@@ -336,7 +336,6 @@ class Lesson {
     if (lesson === 'current') lesson = this.code
     setLastLessonInStorage(lesson)
   }
-
 }
 
 export {

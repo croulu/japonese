@@ -95,7 +95,6 @@ class Guess {
       romanji = document.getElementById('divGuessRomanji')
       romanji.innerHTML = this.kana.letter
     }
-
   }
 
   nextKana (oneLesson) {
@@ -134,7 +133,6 @@ class Guess {
       }
 
       this.guessKana(oneLesson)
-
     } else {
       oneLesson.complete()
     }

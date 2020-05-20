@@ -50,8 +50,6 @@ function displayScreenLesson () {
 }
 
 function displayScreenHomePage () {
-console.log('displayScreenHomePage')
-console.log(divKanaMenu)
   divKanaMenu.style.display = 'block'
   divBackMenu.style.display = 'none'
   divAlphabetRomanji.style.display = 'none'

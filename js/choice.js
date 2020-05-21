@@ -1,5 +1,4 @@
-import imgHiragana from '../img/hiragana/*.*'
-import imgKatakana from '../img/katakana/*.*'
+import { kana } from '../js/alphabet.js'
 
 import {
   colorClearButton,
@@ -26,16 +25,12 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
     eval(myExpression)
   } else {
 
-    if (alphabet === 'h') {
-      specificImage = imgHiragana[kanaLetter]
-    } else if (alphabet === 'k') {
-      specificImage = imgKatakana[kanaLetter]
-    }
+    specificImage = `imgKana${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
 
     myExpression = `choice${indexChoice}Txt.innerText = ''`
     eval(myExpression)
 
-    myExpression = `choice${indexChoice}Img.src = '${specificImage.png}'`
+    myExpression = `choice${indexChoice}Img.src = '${kana[specificImage]}'`
     eval(myExpression)
   }
 }

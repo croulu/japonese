@@ -7,7 +7,6 @@ const maxCountdown = 60
 let timePassed = 0
 let interval = null
 let isPause = false
-let isFinished = false
 
 function displayCountdown () {
   const tempsRestant = maxCountdown - timePassed
@@ -43,7 +42,6 @@ function startCountdown (oneLesson) {
     if (maxCountdown - timePassed === 0) {
       clearInterval(interval)
       isPause = true
-      isFinished = true
       oneLesson.complete()
       console.log(oneLesson)
     }

@@ -50,7 +50,6 @@ class Lesson {
     this.nbChoice = 0
     this.kanaToStudy = []
     this.play = 0
-    this.playAllowed = 20
     this.success = 0
     this.pourcentageReussite = 0
     this.status = 'todo'
@@ -141,7 +140,7 @@ class Lesson {
   }
 
   makePourcentage () {
-    this.pourcentageReussite = this.success / this.playAllowed * 100
+    this.pourcentageReussite = Math.floor(this.success / this.play) * 100
   }
 
   stop () {
@@ -151,7 +150,7 @@ class Lesson {
     let statusNextLesson
 
     this.makePourcentage()
-    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.playAllowed}`
+    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.play}`
     if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {
         this.status = 'done'
@@ -313,7 +312,7 @@ class Lesson {
     let nextLesson = ''
 
     this.makePourcentage()
-    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.playAllowed}`
+    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.play}`
     if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {
         this.status = 'done'

@@ -1,3 +1,20 @@
+// 'a', 'i', 'u', 'e', 'o',
+// 'ka', 'ki', 'ku', 'ke', 'ko',
+// 'sa', 'shi', 'su', 'se', 'so',
+// 'ta', 'chi', 'tsu', 'te', 'to',
+// 'na', 'ni', 'nu', 'ne', 'no',
+// 'ha', 'hi', 'fu', 'he', 'ho',
+// 'ma', 'mi', 'mu', 'me', 'mo',
+// 'ya', 'yu', 'yo',
+// 'ra', 'ri', 'ru', 're', 'ro',
+// 'wa', 'wo',
+// 'n',
+// 'ga', 'gi', 'gu', 'ge', 'go',
+// 'za', 'ji', 'zu', 'ze', 'zo',
+// 'da', 'dzi', 'dzu', 'de', 'do',
+// 'ba', 'bi', 'bu', 'be', 'bo',
+// 'pa', 'pi', 'pu', 'pe', 'po'
+
 import imgKanaHa from '../img/hiragana/a.png'
 import imgKanaHi from '../img/hiragana/i.png'
 import imgKanaHu from '../img/hiragana/u.png'
@@ -142,5 +159,41 @@ import imgKanaKpu from '../img/katakana/pu.png'
 import imgKanaKpe from '../img/katakana/pe.png'
 import imgKanaKpo from '../img/katakana/po.png'
 
-const kanaAlphabet = ['a', 'i', 'u', 'e', 'o', 'ka', 'ki', 'ku', 'ke', 'ko', 'sa', 'shi', 'su', 'se', 'so', 'ta', 'chi', 'tsu', 'te', 'to', 'na', 'ni', 'nu', 'ne', 'no', 'ha', 'hi', 'fu', 'he', 'ho', 'ma', 'mi', 'mu', 'me', 'mo', 'ya', 'yu', 'yo', 'ra', 'ri', 'ru', 're', 'ro', 'wa', 'wo', 'n', 'ga', 'gi', 'gu', 'ge', 'go', 'za', 'ji', 'zu', 'ze', 'zo', 'da', 'dzi', 'dzu', 'de', 'do', 'ba', 'bi', 'bu', 'be', 'bo', 'pa', 'pi', 'pu', 'pe', 'po']
+const kana = {
+  imgKanaHa, imgKanaHi, imgKanaHu, imgKanaHe, imgKanaHo,
+  imgKanaHka, imgKanaHki, imgKanaHku, imgKanaHke, imgKanaHko, 
+  imgKanaHsa, imgKanaHshi, imgKanaHsu, imgKanaHse, imgKanaHso, 
+  imgKanaHta, imgKanaHchi, imgKanaHtsu, imgKanaHte, imgKanaHto, 
+  imgKanaHna, imgKanaHni, imgKanaHnu, imgKanaHne, imgKanaHno, 
+  imgKanaHha, imgKanaHhi, imgKanaHfu, imgKanaHhe, imgKanaHho, 
+  imgKanaHma, imgKanaHmi, imgKanaHmu, imgKanaHme, imgKanaHmo, 
+  imgKanaHya, imgKanaHyu, imgKanaHyo, 
+  imgKanaHra, imgKanaHri, imgKanaHru, imgKanaHre, imgKanaHro, 
+  imgKanaHwa, imgKanaHwo, 
+  imgKanaHn, 
+  imgKanaHga, imgKanaHgi, imgKanaHgu, imgKanaHge, imgKanaHgo, 
+  imgKanaHza, imgKanaHji, imgKanaHzu, imgKanaHze, imgKanaHzo, 
+  imgKanaHda, imgKanaHdzi, imgKanaHdzu, imgKanaHde, imgKanaHdo, 
+  imgKanaHba, imgKanaHbi, imgKanaHbu, imgKanaHbe, imgKanaHbo, 
+  imgKanaHpa, imgKanaHpi, imgKanaHpu, imgKanaHpe, imgKanaHpo, 
+  imgKanaKa, imgKanaKi, imgKanaKu, imgKanaKe, imgKanaKo, 
+  imgKanaKka, imgKanaKki, imgKanaKku, imgKanaKke, imgKanaKko, 
+  imgKanaKsa, imgKanaKshi, imgKanaKsu, imgKanaKse, imgKanaKso, 
+  imgKanaKta, imgKanaKchi, imgKanaKtsu, imgKanaKte, imgKanaKto,
+  imgKanaKna, imgKanaKni, imgKanaKnu, imgKanaKne, imgKanaKno, 
+  imgKanaKha, imgKanaKhi, imgKanaKfu, imgKanaKhe, imgKanaKho, 
+  imgKanaKma, imgKanaKmi, imgKanaKmu, imgKanaKme, imgKanaKmo, 
+  imgKanaKya, imgKanaKyu, imgKanaKyo, 
+  imgKanaKra, imgKanaKri, imgKanaKru, imgKanaKre, imgKanaKro,
+  imgKanaKwa, imgKanaKwo, 
+  imgKanaKn,
+  imgKanaKga, imgKanaKgi, imgKanaKgu, imgKanaKge, imgKanaKgo, 
+  imgKanaKza, imgKanaKji, imgKanaKzu, imgKanaKze, imgKanaKzo, 
+  imgKanaKda, imgKanaKdzi, imgKanaKdzu, imgKanaKde, imgKanaKdo, 
+  imgKanaKba, imgKanaKbi, imgKanaKbu, imgKanaKbe, imgKanaKbo, 
+  imgKanaKpa, imgKanaKpi, imgKanaKpu, imgKanaKpe, imgKanaKpo
+}
 
+export {
+  kana
+}

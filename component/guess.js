@@ -3,9 +3,6 @@ import {
   colorFalseButton
 } from '../index.js'
 
-import imgHiragana from '../img/hiragana/*.*'
-import imgKatakana from '../img/katakana/*.*'
-
 import { Kana } from './kana.js'
 
 import {
@@ -16,13 +13,15 @@ import {
   randomizeChoice
 } from '../js/choice.js'
 
-import { 
+import {
   nextRandom
 } from '../js/helpers.js'
 
-import { 
+import {
   displayWhatToGuess
 } from '../js/menu.js'
+
+import { kana } from '../js/alphabet.js'
 
 class Guess {
   constructor () {
@@ -82,15 +81,11 @@ class Guess {
 
     oneLesson.play++
 
-    if (this.kana.alphabet === 'h') {
-      specificImage = imgHiragana[this.kana.letter]
-    } else if (this.kana.alphabet === 'k') {
-      specificImage = imgKatakana[this.kana.letter]
-    }
+    specificImage = `imgKana${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
 
     if (this.guessWhat === 0) {
       kanaImg = document.getElementById('kanaImg')
-      kanaImg.setAttribute('src', specificImage.png)
+      kanaImg.setAttribute('src', kana[specificImage])
     } else {
       romanji = document.getElementById('divGuessRomanji')
       romanji.innerHTML = this.kana.letter
@@ -101,41 +96,37 @@ class Guess {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
 
-    if (oneLesson.play < oneLesson.playAllowed) {
-      // todo : faire un new !
+    // todo : faire un new !
 
-      // possible values : 0, 1, 2
-      // 0 : kana
-      // 1 : romanji
-      // 2 : kanji (TODO)
-      this.guessWhat = nextRandom(2)
-      displayWhatToGuess(this.guessWhat)
+    // possible values : 0, 1, 2
+    // 0 : kana
+    // 1 : romanji
+    // 2 : kanji (TODO)
+    this.guessWhat = nextRandom(2)
+    displayWhatToGuess(this.guessWhat)
 
-      arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
-      writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
+    arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
+    writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
 
-      this.previousKana = this.kana
+    this.previousKana = this.kana
+    this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+
+    while (this.previousKana.letter === this.kana.letter) {
+      nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
       this.kana = oneLesson.kanaToStudy[nextRandomIndex]
-
-      while (this.previousKana.letter === this.kana.letter) {
-        nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
-        this.kana = oneLesson.kanaToStudy[nextRandomIndex]
-      }
-
-      this.writeChoiceTrueFalse(arrayToWrite)
-      clearChoice(oneLesson.nbChoice)
-
-      // write choice if number of kana to guess > of nb of choice
-      // need  oneGuess.init to display the true choice
-      if (oneLesson.kanaToStudy.length > 5) {
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
-        this.writeChoiceTrueFalse(arrayToWrite)
-      }
-
-      this.guessKana(oneLesson)
-    } else {
-      oneLesson.complete()
     }
+
+    this.writeChoiceTrueFalse(arrayToWrite)
+    clearChoice(oneLesson.nbChoice)
+
+    // write choice if number of kana to guess > of nb of choice
+    // need  oneGuess.init to display the true choice
+    if (oneLesson.kanaToStudy.length > 5) {
+      arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
+      this.writeChoiceTrueFalse(arrayToWrite)
+    }
+
+    this.guessKana(oneLesson)
   }
 }
 

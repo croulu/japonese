@@ -61,7 +61,7 @@ function displayScreenHomePage () {
 
   const btnContinue = document.getElementById('btnContinue')
   const lastLesson = getLastLessonInStorage()
-  
+
   btnContinue.innerText = setLessonTitle(lastLesson)
 }
 

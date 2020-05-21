@@ -58,8 +58,10 @@ class Guess {
     this.choiceSelectedIndex = choiceSelected
 
     let myMethod = (function (sPropriété) {
-      this.nextKana(oneLesson)
+      if (!oneLesson.isFinished) this.nextKana(oneLesson)
     }).bind(this)
+
+    oneLesson.played++
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
@@ -68,7 +70,18 @@ class Guess {
       displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
     }
 
-    setTimeout(myMethod, 400)
+    if (oneLesson.isFinished) {
+      if (oneLesson.toplay === oneLesson.played) {
+        // time is finished and forcast to play is finished : lesson is done
+        oneLesson.complete()
+      } else {
+        // time finished and forecast to play : finish after current guess, do not launch again nextKana
+        // wait for choice for the currenty kana to guess
+      }
+    } else {
+      // time is not finished, launch again nextKana
+      setTimeout(myMethod, 400)
+    }
   }
 
   guessKana (oneLesson) {
@@ -79,7 +92,7 @@ class Guess {
 
     info.innerText = oneLesson.title
 
-    oneLesson.play++
+    oneLesson.toplay++
 
     specificImage = `imgKana${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
 

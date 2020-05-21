@@ -42,8 +42,7 @@ function startCountdown (oneLesson) {
     if (maxCountdown - timePassed === 0) {
       clearInterval(interval)
       isPause = true
-      oneLesson.complete()
-      console.log(oneLesson)
+      oneLesson.isFinished = true
     }
   }, 1000)
 // console.log(`interval::::::: ${interval}`)

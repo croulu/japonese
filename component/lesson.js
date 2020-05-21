@@ -49,7 +49,9 @@ class Lesson {
     this.code = ''
     this.nbChoice = 0
     this.kanaToStudy = []
-    this.play = 0
+    this.toplay = 0
+    this.played = 0
+    this.isFinished = false
     this.success = 0
     this.pourcentageReussite = 0
     this.status = 'todo'
@@ -65,7 +67,8 @@ class Lesson {
     info.innerText = ''
 
     this.kanaToStudy = []
-    this.play = 0
+    this.toplay = 0
+    this.played = 0
     this.success = 0
     this.pourcentageReussite = 0
     this.guessWhat = nextRandom(2)
@@ -134,13 +137,19 @@ class Lesson {
   }
 
   initPourcentage () {
-    this.play = 0
+    this.played = 0
     this.success = 0
     this.pourcentageReussite = 0
   }
 
   makePourcentage () {
-    this.pourcentageReussite = Math.floor(this.success / this.play) * 100
+    const pourcentage = (this.success / this.played) * 100
+    this.pourcentageReussite = Math.floor(pourcentage)
+  }
+
+  infoFinished () {
+    const finished = ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.played}`
+    return finished
   }
 
   stop () {
@@ -150,7 +159,7 @@ class Lesson {
     let statusNextLesson
 
     this.makePourcentage()
-    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.play}`
+    info.innerText += this.infoFinished()
     if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {
         this.status = 'done'
@@ -312,7 +321,7 @@ class Lesson {
     let nextLesson = ''
 
     this.makePourcentage()
-    info.innerText += ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.play}`
+    info.innerText += this.infoFinished()
     if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {
         this.status = 'done'

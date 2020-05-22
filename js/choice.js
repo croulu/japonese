@@ -1,4 +1,4 @@
-import { kana } from '../js/alphabet.js'
+import { kana } from './alphabet.js'
 
 import {
   colorClearButton,
@@ -25,7 +25,7 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
     eval(myExpression)
   } else {
 
-    specificImage = `imgKana${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
+    specificImage = `imgKana${alphabet.toUpperCase()}${kanaLetter}`
 
     myExpression = `choice${indexChoice}Txt.innerText = ''`
     eval(myExpression)

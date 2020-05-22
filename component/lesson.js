@@ -72,6 +72,7 @@ class Lesson {
     this.success = 0
     this.pourcentageReussite = 0
     this.guessWhat = nextRandom(2)
+    this.isFinished = false
 
     this.initPourcentage()
 

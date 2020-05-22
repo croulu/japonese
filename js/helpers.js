@@ -104,16 +104,20 @@ function enableButton (name) {
 
 function setLessonTitle (code) {
   let result
-  const arrayCode = code.split('-')
-
-  if (arrayCode[0] === 'h') {
-    result = 'hiragana : '
+  if (code !== null) {
+    const arrayCode = code.split('-')
+  
+    if (arrayCode[0] === 'h') {
+      result = 'hiragana : '
+    } else {
+      result = 'katakana : '
+    }
+  
+    for (let i = 1; i < arrayCode.length; i++) {
+      result += arrayCode[i] + ' '
+    }
   } else {
-    result = 'katakana : '
-  }
-
-  for (let i = 1; i < arrayCode.length; i++) {
-    result += arrayCode[i] + ' '
+    result = ''
   }
 
   return result

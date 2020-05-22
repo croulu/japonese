@@ -99,7 +99,7 @@ function setInitLessons () {
 }
 
 const lastLesson = getLastLessonInStorage()
-btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLesson, oneGuess))
+if (lastLesson != null) btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLesson, oneGuess))
 
 btnAlphabetHiragana.addEventListener('click', () => displayAlphabetHiragana())
 btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())

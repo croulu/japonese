@@ -17,6 +17,7 @@ const colorTextMenuOff = '#000000'
 
 const btnContinue = document.getElementById('btnContinue')
 const lastLesson = getLastLessonInStorage()
+
 btnContinue.innerText = setLessonTitle(lastLesson)
 
 oneLesson.displayButtonLesson()

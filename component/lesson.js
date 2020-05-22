@@ -153,37 +153,6 @@ class Lesson {
     return finished
   }
 
-  stop () {
-    const info = document.getElementById('info')
-    let indexLesson
-    let nextLesson = ''
-    let statusNextLesson
-
-    this.makePourcentage()
-    info.innerText += this.infoFinished()
-    if (this.pourcentageReussite === 100) {
-      if (this.type === 'simple') {
-        this.status = 'done'
-
-        setStatusLessonInStorage(this.code, this.status)
-
-        indexLesson = this.getIndexLesson()
-        nextLesson = this.getNextLesson(indexLesson)
-        statusNextLesson = getStatusLessonInStorage(nextLesson)
-        if (statusNextLesson === 'done') {
-          // keep it done
-        } else {
-          setStatusLessonInStorage(nextLesson, 'inprogress')
-        }
-      } else {
-        // nothing, only simple lesson are "done"
-      }
-      this.displayButtonLesson()
-    }
-
-    disableChoice(this.nbChoice)
-  }
-
   displayButtonLesson () {
     this.setDisableAllLessons()
     this.setActivateLessons()
@@ -320,25 +289,33 @@ class Lesson {
     const info = document.getElementById('info')
     let indexLesson
     let nextLesson = ''
+    let statusNextLesson
 
     this.makePourcentage()
-    info.innerText += this.infoFinished()
+    
     if (this.pourcentageReussite === 100) {
+      info.innerText += this.infoFinished()
+
       if (this.type === 'simple') {
         this.status = 'done'
 
         setStatusLessonInStorage(this.code, this.status)
-
-        indexLesson = this.getIndexLesson(this.code)
+        indexLesson = this.getIndexLesson()
         nextLesson = this.getNextLesson(indexLesson)
-        setStatusLessonInStorage(nextLesson, 'inprogress')
         this.setLastLessonPlayed(nextLesson)
+        statusNextLesson = getStatusLessonInStorage(nextLesson)
+
+        if (statusNextLesson === 'done') {
+          // keep it done
+        } else {
+          setStatusLessonInStorage(nextLesson, 'inprogress')
+        }
       } else {
         // nothing, only simple lesson are "done"
       }
       this.displayButtonLesson()
     }
-    this.stop()
+    disableChoice(this.nbChoice)
   }
 
   setLastLessonPlayed (lesson) {

@@ -36,7 +36,7 @@ class Guess {
     // possible values : 0, 1, 2
     // 0 : kana
     // 1 : romanji
-    // 2 : kanji (TODO)
+    // 2 : kanji (TODO in future)
     this.guessWhat = nextRandom(2)
     this.firstToGuess(oneLesson)
   }
@@ -55,32 +55,36 @@ class Guess {
   }
 
   makeAChoice (choiceSelected, oneLesson) {
-    this.choiceSelectedIndex = choiceSelected
-
-    let myMethod = (function (sPropriété) {
-      if (!oneLesson.isFinished) this.nextKana(oneLesson)
-    }).bind(this)
+    const myMethod = function () {
+      this.nextKana(oneLesson)
+    }.bind(this)
 
     oneLesson.played++
+
+    this.setResultTrueOrFalse(choiceSelected, oneLesson)
+
+    if (oneLesson.isFinished) {
+      if (oneLesson.toplay === oneLesson.played) {
+        // time is finished and forcast to play is finished : lesson is done
+        oneLesson.stop()
+      } else {
+        // time finished and forecast to play : finish after current guess, do not launch again nextKana
+        // wait for choice for the current kana to guess
+      }
+    } else {
+      // time is not finished, launch again nextKana
+      setTimeout(myMethod, 400)
+    }
+  }
+
+  setResultTrueOrFalse (choiceSelected, oneLesson) {
+    this.choiceSelectedIndex = choiceSelected
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
       displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
     } else {
       displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
-    }
-
-    if (oneLesson.isFinished) {
-      if (oneLesson.toplay === oneLesson.played) {
-        // time is finished and forcast to play is finished : lesson is done
-        oneLesson.complete()
-      } else {
-        // time finished and forecast to play : finish after current guess, do not launch again nextKana
-        // wait for choice for the currenty kana to guess
-      }
-    } else {
-      // time is not finished, launch again nextKana
-      setTimeout(myMethod, 400)
     }
   }
 
@@ -111,10 +115,6 @@ class Guess {
 
     // todo : faire un new !
 
-    // possible values : 0, 1, 2
-    // 0 : kana
-    // 1 : romanji
-    // 2 : kanji (TODO)
     this.guessWhat = nextRandom(2)
     displayWhatToGuess(this.guessWhat)
 

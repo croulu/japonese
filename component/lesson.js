@@ -249,10 +249,8 @@ class Lesson {
 
     this.nbChoice = this.kanaToStudy.length
     // menu all learned
-    if (this.nbChoice > 5) {
-      this.nbChoice = 5
-    }
-
+    if (this.nbChoice > 5) this.nbChoice = 5
+    
     this.initDisplay()
 
     this.setLastLessonPlayed('current')
@@ -285,14 +283,14 @@ class Lesson {
     }
   }
 
-  complete () {
+  stop () {
     const info = document.getElementById('info')
     let indexLesson
     let nextLesson = ''
     let statusNextLesson
 
     this.makePourcentage()
-    
+
     if (this.pourcentageReussite === 100) {
       info.innerText += this.infoFinished()
 

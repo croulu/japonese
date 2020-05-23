@@ -171,6 +171,7 @@ class Lesson {
 
   setActivateLessons () {
     let btnName = ''
+    let lockName = ''
     let lessonName = ''
     let statusLessonInStorage = ''
 
@@ -180,7 +181,8 @@ class Lesson {
       if (statusLessonInStorage === 'done' || statusLessonInStorage === 'inprogress') {
         lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
         btnName = `btnGuess${lessonName}`
-        enableButton(btnName)
+        lockName = `lockGuess${lessonName}`
+        enableButton(btnName, lockName)
       }
     }
   }

@@ -93,13 +93,16 @@ function disableButton (name) {
   eval(myExpression)
 }
 
-function enableButton (name) {
+function enableButton (buttonName, lockName) {
   let myExpression = ''
+  const lockGuess = document.getElementById(lockName)
 
-  myExpression = `${name}.style.pointerEvents = 'auto'`
+  myExpression = `${buttonName}.style.pointerEvents = 'auto'`
   eval(myExpression)
-  myExpression = `${name}.style.color = '${colorTextMenuOn}'`
+  myExpression = `${buttonName}.style.color = '${colorTextMenuOn}'`
   eval(myExpression)
+
+  lockGuess.src = ''
 }
 
 function setLessonTitle (code) {

@@ -126,21 +126,13 @@ class Guess {
     if (countdown === '0') {
       this.stop(oneLesson)
     } else {
-      // todo : faire un new !
-
       this.guessWhat = nextRandom(2)
       displayWhatToGuess(this.guessWhat)
 
       arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
       writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
 
-      this.previousKana = this.kana
-      this.kana = oneLesson.kanaToStudy[nextRandomIndex]
-
-      while (this.previousKana.letter === this.kana.letter) {
-        nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
-        this.kana = oneLesson.kanaToStudy[nextRandomIndex]
-      }
+      nextRandomIndex = this.loadNextGuess(nextRandomIndex, oneLesson)
 
       this.writeChoiceTrueFalse(arrayToWrite)
       clearChoice(oneLesson.nbChoice)
@@ -155,6 +147,18 @@ class Guess {
       this.guessKana(oneLesson)
     }
   }
+
+  loadNextGuess (nextRandomIndex, oneLesson) {
+    this.previousKana = this.kana
+    this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+
+    while (this.previousKana.letter === this.kana.letter) {
+      nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
+      this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+    }
+    return nextRandomIndex
+  }
+
 }
 
 export {

@@ -2,7 +2,11 @@ import {
   Lesson
 } from '../component/lesson.js'
 
-const affichage = document.querySelector('.time')
+import {
+  setStatusLessonInStorage
+} from './helpers.js'
+
+const countdown = document.querySelector('.time')
 const maxCountdown = 60
 let timePassed = 0
 let interval = null
@@ -13,19 +17,20 @@ function displayCountdown () {
   const minutes = formatCountdown(Math.floor(tempsRestant / 60))
   const secondes = formatCountdown(Math.floor(tempsRestant % 60))
 
-  affichage.innerHTML = `${minutes}:${secondes}`
+  countdown.innerHTML = `${minutes}:${secondes}`
 }
 
 function formatCountdown (num) {
   return num < 10 ? `0${num}` : num
 }
 
-function resetCountdown (oneLesson) {
+function resetCountdown () {
   clearInterval(interval)
   isPause = false
   timePassed = 0
   displayCountdown()
-  startCountdown(oneLesson)
+  startCountdown()
+  setStatusLessonInStorage('countdown', maxCountdown)
 }
 
 function pauseCountdown () {
@@ -33,16 +38,18 @@ function pauseCountdown () {
   clearInterval(interval)
 }
 
-function startCountdown (oneLesson) {
+function startCountdown () {
   isPause = false
   interval = setInterval(() => {
     timePassed += 1
     displayCountdown()
 
+    setStatusLessonInStorage('countdown', maxCountdown)
+
     if (maxCountdown - timePassed === 0) {
       clearInterval(interval)
       isPause = true
-      oneLesson.isFinished = true
+      setStatusLessonInStorage('countdown', '0')
     }
   }, 1000)
 // console.log(`interval::::::: ${interval}`)
@@ -52,7 +59,7 @@ function toStartOrNot () {
   isPause === true ? startCountdown() : pauseCountdown()
 }
 
-affichage.addEventListener('click', toStartOrNot)
+countdown.addEventListener('click', toStartOrNot)
 
 export {
   interval,

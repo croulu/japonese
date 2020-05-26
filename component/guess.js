@@ -14,7 +14,8 @@ import {
 } from '../js/choice.js'
 
 import {
-  nextRandom
+  nextRandom,
+  getStatusLessonInStorage
 } from '../js/helpers.js'
 
 import {
@@ -59,11 +60,13 @@ class Guess {
       this.nextKana(oneLesson)
     }.bind(this)
 
+    const countdown = getStatusLessonInStorage('countdown')
+
     oneLesson.played++
 
     this.setResultTrueOrFalse(choiceSelected, oneLesson)
 
-    if (oneLesson.isFinished) {
+    if (countdown === '0') {
       if (oneLesson.toplay === oneLesson.played) {
         // time is finished and forcast to play is finished : lesson is done
         oneLesson.stop()

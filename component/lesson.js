@@ -51,7 +51,6 @@ class Lesson {
     this.kanaToStudy = []
     this.toplay = 0
     this.played = 0
-    this.isFinished = false
     this.success = 0
     this.pourcentageReussite = 0
     this.status = 'todo'
@@ -72,7 +71,6 @@ class Lesson {
     this.success = 0
     this.pourcentageReussite = 0
     this.guessWhat = nextRandom(2)
-    this.isFinished = false
 
     this.initPourcentage()
 

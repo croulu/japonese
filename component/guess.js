@@ -56,11 +56,13 @@ class Guess {
   }
 
   makeAChoice (choiceSelected, oneLesson) {
+    const myMethod = () => this.nextKana(oneLesson)
+
     oneLesson.played++
 
     this.setResultTrueOrFalse(choiceSelected, oneLesson)
 
-    this.stopOrContinue(choiceSelected, oneLesson)
+    setTimeout(myMethod, 400)
   }
 
   setResultTrueOrFalse (choiceSelected, oneLesson) {
@@ -71,19 +73,6 @@ class Guess {
       displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
     } else {
       displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
-    }
-  }
-
-  stopOrContinue (choiceSelected, oneLesson) {
-    const myMethod = () => this.nextKana(oneLesson)
-    const countdown = getStatusLessonInStorage('countdown')
-
-    if (countdown === '0') {
-      this.stop(oneLesson)
-    } else {
-      // time is not finished, launch again nextKana
-      // because of timeout, nextKana can be launch but it should not be, will be stoppped in nextKana
-      setTimeout(myMethod, 400)
     }
   }
 

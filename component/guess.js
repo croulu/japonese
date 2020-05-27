@@ -76,16 +76,6 @@ class Guess {
     }
   }
 
-  stop (oneLesson) {
-    if (oneLesson.toplay === oneLesson.played) {
-      // time is finished and forcast to play is finished : lesson is done
-      oneLesson.stop()
-    } else {
-      // time finished and forecast to play : finish after current guess, do not launch again nextKana
-      // wait for choice for the current kana to guess
-    }
-  }
-
   guessKana (oneLesson) {
     const info = document.getElementById('info')
     let kanaImg
@@ -134,6 +124,16 @@ class Guess {
       }
 
       this.guessKana(oneLesson)
+    }
+  }
+
+  stop (oneLesson) {
+    if (oneLesson.toplay === oneLesson.played) {
+      // time is finished and forcast to play is finished : lesson is done
+      oneLesson.stop()
+    } else {
+      // time finished and forecast to play : finish after current guess, do not launch again nextKana
+      // wait for choice for the current kana to guess
     }
   }
 

@@ -291,9 +291,9 @@ class Lesson {
 
     this.makePourcentage()
 
-    if (this.pourcentageReussite === 100) {
-      info.innerText += this.infoFinished()
+    info.innerText += this.infoFinished()
 
+    if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {
         this.status = 'done'
 

@@ -250,10 +250,10 @@ class Lesson {
     this.nbChoice = this.kanaToStudy.length
     // menu all learned
     if (this.nbChoice > 5) this.nbChoice = 5
-    
+
     this.initDisplay()
 
-    this.setLastLessonPlayed('current')
+    this.setLastLessonPlayed(this.type, 'current')
 
     resetCountdown(this)
 
@@ -300,7 +300,7 @@ class Lesson {
         setStatusLessonInStorage(this.code, this.status)
         indexLesson = this.getIndexLesson()
         nextLesson = this.getNextLesson(indexLesson)
-        this.setLastLessonPlayed(nextLesson)
+        this.setLastLessonPlayed('simple', nextLesson)
         statusNextLesson = getStatusLessonInStorage(nextLesson)
 
         if (statusNextLesson === 'done') {
@@ -316,8 +316,20 @@ class Lesson {
     disableChoice(this.nbChoice)
   }
 
-  setLastLessonPlayed (lesson) {
-    if (lesson === 'current') lesson = this.code
+  setLastLessonPlayed (type, lesson) {
+    if (type === 'learned') {
+      if (this.code.substr(0, 1) === 'h') {
+        lesson = 'Tous les hiragana appris'
+      } else {
+        lesson = 'Tous les katakana appris'
+      }
+    } else {
+      // simple
+      if (lesson === 'current') {
+        lesson = this.code
+      }
+    }
+
     setLastLessonInStorage(lesson)
   }
 }

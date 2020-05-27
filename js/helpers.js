@@ -112,8 +112,10 @@ function setLessonTitle (code) {
   
     if (arrayCode[0] === 'h') {
       result = 'hiragana : '
-    } else {
+    } else if (arrayCode[0] === 'k') {
       result = 'katakana : '
+    } else {
+      result = code
     }
   
     for (let i = 1; i < arrayCode.length; i++) {

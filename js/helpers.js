@@ -62,6 +62,15 @@ function setStringWithArray (myArray, separator) {
   return result
 }
 
+function getInStorage (name) {
+  const inStorage = localStorage.getItem(name)
+  return inStorage
+}
+
+function setInStorage (name, value) {
+  localStorage.setItem(name, value)
+}
+
 function getStatusLessonInStorage (code) {
   const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
   const inStorage = localStorage.getItem(localStorageName)
@@ -135,6 +144,8 @@ export {
   setStringWithoutCar,
   randomize,
   setStringWithArray,
+  getInStorage,
+  setInStorage,
   getStatusLessonInStorage,
   setStatusLessonInStorage,
   getLastLessonInStorage,

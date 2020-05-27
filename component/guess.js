@@ -15,7 +15,8 @@ import {
 
 import {
   nextRandom,
-  getStatusLessonInStorage
+  getStatusLessonInStorage,
+  getInStorage
 } from '../js/helpers.js'
 
 import {
@@ -23,6 +24,10 @@ import {
 } from '../js/menu.js'
 
 import { kana } from '../js/alphabet.js'
+
+import {
+  startCountdown
+} from '../js/timerCountDown.js'
 
 class Guess {
   constructor () {
@@ -57,6 +62,8 @@ class Guess {
 
   makeAChoice (choiceSelected, oneLesson) {
     const myMethod = () => this.nextKana(oneLesson)
+
+    if (getInStorage('pause') === 'true') startCountdown()
 
     oneLesson.played++
 

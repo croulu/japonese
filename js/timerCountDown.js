@@ -3,14 +3,15 @@ import {
 } from '../component/lesson.js'
 
 import {
-  setStatusLessonInStorage
+  setStatusLessonInStorage,
+  getInStorage,
+  setInStorage
 } from './helpers.js'
 
 const countdown = document.querySelector('.time')
 const maxCountdown = 60
 let timePassed = 0
 let interval = null
-let isPause = false
 
 function displayCountdown () {
   const tempsRestant = maxCountdown - timePassed
@@ -26,7 +27,7 @@ function formatCountdown (num) {
 
 function resetCountdown () {
   clearInterval(interval)
-  isPause = false
+  setInStorage('pause', false)
   timePassed = 0
   displayCountdown()
   startCountdown()
@@ -34,12 +35,12 @@ function resetCountdown () {
 }
 
 function pauseCountdown () {
-  isPause = true
+  setInStorage('pause', true)
   clearInterval(interval)
 }
 
 function startCountdown () {
-  isPause = false
+  setInStorage('pause', false)
   interval = setInterval(() => {
     timePassed += 1
     displayCountdown()
@@ -48,7 +49,7 @@ function startCountdown () {
 
     if (maxCountdown - timePassed === 0) {
       clearInterval(interval)
-      isPause = true
+      setInStorage('pause', true)
       setStatusLessonInStorage('countdown', '0')
     }
   }, 1000)
@@ -56,7 +57,7 @@ function startCountdown () {
 }
 
 function toStartOrNot () {
-  isPause === true ? startCountdown() : pauseCountdown()
+  getInStorage('pause') === 'true' ? startCountdown() : pauseCountdown()
 }
 
 countdown.addEventListener('click', toStartOrNot)

@@ -51,10 +51,10 @@
 .col-14 {width: 10%;}
 .col-15 {width: 10%;}
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   /* For mobile phones: */
   [class*="col-"] {
-    width: 33.33%;
+    width: 33%;
   }
 }
 

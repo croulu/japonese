@@ -22,6 +22,10 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .example {background: rgb(139, 139, 255);}
+
+    [class*="col-"] {
+        width: 33%;
+    }
 } 
   
 /* Large devices (laptops/desktops, 992px and up) */

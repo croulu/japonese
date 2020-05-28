@@ -34,6 +34,33 @@
     .example {background: rgb(250, 230, 230);}
 }
 
+/* For desktop: */
+.col-1 {width: 10%;}
+.col-2 {width: 10%;}
+.col-3 {width: 10%;}
+.col-4 {width: 10%;}
+.col-5 {width: 10%;}
+.col-6 {width: 10%;}
+.col-7 {width: 10%;}
+.col-8 {width: 10%;}
+.col-9 {width: 10%;}
+.col-10 {width: 10%;}
+.col-11 {width: 10%;}
+.col-12 {width: 10%;}
+.col-13 {width: 10%;}
+.col-14 {width: 10%;}
+.col-15 {width: 10%;}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 33.33%;
+  }
+}
+
+
+
+
 
 .kana {
     display: flex;

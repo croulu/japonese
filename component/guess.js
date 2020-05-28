@@ -23,8 +23,6 @@ import {
   displayWhatToGuess
 } from '../js/menu.js'
 
-import { kana } from '../js/alphabet.js'
-
 import {
   startCountdown
 } from '../js/timerCountDown.js'
@@ -93,11 +91,11 @@ class Guess {
 
     oneLesson.toplay++
 
-    specificImage = `imgKana${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
+    specificImage = `${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
 
     if (this.guessWhat === 0) {
       kanaImg = document.getElementById('kanaImg')
-      kanaImg.setAttribute('src', kana[specificImage])
+      kanaImg.className = `kanaAlphabet ${specificImage}`
     } else {
       romanji = document.getElementById('divGuessRomanji')
       romanji.innerHTML = this.kana.letter

@@ -5,12 +5,10 @@
 	<title>Japonese</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<link rel="stylesheet" type="text/css" href="css/draw.css" />
-	<link rel="stylesheet" type="text/css" href="css/test.css" />
+	<link rel="stylesheet" type="text/css" href="css/alphabet.css" />
 	<script defer type="module" src="index.js"></script>
-	<script defer type="module" src="js/test.js"></script>
 </head>
 <body>
-	<div id="testImg" class="ha">aaa</div>
 	<div id="divKanaMenu">
 		<div class="title">Learn japanese</div>
 
@@ -318,29 +316,32 @@
 
 		<div id="info" class="info"></div>
 		
-			<div class="kanaImg" id="divGuessKana"><img id="kanaImg" src=""></div>
+			<div class="kanaImg" id="divGuessKana">
+				<span id="kanaImg"></span>	
+			</div>
+
 			<div class="kanaRomanji" id="divGuessRomanji"></div>
 		
 			<div class="choice">
 				<div id="choice1">
-					<div id="choice1Txt"></div>
-					<div><img id="choice1Img" src=""></div>
+					<div><span id="choice1Txt" class="kanaToGuess"></span></div>
+					<div><span id="choice1Img"></span></div>
 				</div>
 				<div id="choice2">
-					<div id="choice2Txt"></div>
-					<div><img id="choice2Img" src=""></div>
+					<div><span id="choice2Txt" class="kanaToGuess"></span></div>
+					<div><span id="choice2Img"></span></div>
 				</div>
 				<div id="choice3">
-					<div id="choice3Txt"></div>
-					<div><img id="choice3Img" src=""></div>
+					<div><span id="choice3Txt" class="kanaToGuess"></span></div>
+					<div><span id="choice3Img"></span></div>
 				</div>
 				<div id="choice4">
-					<div id="choice4Txt"></div>
-					<div><img id="choice4Img" src=""></div>
+					<div><span id="choice4Txt" class="kanaToGuess"></span></div>
+					<div><span id="choice4Img"></span></div>
 				</div>
 				<div id="choice5">
-					<div id="choice5Txt"></div>
-					<div><img id="choice5Img" src=""></div>
+					<div><span id="choice5Txt" class="kanaToGuess"></span></div>
+					<div><span id="choice5Img"></span></div>
 				</div>
 			</div>
 	</div>

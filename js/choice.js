@@ -1,5 +1,3 @@
-import { kana } from './alphabet.js'
-
 import {
   colorClearButton,
   colorTrueButton,
@@ -21,16 +19,22 @@ function writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
     myExpression = `choice${indexChoice}Txt.innerText = '${kanaLetter}'`
     eval(myExpression)
 
-    myExpression = `choice${indexChoice}Img.src = ''`
+    myExpression = `choice${indexChoice}Txt.className = 'kanaToGuess'`
+    eval(myExpression)
+
+    myExpression = `choice${indexChoice}Img.className = ''`
     eval(myExpression)
   } else {
 
-    specificImage = `imgKana${alphabet.toUpperCase()}${kanaLetter}`
+    specificImage = `${alphabet.toUpperCase()}${kanaLetter}`
 
     myExpression = `choice${indexChoice}Txt.innerText = ''`
     eval(myExpression)
 
-    myExpression = `choice${indexChoice}Img.src = '${kana[specificImage]}'`
+    myExpression = `choice${indexChoice}Txt.className = ''`
+    eval(myExpression)
+
+    myExpression = `choice${indexChoice}Img.className = 'kanaAlphabet ${specificImage}'`
     eval(myExpression)
   }
 }

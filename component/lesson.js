@@ -58,11 +58,9 @@ class Lesson {
   }
 
   init () {
-    let kanaImg = document.getElementById('kanaImg')
     let info = document.getElementById('info')
     const statusLessonInStorage = getStatusLessonInStorage(this.code)
 
-    kanaImg.setAttribute('src', '')
     info.innerText = ''
 
     this.kanaToStudy = []

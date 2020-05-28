@@ -38,7 +38,8 @@ import {
 } from '../js/choice.js'
 
 import {
-  resetCountdown
+  resetCountdown,
+  stopCountdown
 } from '../js/timerCountDown.js'
 
 class Lesson {
@@ -290,6 +291,8 @@ class Lesson {
     this.makePourcentage()
 
     info.innerText += this.infoFinished()
+
+    stopCountdown()
 
     if (this.pourcentageReussite === 100) {
       if (this.type === 'simple') {

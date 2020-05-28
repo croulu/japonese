@@ -39,6 +39,12 @@ function pauseCountdown () {
   clearInterval(interval)
 }
 
+function stopCountdown () {
+  setInStorage('pause', true)
+  clearInterval(interval)
+  countdown.removeEventListener('click', toStartOrNot)
+}
+
 function startCountdown () {
   setInStorage('pause', false)
   interval = setInterval(() => {
@@ -65,5 +71,6 @@ countdown.addEventListener('click', toStartOrNot)
 export {
   interval,
   resetCountdown,
-  startCountdown
+  startCountdown,
+  stopCountdown
 }

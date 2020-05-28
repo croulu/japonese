@@ -67,7 +67,7 @@ class Guess {
 
     this.setResultTrueOrFalse(choiceSelected, oneLesson)
 
-    setTimeout(myMethod, 400)
+    setTimeout(myMethod, 200)
   }
 
   setResultTrueOrFalse (choiceSelected, oneLesson) {

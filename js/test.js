@@ -1,7 +1,9 @@
-import imgTest from '../img/kanacomplete.png'
+// import imgTest from '../img/kanacomplete.png'
 
-console.log(imgTest)
+// console.log(imgTest)
 
-const testImg = document.getElementById('testImg')
-testImg.setAttribute('src', imgTest)
+ const testImg = document.getElementById('testImg')
+// testImg.setAttribute('src', imgTest)
+
+console.log(testImg)
 

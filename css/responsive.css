@@ -23,7 +23,11 @@
       grid-template-rows: repeat(1, 1fr);
       grid-gap: 1vh;
       /* border: 5px solid greenyellow; */
-    }   
+    }
+
+    .imgBig {
+      width: 80%;
+    }
 }
   
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -75,6 +79,9 @@
       grid-template-rows: repeat(1, 1fr);
       grid-gap: 1vh;
       /* border: 5px solid greenyellow; */
+    }
+    .imgBig {
+      width: 100%;
     }
 }
 

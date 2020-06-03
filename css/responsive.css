@@ -26,8 +26,10 @@
     }
 
     .imgBig {
-      width: 80%;
+      width: 100%;
     }
+
+
 }
   
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -81,17 +83,13 @@
       /* border: 5px solid greenyellow; */
     }
     .imgBig {
-      width: 100%;
+
     }
 }
 
 div.lessons > * {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  transition: 0.5s;
   height: 80px;
-  width: 160px;
+  width: 140px;
   /* border: 1px solid grey; */
 } 
 

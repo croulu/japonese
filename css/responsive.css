@@ -80,10 +80,11 @@
 
 div.lessons > * {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   transition: 0.5s;
   height: 80px;
+  width: 160px;
   /* border: 1px solid grey; */
 } 
 

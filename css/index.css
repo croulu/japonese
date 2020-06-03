@@ -31,7 +31,7 @@
     display: flex;
     justify-content:center;
     align-items: top;
-    height: 20vh;
+    height: 30vh;
     font-size: 2em;
     /* border: 5px solid goldenrod; */
 }
@@ -50,7 +50,7 @@
     transition: 0.5s;
     height: 120px;
     font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));     
-    /* border: 1px solid grey; */
+    border: 1px solid black;
 }
 .playKana > *:hover {
     filter: brightness(90%);
@@ -63,7 +63,7 @@
 
 .bigButton {
     height: 80px;
-    width: 190px;
+    width: 160px;
 }
 
 .alphabet {
@@ -71,7 +71,6 @@
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
-    height: 80vh;
     font-size: 20px;
     /* border: 5px solid greenyellow; */
 }
@@ -80,7 +79,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5%;
-    transition: 0.5s;
     /* border: 1px solid grey; */
+}
+
+.alphabetImg {
+    width: 50%;
 }

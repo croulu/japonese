@@ -82,17 +82,6 @@ function setStatusLessonInStorage (code, status) {
   localStorage.setItem(localStorageName, status)
 }
 
-function getLastLessonInStorage () {
-  const localStorageName = 'oneLessonLastLesson'
-  const result = localStorage.getItem(localStorageName)
-  return result
-}
-
-function setLastLessonInStorage (code) {
-  const localStorageName = 'oneLessonLastLesson'
-  localStorage.setItem(localStorageName, code)
-}
-
 function disableButton (name) {
   let myExpression = ''
 
@@ -114,8 +103,9 @@ function enableButton (buttonName, lockName) {
   lockGuess.src = ''
 }
 
-function setLessonTitle (code) {
+function setLessonTitle (type, code) {
   let result
+
   if (code !== null) {
     const arrayCode = code.split('-')
 
@@ -127,35 +117,33 @@ function setLessonTitle (code) {
       result = code
     }
 
-    for (let i = 1; i < arrayCode.length; i++) {
-      result += arrayCode[i] + ' '
+    if (type === 'learned') {
+      result += 'all learned'
+    } else {
+      // simple
+      for (let i = 1; i < arrayCode.length; i++) {
+        result += arrayCode[i] + ' '
+      }
     }
   } else {
     result = ''
   }
 
+console.log(`result === ${result}`)
+
   return result
 }
 
 function setLastLessonPlayed (code, type, lesson) {
-  if (type === 'learned') {
-    if (code.substr(0, 1) === 'h') {
-      lesson = 'h-learned'
-    } else {
-      lesson = 'k-learned'
-    }
-  } else {
-    // simple
-    if (lesson === 'current') {
-      lesson = code
-    }
+  if (lesson === 'current') {
+    lesson = code
   }
 
-  setLastLessonInStorage(lesson)
+  setInStorage('oneLessonLastLessonName', lesson)
+  setInStorage('oneLessonLastLessonType', type)
 }
 
 function isLearned (lesson) {
-console.log(`isLearned ${lesson}`)
   let result
   if (lesson !== null) {
     const arrayCode = lesson.split('-')
@@ -163,7 +151,7 @@ console.log(`isLearned ${lesson}`)
     if (arrayCode[1] === 'learned') result = true
     else result = false
   }
-console.log(`isLearned ${result}`)
+
   return result
 }
 
@@ -178,8 +166,6 @@ export {
   setInStorage,
   getStatusLessonInStorage,
   setStatusLessonInStorage,
-  getLastLessonInStorage,
-  setLastLessonInStorage,
   disableButton,
   enableButton,
   setLessonTitle,

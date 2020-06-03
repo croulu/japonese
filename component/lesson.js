@@ -41,6 +41,7 @@ import {
   resetCountdown,
   stopCountdown
 } from '../js/timerCountDown.js'
+import { oneLesson } from '../js/init.js'
 
 class Lesson {
   constructor () {
@@ -240,8 +241,10 @@ console.log(`launchLesson ${typeLesson}, ${lessonText}`)
 
     // prepare lesson
     this.code = lessonText
-    this.title = setLessonTitle(this.code)
     this.type = typeLesson
+    this.title = setLessonTitle(this.type, this.code)
+
+console.log(`this title === ${this.title}`)
 
     this.init()
 
@@ -280,6 +283,9 @@ console.log(`launchLesson ${typeLesson}, ${lessonText}`)
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
       deleteChoice(this.nbChoice)
       info.innerText = 'pas de kana à étudier !'
+      stopCountdown()
+      const countdown = document.querySelector('.time')
+      countdown.style.display = 'none'
     }
   }
 

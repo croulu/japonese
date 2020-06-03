@@ -8,7 +8,7 @@ import {
 } from '../index.js'
 
 import {
-  getLastLessonInStorage,
+  getInStorage,
   setLessonTitle
 } from './helpers.js'
 
@@ -44,9 +44,11 @@ function displayHome () {
 
 function displayPlay () {
   const btnContinue = document.getElementById('btnContinue')
-  const lastLesson = getLastLessonInStorage()
+  const lastLesson = getInStorage('oneLessonLastLessonName')
 
-  btnContinue.innerText = setLessonTitle(lastLesson)
+  // btnContinue.innerText = setLessonTitle(lastLesson)
+
+  btnContinue.innerText = 'TODO'
 
   home.style.display = 'none'
   play.style.display = 'block'
@@ -64,11 +66,6 @@ function displayPlay () {
 }
 
 function displayPlayItem () {
-  const btnContinue = document.getElementById('btnContinue')
-  const lastLesson = getLastLessonInStorage()
-
-  btnContinue.innerText = setLessonTitle(lastLesson)
-
   home.style.display = 'none'
   play.style.display = 'block'
   playMenu.style.display = 'none'

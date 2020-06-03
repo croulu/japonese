@@ -16,7 +16,7 @@ import {
 import {
   getStatusLessonInStorage,
   setStatusLessonInStorage,
-  getLastLessonInStorage,
+  getInStorage,
   isLearned
 } from './helpers.js'
 
@@ -121,8 +121,8 @@ bigMenuPlaySmallScreen.addEventListener('click', () => displayPlay())
 bigMenuDrawSmallScreen.addEventListener('click', () => displayDraw())
 bigMenuLearnSmallScreen.addEventListener('click', () => displayLearn())
 
-const lastLesson = getLastLessonInStorage()
-console.log(lastLesson)
+const lastLesson = getInStorage('oneLessonLastLessonName')
+console.log(`dans init ${lastLesson}`)
 if (lastLesson != null) {
   if (isLearned(lastLesson)) {
     btnContinue.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))

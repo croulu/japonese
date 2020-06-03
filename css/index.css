@@ -40,7 +40,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-gap: 5vh;
+    grid-gap: 1vh;
     /* border: 5px solid greenyellow; */
 } 
 .playKana > * {
@@ -61,25 +61,8 @@
     text-align: center;
 }
 
-div.scrollmenu {
-    background-color: #f44336;
-    overflow: auto;
-    white-space: nowrap;
-    font-size: 13px;
-    /* border: 1px solid grey; */
-}
-
-div.scrollmenu a {
-    background-color: #f44336;
-    display: inline-block;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    pointer-events: auto;
-}
-
 .bigButton {
-    height: 130px;
+    height: 80px;
     width: 190px;
 }
 

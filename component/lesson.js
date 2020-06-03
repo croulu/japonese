@@ -11,6 +11,7 @@ import { Kana } from './kana.js'
 
 import {
   displayPlayItem,
+  notDisplayPlayItem,
   displayWhatToGuess
 } from '../js/menu.js'
 
@@ -280,12 +281,11 @@ console.log(`this title === ${this.title}`)
       oneGuess.guessKana(this)
       displayWhatToGuess(oneGuess.guessWhat)
     } else {
+      info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
       deleteChoice(this.nbChoice)
-      info.innerText = 'pas de kana à étudier !'
       stopCountdown()
-      const countdown = document.querySelector('.time')
-      countdown.style.display = 'none'
+      notDisplayPlayItem()
     }
   }
 

@@ -15,6 +15,7 @@ import {
 const home = document.getElementById('home')
 const play = document.getElementById('play')
 const playMenu = document.getElementById('playMenu')
+const countdown = document.querySelector('.time')
 const playItem = document.getElementById('playItem')
 const playItemKana = document.getElementById('playItemKana')
 const playItemRomanji = document.getElementById('playItemRomanji')
@@ -72,6 +73,23 @@ function displayPlayItem () {
   playItem.style.display = 'block'
   playItemKana.style.display = 'block'
   playItemRomanji.style.display = 'block'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
+}
+
+function notDisplayPlayItem () {
+  home.style.display = 'none'
+  play.style.display = 'block'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'block'
+  countdown.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
   draw.style.display = 'none'
   drawMenu.style.display = 'none'
   drawItem.style.display = 'none'
@@ -379,6 +397,7 @@ export {
   displayHome,
   displayPlay,
   displayPlayItem,
+  notDisplayPlayItem,
   displayDraw,
   displayDrawItem,
   displayLearn,

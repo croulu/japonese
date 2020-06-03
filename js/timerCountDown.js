@@ -1,8 +1,4 @@
 import {
-  Lesson
-} from '../component/lesson.js'
-
-import {
   setStatusLessonInStorage,
   getInStorage,
   setInStorage

@@ -10,7 +10,7 @@ import {
 import { Kana } from './kana.js'
 
 import {
-  displayScreenLesson,
+  displayPlayItem,
   displayWhatToGuess
 } from '../js/menu.js'
 
@@ -21,10 +21,10 @@ import {
   setStringWithArray,
   getStatusLessonInStorage,
   setStatusLessonInStorage,
-  setLastLessonInStorage,
   disableButton,
   enableButton,
-  setLessonTitle
+  setLessonTitle,
+  setLastLessonPlayed
 } from '../js/helpers.js'
 
 import {
@@ -232,10 +232,11 @@ class Lesson {
   }
 
   launchLesson (typeLesson, lessonText, oneGuess) {
+console.log(`launchLesson ${typeLesson}, ${lessonText}`)
     const info = document.getElementById('info')
     let arrayToWrite = []
 
-    displayScreenLesson()
+    displayPlayItem()
 
     // prepare lesson
     this.code = lessonText
@@ -252,7 +253,7 @@ class Lesson {
 
     this.initDisplay()
 
-    this.setLastLessonPlayed(this.type, 'current')
+    setLastLessonPlayed(this.code, this.type, 'current')
 
     resetCountdown(this)
 
@@ -301,7 +302,7 @@ class Lesson {
         setStatusLessonInStorage(this.code, this.status)
         indexLesson = this.getIndexLesson()
         nextLesson = this.getNextLesson(indexLesson)
-        this.setLastLessonPlayed('simple', nextLesson)
+        setLastLessonPlayed(this.code, 'simple', nextLesson)
         statusNextLesson = getStatusLessonInStorage(nextLesson)
 
         if (statusNextLesson === 'done') {
@@ -315,23 +316,6 @@ class Lesson {
       this.displayButtonLesson()
     }
     disableChoice(this.nbChoice)
-  }
-
-  setLastLessonPlayed (type, lesson) {
-    if (type === 'learned') {
-      if (this.code.substr(0, 1) === 'h') {
-        lesson = 'Tous les hiragana appris'
-      } else {
-        lesson = 'Tous les katakana appris'
-      }
-    } else {
-      // simple
-      if (lesson === 'current') {
-        lesson = this.code
-      }
-    }
-
-    setLastLessonInStorage(lesson)
   }
 }
 

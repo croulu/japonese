@@ -12,102 +12,184 @@ import {
   setLessonTitle
 } from './helpers.js'
 
-const divKanaMenu = document.getElementById('divKanaMenu')
-const divBackMenu = document.getElementById('divBackMenu')
-const divAlphabetRomanji = document.getElementById('divAlphabetRomanji')
+const home = document.getElementById('home')
+const play = document.getElementById('play')
+const playMenu = document.getElementById('playMenu')
+const playItem = document.getElementById('playItem')
+const playItemKana = document.getElementById('playItemKana')
+const playItemRomanji = document.getElementById('playItemRomanji')
+const draw = document.getElementById('draw')
+const drawMenu = document.getElementById('drawMenu')
+const drawItem = document.getElementById('drawItem')
+const learn = document.getElementById('learn')
+const learnItemKana = document.getElementById('learnItemKana')
+const learnItemHiragana = document.getElementById('learnItemHiragana')
+const learnItemKatakana = document.getElementById('learnItemKatakana')
 
-const divAlphabetHiragana = document.getElementById('divAlphabetHiragana')
-const divAlphabetKatakana = document.getElementById('divAlphabetKatakana')
-const divAlphabetKana = document.getElementById('divAlphabetKana')
-
-const divGuess = document.getElementById('divGuess')
-
-const divGuessKana = document.getElementById('divGuessKana')
-const divGuessRomanji = document.getElementById('divGuessRomanji')
-
-const divDraw = document.getElementById('divDraw')
-
-function displayDrawLesson () {
-  divKanaMenu.style.display = 'none'
-  divBackMenu.style.display = 'block'
-  divAlphabetRomanji.style.display = 'none'
-  divAlphabetHiragana.style.display = 'none'
-  divAlphabetKatakana.style.display = 'none'
-  divAlphabetKana.style.display = 'none'
-  divGuess.style.display = 'none'
-  divDraw.style.display = 'block'
+function displayHome () {
+  home.style.display = 'block'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
 }
 
-function displayScreenLesson () {
-  divKanaMenu.style.display = 'none'
-  divBackMenu.style.display = 'block'
-  divAlphabetRomanji.style.display = 'none'
-  divAlphabetHiragana.style.display = 'none'
-  divAlphabetKatakana.style.display = 'none'
-  divAlphabetKana.style.display = 'none'
-  divGuess.style.display = 'block'
-  divDraw.style.display = 'none'
-}
-
-function displayScreenHomePage () {
-  divKanaMenu.style.display = 'block'
-  divBackMenu.style.display = 'none'
-  divAlphabetRomanji.style.display = 'none'
-  divAlphabetHiragana.style.display = 'none'
-  divAlphabetKatakana.style.display = 'none'
-  divAlphabetKana.style.display = 'none'
-  divGuess.style.display = 'none'
-  divDraw.style.display = 'none'
-
+function displayPlay () {
   const btnContinue = document.getElementById('btnContinue')
   const lastLesson = getLastLessonInStorage()
 
   btnContinue.innerText = setLessonTitle(lastLesson)
+
+  home.style.display = 'none'
+  play.style.display = 'block'
+  playMenu.style.display = 'block'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
 }
 
-function displayAlphabetHiragana () {
-  divKanaMenu.style.display = 'none'
-  divBackMenu.style.display = 'block'
-  divAlphabetRomanji.style.display = 'block'
-  divAlphabetHiragana.style.display = 'block'
-  divAlphabetKatakana.style.display = 'none'
-  divAlphabetKana.style.display = 'none'
-  divGuess.style.display = 'none'
-  divDraw.style.display = 'none'
+function displayPlayItem () {
+  const btnContinue = document.getElementById('btnContinue')
+  const lastLesson = getLastLessonInStorage()
+
+  btnContinue.innerText = setLessonTitle(lastLesson)
+
+  home.style.display = 'none'
+  play.style.display = 'block'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'block'
+  playItemKana.style.display = 'block'
+  playItemRomanji.style.display = 'block'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
 }
 
-function displayAlphabetKatakana () {
-  divKanaMenu.style.display = 'none'
-  divBackMenu.style.display = 'block'
-  divAlphabetRomanji.style.display = 'block'
-  divAlphabetHiragana.style.display = 'none'
-  divAlphabetKatakana.style.display = 'block'
-  divAlphabetKana.style.display = 'none'
-  divGuess.style.display = 'none'
-  divDraw.style.display = 'none'  
+function displayDraw () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'block'
+  drawMenu.style.display = 'block'
+  drawItem.style.display = 'none'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
 }
 
-function displayAlphabetKana () {
-  divKanaMenu.style.display = 'none'
-  divBackMenu.style.display = 'block'
-  divAlphabetRomanji.style.display = 'none'
-  divAlphabetHiragana.style.display = 'none'
-  divAlphabetKatakana.style.display = 'none'
-  divAlphabetKana.style.display = 'block'
-  divGuess.style.display = 'none'
-  divDraw.style.display = 'none'  
+function displayDrawItem () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'block'
+  drawMenu.style.display = 'block'
+  drawItem.style.display = 'block'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
+}
+
+function displayLearn () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'block'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
+}
+
+function displayLearnItemHiragana () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'block'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'block'
+  learnItemKatakana.style.display = 'none'
+}
+
+function displayLearnItemKatakana () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'block'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'block'
+}
+
+function displayLearnItemKana () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'none'
+  drawMenu.style.display = 'none'
+  drawItem.style.display = 'none'
+  learn.style.display = 'block'
+  learnItemKana.style.display = 'block'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
 }
 
 function displayWhatToGuess (whatToGuess) {
   if (whatToGuess === 0) {
-    divGuessKana.style.display = 'block'
-    divGuessRomanji.style.display = 'none'
+    playItemKana.style.display = 'block'
+    playItemRomanji.style.display = 'none'
   } else if (whatToGuess === 1) {
-    divGuessKana.style.display = 'none'
-    divGuessRomanji.style.display = 'block'
+    playItemKana.style.display = 'none'
+    playItemRomanji.style.display = 'block'
   } else {
-    divGuessKana.style.display = 'none'
-    divGuessRomanji.style.display = 'none'
+    playItemKana.style.display = 'none'
+    playItemRomanji.style.display = 'none'
   }
 }
 
@@ -297,12 +379,15 @@ function displayRomanji () {
 }
 
 export {
-  displayDrawLesson,
-  displayScreenLesson,
-  displayScreenHomePage,
-  displayAlphabetHiragana,
-  displayAlphabetKatakana,
-  displayAlphabetKana,
+  displayHome,
+  displayPlay,
+  displayPlayItem,
+  displayDraw,
+  displayDrawItem,
+  displayLearn,
+  displayLearnItemHiragana,
+  displayLearnItemKatakana,
+  displayLearnItemKana,
   displayRomanji,
   displayWhatToGuess
 }

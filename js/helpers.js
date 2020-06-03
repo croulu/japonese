@@ -73,8 +73,8 @@ function setInStorage (name, value) {
 
 function getStatusLessonInStorage (code) {
   const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
-  const inStorage = localStorage.getItem(localStorageName)
-  return inStorage
+  const result = localStorage.getItem(localStorageName)
+  return result
 }
 
 function setStatusLessonInStorage (code, status) {
@@ -84,8 +84,8 @@ function setStatusLessonInStorage (code, status) {
 
 function getLastLessonInStorage () {
   const localStorageName = 'oneLessonLastLesson'
-  const inStorage = localStorage.getItem(localStorageName)
-  return inStorage
+  const result = localStorage.getItem(localStorageName)
+  return result
 }
 
 function setLastLessonInStorage (code) {
@@ -118,7 +118,7 @@ function setLessonTitle (code) {
   let result
   if (code !== null) {
     const arrayCode = code.split('-')
-  
+
     if (arrayCode[0] === 'h') {
       result = 'hiragana : '
     } else if (arrayCode[0] === 'k') {
@@ -126,7 +126,7 @@ function setLessonTitle (code) {
     } else {
       result = code
     }
-  
+
     for (let i = 1; i < arrayCode.length; i++) {
       result += arrayCode[i] + ' '
     }
@@ -134,6 +134,36 @@ function setLessonTitle (code) {
     result = ''
   }
 
+  return result
+}
+
+function setLastLessonPlayed (code, type, lesson) {
+  if (type === 'learned') {
+    if (code.substr(0, 1) === 'h') {
+      lesson = 'h-learned'
+    } else {
+      lesson = 'k-learned'
+    }
+  } else {
+    // simple
+    if (lesson === 'current') {
+      lesson = code
+    }
+  }
+
+  setLastLessonInStorage(lesson)
+}
+
+function isLearned (lesson) {
+console.log(`isLearned ${lesson}`)
+  let result
+  if (lesson !== null) {
+    const arrayCode = lesson.split('-')
+
+    if (arrayCode[1] === 'learned') result = true
+    else result = false
+  }
+console.log(`isLearned ${result}`)
   return result
 }
 
@@ -152,5 +182,7 @@ export {
   setLastLessonInStorage,
   disableButton,
   enableButton,
-  setLessonTitle
+  setLessonTitle,
+  setLastLessonPlayed,
+  isLearned
 }

@@ -2,29 +2,42 @@ import { Lesson } from '../component/lesson.js'
 import { Guess } from '../component/guess.js'
 
 import {
-  displayDrawLesson,
-  displayAlphabetHiragana,
-  displayAlphabetKatakana,
-  displayAlphabetKana,
-  displayScreenHomePage,
+  displayHome,
+  displayPlay,
+  displayDraw,
+  displayDrawItem,
+  displayLearn,
+  displayLearnItemHiragana,
+  displayLearnItemKatakana,
+  displayLearnItemKana,
   displayRomanji
 } from './menu.js'
 
 import {
   getStatusLessonInStorage,
   setStatusLessonInStorage,
-  getLastLessonInStorage
+  getLastLessonInStorage,
+  isLearned
 } from './helpers.js'
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
+const bigMenuHome = document.getElementById('bigMenuHome')
+const bigMenuPlay = document.getElementById('bigMenuPlay')
+const bigMenuDraw = document.getElementById('bigMenuDraw')
+const bigMenuLearn = document.getElementById('bigMenuLearn')
+
+const bigMenuHomeSmallScreen = document.getElementById('bigMenuHomeSmallScreen')
+const bigMenuPlaySmallScreen = document.getElementById('bigMenuPlaySmallScreen')
+const bigMenuDrawSmallScreen = document.getElementById('bigMenuDrawSmallScreen')
+const bigMenuLearnSmallScreen = document.getElementById('bigMenuLearnSmallScreen')
+
 const btnAlphabetHiragana = document.getElementById('btnAlphabetHiragana')
 const btnAlphabetKatakana = document.getElementById('btnAlphabetKatakana')
 const btnAlphabetKana = document.getElementById('btnAlphabetKanaComplet')
 
-const btnBackMenu = document.getElementById('btnBackMenu')
-const btnRomanji = document.getElementById('btnRomanji')
+const btnAlphabetRomanji = document.getElementById('btnAlphabetRomanji')
 
 const btnContinue = document.getElementById('btnContinue')
 
@@ -74,7 +87,7 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-displayScreenHomePage()
+displayHome()
 
 oneLesson.setAllLesson()
 
@@ -98,15 +111,31 @@ function setInitLessons () {
   }
 }
 
+bigMenuHome.addEventListener('click', () => displayHome())
+bigMenuPlay.addEventListener('click', () => displayPlay())
+bigMenuDraw.addEventListener('click', () => displayDraw())
+bigMenuLearn.addEventListener('click', () => displayLearn())
+
+bigMenuHomeSmallScreen.addEventListener('click', () => displayHome())
+bigMenuPlaySmallScreen.addEventListener('click', () => displayPlay())
+bigMenuDrawSmallScreen.addEventListener('click', () => displayDraw())
+bigMenuLearnSmallScreen.addEventListener('click', () => displayLearn())
+
 const lastLesson = getLastLessonInStorage()
-if (lastLesson != null) btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLesson, oneGuess))
+console.log(lastLesson)
+if (lastLesson != null) {
+  if (isLearned(lastLesson)) {
+    btnContinue.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
+  } else {
+    btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLesson, oneGuess))
+  }
+}
 
-btnAlphabetHiragana.addEventListener('click', () => displayAlphabetHiragana())
-btnAlphabetKatakana.addEventListener('click', () => displayAlphabetKatakana())
-btnAlphabetKana.addEventListener('click', () => displayAlphabetKana())
+btnAlphabetHiragana.addEventListener('click', () => displayLearnItemHiragana())
+btnAlphabetKatakana.addEventListener('click', () => displayLearnItemKatakana())
+btnAlphabetKana.addEventListener('click', () => displayLearnItemKana())
 
-btnBackMenu.addEventListener('click', () => displayScreenHomePage())
-btnRomanji.addEventListener('click', () => displayRomanji())
+btnAlphabetRomanji.addEventListener('click', () => displayRomanji())
 
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
@@ -145,8 +174,8 @@ btnGuessKdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('si
 btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ba-bi-bu-be-bo', oneGuess))
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
 
-btnDrawHaiueo.addEventListener('click', () => displayDrawLesson())
-btnDrawKaiueo.addEventListener('click', () => displayDrawLesson())
+btnDrawHaiueo.addEventListener('click', () => displayDrawItem())
+btnDrawKaiueo.addEventListener('click', () => displayDrawItem())
 
 choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
 choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))

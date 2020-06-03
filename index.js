@@ -7,7 +7,7 @@ import {
   setLessonTitle
 } from './js/helpers.js'
 
-const colorClearButton = '#B8B8B8'
+const colorClearButton = '#FFFFFF'
 const colorTrueButton = '#16ca52'
 const colorFalseButton = '#ca2716'
 

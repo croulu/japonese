@@ -67,7 +67,7 @@ class Guess {
 
     this.setResultTrueOrFalse(choiceSelected, oneLesson)
 
-    setTimeout(myMethod, 200)
+    setTimeout(myMethod, 300)
   }
 
   setResultTrueOrFalse (choiceSelected, oneLesson) {
@@ -97,7 +97,7 @@ class Guess {
       kanaImg = document.getElementById('kanaImg')
       kanaImg.className = `kanaAlphabet ${specificImage}`
     } else {
-      romanji = document.getElementById('divGuessRomanji')
+      romanji = document.getElementById('playItemRomanji')
       romanji.innerHTML = this.kana.letter
     }
   }

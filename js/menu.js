@@ -14,7 +14,9 @@ import {
 
 import {
   oneLesson,
-  oneGuess
+  oneGuess,
+  funcName,
+  continueButton
 } from './init.js'
 
 const home = document.getElementById('home')
@@ -54,10 +56,8 @@ function displayPlay () {
   const lastLessonType = getInStorage('oneLessonLastLessonType')
 
   btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
-
-  // btnContinue.removeEventListener('click')
-  // btnContinue.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
-  // btnContinue.addEventListener('click', () => oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess))
+  btnContinue.removeEventListener('click', funcName)
+  continueButton(lastLessonName, lastLessonType)
 
   home.style.display = 'none'
   play.style.display = 'block'

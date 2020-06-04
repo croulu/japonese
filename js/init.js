@@ -37,6 +37,7 @@ const bigMenuDrawSmallScreen = document.getElementById('bigMenuDrawSmallScreen')
 const bigMenuLearnSmallScreen = document.getElementById('bigMenuLearnSmallScreen')
 
 // buttons
+let funcName
 const btnContinue = document.getElementById('btnContinue')
 
 const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
@@ -113,26 +114,19 @@ bigMenuPlaySmallScreen.addEventListener('click', () => displayPlay())
 bigMenuDrawSmallScreen.addEventListener('click', () => displayDraw())
 bigMenuLearnSmallScreen.addEventListener('click', () => displayLearn())
 
-if (lastLessonName != null) {
-  if (lastLessonType === 'learned') {
-    // TODO hirahana bouchon
-    btnContinue.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
-  } else {
-    btnContinue.addEventListener('click', () => oneLesson.launchLesson('simple', lastLessonName, oneGuess))
-  }
-}
-
-btnAlphabetHiragana.addEventListener('click', () => displayLearnItemHiragana())
-btnAlphabetKatakana.addEventListener('click', () => displayLearnItemKatakana())
-btnAlphabetKana.addEventListener('click', () => displayLearnItemKana())
-
-btnAlphabetRomanji.addEventListener('click', () => displayRomanji())
+funcName = continueButton(lastLessonName, lastLessonType)
 
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
 btnDrawHaiueo.addEventListener('click', () => displayDrawItem())
 btnDrawKaiueo.addEventListener('click', () => displayDrawItem())
+
+btnAlphabetHiragana.addEventListener('click', () => displayLearnItemHiragana())
+btnAlphabetKatakana.addEventListener('click', () => displayLearnItemKatakana())
+btnAlphabetKana.addEventListener('click', () => displayLearnItemKana())
+
+btnAlphabetRomanji.addEventListener('click', () => displayRomanji())
 
 choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
 choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))
@@ -174,7 +168,25 @@ btnGuessKdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('si
 btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ba-bi-bu-be-bo', oneGuess))
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
 
+function continueButton (lastLessonName, lastLessonType) {
+  let funcName
+
+  // TODO pour les hiragana et katakana
+  const kana = lastLessonName.charAt(0)
+
+  if (lastLessonName != null) {
+    if (lastLessonType === 'learned') {
+      btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString(kana), oneGuess) })
+    } else {
+      btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('simple', lastLessonName, oneGuess) })
+    }
+  }
+  return funcName
+}
+
 export {
   oneLesson,
-  oneGuess
+  oneGuess,
+  funcName,
+  continueButton
 }

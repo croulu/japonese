@@ -71,6 +71,11 @@
     width: 160px;
 }
 
+.veryBigButton {
+    height: 80px;
+    width: 250px;
+}
+
 .alphabet {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

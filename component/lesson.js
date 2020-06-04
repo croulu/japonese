@@ -212,17 +212,17 @@ class Lesson {
     return result
   }
 
-  getNbTrueLessons () {
+  getNbDoneLessons () {
     let statusLessonInStorage = ''
-    let nbTrueLesson = 0
+    let nb = 0
 
     for (let i = 0; i < this.allLesson.length; i++) {
       statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
-      if (statusLessonInStorage === 'true') {
-        nbTrueLesson++
+      if (statusLessonInStorage === 'done') {
+        nb++
       }
     }
-    return nbTrueLesson
+    return nb
   }
 
   makeLesson () {

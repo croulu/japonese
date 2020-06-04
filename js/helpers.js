@@ -143,16 +143,15 @@ function setLastLessonPlayed (code, type, lesson) {
   setInStorage('oneLessonLastLessonType', type)
 }
 
-function isLearned (lesson) {
-  let result
-  if (lesson !== null) {
-    const arrayCode = lesson.split('-')
+function setInitLessons () {
+  let arrayInitLesson = []
 
-    if (arrayCode[1] === 'learned') result = true
-    else result = false
+  arrayInitLesson.push('h-a-i-u-e-o')
+  arrayInitLesson.push('k-a-i-u-e-o')
+
+  for (let i = 0; i < arrayInitLesson.length; i++) {
+    setStatusLessonInStorage(arrayInitLesson[i], 'inprogress')
   }
-
-  return result
 }
 
 export {
@@ -170,5 +169,5 @@ export {
   enableButton,
   setLessonTitle,
   setLastLessonPlayed,
-  isLearned
+  setInitLessons
 }

@@ -42,7 +42,6 @@ import {
   resetCountdown,
   stopCountdown
 } from '../js/timerCountDown.js'
-import { oneLesson } from '../js/init.js'
 
 class Lesson {
   constructor () {

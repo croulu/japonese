@@ -72,14 +72,14 @@ function setInStorage (name, value) {
 }
 
 function getStatusLessonInStorage (code) {
-  const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
-  const result = localStorage.getItem(localStorageName)
+  const name = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
+  const result = getInStorage(name)
   return result
 }
 
-function setStatusLessonInStorage (code, status) {
-  const localStorageName = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
-  localStorage.setItem(localStorageName, status)
+function setStatusLessonInStorage (code, value) {
+  const name = `oneLesson${strUcFirst(setStringWithoutCar(code, '-'))}Status`
+  setInStorage(name, value)
 }
 
 function disableButton (name) {

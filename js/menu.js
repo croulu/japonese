@@ -12,6 +12,11 @@ import {
   setLessonTitle
 } from './helpers.js'
 
+import {
+  oneLesson,
+  oneGuess
+} from './init.js'
+
 const home = document.getElementById('home')
 const play = document.getElementById('play')
 const playMenu = document.getElementById('playMenu')
@@ -45,11 +50,14 @@ function displayHome () {
 
 function displayPlay () {
   const btnContinue = document.getElementById('btnContinue')
-  const lastLesson = getInStorage('oneLessonLastLessonName')
+  const lastLessonName = getInStorage('oneLessonLastLessonName')
+  const lastLessonType = getInStorage('oneLessonLastLessonType')
 
-  // btnContinue.innerText = setLessonTitle(lastLesson)
+  btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
 
-  btnContinue.innerText = 'TODO'
+  // btnContinue.removeEventListener('click')
+  // btnContinue.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
+  // btnContinue.addEventListener('click', () => oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess))
 
   home.style.display = 'none'
   play.style.display = 'block'

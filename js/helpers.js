@@ -87,7 +87,7 @@ function disableButton (name) {
 
   myExpression = `${name}.style.pointerEvents = 'none'`
   eval(myExpression)
-  myExpression = `${name}.style.color = '${colorTextMenuOff}'`
+  myExpression = `${name}.style.color = '#ffffff'`
   eval(myExpression)
 }
 
@@ -97,7 +97,7 @@ function enableButton (buttonName, lockName) {
 
   myExpression = `${buttonName}.style.pointerEvents = 'auto'`
   eval(myExpression)
-  myExpression = `${buttonName}.style.color = '${colorTextMenuOn}'`
+  myExpression = `${buttonName}.style.color = '#000000'`
   eval(myExpression)
 
   lockGuess.src = ''
@@ -128,8 +128,6 @@ function setLessonTitle (type, code) {
   } else {
     result = ''
   }
-
-console.log(`result === ${result}`)
 
   return result
 }

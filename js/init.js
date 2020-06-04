@@ -113,7 +113,6 @@ bigMenuPlaySmallScreen.addEventListener('click', () => displayPlay())
 bigMenuDrawSmallScreen.addEventListener('click', () => displayDraw())
 bigMenuLearnSmallScreen.addEventListener('click', () => displayLearn())
 
-console.log(`dans init ${lastLessonName}`)
 if (lastLessonName != null) {
   if (lastLessonType === 'learned') {
     // TODO hirahana bouchon

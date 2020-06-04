@@ -233,7 +233,6 @@ class Lesson {
   }
 
   launchLesson (typeLesson, lessonText, oneGuess) {
-console.log(`launchLesson ${typeLesson}, ${lessonText}`)
     const info = document.getElementById('info')
     let arrayToWrite = []
 
@@ -243,8 +242,6 @@ console.log(`launchLesson ${typeLesson}, ${lessonText}`)
     this.code = lessonText
     this.type = typeLesson
     this.title = setLessonTitle(this.type, this.code)
-
-console.log(`this title === ${this.title}`)
 
     this.init()
 

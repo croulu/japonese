@@ -123,7 +123,7 @@ function displayDraw () {
   learnItemKatakana.style.display = 'none'
 }
 
-function displayDrawItem () {
+function displayDrawItemHiragana () {
   home.style.display = 'none'
   play.style.display = 'none'
   playMenu.style.display = 'none'
@@ -137,6 +137,26 @@ function displayDrawItem () {
   learnItemKana.style.display = 'none'
   learnItemHiragana.style.display = 'none'
   learnItemKatakana.style.display = 'none'
+
+  oneLesson.launchLessonOneGuess('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess)
+}
+
+function displayDrawItemKatakana () {
+  home.style.display = 'none'
+  play.style.display = 'none'
+  playMenu.style.display = 'none'
+  playItem.style.display = 'none'
+  playItemKana.style.display = 'none'
+  playItemRomanji.style.display = 'none'
+  draw.style.display = 'block'
+  drawMenu.style.display = 'block'
+  drawItem.style.display = 'block'
+  learn.style.display = 'none'
+  learnItemKana.style.display = 'none'
+  learnItemHiragana.style.display = 'none'
+  learnItemKatakana.style.display = 'none'
+
+  oneLesson.launchLessonOneGuess('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess)
 }
 
 function displayLearn () {
@@ -407,7 +427,8 @@ export {
   displayPlayItem,
   notDisplayPlayItem,
   displayDraw,
-  displayDrawItem,
+  displayDrawItemHiragana,
+  displayDrawItemKatakana,
   displayLearn,
   displayLearnItemHiragana,
   displayLearnItemKatakana,

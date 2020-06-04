@@ -232,14 +232,14 @@ class Lesson {
     }
   }
 
-  launchLesson (typeLesson, lessonText, oneGuess) {
+  launchLesson (typeLesson, codeLesson, oneGuess) {
     const info = document.getElementById('info')
     let arrayToWrite = []
 
     displayPlayItem()
 
     // prepare lesson
-    this.code = lessonText
+    this.code = codeLesson
     this.type = typeLesson
     this.title = setLessonTitle(this.type, this.code)
 
@@ -318,6 +318,31 @@ class Lesson {
       this.displayButtonLesson()
     }
     disableChoice(this.nbChoice)
+  }
+
+  launchLessonOneGuess (typeLesson, codeLesson, oneGuess) {
+    let kana
+    let drawKanaItem = document.getElementById('drawKanaItem')
+
+    this.code = codeLesson
+    this.type = typeLesson
+    this.title = setLessonTitle(this.type, this.code)
+
+    this.init()
+
+    this.makeLesson()
+
+    oneGuess.firstToGuess(this)
+
+    const specificImage = `${oneGuess.kana.alphabet.toUpperCase()}${oneGuess.kana.letter}`
+    const drawRomanjiItem = document.getElementById('drawRomanjiItem')
+
+    drawRomanjiItem.innerHTML = oneGuess.kana.letter
+    drawKanaItem.className = 'kanaAlphabet'
+
+    drawRomanjiItem.addEventListener('click', kana = function () { 
+      drawKanaItem.className = `kanaAlphabet ${specificImage}`
+     })
   }
 }
 

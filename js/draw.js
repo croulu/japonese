@@ -25,16 +25,19 @@ function rgbToHex (r, g, b) {
   return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b)
 }
 
+const canvasDraw = document.getElementById('canvas_draw')
+const clearDraw = document.getElementById('button_clear')
+
 // start drawing
-canvas_draw.onmousedown = function (evt0) {
+canvasDraw.onmousedown = function (evt0) {
   // get canvas context and initial position
-  const ctx = canvas_draw.getContext('2d')
-  let p0 = getXY(canvas_draw, evt0)
+  const ctx = canvasDraw.getContext('2d')
+  let p0 = getXY(canvasDraw, evt0)
 
   // set callback function for mousemove event
-  canvas_draw.onmousemove = function (evt1) {
+  canvasDraw.onmousemove = function (evt1) {
     // draw a line from previous position to current position
-    const p1 = getXY(canvas_draw, evt1)
+    const p1 = getXY(canvasDraw, evt1)
     ctx.beginPath()
     ctx.strokeStyle = color
     ctx.fillStyle = color
@@ -50,15 +53,15 @@ canvas_draw.onmousedown = function (evt0) {
 }
 
 // remove callback function when mouse up
-canvas_draw.onmouseup = function (evt) {
-  canvas_draw.onmousemove = {}
+canvasDraw.onmouseup = function (evt) {
+  canvasDraw.onmousemove = {}
 }
 
-// clear canvas_draw when clicking on button_clear
-button_clear.onclick = function () {
-  const width = canvas_draw.clientWidth
-  const height = canvas_draw.clientHeight
-  const ctx = canvas_draw.getContext('2d')
+// clear canvasDraw when clicking on button_clear
+clearDraw.onclick = function () {
+  const width = canvasDraw.clientWidth
+  const height = canvasDraw.clientHeight
+  const ctx = canvasDraw.getContext('2d')
   ctx.beginPath()
   ctx.clearRect(0, 0, width, height)
   ctx.stroke()

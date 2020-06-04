@@ -5,7 +5,8 @@ import {
   displayHome,
   displayPlay,
   displayDraw,
-  displayDrawItem,
+  displayDrawItemHiragana,
+  displayDrawItemKatakana,
   displayLearn,
   displayLearnItemHiragana,
   displayLearnItemKatakana,
@@ -48,8 +49,8 @@ const btnAlphabetKatakana = document.getElementById('btnAlphabetKatakana')
 const btnAlphabetKana = document.getElementById('btnAlphabetKanaComplet')
 const btnAlphabetRomanji = document.getElementById('btnAlphabetRomanji')
 
-const btnDrawHaiueo = document.getElementById('btnDrawHaiueo')
-const btnDrawKaiueo = document.getElementById('btnDrawKaiueo')
+const btnDrawH = document.getElementById('btnDrawH')
+const btnDrawK = document.getElementById('btnDrawK')
 
 // play
 const choice1 = document.getElementById('choice1')
@@ -119,8 +120,8 @@ funcName = continueButton(lastLessonName, lastLessonType)
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
-btnDrawHaiueo.addEventListener('click', () => displayDrawItem())
-btnDrawKaiueo.addEventListener('click', () => displayDrawItem())
+btnDrawH.addEventListener('click', () => displayDrawItemHiragana())
+btnDrawK.addEventListener('click', () => displayDrawItemKatakana())
 
 btnAlphabetHiragana.addEventListener('click', () => displayLearnItemHiragana())
 btnAlphabetKatakana.addEventListener('click', () => displayLearnItemKatakana())
@@ -171,7 +172,7 @@ btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simp
 function continueButton (lastLessonName, lastLessonType) {
   let funcName
 
-  // TODO pour les hiragana et katakana
+  // TODO traite uniquement les lesson hiragana et katakana
   const kana = lastLessonName.charAt(0)
 
   if (lastLessonName != null) {

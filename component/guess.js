@@ -1,18 +1,6 @@
-import {
-  colorTrueButton,
-  colorFalseButton
-} from '../index.js'
-
 import { Kana } from './kana.js'
 import { Menu } from './menu.js'
-
-import {
-  writeChoice,
-  clearChoice,
-  writeChoiceMoreThanNbChoicePossible,
-  displayColorChoice,
-  randomizeChoice
-} from '../js/choice.js'
+import { ChoiceGroup } from './choiceGroup.js'
 
 import {
   nextRandom,
@@ -56,25 +44,28 @@ class Guess {
   }
 
   makeAChoice (choiceSelected, oneLesson, oneMenu) {
-    const myMethod = () => this.nextKana(oneLesson, oneMenu)
+    // TODO objet choiceGroup déjà créé avec launchLesson, voir comment le récupérer
+    const oneChoiceGgroup = new ChoiceGroup(oneLesson.nbChoice)
+
+    const myMethod = () => this.nextKana(oneLesson, oneMenu, oneChoiceGgroup)
 
     if (getInStorage('pause') === 'true') startCountdown()
 
     oneLesson.played++
 
-    this.setResultTrueOrFalse(choiceSelected, oneLesson)
+    this.setResultTrueOrFalse(choiceSelected, oneLesson, oneChoiceGgroup)
 
     setTimeout(myMethod, 300)
   }
 
-  setResultTrueOrFalse (choiceSelected, oneLesson) {
+  setResultTrueOrFalse (choiceSelected, oneLesson, oneChoiceGgroup) {
     this.choiceSelectedIndex = choiceSelected
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
-      displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
     } else {
-      displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
     }
   }
 
@@ -99,43 +90,33 @@ class Guess {
     }
   }
 
-  nextKana (oneLesson, oneMenu) {
+  nextKana (oneLesson, oneMenu, oneChoiceGgroup) {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
     const countdown = getStatusLessonInStorage('countdown')
 
     if (countdown === '0') {
-      this.stop(oneLesson)
+      oneLesson.stopOrNot()
     } else {
       this.guessWhat = nextRandom(2)
       oneMenu.displayWhatToGuess(this.guessWhat)
 
-      arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
-      writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
+      arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
+      oneChoiceGgroup.writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
 
       nextRandomIndex = this.loadNextGuess(nextRandomIndex, oneLesson)
 
       this.writeChoiceTrueFalse(arrayToWrite)
-      clearChoice(oneLesson.nbChoice)
+      oneChoiceGgroup.clearChoice(oneLesson.nbChoice)
 
       // write choice if number of kana to guess > of nb of choice
       // need  oneGuess.init to display the true choice
       if (oneLesson.kanaToStudy.length > 5) {
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
+        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
         this.writeChoiceTrueFalse(arrayToWrite)
       }
 
       this.guessKana(oneLesson)
-    }
-  }
-
-  stop (oneLesson) {
-    if (oneLesson.toplay === oneLesson.played) {
-      // time is finished and forcast to play is finished : lesson is done
-      oneLesson.stop()
-    } else {
-      // time finished and forecast to play : finish after current guess, do not launch again nextKana
-      // wait for choice for the current kana to guess
     }
   }
 
@@ -149,7 +130,6 @@ class Guess {
     }
     return nextRandomIndex
   }
-
 }
 
 export {

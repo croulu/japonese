@@ -5,12 +5,6 @@ import {
 
 class ChoiceGroup {
   constructor (nbChoice) {
-    const choice1 = document.getElementById('choice1')
-    const choice2 = document.getElementById('choice2')
-    const choice3 = document.getElementById('choice3')
-    const choice4 = document.getElementById('choice4')
-    const choice5 = document.getElementById('choice5')
-
     this.colorClearButton = '#f44336'
     this.colorTrueButton = '#16ca52'
     this.colorFalseButton = '#ca2716'
@@ -20,17 +14,17 @@ class ChoiceGroup {
 
     this.aChoice = []
     for (let i = 0; i < nbChoice; i++) {
-      this.aChoice.push(`choice${i + 1}`)
+      this.aChoice.push(document.getElementById(`choice${i + 1}`))
     }
 
     this.aChoiceTxt = []
     for (let i = 0; i < nbChoice; i++) {
-      this.aChoiceTxt.push(`choice${i + 1}Txt`)
+      this.aChoiceTxt.push(document.getElementById(`choice${i + 1}Txt`))
     }
 
     this.aChoiceImg = []
     for (let i = 0; i < nbChoice; i++) {
-      this.aChoiceImg.push(`choice${i + 1}Img`)
+      this.aChoiceImg.push(document.getElementById(`choice${i + 1}Img`))
     }
   }
 
@@ -127,19 +121,8 @@ class ChoiceGroup {
 
   // remove the choice button
   deleteChoice () {
-console.log(this.aChoice)
-    let choice
-
     for (let i = 0; i < this.aChoice.length; i++) {
-      choice = this.aChoice[i]
-
-console.log(choice)
-console.log(choice1)
-
-let aaa = []
-aaa.push(choice1)
-
-      aaa[0].style.display = 'none'
+      this.aChoice[i].style.display = 'none'
     }
   }
 
@@ -158,13 +141,10 @@ aaa.push(choice1)
   }
 
   displayCorrectNumberOfChoice () {
-    for (let i = this.aChoice.length; i > 0; i--) {
-      if (i > this.aChoice.length) {
-        this.aChoice[i].style.display = 'none'
-      } else {
-        this.aChoice[i].style.display = 'block'
-      }
-    }
+    // TODO fonction à revoir dans le cas d'un nombre de choix supérieur à 5
+    // for (let i = 0; i < this.aChoice.length; i++) {
+    //   this.aChoice[i].style.display = 'block'
+    // }
   }
 
   displayColorChoice (index, colorToApply) {

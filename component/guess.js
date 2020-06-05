@@ -63,9 +63,9 @@ class Guess {
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
-      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, colorTrueButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, oneChoiceGgroup.colorTrueButton)
     } else {
-      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, colorFalseButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, oneChoiceGgroup.colorFalseButton)
     }
   }
 
@@ -90,29 +90,29 @@ class Guess {
     }
   }
 
-  nextKana (oneLesson, oneMenu, oneChoiceGgroup) {
+  nextKana (oneLesson, oneMenu, oneChoiceGroup) {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
     const countdown = getStatusLessonInStorage('countdown')
 
     if (countdown === '0') {
-      oneLesson.stopOrNot()
+      oneLesson.stopOrNot(oneChoiceGroup)
     } else {
       this.guessWhat = nextRandom(2)
       oneMenu.displayWhatToGuess(this.guessWhat)
 
-      arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
-      oneChoiceGgroup.writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)
+      arrayToWrite = oneChoiceGroup.randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
+      oneChoiceGroup.writeChoice(this.guessWhat, arrayToWrite)
 
       nextRandomIndex = this.loadNextGuess(nextRandomIndex, oneLesson)
 
       this.writeChoiceTrueFalse(arrayToWrite)
-      oneChoiceGgroup.clearChoice(oneLesson.nbChoice)
+      oneChoiceGroup.clearChoice()
 
       // write choice if number of kana to guess > of nb of choice
       // need  oneGuess.init to display the true choice
       if (oneLesson.kanaToStudy.length > 5) {
-        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(this.guessWhat, oneLesson.nbChoice, arrayToWrite, this.choiceTrueIndex)
+        arrayToWrite = oneChoiceGroup.writeChoiceMoreThanNbChoicePossible(this.guessWhat, arrayToWrite, this.choiceTrueIndex)
         this.writeChoiceTrueFalse(arrayToWrite)
       }
 

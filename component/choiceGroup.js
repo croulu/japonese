@@ -1,3 +1,5 @@
+import { Kana } from './kana.js'
+
 import {
   randomize,
   nextRandom
@@ -142,9 +144,9 @@ class ChoiceGroup {
 
   displayCorrectNumberOfChoice () {
     // TODO fonction à revoir dans le cas d'un nombre de choix supérieur à 5
-    // for (let i = 0; i < this.aChoice.length; i++) {
-    //   this.aChoice[i].style.display = 'block'
-    // }
+    for (let i = 0; i < this.aChoice.length; i++) {
+      this.aChoice[i].style.display = 'block'
+    }
   }
 
   displayColorChoice (index, colorToApply) {

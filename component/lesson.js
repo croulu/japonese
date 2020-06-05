@@ -237,7 +237,7 @@ class Lesson {
 
     resetCountdown(this)
 
-    // launch lesson
+    // // launch lesson
     if (this.kanaToStudy.length > 0) {
       oneGuess.init(this)
 
@@ -249,8 +249,8 @@ class Lesson {
       } else {
         // write choice if number of kana to guess > of nb of choice
         // need  oneGuess.init to display the true choice
-        oneChoiceGgroup.eraseChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
-        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, arrayToWrite, oneGuess.choiceTrueIndex)
+        oneChoiceGgroup.eraseChoice()
+        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
       }
 
@@ -259,23 +259,23 @@ class Lesson {
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
-      oneChoiceGgroup.deleteChoice(this.nbChoice)
+      oneChoiceGgroup.deleteChoice()
       stopCountdown()
       oneMenu.notDisplayPlayItem()
     }
   }
 
-  stopOrNot () {
+  stopOrNot (oneChoiceGgroup) {
     if (this.toplay === this.played) {
       // time is finished and forcast to play is finished : lesson is done
-      this.stop()
+      this.stop(oneChoiceGgroup)
     } else {
       // time finished and forecast to play : finish after current guess, do not launch again nextKana
       // wait for choice for the current kana to guess
     }
   }
 
-  stop () {
+  stop (oneChoiceGroup) {
     const info = document.getElementById('info')
     let indexLesson
     let nextLesson = ''
@@ -307,7 +307,7 @@ class Lesson {
       }
       this.displayButtonLesson()
     }
-    disableChoice(this.nbChoice)
+    oneChoiceGroup.disableChoice()
   }
 
   launchLessonOneGuess (typeLesson, codeLesson, oneGuess) {

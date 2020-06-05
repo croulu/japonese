@@ -1,8 +1,16 @@
-@import url(sanitize.css);
-
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 } 
+
+.bigButton {
+    height: 80px;
+    width: 160px;
+}
+
+.veryBigButton {
+    height: 80px;
+    width: 250px;
+}
 
 .countdownTimer {
     font-size: 2em;
@@ -11,26 +19,7 @@
     /* border: 1px solid grey;     */
 }
 
-.title {
-    display: flex;
-    justify-content:center;
-    align-items: top;
-    height: 10vh;
-    /* 
-        type fluid  (type responsive) 
-
-        font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-
-        credit Mike Riethmuller
-    */
-    font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));
-    /* border: 5px solid goldenrod; */
-}
-
 .info {
-    display: flex;
-    justify-content:center;
-    align-items: top;
     height: 30vh;
     font-size: 2em;
     /* border: 5px solid goldenrod; */
@@ -64,16 +53,6 @@
 
 .playKanaChoiceItem {
     border: 1px solid white;
-}
-
-.bigButton {
-    height: 80px;
-    width: 160px;
-}
-
-.veryBigButton {
-    height: 80px;
-    width: 250px;
 }
 
 .alphabet {

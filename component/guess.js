@@ -4,6 +4,7 @@ import {
 } from '../index.js'
 
 import { Kana } from './kana.js'
+import { Menu } from './menu.js'
 
 import {
   writeChoice,
@@ -18,10 +19,6 @@ import {
   getStatusLessonInStorage,
   getInStorage
 } from '../js/helpers.js'
-
-import {
-  displayWhatToGuess
-} from '../js/menu.js'
 
 import {
   startCountdown
@@ -58,8 +55,8 @@ class Guess {
     }
   }
 
-  makeAChoice (choiceSelected, oneLesson) {
-    const myMethod = () => this.nextKana(oneLesson)
+  makeAChoice (choiceSelected, oneLesson, oneMenu) {
+    const myMethod = () => this.nextKana(oneLesson, oneMenu)
 
     if (getInStorage('pause') === 'true') startCountdown()
 
@@ -102,7 +99,7 @@ class Guess {
     }
   }
 
-  nextKana (oneLesson) {
+  nextKana (oneLesson, oneMenu) {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
     const countdown = getStatusLessonInStorage('countdown')
@@ -111,7 +108,7 @@ class Guess {
       this.stop(oneLesson)
     } else {
       this.guessWhat = nextRandom(2)
-      displayWhatToGuess(this.guessWhat)
+      oneMenu.displayWhatToGuess(this.guessWhat)
 
       arrayToWrite = randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
       writeChoice(this.guessWhat, oneLesson.nbChoice, arrayToWrite)

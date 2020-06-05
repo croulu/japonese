@@ -8,12 +8,7 @@ import {
 } from '../index.js'
 
 import { Kana } from './kana.js'
-
-import {
-  displayPlayItem,
-  notDisplayPlayItem,
-  displayWhatToGuess
-} from '../js/menu.js'
+import { Menu } from './menu.js'
 
 import {
   nextRandom,
@@ -236,7 +231,8 @@ class Lesson {
     const info = document.getElementById('info')
     let arrayToWrite = []
 
-    displayPlayItem()
+    const oneMenu = new Menu()
+    oneMenu.displayPlayItem()
 
     // prepare lesson
     this.code = codeLesson
@@ -275,13 +271,13 @@ class Lesson {
       }
 
       oneGuess.guessKana(this)
-      displayWhatToGuess(oneGuess.guessWhat)
+      oneMenu.displayWhatToGuess(oneGuess.guessWhat)
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
       deleteChoice(this.nbChoice)
       stopCountdown()
-      notDisplayPlayItem()
+      oneMenu.notDisplayPlayItem()
     }
   }
 

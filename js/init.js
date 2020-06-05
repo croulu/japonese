@@ -1,18 +1,6 @@
 import { Lesson } from '../component/lesson.js'
 import { Guess } from '../component/guess.js'
-
-import {
-  displayHome,
-  displayPlay,
-  displayDraw,
-  displayDrawItemHiragana,
-  displayDrawItemKatakana,
-  displayLearn,
-  displayLearnItemHiragana,
-  displayLearnItemKatakana,
-  displayLearnItemKana,
-  displayRomanji
-} from './menu.js'
+import { Menu } from '../component/menu.js'
 
 import {
   getInStorage,
@@ -21,6 +9,7 @@ import {
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
+const oneMenu = new Menu()
 
 // last lesson
 const lastLessonName = getInStorage('oneLessonLastLessonName')
@@ -94,7 +83,7 @@ const btnGuessKdadzidzudedo = document.getElementById('btnGuessKdadzidzudedo')
 const btnGuessKbabibubebo = document.getElementById('btnGuessKbabibubebo')
 const btnGuessKpapipupepo = document.getElementById('btnGuessKpapipupepo')
 
-displayHome()
+oneMenu.displayHome()
 
 oneLesson.setAllLesson()
 
@@ -105,35 +94,35 @@ if (oneLesson.getNbDoneLessons() === 0) {
   oneLesson.displayButtonLesson()
 }
 
-bigMenuHome.addEventListener('click', () => displayHome())
-bigMenuPlay.addEventListener('click', () => displayPlay())
-bigMenuDraw.addEventListener('click', () => displayDraw())
-bigMenuLearn.addEventListener('click', () => displayLearn())
+bigMenuHome.addEventListener('click', () => oneMenu.displayHome())
+bigMenuPlay.addEventListener('click', () => oneMenu.displayPlay())
+bigMenuDraw.addEventListener('click', () => oneMenu.displayDraw())
+bigMenuLearn.addEventListener('click', () => oneMenu.displayLearn())
 
-bigMenuHomeSmallScreen.addEventListener('click', () => displayHome())
-bigMenuPlaySmallScreen.addEventListener('click', () => displayPlay())
-bigMenuDrawSmallScreen.addEventListener('click', () => displayDraw())
-bigMenuLearnSmallScreen.addEventListener('click', () => displayLearn())
+bigMenuHomeSmallScreen.addEventListener('click', () => oneMenu.displayHome())
+bigMenuPlaySmallScreen.addEventListener('click', () => oneMenu.displayPlay())
+bigMenuDrawSmallScreen.addEventListener('click', () => oneMenu.displayDraw())
+bigMenuLearnSmallScreen.addEventListener('click', () => oneMenu.displayLearn())
 
 funcName = continueButton(lastLessonName, lastLessonType)
 
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
-btnDrawH.addEventListener('click', () => displayDrawItemHiragana())
-btnDrawK.addEventListener('click', () => displayDrawItemKatakana())
+btnDrawH.addEventListener('click', () => oneMenu.displayDrawItemHiragana())
+btnDrawK.addEventListener('click', () => oneMenu.displayDrawItemKatakana())
 
-btnAlphabetHiragana.addEventListener('click', () => displayLearnItemHiragana())
-btnAlphabetKatakana.addEventListener('click', () => displayLearnItemKatakana())
-btnAlphabetKana.addEventListener('click', () => displayLearnItemKana())
+btnAlphabetHiragana.addEventListener('click', () => oneMenu.displayLearnItemHiragana())
+btnAlphabetKatakana.addEventListener('click', () => oneMenu.displayLearnItemKatakana())
+btnAlphabetKana.addEventListener('click', () => oneMenu.displayLearnItemKana())
 
-btnAlphabetRomanji.addEventListener('click', () => displayRomanji())
+btnAlphabetRomanji.addEventListener('click', () => oneMenu.displayRomanji())
 
-choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson))
-choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson))
-choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson))
-choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson))
-choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson))
+choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson, oneMenu))
+choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson, oneMenu))
+choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson, oneMenu))
+choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson, oneMenu))
+choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson, oneMenu))
 
 btnGuessHaiueo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-a-i-u-e-o', oneGuess))
 btnGuessHkakikukeko.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ka-ki-ku-ke-ko', oneGuess))

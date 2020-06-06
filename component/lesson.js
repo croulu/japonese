@@ -310,7 +310,7 @@ class Lesson {
     oneChoiceGroup.disableChoice()
   }
 
-  launchLessonOneGuess (typeLesson, codeLesson, oneGuess) {
+  launchLessonJustOneGuess (typeLesson, codeLesson, oneGuess) {
     let kana
     let drawKanaItem = document.getElementById('drawKanaItem')
 

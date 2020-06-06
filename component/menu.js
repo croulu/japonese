@@ -117,7 +117,7 @@ class Menu {
     this.drawMenu.style.display = 'block'
     this.drawItem.style.display = 'block'
 
-    oneLesson.launchLessonOneGuess('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess)
+    oneLesson.launchLessonJustOneGuess('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess)
   }
 
   displayDrawItemKatakana () {
@@ -126,7 +126,7 @@ class Menu {
     this.drawMenu.style.display = 'block'
     this.drawItem.style.display = 'block'
 
-    oneLesson.launchLessonOneGuess('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess)
+    oneLesson.launchLessonJustOneGuess('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess)
   }
 
   displayLearn () {

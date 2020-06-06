@@ -63,9 +63,9 @@ class Guess {
 
     if (this.choiceSelectedIndex === this.choiceTrueIndex) {
       oneLesson.success += 1
-      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, oneChoiceGgroup.colorTrueButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex, oneChoiceGgroup.colorTrueButton)
     } else {
-      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex + 1, oneChoiceGgroup.colorFalseButton)
+      oneChoiceGgroup.displayColorChoice(this.choiceSelectedIndex, oneChoiceGgroup.colorFalseButton)
     }
   }
 

@@ -48,7 +48,7 @@ class ChoiceGroup {
 
       this.aChoiceTxt[indexChoice].innerText = ''
       this.aChoiceTxt[indexChoice].className = ''
-      this.aChoiceImg[indexChoice].className = `'kanaAlphabet ${specificImage}'`
+      this.aChoiceImg[indexChoice].className = `kanaAlphabet ${specificImage}`
     }
   }
 
@@ -59,9 +59,10 @@ class ChoiceGroup {
 
     // the true kana
     arrayToWrite.push(kanaToStudy[iTrueKana])
+
     indexUsed.push(iTrueKana)
 
-    for (let j = 0; j < this.aChoice.length; j++) {
+    for (let j = 0; j < this.aChoice.length - 1; j++) {
       indexNextRandom = nextRandom(kanaToStudy.length)
 
       // random int not selected twice
@@ -150,7 +151,7 @@ class ChoiceGroup {
   }
 
   displayColorChoice (index, colorToApply) {
-    this.aChoice[index].style.backgroundColor = this.colorToApply
+    this.aChoice[index].style.backgroundColor = colorToApply
   }
 }
 

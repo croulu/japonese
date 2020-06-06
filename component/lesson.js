@@ -1,14 +1,6 @@
-import {
-  colorClearButton,
-  colorTrueButton,
-  colorFalseButton,
-  colorActivatedMenu,
-  colorTextMenuOn,
-  colorTextMenuOff
-} from '../index.js'
-
 import { Kana } from './kana.js'
 import { Menu } from './menu.js'
+import { ChoiceGroup } from './choiceGroup.js'
 
 import {
   nextRandom,
@@ -22,16 +14,6 @@ import {
   setLessonTitle,
   setLastLessonPlayed
 } from '../js/helpers.js'
-
-import {
-  writeChoice,
-  writeChoiceMoreThanNbChoicePossible,
-  randomizeChoice,
-  disableChoice,
-  deleteChoice,
-  eraseChoice,
-  displayButtonChoice
-} from '../js/choice.js'
 
 import {
   resetCountdown,
@@ -76,8 +58,8 @@ class Lesson {
     }
   }
 
-  initDisplay () {
-    displayButtonChoice(this.nbChoice)
+  initDisplay (oneChoiceGgroup) {
+    oneChoiceGgroup.displayButtonChoice(this.nbChoice)
     this.displayButtonLesson()
   }
 
@@ -247,26 +229,28 @@ class Lesson {
     // menu all learned
     if (this.nbChoice > 5) this.nbChoice = 5
 
-    this.initDisplay()
+    const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
+
+    this.initDisplay(oneChoiceGgroup)
 
     setLastLessonPlayed(this.code, this.type, 'current')
 
     resetCountdown(this)
 
-    // launch lesson
+    // // launch lesson
     if (this.kanaToStudy.length > 0) {
       oneGuess.init(this)
 
-      arrayToWrite = randomizeChoice(this.guessWhat, this.kanaToStudy)
+      arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
       oneGuess.writeChoiceTrueFalse(arrayToWrite)
 
       if (this.kanaToStudy.length <= 5) {
-        writeChoice(oneGuess.guessWhat, this.nbChoice, arrayToWrite)
+        oneChoiceGgroup.writeChoice(oneGuess.guessWhat, arrayToWrite)
       } else {
         // write choice if number of kana to guess > of nb of choice
         // need  oneGuess.init to display the true choice
-        eraseChoice(oneGuess.guessWhat, this.nbChoice, this.kanaToStudy)
-        arrayToWrite = writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, this.nbChoice, arrayToWrite, oneGuess.choiceTrueIndex)
+        oneChoiceGgroup.eraseChoice()
+        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
       }
 
@@ -275,13 +259,23 @@ class Lesson {
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
-      deleteChoice(this.nbChoice)
+      oneChoiceGgroup.deleteChoice()
       stopCountdown()
       oneMenu.notDisplayPlayItem()
     }
   }
 
-  stop () {
+  stopOrNot (oneChoiceGgroup) {
+    if (this.toplay === this.played) {
+      // time is finished and forcast to play is finished : lesson is done
+      this.stop(oneChoiceGgroup)
+    } else {
+      // time finished and forecast to play : finish after current guess, do not launch again nextKana
+      // wait for choice for the current kana to guess
+    }
+  }
+
+  stop (oneChoiceGroup) {
     const info = document.getElementById('info')
     let indexLesson
     let nextLesson = ''
@@ -313,7 +307,7 @@ class Lesson {
       }
       this.displayButtonLesson()
     }
-    disableChoice(this.nbChoice)
+    oneChoiceGroup.disableChoice()
   }
 
   launchLessonOneGuess (typeLesson, codeLesson, oneGuess) {

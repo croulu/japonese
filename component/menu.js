@@ -8,39 +8,24 @@ import {
   oneGuess,
   funcName,
   continueButton
-} from '../js/init.js'
+} from '../index.js'
 
 class Menu {
   constructor () {
-    const home = document.getElementById('home')
-    const play = document.getElementById('play')
-    const playMenu = document.getElementById('playMenu')
-    const countdown = document.querySelector('.time')
-    const playItem = document.getElementById('playItem')
-    const playItemKana = document.getElementById('playItemKana')
-    const playItemRomanji = document.getElementById('playItemRomanji')
-    const draw = document.getElementById('draw')
-    const drawMenu = document.getElementById('drawMenu')
-    const drawItem = document.getElementById('drawItem')
-    const learn = document.getElementById('learn')
-    const learnItemKana = document.getElementById('learnItemKana')
-    const learnItemHiragana = document.getElementById('learnItemHiragana')
-    const learnItemKatakana = document.getElementById('learnItemKatakana')
-
-    this.home = home
-    this.play = play
-    this.playMenu = playMenu
-    this.countdown = countdown
-    this.playItem = playItem
-    this.playItemKana = playItemKana
-    this.playItemRomanji = playItemRomanji
-    this.draw = draw
-    this.drawMenu = drawMenu
-    this.drawItem = drawItem
-    this.learn = learn
-    this.learnItemKana = learnItemKana
-    this.learnItemHiragana = learnItemHiragana
-    this.learnItemKatakana = learnItemKatakana
+    this.home = document.getElementById('home')
+    this.play = document.getElementById('play')
+    this.playMenu = document.getElementById('playMenu')
+    this.countdown = document.querySelector('.time')
+    this.playItem = document.getElementById('playItem')
+    this.playItemKana = document.getElementById('playItemKana')
+    this.playItemRomanji = document.getElementById('playItemRomanji')
+    this.draw = document.getElementById('draw')
+    this.drawMenu = document.getElementById('drawMenu')
+    this.drawItem = document.getElementById('drawItem')
+    this.learn = document.getElementById('learn')
+    this.learnItemKana = document.getElementById('learnItemKana')
+    this.learnItemHiragana = document.getElementById('learnItemHiragana')
+    this.learnItemKatakana = document.getElementById('learnItemKatakana')
 
     this.home.style.display = 'none'
     this.play.style.display = 'none'

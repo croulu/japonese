@@ -1,6 +1,7 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
+
 import { Lesson } from './component/lesson.js'
 import { Guess } from './component/guess.js'
 import { Menu } from './component/menu.js'
@@ -108,9 +109,7 @@ bigMenuDrawSmallScreen.addEventListener('click', () => oneMenu.displayDraw())
 bigMenuLearnSmallScreen.addEventListener('click', () => oneMenu.displayLearn())
 
 funcName = continueButton(lastLessonName, lastLessonType)
-
 /*
-
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
@@ -162,9 +161,7 @@ btnGuessKzajizuzezo.addEventListener('click', () => oneLesson.launchLesson('simp
 btnGuessKdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-da-dzi-dzu-de-do', oneGuess))
 btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ba-bi-bu-be-bo', oneGuess))
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
-
 */
-
 function continueButton (lastLessonName, lastLessonType) {
   let funcName
 
@@ -180,7 +177,6 @@ function continueButton (lastLessonName, lastLessonType) {
   }
   return funcName
 }
-
 
 export {
   oneLesson,

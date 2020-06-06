@@ -1,13 +1,3 @@
-
-import {
-  colorClearButton,
-  colorTrueButton,
-  colorFalseButton,
-  colorActivatedMenu,
-  colorTextMenuOn,
-  colorTextMenuOff
-} from '../index.js'
-
 function nextRandom (number) {
   const iRandom = getRandomInt(number)
   return iRandom

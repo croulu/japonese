@@ -74,3 +74,15 @@
 .alphabetImg {
     width: 50%;
 }
+
+.colorClearButton {
+    background-color: #f44336;
+}
+
+.colorTrueButton {
+    background-color: #16ca52;
+}
+
+.colorFalseButton {
+    background-color: #cc1906;
+}

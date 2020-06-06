@@ -7,13 +7,6 @@ import {
 
 class ChoiceGroup {
   constructor (nbChoice) {
-    this.colorClearButton = '#f44336'
-    this.colorTrueButton = '#16ca52'
-    this.colorFalseButton = '#ca2716'
-    this.colorActivatedMenu = '#e0762f'
-    this.colorTextMenuOn = '#FFFFFF'
-    this.colorTextMenuOff = '#000000'
-
     this.aChoice = []
     for (let i = 0; i < nbChoice; i++) {
       this.aChoice.push(document.getElementById(`choice${i + 1}`))
@@ -110,14 +103,14 @@ class ChoiceGroup {
 
   disableChoice () {
     for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].style.backgroundColor = this.colorClearButton
+      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
       this.aChoice[i].style.pointerEvents = 'none'
     }
   }
 
   enableChoice () {
     for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].style.backgroundColor = this.colorClearButton
+      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
       this.aChoice[i].style.pointerEvents = 'auto'
     }
   }
@@ -132,7 +125,7 @@ class ChoiceGroup {
   // remove the color of the choice buttons
   clearChoice () {
     for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].style.backgroundColor = this.colorClearButton
+      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
     }
   }
 
@@ -151,7 +144,7 @@ class ChoiceGroup {
   }
 
   displayColorChoice (index, colorToApply) {
-    this.aChoice[index].style.backgroundColor = colorToApply
+    this.aChoice[index].className = `w3-text-black playKanaChoiceItem ${colorToApply}`
   }
 }
 

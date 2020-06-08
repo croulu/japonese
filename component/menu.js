@@ -61,23 +61,22 @@ class Menu {
   }
 
   displayHome () {
-    this.setNoneToAll()
-    this.home.style.display = 'block'
-  }
-
-  displayPlay () {
     const btnContinue = document.getElementById('btnContinue')
     const lastLessonName = getInStorage('oneLessonLastLessonName')
     const lastLessonType = getInStorage('oneLessonLastLessonType')
+
+    this.setNoneToAll()
+    this.home.style.display = 'block'
 
     btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
     if (funcName !== '') btnContinue.removeEventListener('click', funcName)
     continueButton(lastLessonName, lastLessonType)
 
-    this.setNoneToAll()
-
     this.play.style.display = 'block'
     this.playMenu.style.display = 'block'
+
+    this.draw.style.display = 'block'
+    this.drawMenu.style.display = 'block'
   }
 
   displayPlayItem () {
@@ -103,12 +102,6 @@ class Menu {
       this.playItemKana.style.display = 'none'
       this.playItemRomanji.style.display = 'block'
     }
-  }
-
-  displayDraw () {
-    this.setNoneToAll()
-    this.draw.style.display = 'block'
-    this.drawMenu.style.display = 'block'
   }
 
   displayDrawItemHiragana () {

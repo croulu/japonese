@@ -20,13 +20,9 @@ const lastLessonType = getInStorage('oneLessonLastLessonType')
 
 // menus app
 const bigMenuHome = document.getElementById('bigMenuHome')
-const bigMenuPlay = document.getElementById('bigMenuPlay')
-const bigMenuDraw = document.getElementById('bigMenuDraw')
 const bigMenuLearn = document.getElementById('bigMenuLearn')
 
 const bigMenuHomeSmallScreen = document.getElementById('bigMenuHomeSmallScreen')
-const bigMenuPlaySmallScreen = document.getElementById('bigMenuPlaySmallScreen')
-const bigMenuDrawSmallScreen = document.getElementById('bigMenuDrawSmallScreen')
 const bigMenuLearnSmallScreen = document.getElementById('bigMenuLearnSmallScreen')
 
 // buttons
@@ -98,13 +94,9 @@ if (oneLesson.getNbDoneLessons() === 0) {
 }
 
 bigMenuHome.addEventListener('click', () => oneMenu.displayHome())
-bigMenuPlay.addEventListener('click', () => oneMenu.displayPlay())
-bigMenuDraw.addEventListener('click', () => oneMenu.displayDraw())
 bigMenuLearn.addEventListener('click', () => oneMenu.displayLearn())
 
 bigMenuHomeSmallScreen.addEventListener('click', () => oneMenu.displayHome())
-bigMenuPlaySmallScreen.addEventListener('click', () => oneMenu.displayPlay())
-bigMenuDrawSmallScreen.addEventListener('click', () => oneMenu.displayDraw())
 bigMenuLearnSmallScreen.addEventListener('click', () => oneMenu.displayLearn())
 
 funcName = continueButton(lastLessonName, lastLessonType)

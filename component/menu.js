@@ -106,6 +106,7 @@ class Menu {
 
   displayDrawItemHiragana () {
     this.setNoneToAll()
+    this.play.style.display = 'block'
     this.draw.style.display = 'block'
     this.drawMenu.style.display = 'block'
     this.drawItem.style.display = 'block'
@@ -115,6 +116,7 @@ class Menu {
 
   displayDrawItemKatakana () {
     this.setNoneToAll()
+    this.play.style.display = 'block'
     this.draw.style.display = 'block'
     this.drawMenu.style.display = 'block'
     this.drawItem.style.display = 'block'

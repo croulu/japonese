@@ -162,12 +162,13 @@ btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simp
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
 
 function continueButton (lastLessonName, lastLessonType) {
-  let funcName
+  let funcName = ''
 
   // TODO traite uniquement les lesson hiragana et katakana
-  const kana = lastLessonName.charAt(0)
+  let kana = ''
 
   if (lastLessonName != null) {
+    kana = lastLessonName.charAt(0)
     if (lastLessonType === 'learned') {
       btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString(kana), oneGuess) })
     } else {

@@ -71,7 +71,7 @@ class Menu {
     const lastLessonType = getInStorage('oneLessonLastLessonType')
 
     btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
-    btnContinue.removeEventListener('click', funcName)
+    if (funcName !== '') btnContinue.removeEventListener('click', funcName)
     continueButton(lastLessonName, lastLessonType)
 
     this.setNoneToAll()

@@ -19,7 +19,6 @@ class Menu {
     this.playItem = document.getElementById('playItem')
     this.playItemKana = document.getElementById('playItemKana')
     this.playItemRomanji = document.getElementById('playItemRomanji')
-    this.draw = document.getElementById('draw')
     this.drawMenu = document.getElementById('drawMenu')
     this.drawItem = document.getElementById('drawItem')
     this.learn = document.getElementById('learn')
@@ -34,7 +33,6 @@ class Menu {
     this.playItem.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
-    this.draw.style.display = 'none'
     this.drawMenu.style.display = 'none'
     this.drawItem.style.display = 'none'
     this.learn.style.display = 'none'
@@ -51,7 +49,6 @@ class Menu {
     this.playItem.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
-    this.draw.style.display = 'none'
     this.drawMenu.style.display = 'none'
     this.drawItem.style.display = 'none'
     this.learn.style.display = 'none'
@@ -75,7 +72,6 @@ class Menu {
     this.play.style.display = 'block'
     this.playMenu.style.display = 'block'
 
-    this.draw.style.display = 'block'
     this.drawMenu.style.display = 'block'
   }
 

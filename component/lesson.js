@@ -163,7 +163,7 @@ class Lesson {
   }
 
   getAllLearnedLessonsInString (kana) {
-// BUG TODO si pas de lesson learned -> draw plante
+  // BUG TODO si pas de lesson learned -> draw plante
     let arrayResult = []
     let statusLessonInStorage
     let arrayCode = []

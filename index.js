@@ -7,7 +7,10 @@ import { Menu } from './component/menu.js'
 
 import {
   getInStorage,
-  setInitLessons
+  setInitLessons,
+  setLastLessonPlayed,
+  setLessonTitle,
+  setStatusLessonInStorage
 } from './js/helpers.js'
 
 const oneLesson = new Lesson()
@@ -85,6 +88,9 @@ const btnGuessKpapipupepo = document.getElementById('btnGuessKpapipupepo')
 oneMenu.displayHome()
 
 oneLesson.setAllLesson()
+
+hiraganaByDefault()
+hiraganaByDefault()
 
 if (oneLesson.getNbDoneLessons() === 0) {
   setInitLessons()
@@ -166,8 +172,36 @@ function continueButton (lastLessonName, lastLessonType) {
     } else {
       btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('simple', lastLessonName, oneGuess) })
     }
+  } else {
+    continueByDefault()
   }
   return funcName
+}
+
+function continueByDefault () {
+  let lastLessonName = ''
+  let lastLessonType = ''
+
+  const firstLessonName = 'h-a-i-u-e-o'
+  const firstLessonType = 'simple'
+
+  setLastLessonPlayed(firstLessonName, firstLessonType, 'current')
+  lastLessonName = getInStorage('oneLessonLastLessonName')
+  lastLessonType = getInStorage('oneLessonLastLessonType')
+  btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
+  btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess) })    
+}
+
+function hiraganaByDefault () {
+  const firstLessonName = 'h-a-i-u-e-o'
+
+  setStatusLessonInStorage(firstLessonName, 'inprogress')
+}
+
+function katakanaByDefault () {
+  const firstLessonName = 'k-a-i-u-e-o'
+
+  setStatusLessonInStorage(firstLessonName, 'inprogress')
 }
 
 export {

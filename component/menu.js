@@ -17,6 +17,7 @@ class Menu {
     this.playMenu = document.getElementById('playMenu')
     this.countdown = document.querySelector('.time')
     this.playItem = document.getElementById('playItem')
+    this.playKana = document.getElementById('playKana')
     this.playItemKana = document.getElementById('playItemKana')
     this.playItemRomanji = document.getElementById('playItemRomanji')
     this.draw = document.getElementById('draw')
@@ -32,6 +33,7 @@ class Menu {
     this.playMenu.style.display = 'none'
     this.countdown.style.display = 'none'
     this.playItem.style.display = 'none'
+    this.playKana.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
     this.draw.style.display = 'none'
@@ -49,6 +51,7 @@ class Menu {
     this.playMenu.style.display = 'none'
     this.countdown.style.display = 'none'
     this.playItem.style.display = 'none'
+    this.playKana.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
     this.draw.style.display = 'none'
@@ -84,6 +87,7 @@ class Menu {
     this.countdown.style.display = 'block'
     this.play.style.display = 'block'
     this.playItem.style.display = 'block'
+    this.playKana.style.display = 'block'
     this.playItemKana.style.display = 'block'
     this.playItemRomanji.style.display = 'block'
   }

@@ -234,12 +234,12 @@ class Lesson {
 
     this.initDisplay(oneChoiceGgroup)
 
-    setLastLessonPlayed(this.code, this.type, 'current')
-
-    resetCountdown(this)
-
-    // // launch lesson
+    // launch lesson
     if (this.kanaToStudy.length > 0) {
+      setLastLessonPlayed(this.code, this.type, 'current')
+
+      resetCountdown(this)
+
       oneGuess.init(this)
 
       arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)

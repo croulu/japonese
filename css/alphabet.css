@@ -31,6 +31,16 @@
     border: none;
 }
 
+@media only screen and (max-width: 600px) {
+    .imgSize { background-size: 80px; }
+    .kanaAlphabet { 
+        display : inline-block;
+        width : 80px;
+        height : 80px;
+        border: none;
+    }
+}
+
 .Ha { background-image : url("../img/hiragana/a.png"); }
 .Hi { background-image : url("../img/hiragana/i.png"); }
 .Hu { background-image : url("../img/hiragana/u.png"); }

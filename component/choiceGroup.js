@@ -41,7 +41,7 @@ class ChoiceGroup {
 
       this.aChoiceTxt[indexChoice].innerText = ''
       this.aChoiceTxt[indexChoice].className = ''
-      this.aChoiceImg[indexChoice].className = `kanaAlphabet ${specificImage}`
+      this.aChoiceImg[indexChoice].className = `kanaAlphabet imgSize ${specificImage}`
     }
   }
 

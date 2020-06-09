@@ -210,14 +210,7 @@ class Lesson {
     }
   }
 
-  launchLesson (typeLesson, codeLesson, oneGuess) {
-    const info = document.getElementById('info')
-    let arrayToWrite = []
-
-    const oneMenu = new Menu()
-    oneMenu.displayPlayItem()
-
-    // prepare lesson
+  prepareLesson (codeLesson, typeLesson) {
     this.code = codeLesson
     this.type = typeLesson
     this.title = setLessonTitle(this.type, this.code)
@@ -229,9 +222,18 @@ class Lesson {
     this.nbChoice = this.kanaToStudy.length
     // menu all learned
     if (this.nbChoice > 5) this.nbChoice = 5
+  }
+
+  launchLesson (typeLesson, codeLesson, oneGuess) {
+    const info = document.getElementById('info')
+    let arrayToWrite = []
+
+    const oneMenu = new Menu()
+    oneMenu.displayPlayItem()
+
+    this.prepareLesson(codeLesson, typeLesson)
 
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
-
     this.initDisplay(oneChoiceGgroup)
 
     // launch lesson

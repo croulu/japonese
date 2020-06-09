@@ -32,9 +32,9 @@
     span.mainTitle {
       display : inline-block;
       width : 100px;
-      height : 50px;
+      height : 81px;
       border: none;
-      background-image: url('../img/japan.jpg');
+      background-image: url('../img/japan.png');
       background-size: 100px;
     }
 

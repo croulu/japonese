@@ -8,6 +8,7 @@ import { Menu } from './component/menu.js'
 import {
   getInStorage,
   setInitLessons,
+  getStatusLessonInStorage,
   setLastLessonPlayed,
   setLessonTitle,
   setStatusLessonInStorage
@@ -89,8 +90,7 @@ oneMenu.displayHome()
 
 oneLesson.setAllLesson()
 
-hiraganaByDefault()
-hiraganaByDefault()
+lessonsByDefault()
 
 if (oneLesson.getNbDoneLessons() === 0) {
   setInitLessons()
@@ -192,16 +192,16 @@ function continueByDefault () {
   btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess) })    
 }
 
-function hiraganaByDefault () {
-  const firstLessonName = 'h-a-i-u-e-o'
+function lessonsByDefault () {
+  const lessonName = []
+  lessonName.push('h-a-i-u-e-o')
+  lessonName.push('k-a-i-u-e-o')
 
-  setStatusLessonInStorage(firstLessonName, 'inprogress')
-}
-
-function katakanaByDefault () {
-  const firstLessonName = 'k-a-i-u-e-o'
-
-  setStatusLessonInStorage(firstLessonName, 'inprogress')
+  for (let i = 0; i < lessonName.length; i++) {
+    if (getStatusLessonInStorage(lessonName[i]) === '') {
+      setStatusLessonInStorage(lessonName[i], 'inprogress')
+    }
+  }
 }
 
 export {

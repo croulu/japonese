@@ -32,6 +32,8 @@ class ChoiceGroup {
   writeChoiceWhat (guessWhat, alphabet, indexChoice, kanaLetter) {
     let specificImage = ''
 
+    this.aChoice[indexChoice].className = 'w3-text-black playKanaChoiceItem'
+
     if (guessWhat === 0) {
       this.aChoiceTxt[indexChoice].innerText = kanaLetter
       this.aChoiceTxt[indexChoice].className = 'kanaToGuess'

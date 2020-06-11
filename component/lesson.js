@@ -283,6 +283,30 @@ class Lesson {
   // console.log(`interval === ${interval}`)
   }
 
+  isEnoughToSetDone () {
+    let isEnough = false
+    if (this.success >= 10) {
+      isEnough = true
+    }
+    return isEnough
+  }
+
+  isLessonDone () {
+    const info = document.getElementById('info')
+    let result = false
+
+    if (this.pourcentageReussite === 100 && this.isEnoughToSetDone()) {
+      result = true
+    } else {
+      if (this.pourcentageReussite === 100 && this.type === 'simple' && !this.isEnoughToSetDone()) {
+        info.innerText += ' - a minimum of 10 success is required to finish the lesson'
+        result = false
+      }
+    }
+
+    return result
+  }
+
   stop (oneChoiceGroup) {
     const info = document.getElementById('info')
     let indexLesson
@@ -295,7 +319,7 @@ class Lesson {
 
     stopCountdown()
 
-    if (this.pourcentageReussite === 100) {
+    if (this.isLessonDone()) {
       if (this.type === 'simple') {
         this.status = 'done'
 

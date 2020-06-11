@@ -96,7 +96,7 @@ class Guess {
     const countdown = getStatusLessonInStorage('countdown')
 
     if (countdown === '0') {
-      oneLesson.stopOrNot(oneChoiceGroup)
+      oneLesson.stop(oneChoiceGroup)
     } else {
       this.guessWhat = nextRandom(2)
       oneMenu.displayWhatToGuess(this.guessWhat)

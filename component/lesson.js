@@ -119,7 +119,7 @@ class Lesson {
   }
 
   makePourcentage () {
-    const pourcentage = (this.success / this.played) * 100
+    const pourcentage = this.played === 0 ? 0 : (this.success / this.played) * 100
     this.pourcentageReussite = Math.floor(pourcentage)
   }
 
@@ -242,6 +242,8 @@ class Lesson {
 
       resetCountdown(this)
 
+      this.isFinishedCountdown(oneChoiceGgroup)
+
       oneGuess.init(this)
 
       arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
@@ -268,14 +270,17 @@ class Lesson {
     }
   }
 
-  stopOrNot (oneChoiceGgroup) {
-    if (this.toplay === this.played) {
-      // time is finished and forcast to play is finished : lesson is done
-      this.stop(oneChoiceGgroup)
-    } else {
-      // time finished and forecast to play : finish after current guess, do not launch again nextKana
-      // wait for choice for the current kana to guess
-    }
+  isFinishedCountdown (oneChoiceGgroup) {
+    let countdown
+    let interval = null
+    interval = setInterval(() => {
+      countdown = getStatusLessonInStorage('countdown')
+      if (countdown === '0') {
+        clearInterval(interval)
+        this.stop(oneChoiceGgroup)
+      }
+    }, 1000)
+  // console.log(`interval === ${interval}`)
   }
 
   stop (oneChoiceGroup) {

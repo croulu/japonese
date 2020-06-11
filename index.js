@@ -30,7 +30,7 @@ const bigMenuHomeSmallScreen = document.getElementById('bigMenuHomeSmallScreen')
 const bigMenuLearnSmallScreen = document.getElementById('bigMenuLearnSmallScreen')
 
 // buttons
-let funcName
+let funcName = ''
 const btnContinue = document.getElementById('btnContinue')
 
 const btnAllHiraganaLearned = document.getElementById('btnAllHiraganaLearned')
@@ -105,7 +105,7 @@ bigMenuLearn.addEventListener('click', () => oneMenu.displayLearn())
 bigMenuHomeSmallScreen.addEventListener('click', () => oneMenu.displayHome())
 bigMenuLearnSmallScreen.addEventListener('click', () => oneMenu.displayLearn())
 
-funcName = continueButton(lastLessonName, lastLessonType)
+continueButton(lastLessonName, lastLessonType)
 
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
@@ -160,10 +160,12 @@ btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simp
 btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
 
 function continueButton (lastLessonName, lastLessonType) {
-  let funcName = ''
-
   // TODO traite uniquement les lesson hiragana et katakana
   let kana = ''
+
+  if (funcName !== '') {
+    btnContinue.removeEventListener('click', funcName)
+  }
 
   if (lastLessonName != null) {
     kana = lastLessonName.charAt(0)
@@ -175,7 +177,7 @@ function continueButton (lastLessonName, lastLessonType) {
   } else {
     continueByDefault()
   }
-  return funcName
+// console.log(`funcName === ${funcName}`)
 }
 
 function continueByDefault () {
@@ -207,6 +209,5 @@ function lessonsByDefault () {
 export {
   oneLesson,
   oneGuess,
-  funcName,
   continueButton
 }

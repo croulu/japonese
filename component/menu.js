@@ -6,7 +6,6 @@ import {
 import {
   oneLesson,
   oneGuess,
-  funcName,
   continueButton
 } from '../index.js'
 
@@ -72,7 +71,6 @@ class Menu {
     this.home.style.display = 'block'
 
     btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
-    if (funcName !== '') btnContinue.removeEventListener('click', funcName)
     continueButton(lastLessonName, lastLessonType)
 
     this.play.style.display = 'block'

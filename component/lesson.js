@@ -236,12 +236,10 @@ class Lesson {
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
     this.initDisplay(oneChoiceGgroup)
 
-    // launch lesson
     if (this.kanaToStudy.length > 0) {
       setLastLessonPlayed(this.code, this.type, 'current')
 
       resetCountdown(this)
-
       this.isFinishedCountdown(oneChoiceGgroup)
 
       oneGuess.init(this)
@@ -307,11 +305,27 @@ class Lesson {
     return result
   }
 
+  setlessonDone () {
+    let indexLesson
+    let nextLesson
+    let statusNextLesson
+
+    this.status = 'done'
+
+    setStatusLessonInStorage(this.code, this.status)
+    indexLesson = this.getIndexLesson()
+    nextLesson = this.getNextLesson(indexLesson)
+    setLastLessonPlayed(this.code, 'simple', nextLesson)
+    statusNextLesson = getStatusLessonInStorage(nextLesson)
+    if (statusNextLesson === 'done') {
+      // keep it done
+    } else {
+      setStatusLessonInStorage(nextLesson, 'inprogress')
+    }
+  }
+
   stop (oneChoiceGroup) {
     const info = document.getElementById('info')
-    let indexLesson
-    let nextLesson = ''
-    let statusNextLesson
 
     this.makePourcentage()
 
@@ -321,19 +335,7 @@ class Lesson {
 
     if (this.isLessonDone()) {
       if (this.type === 'simple') {
-        this.status = 'done'
-
-        setStatusLessonInStorage(this.code, this.status)
-        indexLesson = this.getIndexLesson()
-        nextLesson = this.getNextLesson(indexLesson)
-        setLastLessonPlayed(this.code, 'simple', nextLesson)
-        statusNextLesson = getStatusLessonInStorage(nextLesson)
-
-        if (statusNextLesson === 'done') {
-          // keep it done
-        } else {
-          setStatusLessonInStorage(nextLesson, 'inprogress')
-        }
+        this.setlessonDone()
       } else {
         // nothing, only simple lesson are "done"
       }

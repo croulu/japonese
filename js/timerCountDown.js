@@ -1,8 +1,18 @@
 import {
   setStatusLessonInStorage,
   getInStorage,
-  setInStorage
+  setInStorage,
+  fnCall
 } from './helpers.js'
+
+import {
+  stopLesson, 
+  Lesson
+} from '../component/lesson.js'
+
+import { 
+  ChoiceGroup
+} from '../component/choiceGroup.js'
 
 const countdown = document.querySelector('.time')
 const maxCountdown = 60
@@ -21,12 +31,12 @@ function formatCountdown (num) {
   return num < 10 ? `0${num}` : num
 }
 
-function resetCountdown () {
+function resetCountdown (toCallWhenFinished, ...args) {
   clearInterval(interval)
   setInStorage('pause', false)
   timePassed = 0
   displayCountdown()
-  startCountdown()
+  startCountdown(toCallWhenFinished, ...args)
   setStatusLessonInStorage('countdown', maxCountdown)
 }
 
@@ -35,13 +45,7 @@ function pauseCountdown () {
   clearInterval(interval)
 }
 
-function stopCountdown () {
-  setInStorage('pause', true)
-  clearInterval(interval)
-  countdown.removeEventListener('click', toStartOrNot)
-}
-
-function startCountdown () {
+function startCountdown (toCallWhenFinished, ...args) {
   setInStorage('pause', false)
   interval = setInterval(() => {
     timePassed += 1
@@ -49,13 +53,28 @@ function startCountdown () {
 
     setStatusLessonInStorage('countdown', maxCountdown)
 
-    if (maxCountdown - timePassed === 0) {
-      clearInterval(interval)
-      setInStorage('pause', true)
-      setStatusLessonInStorage('countdown', '0')
+    if (isFinished(timePassed)) {
+      stopCountdown(interval, toCallWhenFinished, ...args)
     }
   }, 1000)
 // console.log(`interval::::::: ${interval}`)
+}
+
+function isFinished (timePassed) {
+  let result = false
+
+  if (maxCountdown - timePassed === 0) result = true
+
+  return result
+}
+
+function stopCountdown (interval, toCallWhenFinished, ...args) {
+  clearInterval(interval)
+  setInStorage('pause', true)
+  setStatusLessonInStorage('countdown', '0')
+  countdown.removeEventListener('click', toStartOrNot)
+
+  fnCall(toCallWhenFinished, ...args)
 }
 
 function toStartOrNot () {

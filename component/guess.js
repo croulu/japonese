@@ -93,31 +93,26 @@ class Guess {
   nextKana (oneLesson, oneMenu, oneChoiceGroup) {
     let nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
     let arrayToWrite = []
-    const countdown = getStatusLessonInStorage('countdown')
 
-    if (countdown === '0') {
-      oneLesson.stop(oneChoiceGroup)
-    } else {
-      this.guessWhat = nextRandom(2)
-      oneMenu.displayWhatToGuess(this.guessWhat)
+    this.guessWhat = nextRandom(2)
+    oneMenu.displayWhatToGuess(this.guessWhat)
 
-      arrayToWrite = oneChoiceGroup.randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
-      oneChoiceGroup.writeChoice(this.guessWhat, arrayToWrite)
+    arrayToWrite = oneChoiceGroup.randomizeChoice(this.guessWhat, oneLesson.kanaToStudy)
+    oneChoiceGroup.writeChoice(this.guessWhat, arrayToWrite)
 
-      nextRandomIndex = this.loadNextGuess(nextRandomIndex, oneLesson)
+    nextRandomIndex = this.loadNextGuess(nextRandomIndex, oneLesson)
 
+    this.writeChoiceTrueFalse(arrayToWrite)
+    oneChoiceGroup.clearChoice()
+
+    // write choice if number of kana to guess > of nb of choice
+    // need  oneGuess.init to display the true choice
+    if (oneLesson.kanaToStudy.length > 5) {
+      arrayToWrite = oneChoiceGroup.writeChoiceMoreThanNbChoicePossible(this.guessWhat, arrayToWrite, this.choiceTrueIndex)
       this.writeChoiceTrueFalse(arrayToWrite)
-      oneChoiceGroup.clearChoice()
-
-      // write choice if number of kana to guess > of nb of choice
-      // need  oneGuess.init to display the true choice
-      if (oneLesson.kanaToStudy.length > 5) {
-        arrayToWrite = oneChoiceGroup.writeChoiceMoreThanNbChoicePossible(this.guessWhat, arrayToWrite, this.choiceTrueIndex)
-        this.writeChoiceTrueFalse(arrayToWrite)
-      }
-
-      this.guessKana(oneLesson)
     }
+
+    this.guessKana(oneLesson)
   }
 
   loadNextGuess (nextRandomIndex, oneLesson) {

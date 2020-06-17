@@ -239,8 +239,7 @@ class Lesson {
     if (this.kanaToStudy.length > 0) {
       setLastLessonPlayed(this.code, this.type, 'current')
 
-      resetCountdown(this)
-      this.isFinishedCountdown(oneChoiceGgroup)
+      resetCountdown(stopLesson, this, oneChoiceGgroup)
 
       oneGuess.init(this)
 
@@ -259,6 +258,7 @@ class Lesson {
 
       oneGuess.guessKana(this)
       oneMenu.displayWhatToGuess(oneGuess.guessWhat)
+
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
@@ -266,27 +266,6 @@ class Lesson {
       stopCountdown()
       oneMenu.notDisplayPlayItem()
     }
-  }
-
-  isFinishedCountdown (oneChoiceGgroup) {
-    let countdown
-    let interval = null
-    interval = setInterval(() => {
-      countdown = getStatusLessonInStorage('countdown')
-      if (countdown === '0') {
-        clearInterval(interval)
-        this.stop(oneChoiceGgroup)
-      }
-    }, 1000)
-  // console.log(`interval === ${interval}`)
-  }
-
-  isEnoughToSetDone () {
-    let isEnough = false
-    if (this.success >= 10) {
-      isEnough = true
-    }
-    return isEnough
   }
 
   isLessonDone () {
@@ -303,6 +282,14 @@ class Lesson {
     }
 
     return result
+  }
+
+  isEnoughToSetDone () {
+    let isEnough = false
+    if (this.success >= 10) {
+      isEnough = true
+    }
+    return isEnough
   }
 
   setlessonDone () {
@@ -330,8 +317,6 @@ class Lesson {
     this.makePourcentage()
 
     info.innerText += this.infoFinished()
-
-    stopCountdown()
 
     if (this.isLessonDone()) {
       if (this.type === 'simple') {
@@ -370,6 +355,12 @@ class Lesson {
   }
 }
 
+// to be invoked, must be out of a class
+function stopLesson (oneLesson, oneChoiceGroup) {
+  oneLesson.stop(oneChoiceGroup)
+}
+
 export {
-  Lesson
+  Lesson,
+  stopLesson
 }

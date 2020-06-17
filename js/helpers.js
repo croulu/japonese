@@ -157,5 +157,6 @@ export {
   enableButton,
   setLessonTitle,
   setLastLessonPlayed,
-  setInitLessons
+  setInitLessons,
+  fnCall
 }

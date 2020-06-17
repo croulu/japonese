@@ -104,10 +104,14 @@ class Lesson {
     }
   }
 
-  getNextLesson (i) {
+  getLesson (i, wichOne) {
     let code = ''
     if (i < this.allLesson.length) {
-      code = this.allLesson[i + 1]
+      if (wichOne === 'next') {
+        code = this.allLesson[i + 1]
+      } else {
+        code = this.allLesson[i]
+      }
     }
     return code
   }
@@ -268,20 +272,30 @@ class Lesson {
     }
   }
 
+  isLessonAlreadyDone () {
+    let result = false
+    const indexLesson = this.getIndexLesson()
+    const codeLesson = this.getLesson(indexLesson, 'current')
+    const statusLesson = getStatusLessonInStorage(codeLesson)
+
+    if (statusLesson === 'done') result = true
+
+    return result
+  }
+
   isLessonDone () {
-    const info = document.getElementById('info')
     let result = false
 
-    if (this.pourcentageReussite === 100 && this.isEnoughToSetDone()) {
+    if (this.pourcentageReussite === 100 && this.type === 'simple' && this.isEnoughToSetDone()) {
       result = true
-    } else {
-      if (this.pourcentageReussite === 100 && this.type === 'simple' && !this.isEnoughToSetDone()) {
-        info.innerText += ' - a minimum of 10 success is required to finish the lesson'
-        result = false
-      }
     }
 
     return result
+  }
+
+  setDisplayLessonNotDone () {
+    const info = document.getElementById('info')
+    info.innerText += ' - a minimum of 10 success is required to finish the lesson'
   }
 
   isEnoughToSetDone () {
@@ -301,7 +315,7 @@ class Lesson {
 
     setStatusLessonInStorage(this.code, this.status)
     indexLesson = this.getIndexLesson()
-    nextLesson = this.getNextLesson(indexLesson)
+    nextLesson = this.getLesson(indexLesson, 'next')
     setLastLessonPlayed(this.code, 'simple', nextLesson)
     statusNextLesson = getStatusLessonInStorage(nextLesson)
     if (statusNextLesson === 'done') {
@@ -318,14 +332,14 @@ class Lesson {
 
     info.innerText += this.infoFinished()
 
-    if (this.isLessonDone()) {
-      if (this.type === 'simple') {
+    if (!this.isLessonAlreadyDone()) {
+      if (this.isLessonDone()) {
         this.setlessonDone()
       } else {
-        // nothing, only simple lesson are "done"
+        this.setDisplayLessonNotDone()
       }
-      this.displayButtonLesson()
     }
+    this.displayButtonLesson()
     oneChoiceGroup.disableChoice()
   }
 

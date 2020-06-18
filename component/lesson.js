@@ -332,13 +332,16 @@ class Lesson {
 
     info.innerText += this.infoFinished()
 
-    if (!this.isLessonAlreadyDone()) {
-      if (this.isLessonDone()) {
-        this.setlessonDone()
-      } else {
-        this.setDisplayLessonNotDone()
+    if (this.type === 'simple') {
+      if (!this.isLessonAlreadyDone()) {
+        if (this.isLessonDone()) {
+          this.setlessonDone()
+        } else {
+          this.setDisplayLessonNotDone()
+        }
       }
     }
+
     this.displayButtonLesson()
     oneChoiceGroup.disableChoice()
   }

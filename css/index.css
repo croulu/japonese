@@ -20,9 +20,21 @@
 }
 
 .info {
-    height: 24vh;
-    font-size: 30px;
+    height: 30vh;
+    font-size: 22px;
     /* border: 5px solid goldenrod; */
+}
+
+.reloadContinue {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh;
+    /* border: 5px solid greenyellow; */
+}
+
+.reloadContinueItem {
+    align-content: center;
 }
 
 .playKana {

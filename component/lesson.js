@@ -37,10 +37,10 @@ class Lesson {
   }
 
   init () {
-    let info = document.getElementById('info')
+    const info = document.getElementById('info')
     const statusLessonInStorage = getStatusLessonInStorage(this.code)
 
-    info.innerText = ''
+    info.innerText += ''
 
     this.kanaToStudy = []
     this.toplay = 0
@@ -127,7 +127,7 @@ class Lesson {
     this.pourcentageReussite = Math.floor(pourcentage)
   }
 
-  infoFinished () {
+  displayPourcentage () {
     const finished = ` - success : ${this.pourcentageReussite}% - ${this.success}/${this.played}`
     return finished
   }
@@ -240,10 +240,12 @@ class Lesson {
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
     this.initDisplay(oneChoiceGgroup)
 
+    this.notDisplayButtonEndLesson()
+
     if (this.kanaToStudy.length > 0) {
       setLastLessonPlayed(this.code, this.type, 'current')
 
-      resetCountdown(stopLesson, this, oneChoiceGgroup)
+      resetCountdown(stopLesson, this, oneChoiceGgroup, oneGuess)
 
       oneGuess.init(this)
 
@@ -272,80 +274,6 @@ class Lesson {
     }
   }
 
-  isLessonAlreadyDone () {
-    let result = false
-    const indexLesson = this.getIndexLesson()
-    const codeLesson = this.getLesson(indexLesson, 'current')
-    const statusLesson = getStatusLessonInStorage(codeLesson)
-
-    if (statusLesson === 'done') result = true
-
-    return result
-  }
-
-  isLessonDone () {
-    let result = false
-
-    if (this.pourcentageReussite === 100 && this.type === 'simple' && this.isEnoughToSetDone()) {
-      result = true
-    }
-
-    return result
-  }
-
-  setDisplayLessonNotDone () {
-    const info = document.getElementById('info')
-    info.innerText += ' - a minimum of 10 success is required to finish the lesson'
-  }
-
-  isEnoughToSetDone () {
-    let isEnough = false
-    if (this.success >= 10) {
-      isEnough = true
-    }
-    return isEnough
-  }
-
-  setlessonDone () {
-    let indexLesson
-    let nextLesson
-    let statusNextLesson
-
-    this.status = 'done'
-
-    setStatusLessonInStorage(this.code, this.status)
-    indexLesson = this.getIndexLesson()
-    nextLesson = this.getLesson(indexLesson, 'next')
-    setLastLessonPlayed(this.code, 'simple', nextLesson)
-    statusNextLesson = getStatusLessonInStorage(nextLesson)
-    if (statusNextLesson === 'done') {
-      // keep it done
-    } else {
-      setStatusLessonInStorage(nextLesson, 'inprogress')
-    }
-  }
-
-  stop (oneChoiceGroup) {
-    const info = document.getElementById('info')
-
-    this.makePourcentage()
-
-    info.innerText += this.infoFinished()
-
-    if (this.type === 'simple') {
-      if (!this.isLessonAlreadyDone()) {
-        if (this.isLessonDone()) {
-          this.setlessonDone()
-        } else {
-          this.setDisplayLessonNotDone()
-        }
-      }
-    }
-
-    this.displayButtonLesson()
-    oneChoiceGroup.disableChoice()
-  }
-
   launchLessonJustOneGuess (typeLesson, codeLesson, oneGuess) {
     let kana
     let drawKanaItem = document.getElementById('drawKanaItem')
@@ -370,11 +298,138 @@ class Lesson {
       drawKanaItem.className = `kanaAlphabet ${specificImage}`
      })
   }
+
+  stop (oneChoiceGroup, oneGuess) {
+    const info = document.getElementById('info')
+    this.makePourcentage()
+    info.innerText += this.displayPourcentage()
+
+    this.displayReloadForward(oneGuess)
+
+    oneChoiceGroup.disableChoice()
+    this.displayButtonLesson()
+  }
+
+  displayReloadForward (oneGuess) {
+    displayButtonReload(this, oneGuess)
+
+    if (this.type === 'simple') {
+      if (this.isLessonAlreadyDone()) {
+        displayButtonForward(this, oneGuess)
+      } else {
+        if (this.isLessonDone()) {
+          this.setlessonDone()
+          displayButtonForward(this, oneGuess)
+        } else if (this.isLessonDoneButNotEnough()) {
+          this.displayLessonNotDone()
+        }
+      }
+    }
+  }
+
+  setlessonDone () {
+    const nextLesson = this.getCodeNextlesson()
+    const statusNextLesson = getStatusLessonInStorage(nextLesson)
+
+    this.status = 'done'
+    setStatusLessonInStorage(this.code, this.status)
+
+    setLastLessonPlayed(this.code, 'simple', nextLesson)
+
+    if (statusNextLesson === 'done') {
+      // keep it done
+    } else {
+      setStatusLessonInStorage(nextLesson, 'inprogress')
+    }
+  }
+
+  isLessonAlreadyDone () {
+    let result = false
+    const indexLesson = this.getIndexLesson()
+    const codeLesson = this.getLesson(indexLesson, 'current')
+    const statusLesson = getStatusLessonInStorage(codeLesson)
+
+    if (statusLesson === 'done') result = true
+
+    return result
+  }
+
+  isLessonDone () {
+    let result = false
+
+    if (this.type === 'simple' && this.pourcentageReussite === 100 && this.isEnoughToSetDone()) {
+      result = true
+    }
+
+    return result
+  }
+
+  isLessonDoneButNotEnough () {
+    let result = false
+
+    if (this.type === 'simple' && this.pourcentageReussite === 100 && !this.isEnoughToSetDone()) {
+      result = true
+    }
+
+    return result
+  }
+
+  displayLessonNotDone () {
+    const info = document.getElementById('info')
+    info.innerText += ' - a minimum of 10 success is required to finish the lesson'
+  }
+
+  isEnoughToSetDone () {
+    let isEnough = false
+    if (this.success >= 10) {
+      isEnough = true
+    }
+    return isEnough
+  }
+
+  getCodeNextlesson () {
+    const indexLesson = this.getIndexLesson()
+    const nextLesson = this.getLesson(indexLesson, 'next')
+    return nextLesson
+  }
+
+  notDisplayButtonEndLesson () {
+    const btnReload = document.getElementById('reload')
+    const btnForward = document.getElementById('forward')
+
+    btnReload.style.display = 'none'
+    btnForward.style.display = 'none'
+  }
+
+  launchNextLesson (oneGuess) {
+    this.launchLesson(this.type, this.getCodeNextlesson(), oneGuess)
+  }
+
+  launchCurrentLesson (oneGuess) {
+    this.launchLesson(this.type, this.code, oneGuess)
+  }
+}
+
+let funcNameReload = ''
+let funcNameForward = ''
+
+function displayButtonReload (oneLesson, oneGuess) {
+  const btnReload = document.getElementById('reload')
+  btnReload.style.display = 'block'
+  if (funcNameReload !== '') btnReload.removeEventListener('click', funcNameReload)
+  btnReload.addEventListener('click', funcNameReload = function () { oneLesson.launchCurrentLesson(oneGuess) })
+}
+
+function displayButtonForward (oneLesson, oneGuess) {
+  const btnForward = document.getElementById('forward')
+  btnForward.style.display = 'block'
+  if (funcNameForward !== '') btnForward.removeEventListener('click', funcNameForward)
+  btnForward.addEventListener('click', funcNameForward = function () { oneLesson.launchNextLesson(oneGuess) })
 }
 
 // to be invoked, must be out of a class
-function stopLesson (oneLesson, oneChoiceGroup) {
-  oneLesson.stop(oneChoiceGroup)
+function stopLesson (oneLesson, oneChoiceGroup, oneGuess) {
+  oneLesson.stop(oneChoiceGroup, oneGuess)
 }
 
 export {

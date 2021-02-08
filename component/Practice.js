@@ -3,15 +3,15 @@ import {Guess} from "./Guess";
 
 class Practice {
 
-    constructor(kanas, randomizeInList, randomizeProposals) {
+    constructor(kanas, randomizeKanaToGuess, randomizeKanasProposals) {
         this.kanas = kanas
-        this.randomizeInList = randomizeInList;
-        this.randomizeProposals = randomizeProposals;
+        this.randomizeKanaToGuess = randomizeKanaToGuess;
+        this.randomizeKanasProposals = randomizeKanasProposals;
     }
 
     next() {
-        const randomKanaToGuess = this.randomizeInList(this.kanas);
-        const proposals = this.randomizeProposals(this.kanas);
+        const randomKanaToGuess = this.randomizeKanaToGuess(this.kanas);
+        const proposals = this.randomizeKanasProposals(this.kanas);
         return new Guess(randomKanaToGuess, proposals)
     }
 }

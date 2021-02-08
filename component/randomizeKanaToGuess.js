@@ -1,0 +1,1 @@
+const randomizeKanaToGuess = kanas => {Math.floor(Math.random() * kanas.length)}

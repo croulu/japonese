@@ -8,11 +8,11 @@ import {
 import {
   stopLesson, 
   Lesson
-} from '../component/lesson.js'
+} from '../component_legacy/lesson.js'
 
 import { 
   ChoiceGroup
-} from '../component/choiceGroup.js'
+} from '../component_legacy/choiceGroup.js'
 
 const countdown = document.querySelector('.time')
 const maxCountdown = 60

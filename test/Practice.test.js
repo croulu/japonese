@@ -1,5 +1,5 @@
-import {Practice} from "../component/Practice";
-import {Kana} from "../component/Kana";
+import {Practice} from "../component_legacy/Practice";
+import {Kana} from "../component_legacy/Kana";
 
 import assert from "assert";
 

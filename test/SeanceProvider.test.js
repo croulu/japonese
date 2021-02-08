@@ -1,8 +1,8 @@
-import {SeanceProvider} from "../component/SeanceProvider";
-import {Practice} from "../component/Practice";
-import {Kana} from "../component/Kana";
-import {Guess} from "../component/Guess";
-import {Lesson} from "../component/Lesson";
+import {SeanceProvider} from "../component_legacy/SeanceProvider";
+import {Practice} from "../component_legacy/Practice";
+import {Kana} from "../component_legacy/Kana";
+import {Guess} from "../component_legacy/Guess";
+import {Lesson} from "../component_legacy/Lesson";
 
 
 import assert from "assert";

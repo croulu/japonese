@@ -1,9 +1,9 @@
 // kana === hiragana or katagana
 // romanji === latin alphabet
 
-import { Lesson } from './component/lesson.js'
-import { Guess } from './component/guess.js'
-import { Menu } from './component/menu.js'
+import { Lesson } from './component_legacy/lesson.js'
+import { Guess } from './component_legacy/guess.js'
+import { Menu } from './component_legacy/menu.js'
 
 import {
   getInStorage,

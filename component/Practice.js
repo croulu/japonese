@@ -2,16 +2,15 @@ import {Guess} from "./Guess";
 
 
 class Practice {
-    constructor(kanas, randomize) {
+    constructor(kanas, randomizeInList) {
         this.kanas = kanas
-        this.randomize = randomize;
+        this.randomizeInList = randomizeInList;
     }
 
     next() {
-
-        return new Guess(this.randomize(this.kanas), this.kanas)
+        const randomKanaToGuess = this.randomizeInList(this.kanas);
+        return new Guess(randomKanaToGuess, this.kanas)
     }
-
 }
 
 export {

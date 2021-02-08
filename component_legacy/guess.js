@@ -32,12 +32,12 @@ class Guess {
 
   firstToGuess (oneLesson) {
     const nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
-    this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+    this.kanaToGuess = oneLesson.kanaToStudy[nextRandomIndex]
   }
 
   writeChoiceTrueFalse (arrayKana) {
     for (let i = 0; i < arrayKana.length; i++) {
-      if (this.kana.letter === arrayKana[i].letter) {
+      if (this.kanaToGuess.letter === arrayKana[i].letter) {
         this.choiceTrueIndex = i
       }
     }
@@ -79,14 +79,14 @@ class Guess {
 
     oneLesson.toplay++
 
-    specificImage = `${this.kana.alphabet.toUpperCase()}${this.kana.letter}`
+    specificImage = `${this.kanaToGuess.alphabet.toUpperCase()}${this.kanaToGuess.letter}`
 
     if (this.guessWhat === 0) {
       kanaImg = document.getElementById('kanaImg')
       kanaImg.className = `kanaAlphabet ${specificImage}`
     } else {
       romanji = document.getElementById('playItemRomanji')
-      romanji.innerHTML = this.kana.letter
+      romanji.innerHTML = this.kanaToGuess.letter
     }
   }
 
@@ -116,12 +116,12 @@ class Guess {
   }
 
   loadNextGuess (nextRandomIndex, oneLesson) {
-    this.previousKana = this.kana
-    this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+    this.previousKana = this.kanaToGuess
+    this.kanaToGuess = oneLesson.kanaToStudy[nextRandomIndex]
 
-    while (this.previousKana.letter === this.kana.letter) {
+    while (this.previousKana.letter === this.kanaToGuess.letter) {
       nextRandomIndex = nextRandom(oneLesson.kanaToStudy.length)
-      this.kana = oneLesson.kanaToStudy[nextRandomIndex]
+      this.kanaToGuess = oneLesson.kanaToStudy[nextRandomIndex]
     }
     return nextRandomIndex
   }

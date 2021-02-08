@@ -1,7 +1,7 @@
 class Guess {
-    constructor (kana, kanas) {
-        this.kana = kana
-        this.kanas = kanas
+    constructor (kanaToGuess, proposedKanas) {
+        this.kanaToGuess = kanaToGuess
+        this.proposedKanas = proposedKanas
     }
 }
 

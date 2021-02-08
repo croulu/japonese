@@ -1,15 +1,15 @@
-import {SeanceProvider} from "../component_legacy/SeanceProvider";
-import {Practice} from "../component_legacy/Practice";
-import {Kana} from "../component_legacy/Kana";
-import {Guess} from "../component_legacy/Guess";
-import {Lesson} from "../component_legacy/Lesson";
+import {PracticeProvider} from "../component/PracticeProvider";
+import {Practice} from "../component/Practice";
+import {Kana} from "../component/Kana";
+import {Guess} from "../component/Guess";
+import {Lesson} from "../component/Lesson";
 
 
 import assert from "assert";
 
 describe('SeanceProvider', function () {
     it('should provide kana in order', function () {
-        const sut = new SeanceProvider()
+        const sut = new PracticeProvider()
         const kanas = [
             new Kana('hiragana', 'a'),
             new Kana('hiragana', 'i'),

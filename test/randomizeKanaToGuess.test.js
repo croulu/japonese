@@ -1,8 +1,11 @@
 import assert from "assert";
+import {randomizeKanaToGuess} from "../component/randomizeKanaToGuess";
 
 describe('randomizeKanaToGuess', function () {
     it('should guess all provided kanas', function () {
-        const list = [7, 8, 9]
-        const result = Array(100).map(() => randomizeKanaToGuess(list));
+        const list = [7, 8, 9];
+        const hundredElementArray = [...Array(100).keys()];
+        const result = hundredElementArray.map(() => randomizeKanaToGuess(list));
+        assert.ok(list.every(k => result.includes(k)))
     })
-r
+})

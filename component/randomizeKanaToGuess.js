@@ -1,1 +1,1 @@
-const randomizeKanaToGuess = kanas => {Math.floor(Math.random() * kanas.length)}
+export const randomizeKanaToGuess = kanas => kanas[Math.floor(Math.random() * kanas.length)]

@@ -9,17 +9,19 @@ import assert from "assert";
 
 describe('SeanceProvider', function () {
     it('should provide kana in order', function () {
+        const alphabet = "hiragana"
+        const line = "-"
         const sut = new PracticeProvider()
         const kanas = [
-            new Kana('hiragana', 'a'),
-            new Kana('hiragana', 'i'),
-            new Kana('hiragana', 'u')
+            new Kana(alphabet, 'a'),
+            new Kana(alphabet, 'i'),
+            new Kana(alphabet, 'u')
         ];
-        const actual = sut.fromLesson(new Lesson(kanas));
+        const actual = sut.fromLesson(new Lesson(alphabet, line, kanas));
         const expected = new Practice([
-            new Guess(new Kana('hiragana', 'a'), kanas),
-            new Guess(new Kana('hiragana', 'i'), kanas),
-            new Guess(new Kana('hiragana', 'u'), kanas)
+            new Guess(new Kana(alphabet, 'a'), kanas),
+            new Guess(new Kana(alphabet, 'i'), kanas),
+            new Guess(new Kana(alphabet, 'u'), kanas)
         ]);
         assert.deepEqual(actual, expected);
     });

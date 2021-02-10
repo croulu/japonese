@@ -5,7 +5,8 @@ import assert from "assert";
 
 const kana = new Kana('hiragana', 'a');
 
-const kanaChoosen = new Kana('hiragana', 'a');
+const kanaChoosenTrue = new Kana('hiragana', 'a');
+const kanaChoosenFalse = new Kana('hiragana', 'b');
 
 const kanas = [
     new Kana('hiragana', 'a'),
@@ -14,9 +15,14 @@ const kanas = [
 ];
 
 describe('Guess', function () {
-    it('should provide true because choice made is the good proposal', function () {
+    it('should provide true', function () {
         const sut = new Guess(kana, kanas)
-        assert.ok(sut.validateChoice(kanaChoosen))
+        assert.equal(sut.validateChoice(kanaChoosenTrue), true)
+    })
+
+    it('should provide false', function () {
+        const sut = new Guess(kana, kanas)
+        assert.equal(sut.validateChoice(kanaChoosenFalse), false)
     })
 
 })

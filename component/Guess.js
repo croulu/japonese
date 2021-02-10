@@ -12,6 +12,8 @@ class Guess {
         return result
     }
 
+    
+
 }
 
 export {

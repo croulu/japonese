@@ -51,9 +51,14 @@ class Lesson {
             new Lesson("hiragana", "p", kanasHiraganaA),
         ]
 
-        lessons = lessons
-            .filter(lesson => lesson.alphabet === this.alphabet)
-            .filter(lesson => lesson.line === this.line)
+        if (this.line !== "") {
+            lessons = lessons.filter(lesson => lesson.line === this.line)
+        }
+
+        if (this.alphabet !== "") {
+            lessons = lessons
+                .filter(lesson => lesson.alphabet === this.alphabet)
+        }
 
         return lessons
     }

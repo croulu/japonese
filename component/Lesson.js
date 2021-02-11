@@ -55,10 +55,9 @@ class Lesson {
             lessons = lessons.filter(lesson => lesson.line === this.line)
         }
 
-        if (this.alphabet !== "") {
-            lessons = lessons
-                .filter(lesson => lesson.alphabet === this.alphabet)
-        }
+        lessons = lessons
+            .filter(lesson => lesson.alphabet === this.alphabet)
+
 
         return lessons
     }

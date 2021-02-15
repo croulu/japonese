@@ -17,12 +17,12 @@ const kanas = [
 describe('Guess', function () {
     it('should provide true', function () {
         const sut = new Guess(kana, kanas)
-        assert.equal(sut.validateChoice(kanaChoosenTrue), true)
+        assert.ok(sut.validateChoice(kanaChoosenTrue))
     })
 
     it('should provide false', function () {
         const sut = new Guess(kana, kanas)
-        assert.equal(sut.validateChoice(kanaChoosenFalse), false)
+        assert.ok(!sut.validateChoice(kanaChoosenFalse))
     })
 
 })

@@ -1,4 +1,5 @@
-import {Kana} from "./Kana";
+
+import deepEqual from "deep-equal";
 
 class Guess {
     constructor(kanaToGuess, proposedKanas) {
@@ -8,11 +9,12 @@ class Guess {
 
     validateChoice(kanaChoosen) {
 
-        const result = this.kanaToGuess.syllable === kanaChoosen.syllable
+
+        const result = deepEqual(this.kanaToGuess, kanaChoosen)
         return result
     }
 
-    
+
 
 }
 

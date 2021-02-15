@@ -123,4 +123,9 @@ export class LessonCatalog {
         return lessons
     }
 
+    getCategorizedList() {
+        const lessons = this.getHiraganaList().concat(this.getKatakanaList())
+        return lessons
+    }
+
 }

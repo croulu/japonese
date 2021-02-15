@@ -28,6 +28,22 @@ describe('LessonCatalog', function () {
         assert.deepEqual(actual, result.hiragana)
     })
 
+    it('should provide the katakana list', function () {
+        const actual = [
+            {
+                id: "a",
+                title: "a i u e o",
+            },
+            {
+                id: "ka",
+                title: "ka ki ku ke ko",
+            },
+        ]
+        const sut = new LessonCatalog()
+        const result = sut.list()
+        assert.deepEqual(actual, result.katakana)
+    })
+
     it('should provide the "a" lesson', function () {
         const actual = [
             {

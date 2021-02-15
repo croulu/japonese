@@ -1,9 +1,7 @@
-import {Kana} from './Kana'
+
 
 export class Lesson {
-    constructor(alphabet, line, kanas) {
-        this.alphabet = alphabet
-        this.line = line
+    constructor(kanas) {
         this.kanas = kanas
     }
 

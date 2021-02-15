@@ -25,6 +25,10 @@ export class LessonCatalog {
                     id: "a",
                     title: "a i u e o",
                 },
+                {
+                    id: "ka",
+                    title: "ka ki ku ke ko",
+                },
             ]
         }
     }

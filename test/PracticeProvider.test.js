@@ -24,6 +24,12 @@ describe('SeanceProvider', function () {
         ]);
         assert.deepEqual(actual, expected);
     });
+
+    it('should provide a practice with several lessons', function () {
+// TODO
+    });
+
+
 });
 
 

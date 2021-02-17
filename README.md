@@ -1,4 +1,4 @@
-# japonese
+# japanese
 
 [Production site](https://learnjapanese.netlify.app/)
 

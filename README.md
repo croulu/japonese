@@ -25,10 +25,10 @@
 
 #### Les tests à écrire pour cette US : 
 
-- [ ] Lister toutes les lessons
-  - [ ] Lister les hiragana
-  - [ ] Lister les katakana
-  - [ ] Catégoriser les leçons (alphabet, basic, dakuon)
+- [x] Lister toutes les lessons
+  - [x] Lister les hiragana
+  - [x] Lister les katakana
+  - [x] Catégoriser les leçons (alphabet, basic, dakuon)
   
 - [ ] Lancer un entrainement sur une leçon
   - [x] Deviner aléatoirement un kana de la leçon

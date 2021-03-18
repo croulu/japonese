@@ -101,12 +101,12 @@ export class LessonCatalog {
         return lessons
     }
 
-    getHiraganaList() {
+    getHiraganas() {
         const lessons = this.list()
         return lessons.hiragana
     }
 
-    getKatakanaList() {
+    getKatakanas() {
         const lessons = this.list()
         return lessons.katakana
     }
@@ -124,7 +124,7 @@ export class LessonCatalog {
     }
 
     getCategorizedList() {
-        const lessons = this.getHiraganaList().concat(this.getKatakanaList())
+        const lessons = this.getHiraganas().concat(this.getKatakanas())
         return lessons
     }
 

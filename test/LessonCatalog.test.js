@@ -6,22 +6,18 @@ const hiraganaBasicList = [
     {
         id: "a",
         title: "a i u e o",
-        group: "basic",
     },
     {
         id: "ka",
         title: "ka ki ku ke ko",
-        group: "basic",
     },
     {
         id: "sa",
         title: "sa shi su se so",
-        group: "basic",
     },
     {
         id: "ta",
         title: "ta chi tsu te to",
-        group: "basic",
     },
 ]
 
@@ -29,22 +25,18 @@ const hiraganaDakuonList = [
     {
         id: "ga",
         title: "ga gi gu ge go",
-        group: "dakuon",
     },
     {
         id: "za",
         title: "za ji zu ze zo",
-        group: "dakuon",
     },
     {
         id: "da",
         title: "da ji(di) zu(du) de do",
-        group: "dakuon",
     },
     {
         id: "ba",
         title: "ba bi bu be bo",
-        group: "dakuon",
     },
 ]
 
@@ -52,7 +44,6 @@ const hiraganaHandakuonList = [
     {
         id: "pa",
         title: "pa pi pu pe po",
-        group: "handakuon",
     },
 ]
 
@@ -66,12 +57,10 @@ const katakanaBasicList = [
     {
         id: "a",
         title: "a i u e o",
-        group: "basic",
     },
     {
         id: "ka",
         title: "ka ki ku ke ko",
-        group: "basic",
     },
 ]
 
@@ -79,22 +68,18 @@ const katakanaDakuonList = [
     {
         id: "ga",
         title: "ga gi gu ge go",
-        group: "dakuon",
     },
     {
         id: "za",
         title: "za ji zu ze zo",
-        group: "dakuon",
     },
     {
         id: "da",
         title: "da ji(di) zu(du) de do",
-        group: "dakuon",
     },
     {
         id: "ba",
         title: "ba bi bu be bo",
-        group: "dakuon",
     },
 ]
 
@@ -102,7 +87,6 @@ const katakanaHandakuonList = [
     {
         id: "pa",
         title: "pa pi pu pe po",
-        group: "handakuon",
     },
 ]
 
@@ -179,7 +163,6 @@ describe('LessonCatalog', function () {
             {
                 id: "a",
                 title: "a i u e o",
-                group: "basic",
             },
         ]
         const sut = new LessonCatalog()
@@ -192,7 +175,6 @@ describe('LessonCatalog', function () {
             {
                 id: "a",
                 title: "a i u e o",
-                group: "basic",
             },
         ]
         const sut = new LessonCatalog()

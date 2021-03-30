@@ -7,97 +7,81 @@ export class LessonCatalog {
                     {
                         id: "a",
                         title: "a i u e o",
-                        group: "basic",
                     },
                     {
                         id: "ka",
                         title: "ka ki ku ke ko",
-                        group: "basic",
                     },
                     {
                         id: "sa",
                         title: "sa shi su se so",
-                        group: "basic",
                     },
                     {
                         id: "ta",
                         title: "ta chi tsu te to",
-                        group: "basic",
                     },
                 ],
                 "dakuon": [
                     {
                         id: "ga",
                         title: "ga gi gu ge go",
-                        group: "dakuon",
                     },
                     {
                         id: "za",
                         title: "za ji zu ze zo",
-                        group: "dakuon",
                     },
                     {
                         id: "da",
                         title: "da ji(di) zu(du) de do",
-                        group: "dakuon",
                     },
                     {
                         id: "ba",
                         title: "ba bi bu be bo",
-                        group: "dakuon",
                     },
                 ],
                 "handakuon": [
                     {
                         id: "pa",
                         title: "pa pi pu pe po",
-                        group: "handakuon",
                     },
                 ]
             },
             "katakana": {
-                    "basic": [
-                        {
-                            id: "a",
-                            title: "a i u e o",
-                            group: "basic",
-                        },
-                        {
-                            id: "ka",
-                            title: "ka ki ku ke ko",
-                            group: "basic",
-                        },
-                    ],
-                    "dakuon": [
-                        {
-                            id: "ga",
-                            title: "ga gi gu ge go",
-                            group: "dakuon",
-                        },
-                        {
-                            id: "za",
-                            title: "za ji zu ze zo",
-                            group: "dakuon",
-                        },
-                        {
-                            id: "da",
-                            title: "da ji(di) zu(du) de do",
-                            group: "dakuon",
-                        },
-                        {
-                            id: "ba",
-                            title: "ba bi bu be bo",
-                            group: "dakuon",
-                        },
-                    ],
-                    "handakuon": [
-                        {
-                            id: "pa",
-                            title: "pa pi pu pe po",
-                            group: "handakuon",
-                        },
-                    ],
-                }
+                "basic": [
+                    {
+                        id: "a",
+                        title: "a i u e o",
+                    },
+                    {
+                        id: "ka",
+                        title: "ka ki ku ke ko",
+                    },
+                ],
+                "dakuon": [
+                    {
+                        id: "ga",
+                        title: "ga gi gu ge go",
+                    },
+                    {
+                        id: "za",
+                        title: "za ji zu ze zo",
+                    },
+                    {
+                        id: "da",
+                        title: "da ji(di) zu(du) de do",
+                    },
+                    {
+                        id: "ba",
+                        title: "ba bi bu be bo",
+                    },
+                ],
+                "handakuon": [
+                    {
+                        id: "pa",
+                        title: "pa pi pu pe po",
+                    },
+                ],
+            }
         }
     }
 

@@ -2,191 +2,100 @@ import {LessonCatalog} from "../component/LessonCatalog";
 
 import assert from "assert";
 
-const hiraganasBasic = [
-    {
-        id: "a",
-        title: "a i u e o",
-    },
-    {
-        id: "ka",
-        title: "ka ki ku ke ko",
-    },
-    {
-        id: "sa",
-        title: "sa shi su se so",
-    },
-    {
-        id: "ta",
-        title: "ta chi tsu te to",
-    },
-]
+const hiraganasBasicNb = 4
+const hiraganasDakuonNb = 4
+const hiraganasHandakuonNb = 1
 
-const hiraganasDakuon = [
-    {
-        id: "ga",
-        title: "ga gi gu ge go",
-    },
-    {
-        id: "za",
-        title: "za ji zu ze zo",
-    },
-    {
-        id: "da",
-        title: "da ji(di) zu(du) de do",
-    },
-    {
-        id: "ba",
-        title: "ba bi bu be bo",
-    },
-]
+const hiraganas = hiraganasBasicNb + hiraganasDakuonNb + hiraganasHandakuonNb
 
-const hiraganasHandakuon = [
-    {
-        id: "pa",
-        title: "pa pi pu pe po",
-    },
-]
+const katakanasBasicNb = 2
+const katakanasDakuonNb = 4
+const katakanasHandakuonNb = 1
 
-const hiraganas = [
-    ...hiraganasBasic,
-    ...hiraganasDakuon,
-    ...hiraganasHandakuon
-]
+const katakanas = katakanasBasicNb + katakanasDakuonNb + katakanasHandakuonNb
 
-const katakanasBasic = [
-    {
-        id: "a",
-        title: "a i u e o",
-    },
-    {
-        id: "ka",
-        title: "ka ki ku ke ko",
-    },
-]
-
-const katakanasDakuon = [
-    {
-        id: "ga",
-        title: "ga gi gu ge go",
-    },
-    {
-        id: "za",
-        title: "za ji zu ze zo",
-    },
-    {
-        id: "da",
-        title: "da ji(di) zu(du) de do",
-    },
-    {
-        id: "ba",
-        title: "ba bi bu be bo",
-    },
-]
-
-const katakanasHandakuon = [
-    {
-        id: "pa",
-        title: "pa pi pu pe po",
-    },
-]
-
-const katakanas = [
-    ...katakanasBasic,
-    ...katakanasDakuon,
-    ...katakanasHandakuon
-]
-
-const kanas = [
-    ...hiraganas,
-    ...katakanas
-]
+const kanas = hiraganas + katakanas
 
 describe('LessonCatalog', function () {
-    it('should provide all the hiraganas', function () {
+    it('should provide the number of hiraganas', function () {
         const expected = hiraganas
         const sut = new LessonCatalog()
-        const result = sut.getHiraganas()
+        const result = sut.getHiraganas().length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide all the katakana', function () {
+    it('should provide the number of katakanas', function () {
         const expected = katakanas
         const sut = new LessonCatalog()
-        const result = sut.getKatakanas()
+        const result = sut.getKatakanas().length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the basic hiraganas', function () {
-        const expected = hiraganasBasic
+    it('should provide the number of basic hiraganas', function () {
+        const expected = hiraganasBasicNb
         const sut = new LessonCatalog()
-        const result = sut.getHiraganasByGroup('basic')
+        const result = sut.getHiraganasByGroup('basic').length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the dakuon hiraganas', function () {
-        const expected = hiraganasDakuon
+    it('should provide the number of dakuon hiraganas', function () {
+        const expected = hiraganasDakuonNb
         const sut = new LessonCatalog()
-        const result = sut.getHiraganasByGroup('dakuon')
+        const result = sut.getHiraganasByGroup('dakuon').length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the handakuon hiraganas', function () {
-        const expected = hiraganasHandakuon
+    it('should provide the number of handakuon hiraganas', function () {
+        const expected = hiraganasHandakuonNb
         const sut = new LessonCatalog()
-        const result = sut.getHiraganasByGroup('handakuon')
+        const result = sut.getHiraganasByGroup('handakuon').length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the basic katakanas', function () {
-        const expected = katakanasBasic
+    it('should provide the number of basic katakanas', function () {
+        const expected = katakanasBasicNb
         const sut = new LessonCatalog()
-        const result = sut.getKatakanasByGroup("basic")
+        const result = sut.getKatakanasByGroup("basic").length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the dakuon katakanas', function () {
-        const expected = katakanasDakuon
+    it('should provide the number of dakuon katakanas', function () {
+        const expected = katakanasDakuonNb
         const sut = new LessonCatalog()
-        const result = sut.getKatakanasByGroup("dakuon")
+        const result = sut.getKatakanasByGroup("dakuon").length
         assert.deepEqual(expected, result)
     })
 
     it('should provide the handakuon katakanas', function () {
-        const expected = katakanasHandakuon
+        const expected = katakanasHandakuonNb
         const sut = new LessonCatalog()
-        const result = sut.getKatakanasByGroup("handakuon")
+        const result = sut.getKatakanasByGroup("handakuon").length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the hiragana "a" lesson', function () {
-        const expected = [
-            {
-                id: "a",
-                title: "a i u e o",
-            },
-        ]
+    it('should provide one hiragana lesson', function () {
+        const expected = 1
         const sut = new LessonCatalog()
-        const result = sut.getHiraganaId("a")
+        const result = sut.getHiraganaId("a").length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide the katakana "a" lesson', function () {
-        const expected = [
-            {
-                id: "a",
-                title: "a i u e o",
-            },
-        ]
+    it('should provide one katakana lesson', function () {
+        const expected = 1
         const sut = new LessonCatalog()
-        const result = sut.getKatakanaId("a")
+        const result = sut.getKatakanaId("a").length
         assert.deepEqual(expected, result)
     })
 
-    it('should provide all the kanas', function () {
+    it('should provide the number of kanas', function () {
         const expected = kanas
         const sut = new LessonCatalog()
-        const result = sut.getKanas()
+        const result = sut.getKanas().length
         assert.deepEqual(expected, result)
     })
+
+
+
+
 
 })

@@ -16,7 +16,7 @@
 
 > CA :
 > 1. toutes les leçons sont affichées, rangés par ordre alphabétique
-> 2. les 2 alphabets kana sont affichés à part
+> 2. les 2 alphabets kana sont séparés
 > 3. quand Léa choisit une leçon, un kana de la leçon est affiché aléatoirement
 > 4. Léa voit le kana, elle devine le romanji
 > 5. elle a la solution juste après

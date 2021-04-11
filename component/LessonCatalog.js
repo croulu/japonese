@@ -1,5 +1,5 @@
-const withHiraganaSrc = kana => ({...kana, imgSrc: `ico/hiragana/${kana.img}.png`});
-const withKatakanaSrc = kana => ({...kana, imgSrc: `ico/katakana/${kana.img}.png`});
+const withHiraganaId = kana => ({...kana, id: kana.title.split(" ").join("")});
+const withKatakanaId = kana => ({...kana, id: kana.title.split(" ").join("")});
 
 export class LessonCatalog {
 
@@ -7,82 +7,67 @@ export class LessonCatalog {
         return {
             "hiragana": {
                 "basic": [
-                    withHiraganaSrc({
-                        id: "aiueo",
+                    withHiraganaId({
                         title: "a i u e o",
                         img: "a",
                     }),
-                    withHiraganaSrc({
-                        id: "kakikukeko",
+                    withHiraganaId({
                         title: "ka ki ku ke ko",
                         img: "ka",
                     }),
-                    withHiraganaSrc({
-                        id: "sashisuseso",
+                    withHiraganaId({
                         title: "sa shi su se so",
                         img: "sa",
                     }),
-                    withHiraganaSrc({
-                        id: "tachitsuteto",
+                    withHiraganaId({
                         title: "ta chi tsu te to",
                         img: "ta",
                     }),
-                    withHiraganaSrc({
-                        id: "naninuneno",
+                    withHiraganaId({
                         title: "na ni nu ne no",
                         img: "na",
                     }),
-                    withHiraganaSrc({
-                        id: "hahifuheho",
+                    withHiraganaId({
                         title: "ha hi fu he ho",
                         img: "ha",
                     }),
-                    withHiraganaSrc({
-                        id: "mamimumemo",
+                    withHiraganaId({
                         title: "ma mi mu me mo",
                         img: "ma",
                     }),
-                    withHiraganaSrc({
-                        id: "yayuyo",
+                    withHiraganaId({
                         title: "ya yu yo",
                         img: "ya",
                     }),
-                    withHiraganaSrc({
-                        id: "rarirurero",
+                    withHiraganaId({
                         title: "ra ri ru re ro",
                         img: "ra",
                     }),
-                    withHiraganaSrc({
-                        id: "wawon",
+                    withHiraganaId({
                         title: "wa wo n",
                         img: "wa",
                     }),
                 ],
                 "dakuon": [
-                    withHiraganaSrc({
-                        id: "gagigugego",
+                    withHiraganaId({
                         title: "ga gi gu ge go",
                         img: "ga",
                     }),
-                    withHiraganaSrc({
-                        id: "zajizuzezo",
+                    withHiraganaId({
                         title: "za ji zu ze zo",
                         img: "za",
                     }),
-                    withHiraganaSrc({
-                        id: "dadzidzudedo",
-                        title: "da ji(di) zu(du) de do",
+                    withHiraganaId({
+                        title: "da ji zu de do",
                         img: "da",
                     }),
-                    withHiraganaSrc({
-                        id: "babibubebo",
+                    withHiraganaId({
                         title: "ba bi bu be bo",
                         img: "ba",
                     }),
                 ],
                 "handakuon": [
-                    withHiraganaSrc({
-                        id: "papipupepo",
+                    withHiraganaId({
                         title: "pa pi pu pe po",
                         img: "pa",
                     }),
@@ -90,82 +75,68 @@ export class LessonCatalog {
             },
             "katakana": {
                 "basic": [
-                    withKatakanaSrc({
-                        id: "aiueo",
+                    withKatakanaId({
                         title: "a i u e o",
                         img: "a",
                     }),
-                    withKatakanaSrc({
-                        id: "kakikukeko",
+                    withKatakanaId({
                         title: "ka ki ku ke ko",
                         img: "ka",
                     }),
-                    withKatakanaSrc({
-                        id: "sashisuseso",
+                    withKatakanaId({
                         title: "sa shi su se so",
                         img: "sa",
                     }),
-                    withKatakanaSrc({
-                        id: "tachitsuteto",
+                    withKatakanaId({
                         title: "ta chi tsu te to",
                         img: "ta",
                     }),
-                    withKatakanaSrc({
+                    withKatakanaId({
                         id: "naninuneno",
                         title: "na ni nu ne no",
                         img: "na",
                     }),
-                    withKatakanaSrc({
-                        id: "hahifuheho",
+                    withKatakanaId({
                         title: "ha hi fu he ho",
                         img: "ra",
                     }),
-                    withKatakanaSrc({
-                        id: "mamimumemo",
+                    withKatakanaId({
                         title: "ma mi mu me mo",
                         img: "ma",
                     }),
-                    withKatakanaSrc({
-                        id: "yayuyo",
+                    withKatakanaId({
                         title: "ya yu yo",
                         img: "ya",
                     }),
-                    withKatakanaSrc({
-                        id: "rarirurero",
+                    withKatakanaId({
                         title: "ra ri ru re ro",
                         img: "ra",
                     }),
-                    withKatakanaSrc({
-                        id: "wawon",
+                    withKatakanaId({
                         title: "wa wo n",
                         img: "wa",
                     }),
                 ],
                 "dakuon": [
-                    withKatakanaSrc({
-                        id: "gagigugego",
+                    withKatakanaId({
                         title: "ga gi gu ge go",
                         img: "ga",
                     }),
-                    withKatakanaSrc({
-                        id: "zajizuzezo",
+                    withKatakanaId({
                         title: "za ji zu ze zo",
                         img: "za",
                     }),
-                    withKatakanaSrc({
-                        id: "dadzidzudedo",
-                        title: "da ji(di) zu(du) de do",
+                    withKatakanaId({
+                        title: "da ji zu de do",
                         img: "da",
                     }),
-                    withKatakanaSrc({
-                        id: "babibubebo",
+                    withKatakanaId({
                         title: "ba bi bu be bo",
                         img: "ba",
                     }),
                 ],
                 "handakuon": [
-                    withKatakanaSrc({
-                        id: "papipupepo",
+                    withKatakanaId({
                         title: "pa pi pu pe po",
                         img: "pa",
                     }),

@@ -1,9 +1,9 @@
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-} 
+}
 
 .bigButton {
-    height: 80px;
+    height: 100px;
     width: 160px;
 }
 
@@ -43,14 +43,14 @@
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
     /* border: 5px solid greenyellow; */
-} 
+}
 .playKana > * {
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.5s;
     height: 120px;
-    font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));     
+    font-size: calc(24px + (72 - 24) * (100vw - 300px) / (1600 - 300));
     /* border: 1px solid black; */
 }
 

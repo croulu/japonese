@@ -1,21 +1,55 @@
-// kana === hiragana or katagana
-// romanji === latin alphabet
-
-import { Lesson } from './component_legacy/lesson.js'
-import { Guess } from './component_legacy/guess.js'
-import { Menu } from './component_legacy/menu.js'
-
+import {LessonCatalog} from "./component/LessonCatalog";
+import {Lesson} from "./component_legacy/lesson";
+import {Guess} from "./component_legacy/guess";
+import {Menu} from "./component_legacy/menu";
 import {
-  getInStorage,
-  setInitLessons,
-  getStatusLessonInStorage,
-  setLastLessonPlayed,
-  setLessonTitle,
-  setStatusLessonInStorage
-} from './js/helpers.js'
+    getInStorage,
+    getStatusLessonInStorage,
+    setInitLessons,
+    setLastLessonPlayed,
+    setLessonTitle, setStatusLessonInStorage
+} from "./js/helpers";
+
+
+const lessonCatalog = new LessonCatalog()
+
+const menuGuessRomanjiHiraganaBasic = document.getElementById('menuGuessRomanjiHiraganaBasic')
+const menuGuessRomanjiHiraganaDakuon = document.getElementById('menuGuessRomanjiHiraganaDakuon')
+const menuGuessRomanjiHiraganaHandakuon = document.getElementById('menuGuessRomanjiHiraganaHandakuon')
+const hiraganasBasic = lessonCatalog.getHiraganasByGroup("basic")
+const hiraganasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
+const hiraganasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
+
+const menuGuessRomanjiKatakanaBasic = document.getElementById('menuGuessRomanjiKatakanaBasic')
+const menuGuessRomanjiKatakanaDakuon = document.getElementById('menuGuessRomanjiKatakanaDakuon')
+const menuGuessRomanjiKatakanaHandakuon = document.getElementById('menuGuessRomanjiKatakanaHandakuon')
+const katakanasBasic = lessonCatalog.getHiraganasByGroup("basic")
+const katakanasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
+const katakanasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
+
+function extracted(htmlElement, kana, alphabet, oneLesson, oneGuess) {
+    htmlElement.insertAdjacentHTML('beforeend', `<a
+class="w3-button w3-white w3-hover-opacity bigButton" id="btnGuess${alphabet}${kana.id}">
+<span class="kanaAlphabetIco ico${alphabet}${kana.img}"></span><br>${kana.title}</a>`)
+
+    const btn = document.getElementById('btnGuess' + alphabet + kana.id)
+    btn.addEventListener('click', () => oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), oneGuess))
+
+}
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
+
+hiraganasBasic.forEach(kana => extracted(menuGuessRomanjiHiraganaBasic, kana, "H", oneLesson, oneGuess))
+hiraganasDakuon.forEach(kana => extracted(menuGuessRomanjiHiraganaDakuon, kana, "H", oneLesson, oneGuess))
+hiraganasHandakuon.forEach(kana => extracted(menuGuessRomanjiHiraganaHandakuon, kana, "H", oneLesson, oneGuess))
+
+katakanasBasic.forEach(kana => extracted(menuGuessRomanjiKatakanaBasic, kana, "K", oneLesson, oneGuess))
+katakanasDakuon.forEach(kana => extracted(menuGuessRomanjiKatakanaDakuon, kana, "K", oneLesson, oneGuess))
+katakanasHandakuon.forEach(kana => extracted(menuGuessRomanjiKatakanaHandakuon, kana, "K", oneLesson, oneGuess))
+
+
+
 const oneMenu = new Menu()
 
 // last lesson
@@ -51,40 +85,7 @@ const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
 
-// lessons
-const btnGuessHaiueo = document.getElementById('btnGuessHaiueo')
-const btnGuessHkakikukeko = document.getElementById('btnGuessHkakikukeko')
-const btnGuessHsashisuseso = document.getElementById('btnGuessHsashisuseso')
-const btnGuessHtachitsuteto = document.getElementById('btnGuessHtachitsuteto')
-const btnGuessHnaninuneno = document.getElementById('btnGuessHnaninuneno')
-const btnGuessHhahifuheho = document.getElementById('btnGuessHhahifuheho')
-const btnGuessHmamimumemo = document.getElementById('btnGuessHmamimumemo')
-const btnGuessHyayuyo = document.getElementById('btnGuessHyayuyo')
-const btnGuessHrarirurero = document.getElementById('btnGuessHrarirurero')
-const btnGuessHwawon = document.getElementById('btnGuessHwawon')
 
-const btnGuessHgagigugego = document.getElementById('btnGuessHgagigugego')
-const btnGuessHzajizuzezo = document.getElementById('btnGuessHzajizuzezo')
-const btnGuessHdadzidzudedo = document.getElementById('btnGuessHdadzidzudedo')
-const btnGuessHbabibubebo = document.getElementById('btnGuessHbabibubebo')
-const btnGuessHpapipupepo = document.getElementById('btnGuessHpapipupepo')
-
-const btnGuessKaiueo = document.getElementById('btnGuessKaiueo')
-const btnGuessKkakikukeko = document.getElementById('btnGuessKkakikukeko')
-const btnGuessKsashisuseso = document.getElementById('btnGuessKsashisuseso')
-const btnGuessKtachitsuteto = document.getElementById('btnGuessKtachitsuteto')
-const btnGuessKnaninuneno = document.getElementById('btnGuessKnaninuneno')
-const btnGuessKhahifuheho = document.getElementById('btnGuessKhahifuheho')
-const btnGuessKmamimumemo = document.getElementById('btnGuessKmamimumemo')
-const btnGuessKyayuyo = document.getElementById('btnGuessKyayuyo')
-const btnGuessKrarirurero = document.getElementById('btnGuessKrarirurero')
-const btnGuessKwawon = document.getElementById('btnGuessKwawon')
-
-const btnGuessKgagigugego = document.getElementById('btnGuessKgagigugego')
-const btnGuessKzajizuzezo = document.getElementById('btnGuessKzajizuzezo')
-const btnGuessKdadzidzudedo = document.getElementById('btnGuessKdadzidzudedo')
-const btnGuessKbabibubebo = document.getElementById('btnGuessKbabibubebo')
-const btnGuessKpapipupepo = document.getElementById('btnGuessKpapipupepo')
 
 oneMenu.displayHome()
 
@@ -93,10 +94,10 @@ oneLesson.setAllLesson()
 lessonsByDefault()
 
 if (oneLesson.getNbDoneLessons() === 0) {
-  setInitLessons()
-  oneLesson.setActivateLessons()
+    setInitLessons()
+    // oneLesson.setActivateLessons()
 } else {
-  oneLesson.displayButtonLesson()
+    //  oneLesson.displayButtonLesson()
 }
 
 bigMenuHome.addEventListener('click', () => oneMenu.displayHome())
@@ -125,89 +126,63 @@ choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson, oneMe
 choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson, oneMenu))
 choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson, oneMenu))
 
-btnGuessHaiueo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-a-i-u-e-o', oneGuess))
-btnGuessHkakikukeko.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ka-ki-ku-ke-ko', oneGuess))
-btnGuessHsashisuseso.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-sa-shi-su-se-so', oneGuess))
-btnGuessHtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ta-chi-tsu-te-to', oneGuess))
-btnGuessHnaninuneno.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-na-ni-nu-ne-no', oneGuess))
-btnGuessHhahifuheho.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ha-hi-fu-he-ho', oneGuess))
-btnGuessHmamimumemo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ma-mi-mu-me-mo', oneGuess))
-btnGuessHyayuyo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ya-yu-yo', oneGuess))
-btnGuessHrarirurero.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ra-ri-ru-re-ro', oneGuess))
-btnGuessHwawon.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-wa-wo-n', oneGuess))
 
-btnGuessHgagigugego.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ga-gi-gu-ge-go', oneGuess))
-btnGuessHzajizuzezo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-za-ji-zu-ze-zo', oneGuess))
-btnGuessHdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-da-dzi-dzu-de-do', oneGuess))
-btnGuessHbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-ba-bi-bu-be-bo', oneGuess))
-btnGuessHpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'h-pa-pi-pu-pe-po', oneGuess))
 
-btnGuessKaiueo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-a-i-u-e-o', oneGuess))
-btnGuessKkakikukeko.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ka-ki-ku-ke-ko', oneGuess))
-btnGuessKsashisuseso.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-sa-shi-su-se-so', oneGuess))
-btnGuessKtachitsuteto.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ta-chi-tsu-te-to', oneGuess))
-btnGuessKnaninuneno.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-na-ni-nu-ne-no', oneGuess))
-btnGuessKhahifuheho.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ha-hi-fu-he-ho', oneGuess))
-btnGuessKmamimumemo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ma-mi-mu-me-mo', oneGuess))
-btnGuessKyayuyo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ya-yu-yo', oneGuess))
-btnGuessKrarirurero.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ra-ri-ru-re-ro', oneGuess))
-btnGuessKwawon.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-wa-wo-n', oneGuess))
+function continueButton(lastLessonName, lastLessonType) {
+    // TODO traite uniquement les lesson hiragana et katakana
+    let kana = ''
 
-btnGuessKgagigugego.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ga-gi-gu-ge-go', oneGuess))
-btnGuessKzajizuzezo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-za-ji-zu-ze-zo', oneGuess))
-btnGuessKdadzidzudedo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-da-dzi-dzu-de-do', oneGuess))
-btnGuessKbabibubebo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-ba-bi-bu-be-bo', oneGuess))
-btnGuessKpapipupepo.addEventListener('click', () => oneLesson.launchLesson('simple', 'k-pa-pi-pu-pe-po', oneGuess))
-
-function continueButton (lastLessonName, lastLessonType) {
-  // TODO traite uniquement les lesson hiragana et katakana
-  let kana = ''
-
-  if (funcName !== '') {
-    btnContinue.removeEventListener('click', funcName)
-  }
-
-  if (lastLessonName != null) {
-    kana = lastLessonName.charAt(0)
-    if (lastLessonType === 'learned') {
-      btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString(kana), oneGuess) })
-    } else {
-      btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson('simple', lastLessonName, oneGuess) })
+    if (funcName !== '') {
+        btnContinue.removeEventListener('click', funcName)
     }
-  } else {
-    continueByDefault()
-  }
+
+    if (lastLessonName != null) {
+        kana = lastLessonName.charAt(0)
+        if (lastLessonType === 'learned') {
+            btnContinue.addEventListener('click', funcName = function () {
+                oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString(kana), oneGuess)
+            })
+        } else {
+            btnContinue.addEventListener('click', funcName = function () {
+                oneLesson.launchLesson('simple', lastLessonName, oneGuess)
+            })
+        }
+    } else {
+        continueByDefault()
+    }
 // console.log(`funcName === ${funcName}`)
 }
 
-function continueByDefault () {
-  let lastLessonName = ''
-  let lastLessonType = ''
+function continueByDefault() {
+    let lastLessonName = ''
+    let lastLessonType = ''
 
-  const firstLessonName = 'h-a-i-u-e-o'
-  const firstLessonType = 'simple'
+    const firstLessonName = 'h-a-i-u-e-o'
+    const firstLessonType = 'simple'
 
-  setLastLessonPlayed(firstLessonName, firstLessonType, 'current')
-  lastLessonName = getInStorage('oneLessonLastLessonName')
-  lastLessonType = getInStorage('oneLessonLastLessonType')
-  btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
-  btnContinue.addEventListener('click', funcName = function () { oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess) })    
+    setLastLessonPlayed(firstLessonName, firstLessonType, 'current')
+    lastLessonName = getInStorage('oneLessonLastLessonName')
+    lastLessonType = getInStorage('oneLessonLastLessonType')
+    btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
+    btnContinue.addEventListener('click', funcName = function () {
+        oneLesson.launchLesson(lastLessonType, lastLessonName, oneGuess)
+    })
 }
 
-function lessonsByDefault () {
-  const lessonName = []
-  lessonName.push('h-a-i-u-e-o')
-  lessonName.push('k-a-i-u-e-o')
+function lessonsByDefault() {
+    const lessonName = []
+    lessonName.push('h-a-i-u-e-o')
+    lessonName.push('k-a-i-u-e-o')
 
-  for (let i = 0; i < lessonName.length; i++) {
-    if (getStatusLessonInStorage(lessonName[i]) === '') {
-      setStatusLessonInStorage(lessonName[i], 'inprogress')
+    for (let i = 0; i < lessonName.length; i++) {
+        if (getStatusLessonInStorage(lessonName[i]) === '') {
+            setStatusLessonInStorage(lessonName[i], 'inprogress')
+        }
     }
-  }
 }
 
 export {
-  oneLesson,
-  oneGuess,
-  continueButton
+    oneLesson,
+    oneGuess,
+    continueButton
 }

@@ -60,7 +60,7 @@ class Lesson {
 
   initDisplay (oneChoiceGgroup) {
     oneChoiceGgroup.displayButtonChoice(this.nbChoice)
-    this.displayButtonLesson()
+    //this.displayButtonLesson()
   }
 
   setAllLesson () {
@@ -133,7 +133,7 @@ class Lesson {
   }
 
   displayButtonLesson () {
-    this.setDisableAllLessons()
+   // this.setDisableAllLessons()
     this.setActivateLessons()
   }
 
@@ -156,6 +156,8 @@ class Lesson {
 
     for (let i = 0; i < this.allLesson.length; i++) {
       statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
+
+      console.log(`${this.allLesson[i]} == ${statusLessonInStorage}`)
 
       if (statusLessonInStorage === 'done' || statusLessonInStorage === 'inprogress') {
         lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
@@ -229,6 +231,7 @@ class Lesson {
   }
 
   launchLesson (typeLesson, codeLesson, oneGuess) {
+
     const info = document.getElementById('info')
     let arrayToWrite = []
 
@@ -294,7 +297,7 @@ class Lesson {
     drawRomanjiItem.innerHTML = oneGuess.kana.letter
     drawKanaItem.className = 'kanaAlphabet'
 
-    drawRomanjiItem.addEventListener('click', kana = function () { 
+    drawRomanjiItem.addEventListener('click', kana = function () {
       drawKanaItem.className = `kanaAlphabet ${specificImage}`
      })
   }
@@ -307,7 +310,7 @@ class Lesson {
     this.displayReloadForward(oneGuess)
 
     oneChoiceGroup.disableChoice()
-    this.displayButtonLesson()
+    //this.displayButtonLesson()
   }
 
   displayReloadForward (oneGuess) {

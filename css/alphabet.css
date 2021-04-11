@@ -31,15 +31,58 @@
     border: none;
 }
 
+.kanaAlphabetIco {
+    display : inline-block;
+    width : 50px;
+    height : 50px;
+    border: none;
+}
+
 @media only screen and (max-width: 600px) {
     .imgSize { background-size: 100px; }
-    .kanaAlphabet { 
+    .kanaAlphabet {
         display : inline-block;
         width : 100px;
         height : 100px;
         border: none;
     }
 }
+
+.icoHa { background-image : url("../ico/hiragana/a.png"); }
+.icoHka { background-image : url("../ico/hiragana/ka.png"); }
+.icoHsa { background-image : url("../ico/hiragana/sa.png"); }
+.icoHta { background-image : url("../ico/hiragana/ta.png"); }
+.icoHna { background-image : url("../ico/hiragana/na.png"); }
+.icoHha { background-image : url("../ico/hiragana/ha.png"); }
+.icoHma { background-image : url("../ico/hiragana/ma.png"); }
+.icoHya { background-image : url("../ico/hiragana/ya.png"); }
+.icoHra { background-image : url("../ico/hiragana/ra.png"); }
+.icoHwa { background-image : url("../ico/hiragana/wa.png"); }
+
+.icoHga { background-image : url("../ico/hiragana/empty.png"); }
+.icoHza { background-image : url("../ico/hiragana/empty.png"); }
+.icoHda { background-image : url("../ico/hiragana/empty.png"); }
+.icoHba { background-image : url("../ico/hiragana/empty.png"); }
+.icoHpa { background-image : url("../ico/hiragana/empty.png"); }
+
+
+.icoKa { background-image : url("../ico/katakana/a.png"); }
+.icoKka { background-image : url("../ico/katakana/ka.png"); }
+.icoKsa { background-image : url("../ico/katakana/sa.png"); }
+.icoKta { background-image : url("../ico/katakana/ta.png"); }
+.icoKna { background-image : url("../ico/katakana/empty.png"); }
+.icoKha { background-image : url("../ico/katakana/empty.png"); }
+.icoKma { background-image : url("../ico/katakana/ma.png"); }
+.icoKya { background-image : url("../ico/katakana/ya.png"); }
+.icoKra { background-image : url("../ico/katakana/ra.png"); }
+.icoKwa { background-image : url("../ico/katakana/wa.png"); }
+
+.icoKga { background-image : url("../ico/katakana/empty.png"); }
+.icoKza { background-image : url("../ico/katakana/empty.png"); }
+.icoKda { background-image : url("../ico/katakana/empty.png"); }
+.icoKba { background-image : url("../ico/katakana/empty.png"); }
+.icoKpa { background-image : url("../ico/katakana/empty.png"); }
+
 
 .Ha { background-image : url("../img/hiragana/a.png"); }
 .Hi { background-image : url("../img/hiragana/i.png"); }

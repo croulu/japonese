@@ -146,8 +146,7 @@ export class LessonCatalog {
     }
 
     getHiraganas() {
-        const {basic, dakuon, handakuon} = this.list().hiragana;
-        return [...basic, ...dakuon, ...handakuon];
+        return this.list().hiragana;
     }
 
     getKatakanas() {
@@ -164,7 +163,8 @@ export class LessonCatalog {
     }
 
     getHiraganaId(id) {
-        return this.getHiraganas()
+        const {basic, dakuon, handakuon} = this.list().hiragana;
+        return [...basic, ...dakuon, ...handakuon]
             .filter(lesson => lesson.id === id)
     }
 

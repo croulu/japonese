@@ -28,27 +28,31 @@ const katakanasBasic = lessonCatalog.getHiraganasByGroup("basic")
 const katakanasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
 const katakanasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
 
-function extracted(htmlElement, kana, alphabet, oneLesson, oneGuess) {
+const buildLesson = (htmlElement, kana, alphabet, lesson, guess) => {
+    //htmlElement.appendChild()
     htmlElement.insertAdjacentHTML('beforeend', `<a
 class="w3-button w3-white w3-hover-opacity bigButton" id="btnGuess${alphabet}${kana.id}">
 <span class="kanaAlphabetIco ico${alphabet}${kana.img}"></span><br>${kana.title}</a>`)
 
     const btn = document.getElementById('btnGuess' + alphabet + kana.id)
-    btn.addEventListener('click', () => oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), oneGuess))
+    btn.addEventListener('click', () => lesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), guess))
 
-}
+};
+
+const buildGroup = (htmlElement, kanas, alphabet, lesson, guess) => {
+    kanas.forEach(kana => buildLesson(menuGuessRomanjiHiraganaBasic, kana, alphabet, lesson, guess))
+};
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
-hiraganasBasic.forEach(kana => extracted(menuGuessRomanjiHiraganaBasic, kana, "H", oneLesson, oneGuess))
-hiraganasDakuon.forEach(kana => extracted(menuGuessRomanjiHiraganaDakuon, kana, "H", oneLesson, oneGuess))
-hiraganasHandakuon.forEach(kana => extracted(menuGuessRomanjiHiraganaHandakuon, kana, "H", oneLesson, oneGuess))
+buildGroup(menuGuessRomanjiHiraganaBasic, hiraganasBasic, "H", oneLesson, oneGuess);
+buildGroup(menuGuessRomanjiHiraganaDakuon, hiraganasDakuon, "H", oneLesson, oneGuess);
+buildGroup(menuGuessRomanjiHiraganaHandakuon, hiraganasHandakuon, "H", oneLesson, oneGuess);
 
-katakanasBasic.forEach(kana => extracted(menuGuessRomanjiKatakanaBasic, kana, "K", oneLesson, oneGuess))
-katakanasDakuon.forEach(kana => extracted(menuGuessRomanjiKatakanaDakuon, kana, "K", oneLesson, oneGuess))
-katakanasHandakuon.forEach(kana => extracted(menuGuessRomanjiKatakanaHandakuon, kana, "K", oneLesson, oneGuess))
-
+buildGroup(menuGuessRomanjiKatakanaBasic, katakanasBasic, "K", oneLesson, oneGuess);
+buildGroup(menuGuessRomanjiKatakanaDakuon, katakanasDakuon, "K", oneLesson, oneGuess);
+buildGroup(menuGuessRomanjiKatakanaHandakuon, katakanasHandakuon, "K", oneLesson, oneGuess);
 
 
 const oneMenu = new Menu()

@@ -11,6 +11,7 @@ import {
 } from "./js/helpers";
 
 
+
 const lessonCatalog = new LessonCatalog()
 
 const menuGuessRomanjiHiraganaBasic = document.getElementById('menuGuessRomanjiHiraganaBasic')

@@ -9,56 +9,20 @@ import {
     setLastLessonPlayed,
     setLessonTitle, setStatusLessonInStorage
 } from "./js/helpers";
-
-
+import {guessAlphabet} from "./component/guessAlphabet";
 
 const lessonCatalog = new LessonCatalog()
 
-const menuGuessRomanjiHiraganaBasic = document.getElementById('menuGuessRomanjiHiraganaBasic')
-const menuGuessRomanjiHiraganaDakuon = document.getElementById('menuGuessRomanjiHiraganaDakuon')
-const menuGuessRomanjiHiraganaHandakuon = document.getElementById('menuGuessRomanjiHiraganaHandakuon')
-const hiraganasBasic = lessonCatalog.getHiraganasByGroup("basic")
-const hiraganasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
-const hiraganasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
-
-const menuGuessRomanjiKatakanaBasic = document.getElementById('menuGuessRomanjiKatakanaBasic')
-const menuGuessRomanjiKatakanaDakuon = document.getElementById('menuGuessRomanjiKatakanaDakuon')
-const menuGuessRomanjiKatakanaHandakuon = document.getElementById('menuGuessRomanjiKatakanaHandakuon')
-const katakanasBasic = lessonCatalog.getHiraganasByGroup("basic")
-const katakanasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
-const katakanasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
-
-const buildLesson = (htmlElement, kana, alphabet, lesson, guess) => {
-    const btn = document.createElement("a")
-    btn.setAttribute("id", `btnGuess${alphabet}${kana.id}`)
-    btn.setAttribute("class", "w3-button w3-white w3-hover-opacity bigButton")
-
-    const btnContent = document.createElement("span")
-    btnContent.setAttribute("class", `kanaAlphabetIco ico${alphabet}${kana.img}`)
-
-    btn.appendChild(btnContent)
-    btn.appendChild(document.createElement("br"))
-    btn.appendChild(document.createTextNode(kana.title))
-
-    btn.addEventListener('click', () => lesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), guess))
-
-    htmlElement.appendChild(btn)
-};
-
-const buildGroup = (htmlElement, kanas, alphabet, lesson, guess) => {
-    kanas.forEach(kana => buildLesson(htmlElement, kana, alphabet, lesson, guess))
-};
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
-buildGroup(menuGuessRomanjiHiraganaBasic, hiraganasBasic, "H", oneLesson, oneGuess);
-buildGroup(menuGuessRomanjiHiraganaDakuon, hiraganasDakuon, "H", oneLesson, oneGuess);
-buildGroup(menuGuessRomanjiHiraganaHandakuon, hiraganasHandakuon, "H", oneLesson, oneGuess);
 
-buildGroup(menuGuessRomanjiKatakanaBasic, katakanasBasic, "K", oneLesson, oneGuess);
-buildGroup(menuGuessRomanjiKatakanaDakuon, katakanasDakuon, "K", oneLesson, oneGuess);
-buildGroup(menuGuessRomanjiKatakanaHandakuon, katakanasHandakuon, "K", oneLesson, oneGuess);
+const guessHiragana = document.getElementById("guessHiragana")
+guessHiragana.appendChild(guessAlphabet("Hiragana", lessonCatalog.getHiraganas(), "H", oneLesson, oneGuess))
+
+const guessKatakana = document.getElementById("guessKatakana")
+guessKatakana.appendChild(guessAlphabet("Katakana", lessonCatalog.getKatakanas(), "K", oneLesson, oneGuess))
 
 
 const oneMenu = new Menu()

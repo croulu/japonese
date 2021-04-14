@@ -29,17 +29,20 @@ const katakanasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
 const katakanasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
 
 const buildLesson = (htmlElement, kana, alphabet, lesson, guess) => {
-    const btnLesson = document.createElement("a")
-    btnLesson.setAttribute("id", `btnGuess${alphabet}${kana.id}`)
-    console.log(btnLesson)
-    //htmlElement.appendChild()
-    htmlElement.insertAdjacentHTML('beforeend', `<a
-class="w3-button w3-white w3-hover-opacity bigButton" id="btnGuess${alphabet}${kana.id}">
-<span class="kanaAlphabetIco ico${alphabet}${kana.img}"></span><br>${kana.title}</a>`)
+    const btn = document.createElement("a")
+    btn.setAttribute("id", `btnGuess${alphabet}${kana.id}`)
+    btn.setAttribute("class", "w3-button w3-white w3-hover-opacity bigButton")
 
-    const btn = document.getElementById('btnGuess' + alphabet + kana.id)
+    const btnContent = document.createElement("span")
+    btnContent.setAttribute("class", `kanaAlphabetIco ico${alphabet}${kana.img}`)
+
+    btn.appendChild(btnContent)
+    btn.appendChild(document.createElement("br"))
+    btn.appendChild(document.createTextNode(kana.title))
+
     btn.addEventListener('click', () => lesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), guess))
 
+    htmlElement.appendChild(btn)
 };
 
 const buildGroup = (htmlElement, kanas, alphabet, lesson, guess) => {

@@ -27,7 +27,7 @@ describe('LessonCatalog', function () {
         { fn : sut => sut.getKatakanasByGroup("handakuon"), expected : katakanasHandakuonNb, spelling: "s", title : "handakuon katakanas"},
         { fn : sut => sut.getHiraganaId("aiueo"), expected : 1, spelling: "", title : "the hiragana lesson a i u e o"},
         { fn : sut => sut.getKatakanaId("aiueo"), expected : 1, spelling: "", title : "the katakana lesson a i u e o"},
- //       { fn : sut => sut.getKanas(), expected : kanas, spelling: "s", title : "kanas"},
+ //       { fn : sut => sut.getKanas(), expected : kanasNb, spelling: "s", title : "kanas"},
 
     ]).forEach(({fn, expected, spelling, title})=>{
         it(`should provide ${expected} lesson${spelling} for ${title}`, function () {

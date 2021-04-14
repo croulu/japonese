@@ -1,5 +1,5 @@
-import {Guess} from "../component/Guess";
-import {Kana} from "../component/Kana";
+import {Guess} from "../domain/Guess";
+import {Kana} from "../domain/Kana";
 
 import assert from "assert";
 

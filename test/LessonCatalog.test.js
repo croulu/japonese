@@ -1,4 +1,4 @@
-import {LessonCatalog} from "../component/LessonCatalog";
+import {LessonCatalog} from "../domain/LessonCatalog";
 
 import assert from "assert";
 

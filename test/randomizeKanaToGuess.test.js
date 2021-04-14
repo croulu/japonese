@@ -1,5 +1,5 @@
 import assert from "assert";
-import {randomizeKanaToGuess} from "../component/randomizeKanaToGuess";
+import {randomizeKanaToGuess} from "../domain/randomizeKanaToGuess";
 
 describe('randomizeKanaToGuess', function () {
     it('should guess all provided kanas', function () {

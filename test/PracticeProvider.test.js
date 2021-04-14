@@ -1,8 +1,8 @@
-import {PracticeProvider} from "../component/PracticeProvider";
-import {Practice} from "../component/Practice";
-import {Kana} from "../component/Kana";
-import {Guess} from "../component/Guess";
-import {Lesson} from "../component/Lesson";
+import {PracticeProvider} from "../domain/PracticeProvider";
+import {Practice} from "../domain/Practice";
+import {Kana} from "../domain/Kana";
+import {Guess} from "../domain/Guess";
+import {Lesson} from "../domain/Lesson";
 
 
 import assert from "assert";

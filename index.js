@@ -1,4 +1,4 @@
-import {LessonCatalog} from "./component/LessonCatalog";
+import {LessonCatalog} from "./domain/LessonCatalog";
 import {Lesson} from "./component_legacy/lesson";
 import {Guess} from "./component_legacy/guess";
 import {Menu} from "./component_legacy/menu";

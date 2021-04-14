@@ -6,20 +6,19 @@ const hiraganasBasicNb = 10
 const hiraganasDakuonNb = 4
 const hiraganasHandakuonNb = 1
 
-const hiraganas = hiraganasBasicNb + hiraganasDakuonNb + hiraganasHandakuonNb
+const hiraganasNb = hiraganasBasicNb + hiraganasDakuonNb + hiraganasHandakuonNb
 
 const katakanasBasicNb = 10
 const katakanasDakuonNb = 4
 const katakanasHandakuonNb = 1
 
-const katakanas = katakanasBasicNb + katakanasDakuonNb + katakanasHandakuonNb
+const katakanasNb = katakanasBasicNb + katakanasDakuonNb + katakanasHandakuonNb
 
-const kanas = hiraganas + katakanas
+const kanasNb = hiraganasNb + katakanasNb
 
 describe('LessonCatalog', function () {
 
     ([
-        { fn : sut => sut.getKatakanas(), expected : katakanas, spelling: "s", title : "katakanas"},
         { fn : sut => sut.getHiraganasByGroup("basic"), expected : hiraganasBasicNb, spelling: "s", title : "basic hiraganas"},
         { fn : sut => sut.getHiraganasByGroup("dakuon"), expected : hiraganasDakuonNb, spelling: "s", title : "dakuon hiraganas"},
         { fn : sut => sut.getHiraganasByGroup("handakuon"), expected : hiraganasHandakuonNb, spelling: "s", title : "handakuon hiraganas"},
@@ -44,6 +43,14 @@ describe('LessonCatalog', function () {
         assert.deepEqual(hiraganasBasicNb, result.basic.length)
         assert.deepEqual(hiraganasDakuonNb, result.dakuon.length)
         assert.deepEqual(hiraganasHandakuonNb, result.handakuon.length)
+    })
+
+    it(`should provide grouped katakanas`, function() {
+        const sut = new LessonCatalog()
+        const result = sut.getKatakanas()
+        assert.deepEqual(katakanasBasicNb, result.basic.length)
+        assert.deepEqual(katakanasDakuonNb, result.dakuon.length)
+        assert.deepEqual(katakanasHandakuonNb, result.handakuon.length)
     })
 
 })

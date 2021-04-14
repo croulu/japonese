@@ -150,8 +150,7 @@ export class LessonCatalog {
     }
 
     getKatakanas() {
-        const {basic, dakuon, handakuon} = this.list().katakana;
-        return [...basic, ...dakuon, ...handakuon];
+        return this.list().katakana;
     }
 
     getHiraganasByGroup(group) {
@@ -169,7 +168,8 @@ export class LessonCatalog {
     }
 
     getKatakanaId(id) {
-        return this.getKatakanas()
+        const {basic, dakuon, handakuon} = this.list().katakana;
+        return [...basic, ...dakuon, ...handakuon]
             .filter(lesson => lesson.id === id)
     }
 

@@ -29,6 +29,9 @@ const katakanasDakuon = lessonCatalog.getHiraganasByGroup("dakuon")
 const katakanasHandakuon = lessonCatalog.getHiraganasByGroup("handakuon")
 
 const buildLesson = (htmlElement, kana, alphabet, lesson, guess) => {
+    const btnLesson = document.createElement("a")
+    btnLesson.setAttribute("id", `btnGuess${alphabet}${kana.id}`)
+    console.log(btnLesson)
     //htmlElement.appendChild()
     htmlElement.insertAdjacentHTML('beforeend', `<a
 class="w3-button w3-white w3-hover-opacity bigButton" id="btnGuess${alphabet}${kana.id}">
@@ -40,7 +43,7 @@ class="w3-button w3-white w3-hover-opacity bigButton" id="btnGuess${alphabet}${k
 };
 
 const buildGroup = (htmlElement, kanas, alphabet, lesson, guess) => {
-    kanas.forEach(kana => buildLesson(menuGuessRomanjiHiraganaBasic, kana, alphabet, lesson, guess))
+    kanas.forEach(kana => buildLesson(htmlElement, kana, alphabet, lesson, guess))
 };
 
 const oneLesson = new Lesson()

@@ -7,22 +7,24 @@ import {
     getStatusLessonInStorage,
     setInitLessons,
     setLastLessonPlayed,
-    setLessonTitle, setStatusLessonInStorage
+    setLessonTitle,
+    setStatusLessonInStorage
 } from "./js/helpers";
-import {guessAlphabet} from "./component/guessAlphabet";
+
+import React from "react"
+import ReactDOM from "react-dom";
+import {App} from "./component/App";
 
 const lessonCatalog = new LessonCatalog()
-
 
 const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
 
-const guessHiragana = document.getElementById("guessHiragana")
-guessHiragana.appendChild(guessAlphabet("Hiragana", lessonCatalog.getHiraganas(), "H", oneLesson, oneGuess))
-
-const guessKatakana = document.getElementById("guessKatakana")
-guessKatakana.appendChild(guessAlphabet("Katakana", lessonCatalog.getKatakanas(), "K", oneLesson, oneGuess))
+ReactDOM.render(
+    <App catalog={lessonCatalog} oneLesson={oneLesson} oneGuess={oneGuess}/>,
+    document.getElementById("app")
+)
 
 
 const oneMenu = new Menu()
@@ -59,7 +61,6 @@ const choice2 = document.getElementById('choice2')
 const choice3 = document.getElementById('choice3')
 const choice4 = document.getElementById('choice4')
 const choice5 = document.getElementById('choice5')
-
 
 
 oneMenu.displayHome()
@@ -100,7 +101,6 @@ choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson, oneMe
 choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson, oneMenu))
 choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson, oneMenu))
 choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson, oneMenu))
-
 
 
 function continueButton(lastLessonName, lastLessonType) {

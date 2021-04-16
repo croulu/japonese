@@ -5,8 +5,8 @@ export class LessonCatalog {
 
     list() {
         return {
-            "hiragana": {
-                "basic": [
+            hiragana: {
+                basic: [
                     withHiraganaId({
                         title: "a i u e o",
                         img: "a",
@@ -48,7 +48,7 @@ export class LessonCatalog {
                         img: "wa",
                     }),
                 ],
-                "dakuon": [
+                dakuon: [
                     withHiraganaId({
                         title: "ga gi gu ge go",
                         img: "ga",
@@ -66,15 +66,15 @@ export class LessonCatalog {
                         img: "ba",
                     }),
                 ],
-                "handakuon": [
+                handakuon: [
                     withHiraganaId({
                         title: "pa pi pu pe po",
                         img: "pa",
                     }),
                 ]
             },
-            "katakana": {
-                "basic": [
+            katakana: {
+                basic: [
                     withKatakanaId({
                         title: "a i u e o",
                         img: "a",
@@ -117,7 +117,7 @@ export class LessonCatalog {
                         img: "wa",
                     }),
                 ],
-                "dakuon": [
+                dakuon: [
                     withKatakanaId({
                         title: "ga gi gu ge go",
                         img: "ga",
@@ -135,7 +135,7 @@ export class LessonCatalog {
                         img: "ba",
                     }),
                 ],
-                "handakuon": [
+                handakuon: [
                     withKatakanaId({
                         title: "pa pi pu pe po",
                         img: "pa",
@@ -143,42 +143,6 @@ export class LessonCatalog {
                 ],
             }
         }
-    }
-
-    getHiraganas() {
-        return this.list().hiragana;
-    }
-
-    getKatakanas() {
-        return this.list().katakana;
-    }
-
-    getHiraganasByGroup(group) {
-        return this.list().hiragana[group]
-    }
-
-    getKatakanasByGroup(group) {
-        return this.list().katakana[group]
-    }
-
-    getHiraganaId(id) {
-        const {basic, dakuon, handakuon} = this.list().hiragana;
-        return [...basic, ...dakuon, ...handakuon]
-            .filter(lesson => lesson.id === id)
-    }
-
-    getKatakanaId(id) {
-        const {basic, dakuon, handakuon} = this.list().katakana;
-        return [...basic, ...dakuon, ...handakuon]
-            .filter(lesson => lesson.id === id)
-    }
-
-    getKanas() {
-        const kanas = [
-            ...this.getHiraganas(),
-            ...this.getKatakanas()
-        ]
-        return kanas
     }
 
 }

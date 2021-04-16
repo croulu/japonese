@@ -21,8 +21,9 @@ const oneLesson = new Lesson()
 const oneGuess = new Guess()
 
 
+
 ReactDOM.render(
-    <App catalog={lessonCatalog} oneLesson={oneLesson} oneGuess={oneGuess}/>,
+    <App alphabets={lessonCatalog.list()} oneLesson={oneLesson} oneGuess={oneGuess}/>,
     document.getElementById("app")
 )
 

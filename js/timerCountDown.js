@@ -14,8 +14,12 @@ import {
   ChoiceGroup
 } from '../component_legacy/choiceGroup.js'
 
-const countdown = document.getElementById('countdownTimer')
-const maxCountdown = 60
+function initClickOnCountdown() {
+  const countdown = document.getElementById('countdownTimer')
+  countdown.addEventListener('click', toStartOrNot)
+}
+
+const maxCountdown = 6
 let timePassed = 0
 let interval = null
 
@@ -24,6 +28,7 @@ function displayCountdown () {
   const minutes = formatCountdown(Math.floor(tempsRestant / 60))
   const secondes = formatCountdown(Math.floor(tempsRestant % 60))
 
+  const countdown = document.getElementById('countdownTimer')
   countdown.innerHTML = `${minutes}:${secondes}`
 }
 
@@ -72,7 +77,10 @@ function stopCountdown (interval, toCallWhenFinished, ...args) {
   clearInterval(interval)
   setInStorage('pause', true)
   setStatusLessonInStorage('countdown', '0')
+  const countdown = document.getElementById('countdownTimer')
   countdown.removeEventListener('click', toStartOrNot)
+
+  console.log({toCallWhenFinished})
 
   fnCall(toCallWhenFinished, ...args)
 }
@@ -81,11 +89,11 @@ function toStartOrNot () {
   getInStorage('pause') === 'true' ? startCountdown() : pauseCountdown()
 }
 
-countdown.addEventListener('click', toStartOrNot)
 
 export {
   interval,
   resetCountdown,
   startCountdown,
-  stopCountdown
+  stopCountdown,
+  initClickOnCountdown
 }

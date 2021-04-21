@@ -35,9 +35,6 @@ class Menu {
     this.playKana.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
-    this.draw.style.display = 'none'
-    this.drawMenu.style.display = 'none'
-    this.drawItem.style.display = 'none'
     this.learn.style.display = 'none'
     this.learnItemKana.style.display = 'none'
     this.learnItemHiragana.style.display = 'none'
@@ -53,9 +50,6 @@ class Menu {
     this.playKana.style.display = 'none'
     this.playItemKana.style.display = 'none'
     this.playItemRomanji.style.display = 'none'
-    this.draw.style.display = 'none'
-    this.drawMenu.style.display = 'none'
-    this.drawItem.style.display = 'none'
     this.learn.style.display = 'none'
     this.learnItemKana.style.display = 'none'
     this.learnItemHiragana.style.display = 'none'
@@ -76,8 +70,6 @@ class Menu {
     this.play.style.display = 'block'
     this.playMenu.style.display = 'block'
 
-    this.draw.style.display = 'block'
-    this.drawMenu.style.display = 'block'
   }
 
   displayPlayItem () {
@@ -109,9 +101,6 @@ class Menu {
   displayDrawItemHiragana () {
     this.setNoneToAll()
     this.play.style.display = 'block'
-    this.draw.style.display = 'block'
-    this.drawMenu.style.display = 'block'
-    this.drawItem.style.display = 'block'
 
     oneLesson.launchLessonJustOneGuess('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess)
   }
@@ -119,9 +108,6 @@ class Menu {
   displayDrawItemKatakana () {
     this.setNoneToAll()
     this.play.style.display = 'block'
-    this.draw.style.display = 'block'
-    this.drawMenu.style.display = 'block'
-    this.drawItem.style.display = 'block'
 
     oneLesson.launchLessonJustOneGuess('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess)
   }
@@ -144,24 +130,24 @@ class Menu {
   }
 
   displayLearnItemKana () {
-    this.setNoneToAll()    
+    this.setNoneToAll()
     this.learn.style.display = 'block'
     this.learnItemKana.style.display = 'block'
   }
 
-  displayRomanji () {  
+  displayRomanji () {
     let romanjiHa = document.getElementById('r-h-a')
     let romanjiHi = document.getElementById('r-h-i')
     let romanjiHu = document.getElementById('r-h-u')
     let romanjiHe = document.getElementById('r-h-e')
     let romanjiHo = document.getElementById('r-h-o')
-    
+
     let romanjiKa = document.getElementById('r-k-a')
     let romanjiKi = document.getElementById('r-k-i')
     let romanjiKu = document.getElementById('r-k-u')
     let romanjiKe = document.getElementById('r-k-e')
     let romanjiKo = document.getElementById('r-k-o')
-    
+
     let romanjiHC = document.getElementById('r-h-c')
     let romanjiHCk = document.getElementById('r-h-ck')
     let romanjiHCs = document.getElementById('r-h-cs')
@@ -185,7 +171,7 @@ class Menu {
     let romanjiHCdzu = document.getElementById('r-h-dzu')
     let romanjiHCb = document.getElementById('r-h-cb')
     let romanjiHCp = document.getElementById('r-h-cp')
-  
+
     let romanjiKC = document.getElementById('r-k-c')
     let romanjiKCk = document.getElementById('r-k-ck')
     let romanjiKCs = document.getElementById('r-k-cs')
@@ -204,7 +190,7 @@ class Menu {
     let romanjiKCg = document.getElementById('r-k-cg')
     let romanjiKCz = document.getElementById('r-k-cz')
     let romanjiKCji = document.getElementById('r-k-ji')
-    let romanjiKCd = document.getElementById('r-k-cd')  
+    let romanjiKCd = document.getElementById('r-k-cd')
     let romanjiKCdzi = document.getElementById('r-k-dzi')
     let romanjiKCdzu = document.getElementById('r-k-dzu')
     let romanjiKCb = document.getElementById('r-k-cb')

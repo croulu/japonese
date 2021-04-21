@@ -15,6 +15,7 @@ import React from "react"
 import ReactDOM from "react-dom";
 import {App} from "./component/App";
 
+
 const lessonCatalog = new LessonCatalog()
 
 const oneLesson = new Lesson()
@@ -88,8 +89,8 @@ continueButton(lastLessonName, lastLessonType)
 btnAllHiraganaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('h'), oneGuess))
 btnAllKatakanaLearned.addEventListener('click', () => oneLesson.launchLesson('learned', oneLesson.getAllLearnedLessonsInString('k'), oneGuess))
 
-btnDrawH.addEventListener('click', () => oneMenu.displayDrawItemHiragana())
-btnDrawK.addEventListener('click', () => oneMenu.displayDrawItemKatakana())
+//btnDrawH.addEventListener('click', () => oneMenu.displayDrawItemHiragana())
+//btnDrawK.addEventListener('click', () => oneMenu.displayDrawItemKatakana())
 
 btnAlphabetHiragana.addEventListener('click', () => oneMenu.displayLearnItemHiragana())
 btnAlphabetKatakana.addEventListener('click', () => oneMenu.displayLearnItemKatakana())

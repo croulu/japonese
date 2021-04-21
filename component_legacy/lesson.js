@@ -291,7 +291,9 @@ class Lesson {
 
     oneGuess.firstToGuess(this)
 
-    const specificImage = `${oneGuess.kana.alphabet.toUpperCase()}${oneGuess.kana.letter}`
+    console.log(oneGuess.kana.alphabet.toUpperCase())
+
+    const specificImage = oneGuess.kana.alphabet.toUpperCase() + oneGuess.kana.letter
     const drawRomanjiItem = document.getElementById('drawRomanjiItem')
 
     drawRomanjiItem.innerHTML = oneGuess.kana.letter

@@ -19,7 +19,7 @@ function initClickOnCountdown() {
   countdown.addEventListener('click', toStartOrNot)
 }
 
-const maxCountdown = 6
+const maxCountdown = 60
 let timePassed = 0
 let interval = null
 

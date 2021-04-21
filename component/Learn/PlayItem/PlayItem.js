@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PlayPractice = ({lesson}) =>
+export const PlayItem = ({lesson}) =>
     <div>
 
 

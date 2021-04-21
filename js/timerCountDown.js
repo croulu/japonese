@@ -6,15 +6,15 @@ import {
 } from './helpers.js'
 
 import {
-  stopLesson, 
+  stopLesson,
   Lesson
 } from '../component_legacy/lesson.js'
 
-import { 
+import {
   ChoiceGroup
 } from '../component_legacy/choiceGroup.js'
 
-const countdown = document.querySelector('.time')
+const countdown = document.getElementById('countdownTimer')
 const maxCountdown = 60
 let timePassed = 0
 let interval = null

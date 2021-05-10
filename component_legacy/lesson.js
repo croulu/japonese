@@ -241,6 +241,8 @@ class Lesson {
     this.prepareLesson(codeLesson, typeLesson)
 
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
+    // FIXME rend temporairement accessible oneChoiceGroup depuis l'extérieur
+    this.oneChoiceGroup = oneChoiceGgroup
     this.initDisplay(oneChoiceGgroup)
 
     this.notDisplayButtonEndLesson()
@@ -272,7 +274,7 @@ class Lesson {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
       oneChoiceGgroup.deleteChoice()
-      stopCountdown()
+     stopCountdown()
       oneMenu.notDisplayPlayItem()
     }
   }

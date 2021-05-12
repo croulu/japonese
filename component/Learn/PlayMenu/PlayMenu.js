@@ -6,12 +6,13 @@ import {Alllearned} from "./Alllearned";
 export const PlayMenu = ({alphabets, oneLesson, oneGuess}) =>
     <div id="playMenu">
 
-        <Continue />
+        <Continue/>
 
-        <Alllearned />
+        <Alllearned/>
 
-        { Object.entries(alphabets).map(([alphabetName, alphabet]) =>
+        {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
             <GuessAlphabet
+                key={alphabetName}
                 title={alphabetName}
                 alphabet={alphabet}
                 alphabetLetter={alphabetName.charAt(0).toUpperCase()}

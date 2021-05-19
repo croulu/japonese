@@ -90,7 +90,7 @@ function enableButton (buttonName, lockName) {
   myExpression = `${buttonName}.style.color = '#000000'`
   eval(myExpression)
 
-  lockGuess.src = ''
+  //lockGuess.src = ''
 }
 
 function setLessonTitle (type, code) {

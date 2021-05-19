@@ -241,6 +241,7 @@ class Lesson {
     this.prepareLesson(codeLesson, typeLesson)
 
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
+    console.log(oneChoiceGgroup)
     // FIXME rend temporairement accessible oneChoiceGroup depuis l'extérieur
     this.oneChoiceGroup = oneChoiceGgroup
     this.initDisplay(oneChoiceGgroup)
@@ -314,7 +315,7 @@ class Lesson {
     this.displayReloadForward(oneGuess)
 
     oneChoiceGroup.disableChoice()
-    //this.displayButtonLesson()
+    this.displayButtonLesson()
   }
 
   displayReloadForward (oneGuess) {

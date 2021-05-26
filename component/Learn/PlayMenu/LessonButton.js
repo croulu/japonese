@@ -5,7 +5,7 @@ export const LessonButton = ({kana, alphabet, oneLesson, oneGuess}) => {
     const history = useHistory()
     const launchPlay = () => {
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), oneGuess);
-        //history.push('/play')
+        history.push('/play')
         //<Redirect push to={'/play/'}></Redirect>
     };
 

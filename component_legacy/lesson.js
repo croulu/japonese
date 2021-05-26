@@ -157,8 +157,6 @@ class Lesson {
     for (let i = 0; i < this.allLesson.length; i++) {
       statusLessonInStorage = getStatusLessonInStorage(this.allLesson[i])
 
-      console.log(`${this.allLesson[i]} == ${statusLessonInStorage}`)
-
       if (statusLessonInStorage === 'done' || statusLessonInStorage === 'inprogress') {
         lessonName = strUcFirst(strReplaceAll(this.allLesson[i], '-', ''))
         btnName = `btnGuess${lessonName}`
@@ -238,9 +236,12 @@ class Lesson {
     const oneMenu = new Menu()
     oneMenu.displayPlayItem()
 
+    console.log(oneMenu)
+
     this.prepareLesson(codeLesson, typeLesson)
 
     const oneChoiceGgroup = new ChoiceGroup(this.nbChoice)
+
 
     // FIXME rend temporairement accessible oneChoiceGroup depuis l'extérieur
     this.oneChoiceGroup = oneChoiceGgroup
@@ -251,26 +252,26 @@ class Lesson {
     if (this.kanaToStudy.length > 0) {
       setLastLessonPlayed(this.code, this.type, 'current')
 
-      resetCountdown(stopLesson, this, oneChoiceGgroup, oneGuess)
+        resetCountdown(stopLesson, this, oneChoiceGgroup, oneGuess)
 
-      oneGuess.init(this)
+        oneGuess.init(this)
 
-      arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
-      oneGuess.writeChoiceTrueFalse(arrayToWrite)
-
-      if (this.kanaToStudy.length <= 5) {
-        oneChoiceGgroup.writeChoice(oneGuess.guessWhat, arrayToWrite)
-      } else {
-        // write choice if number of kana to guess > of nb of choice
-        // need  oneGuess.init to display the true choice
-        oneChoiceGgroup.eraseChoice()
-        arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
+        arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
         oneGuess.writeChoiceTrueFalse(arrayToWrite)
-      }
 
-      oneGuess.guessKana(this)
-      oneMenu.displayWhatToGuess(oneGuess.guessWhat)
-
+        if (this.kanaToStudy.length <= 5) {
+          oneChoiceGgroup.writeChoice(oneGuess.guessWhat, arrayToWrite)
+        } else {
+          // write choice if number of kana to guess > of nb of choice
+          // need  oneGuess.init to display the true choice
+          oneChoiceGgroup.eraseChoice()
+          arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
+          oneGuess.writeChoiceTrueFalse(arrayToWrite)
+        }
+console.log('lesson')
+        oneGuess.guessKana(this)
+        oneMenu.displayWhatToGuess(oneGuess.guessWhat)
+console.log('end ')
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
@@ -294,8 +295,6 @@ class Lesson {
 
     oneGuess.firstToGuess(this)
 
-    console.log(oneGuess.kana.alphabet.toUpperCase())
-
     const specificImage = oneGuess.kana.alphabet.toUpperCase() + oneGuess.kana.letter
     const drawRomanjiItem = document.getElementById('drawRomanjiItem')
 
@@ -314,7 +313,7 @@ class Lesson {
 
     this.displayReloadForward(oneGuess)
 
-    oneChoiceGroup.disableChoice()
+    //oneChoiceGroup.disableChoice()
     this.displayButtonLesson()
   }
 

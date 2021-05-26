@@ -9,7 +9,6 @@ const Routing = ({ alphabets, oneLesson, oneGuess }) => {
         <Router>
             <Route exact path='/'>
                 <PlayMenu alphabets={alphabets} oneLesson={oneLesson} oneGuess={oneGuess} />
-                <PlayItem oneLesson={oneLesson} oneGuess={oneGuess} />
             </Route>
             <Route exact path='/play'>
                 <PlayItem  oneLesson={oneLesson} oneGuess={oneGuess} />

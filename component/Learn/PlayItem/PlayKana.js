@@ -7,7 +7,7 @@ export const PlayKana = ({nbChoice, letters}) => {
         return <div id="playKana">
             <div className="playKana">
                 {letters.map(letter => {
-                    return <Choice letter={letter}/>
+                    return <Choice key={letter.txt} letter={letter}/>
                 })}
                 <div className="w3-hover-none">
                     <div className="w3-red playKanaChoice w3-hover-none" id="playItemKana"><span id="kanaImg"></span>

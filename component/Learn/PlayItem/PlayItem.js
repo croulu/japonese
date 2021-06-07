@@ -24,10 +24,9 @@ export default class PlayItem extends Component {
 
     render() {
         return <div id="playItem">
-            <Timer />
             <Timer2 onTimeout={ this.handleOnTimeout } />
             <Toolbar statistiques={ this.state.statistiques } onChange={ this.handleChange } />
-            <PlayKana />
+            <PlayKana nbChoice={5} />
         </div>;
     }
 }

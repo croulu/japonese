@@ -101,11 +101,11 @@ btnAlphabetKana.addEventListener('click', () => oneMenu.displayLearnItemKana())
 
 btnAlphabetRomanji.addEventListener('click', () => oneMenu.displayRomanji())
 
-choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson, oneMenu))
-choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson, oneMenu))
-choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson, oneMenu))
-choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson, oneMenu))
-choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson, oneMenu))
+//choice1.addEventListener('click', () => oneGuess.makeAChoice(0, oneLesson, oneMenu))
+//choice2.addEventListener('click', () => oneGuess.makeAChoice(1, oneLesson, oneMenu))
+//choice3.addEventListener('click', () => oneGuess.makeAChoice(2, oneLesson, oneMenu))
+//choice4.addEventListener('click', () => oneGuess.makeAChoice(3, oneLesson, oneMenu))
+//choice5.addEventListener('click', () => oneGuess.makeAChoice(4, oneLesson, oneMenu))
 
 
 function continueButton(lastLessonName, lastLessonType) {

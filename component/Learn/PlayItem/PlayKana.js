@@ -3,14 +3,12 @@ import React from "react";
 import {Choice} from "./Choice";
 
 export const PlayKana = ({nbChoice, letters}) => {
-
+    console.log(nbChoice)
     if (nbChoice === 5) {
         return <div id="playKana">
             <div className="playKana">
-                letters
-                .map(letter => {<Choice number={1} letter={letter} />})
                 <div id="choice1">
-                    <div className="playKanaChoice"><span id="choice1Txt"></span></div>
+                    <div className="playKanaChoice"><span id="choice1Txt">a</span></div>
                     <div className="playKanaChoice"><span id="choice1Img"></span></div>
                 </div>
 
@@ -21,22 +19,22 @@ export const PlayKana = ({nbChoice, letters}) => {
                 </div>
 
                 <div id="choice2">
-                    <div className="playKanaChoice"><span id="choice2Txt"></span></div>
+                    <div className="playKanaChoice"><span id="choice2Txt">i</span></div>
                     <div className="playKanaChoice"><span id="choice2Img"></span></div>
                 </div>
 
                 <div id="choice3">
-                    <div className="playKanaChoice"><span id="choice3Txt"></span></div>
+                    <div className="playKanaChoice"><span id="choice3Txt">u</span></div>
                     <div className="playKanaChoice"><span id="choice3Img"></span></div>
                 </div>
 
                 <div id="choice4">
-                    <div className="playKanaChoice"><span id="choice4Txt"></span></div>
+                    <div className="playKanaChoice"><span id="choice4Txt">e</span></div>
                     <div className="playKanaChoice"><span id="choice4Img"></span></div>
                 </div>
 
                 <div id="choice5">
-                    <div className="playKanaChoice"><span id="choice5Txt"></span></div>
+                    <div className="playKanaChoice"><span id="choice5Txt">o</span></div>
                     <div className="playKanaChoice"><span id="choice5Img"></span></div>
                 </div>
             </div>

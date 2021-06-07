@@ -4,8 +4,8 @@ import Redirect, { useHistory } from 'react-router-dom'
 export const LessonButton = ({kana, alphabet, oneLesson, oneGuess}) => {
     const history = useHistory()
     const launchPlay = () => {
-        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), oneGuess);
         console.log(alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"))
+        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + kana.title.split(" ").join("-"), oneGuess);
         history.push('/play')
     };
 

@@ -57,7 +57,7 @@ class Lesson {
   }
 
   initDisplay (oneChoiceGgroup) {
-    oneChoiceGgroup.displayButtonChoice(this.nbChoice)
+    //oneChoiceGgroup.displayButtonChoice(this.nbChoice)
     //this.displayButtonLesson()
   }
 
@@ -232,8 +232,6 @@ class Lesson {
     let arrayToWrite = []
 
     const oneMenu = new Menu()
-    //oneMenu.displayPlayItem()
-
     console.log(oneMenu)
 
     this.prepareLesson(codeLesson, typeLesson)
@@ -245,36 +243,29 @@ class Lesson {
     this.oneChoiceGroup = oneChoiceGgroup
     this.initDisplay(oneChoiceGgroup)
 
-    this.notDisplayButtonEndLesson()
-
     if (this.kanaToStudy.length > 0) {
       setLastLessonPlayed(this.code, this.type, 'current')
 
-        resetCountdown(stopLesson, this, oneChoiceGgroup, oneGuess)
-
         oneGuess.init(this)
 
-        arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
-        oneGuess.writeChoiceTrueFalse(arrayToWrite)
+//        arrayToWrite = oneChoiceGgroup.randomizeChoice(this.guessWhat, this.kanaToStudy)
+//        oneGuess.writeChoiceTrueFalse(arrayToWrite)
 
         if (this.kanaToStudy.length <= 5) {
-          oneChoiceGgroup.writeChoice(oneGuess.guessWhat, arrayToWrite)
+//          oneChoiceGgroup.writeChoice(oneGuess.guessWhat, arrayToWrite)
         } else {
           // write choice if number of kana to guess > of nb of choice
           // need  oneGuess.init to display the true choice
-          oneChoiceGgroup.eraseChoice()
-          arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
-          oneGuess.writeChoiceTrueFalse(arrayToWrite)
+//          oneChoiceGgroup.eraseChoice()
+//          arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
+//          oneGuess.writeChoiceTrueFalse(arrayToWrite)
         }
-        oneGuess.guessKana(this)
-        oneMenu.displayWhatToGuess(oneGuess.guessWhat)
+//        oneGuess.guessKana(this)
+//        oneMenu.displayWhatToGuess(oneGuess.guessWhat)
 
     } else {
       info.innerText = 'pas de kana à étudier !'
-      // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
-      oneChoiceGgroup.deleteChoice()
-     stopCountdown()
-      oneMenu.notDisplayPlayItem()
+//      oneMenu.notDisplayPlayItem()
     }
   }
 

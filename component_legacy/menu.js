@@ -28,17 +28,7 @@ class Menu {
     this.learnItemKatakana = document.getElementById('learnItemKatakana')
 
     this.home.style.display = 'none'
-    this.play.style.display = 'none'
-   // this.playMenu.style.display = 'none'
-   // this.countdown.style.display = 'none'
-   // this.playItem.style.display = 'none'
-   // this.playKana.style.display = 'none'
-   // this.playItemKana.style.display = 'none'
-   // this.playItemRomanji.style.display = 'none'
-   // this.learn.style.display = 'none'
-   // this.learnItemKana.style.display = 'none'
-   // this.learnItemHiragana.style.display = 'none'
-   // this.learnItemKatakana.style.display = 'none'
+
   }
 
   setNoneToAll () {

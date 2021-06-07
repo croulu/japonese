@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {Timer} from "./Timer";
 import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
@@ -26,7 +25,7 @@ export default class PlayItem extends Component {
         return <div id="playItem">
             <Timer2 onTimeout={ this.handleOnTimeout } />
             <Toolbar statistiques={ this.state.statistiques } onChange={ this.handleChange } />
-            <PlayKana nbChoice={5} />
+            <PlayKana nbChoice={5} letters={[{txt:"a"},{txt:"i"},{txt:"u"},{txt:"o"},{txt:"e"}]} />
         </div>;
     }
 }

@@ -29,19 +29,20 @@ class Menu {
 
     this.home.style.display = 'none'
     this.play.style.display = 'none'
-    this.playMenu.style.display = 'none'
-    this.countdown.style.display = 'none'
-    this.playItem.style.display = 'none'
-    this.playKana.style.display = 'none'
-    this.playItemKana.style.display = 'none'
-    this.playItemRomanji.style.display = 'none'
-    this.learn.style.display = 'none'
-    this.learnItemKana.style.display = 'none'
-    this.learnItemHiragana.style.display = 'none'
-    this.learnItemKatakana.style.display = 'none'
+   // this.playMenu.style.display = 'none'
+   // this.countdown.style.display = 'none'
+   // this.playItem.style.display = 'none'
+   // this.playKana.style.display = 'none'
+   // this.playItemKana.style.display = 'none'
+   // this.playItemRomanji.style.display = 'none'
+   // this.learn.style.display = 'none'
+   // this.learnItemKana.style.display = 'none'
+   // this.learnItemHiragana.style.display = 'none'
+   // this.learnItemKatakana.style.display = 'none'
   }
 
   setNoneToAll () {
+/*
     this.home.style.display = 'none'
     this.play.style.display = 'none'
     this.playMenu.style.display = 'none'
@@ -54,6 +55,7 @@ class Menu {
     this.learnItemKana.style.display = 'none'
     this.learnItemHiragana.style.display = 'none'
     this.learnItemKatakana.style.display = 'none'
+*/
   }
 
   displayHome () {
@@ -73,7 +75,7 @@ class Menu {
   }
 
   displayPlayItem () {
-    this.setNoneToAll()
+    //this.setNoneToAll()
     this.countdown.style.display = 'block'
     this.play.style.display = 'block'
     this.playItem.style.display = 'block'

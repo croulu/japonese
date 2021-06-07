@@ -40,8 +40,6 @@ class Lesson {
     const info = document.getElementById('info')
     const statusLessonInStorage = getStatusLessonInStorage(this.code)
 
-    info.innerText += ''
-
     this.kanaToStudy = []
     this.toplay = 0
     this.played = 0
@@ -234,7 +232,7 @@ class Lesson {
     let arrayToWrite = []
 
     const oneMenu = new Menu()
-    oneMenu.displayPlayItem()
+    //oneMenu.displayPlayItem()
 
     console.log(oneMenu)
 
@@ -268,10 +266,9 @@ class Lesson {
           arrayToWrite = oneChoiceGgroup.writeChoiceMoreThanNbChoicePossible(oneGuess.guessWhat, arrayToWrite, oneGuess.choiceTrueIndex)
           oneGuess.writeChoiceTrueFalse(arrayToWrite)
         }
-console.log('lesson')
         oneGuess.guessKana(this)
         oneMenu.displayWhatToGuess(oneGuess.guessWhat)
-console.log('end ')
+
     } else {
       info.innerText = 'pas de kana à étudier !'
       // todo : ne pas créer les choice si kana === 0, il faut les suprimer ici
@@ -436,7 +433,8 @@ function displayButtonForward (oneLesson, oneGuess) {
 
 // to be invoked, must be out of a class
 function stopLesson (oneLesson, oneChoiceGroup, oneGuess) {
-  oneLesson.stop(oneChoiceGroup, oneGuess)
+  const statistiques = oneLesson.stop(oneChoiceGroup, oneGuess)
+  return ({statistiques:statistiques})
 }
 
 export {

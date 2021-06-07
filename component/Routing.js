@@ -2,7 +2,7 @@ import React from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
-import {PlayItem} from "./Learn/PlayItem/PlayItem";
+import PlayItem from "./Learn/PlayItem/PlayItem";
 
 const Routing = ({ alphabets, oneLesson, oneGuess }) => {
     return (

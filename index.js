@@ -29,7 +29,7 @@ ReactDOM.render(
     document.getElementById("app")
 )
 
-initClickOnCountdown();
+//initClickOnCountdown();
 
 
 const oneMenu = new Menu()

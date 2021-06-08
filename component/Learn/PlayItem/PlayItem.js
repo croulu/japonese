@@ -17,15 +17,14 @@ export default class PlayItem extends Component {
     };
 
     handleChange = (event) => {
-        const statistiques = event.target.value()
-        this.setState(statistiques)
+        this.props.onLessonChange(event.target.value)
     }
 
     render() {
         return <div id="playItem">
             <Timer2 onTimeout={ this.handleOnTimeout } />
-            <Toolbar statistiques={ this.state.statistiques } onChange={ this.handleChange } />
-            <PlayKana nbChoice={5} letters={[{txt:"a"},{txt:"i"},{txt:"u"},{txt:"o"},{txt:"e"}]} />
+            <Toolbar statistiques={ this.state.statistiques } />
+            <PlayKana nbChoice={5} letters={[{txt:"a"},{txt:"i"},{txt:"u"},{txt:"o"},{txt:"e"}]}  onClick={ this.handleChange }/>
         </div>;
     }
 }

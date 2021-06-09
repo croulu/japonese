@@ -1,5 +1,5 @@
 import React from "react";
-import {LessonButton} from "./LessonButton";
+import LessonButton from "./LessonButton";
 
 export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLessonChange}) =>
     <>
@@ -12,7 +12,7 @@ export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLes
                         key={lesson.title}
                         kana={lesson} alphabet={letter} oneLesson={oneLesson}
                         oneGuess={oneGuess}
-                        onLessonChange={onLessonChange}/>)
+                        onLessonChange={onLessonChange} />)
             }
         </div>
     </>

@@ -12,9 +12,9 @@ export default class Routing extends Component {
     }
 
     handleLesson(event) {
-        this.setState( {
-            letters: event.target.value
-        } )
+       // this.setState( {
+       //     letters: event.target.value
+       // } )
     }
 
     launchPlay = () => {

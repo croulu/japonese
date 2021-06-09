@@ -17,6 +17,7 @@ export default class PlayItem extends Component {
     };
 
     handleChange = (event) => {
+        console.log(event.target.value)
         this.props.onLessonChange(event.target.value)
     }
 

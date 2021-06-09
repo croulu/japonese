@@ -3,7 +3,7 @@ import {GuessAlphabet} from "./GuessAlphabet";
 import {Continue} from "./Continue";
 import {Alllearned} from "./Alllearned";
 
-export const PlayMenu = ({alphabets, oneLesson, oneGuess}) =>
+export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
     <div id="playMenu">
 
         <Continue/>
@@ -17,6 +17,7 @@ export const PlayMenu = ({alphabets, oneLesson, oneGuess}) =>
                 alphabet={alphabet}
                 alphabetLetter={alphabetName.charAt(0).toUpperCase()}
                 oneLesson={oneLesson}
-                oneGuess={oneGuess}/>
-        )}
+                oneGuess={oneGuess}
+                onLessonChange={onLessonChange} />
+         )}
     </div>

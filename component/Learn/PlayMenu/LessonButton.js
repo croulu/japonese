@@ -3,10 +3,9 @@ import {useHistory} from 'react-router-dom'
 
 export default class LessonButton extends Component {
 
-    handleClick(e) {
-        console.log(e.target.value)
-        this.props.onLessonChange(e.target.value)
-    }
+    handleClick = () => {
+        this.props.onLessonChange(this.props.alphabet, this.props.kana.title)
+    };
 
     render() {
 

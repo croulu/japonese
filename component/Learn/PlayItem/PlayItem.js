@@ -1,31 +1,23 @@
-import React, {Component} from "react";
+import React from "react";
 import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
 
+export const PlayItem = (oneLesson, oneGuess, onLessonChange) => {
 
-export default class PlayItem extends Component {
-    state = {
-        statistiques: 'TODO'
-    }
-
-   // this.props.oneLesson.launchLesson('simple', 'h-ka-ki-ku-ke-ko', this.props.oneGuess);
-
-    handleOnTimeout = () => {
-        this.statistiques = stopLesson(this.props.oneLesson, this.props.oneLesson.oneChoiceGroup, this.props.oneGuess).statistiques;
+    const handleOnTimeout = () => {
+        const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
     };
 
-    handleChange = (event) => {
-        console.log(event.target.value)
+    const handleChange = (event) => {
         this.props.onLessonChange(event.target.value)
     }
 
-    render() {
-        return <div id="playItem">
-            <Timer2 onTimeout={ this.handleOnTimeout } />
-            <Toolbar statistiques={ this.state.statistiques } />
-            <PlayKana nbChoice={5} letters={[{txt:"a"},{txt:"i"},{txt:"u"},{txt:"o"},{txt:"e"}]}  onClick={ this.handleChange }/>
-        </div>;
-    }
+    return (<div id="playItem">
+        <Timer2 onTimeout={handleOnTimeout}/>
+        <Toolbar statistiques={"STATS TODO"}/>
+        <PlayKana nbChoice={5} letters={[{txt: "a"}, {txt: "i"}, {txt: "u"}, {txt: "o"}, {txt: "e"}]}
+                  onClick={handleChange}/>
+    </div>);
 }

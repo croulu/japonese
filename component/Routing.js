@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
 
-export const Routing = (alphabets, oneLesson, oneGuess) => {
+export const Routing = ({alphabets, oneLesson, oneGuess}) => {
+
+    //const lesson = useState('')
 
     const handleLesson = (alphabet, lesson) => {
         //const history = useHistory()

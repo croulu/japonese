@@ -4,20 +4,22 @@ import {Continue} from "./Continue";
 import {Alllearned} from "./Alllearned";
 
 export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
-    <div id="playMenu">
+    <>
+        <div id="playMenu">
 
-        <Continue/>
+            <Continue/>
 
-        <Alllearned/>
+            <Alllearned/>
 
-        {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
-            <GuessAlphabet
-                key={alphabetName}
-                title={alphabetName}
-                alphabet={alphabet}
-                alphabetLetter={alphabetName.charAt(0).toUpperCase()}
-                oneLesson={oneLesson}
-                oneGuess={oneGuess}
-                onLessonChange={onLessonChange} />
-         )}
-    </div>
+            {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
+                <GuessAlphabet
+                    key={alphabetName}
+                    title={alphabetName}
+                    alphabet={alphabet}
+                    alphabetLetter={alphabetName.charAt(0).toUpperCase()}
+                    oneLesson={oneLesson}
+                    oneGuess={oneGuess}
+                    onLessonChange={onLessonChange}/>
+            )}
+        </div>
+    </>

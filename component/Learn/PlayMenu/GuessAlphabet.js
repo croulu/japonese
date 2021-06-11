@@ -9,7 +9,7 @@ export const GuessAlphabet = ({title, alphabet, alphabetLetter, oneLesson, oneGu
                 key={groupName}
                 title={groupName} lessons={lessons} letter={alphabetLetter} oneLesson={oneLesson}
                 oneGuess={oneGuess}
-                onLessonChange={onLessonChange} />
+                onLessonChange={onLessonChange}/>
         )
         }
     </>

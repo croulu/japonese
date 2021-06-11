@@ -1,8 +1,6 @@
 import React from "react";
 
-export const LessonButton = (alphabet, kana) => {
-
-    console.log({kana})
+export const LessonButton = ({alphabet, kana}) => {
 
     const handleClick = () => {
         this.props.onLessonChange(alphabet, kana.title)

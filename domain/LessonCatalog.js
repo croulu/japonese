@@ -92,7 +92,6 @@ export class LessonCatalog {
                         img: "ta",
                     }),
                     withKatakanaId({
-                        id: "naninuneno",
                         title: "na ni nu ne no",
                         img: "na",
                     }),

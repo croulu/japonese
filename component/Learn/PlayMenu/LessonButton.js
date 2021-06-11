@@ -1,9 +1,9 @@
 import React from "react";
 
-export const LessonButton = ({alphabet, kana}) => {
+export const LessonButton = ({alphabet, kana, oneLesson, oneGuess, onLessonChange}) => {
 
     const handleClick = () => {
-        this.props.onLessonChange(alphabet, kana.title)
+        onLessonChange(alphabet, kana.title)
     }
 
     return (<a

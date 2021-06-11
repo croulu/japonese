@@ -5,13 +5,11 @@ import {PlayItem} from "./Learn/PlayItem/PlayItem";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
-    //const lesson = useState('')
-
     const handleLesson = (alphabet, lesson) => {
         //const history = useHistory()
 
         console.log(alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"))
-        this.state.oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
+        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
         //history.push('/play')
     };
 

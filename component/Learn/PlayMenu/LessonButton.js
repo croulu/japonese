@@ -1,9 +1,14 @@
 import React from "react";
+import {useHistory} from 'react-router-dom'
 
 export const LessonButton = ({alphabet, kana, oneLesson, oneGuess, onLessonChange}) => {
 
-    const handleClick = () => {
+    const history = useHistory()
+
+    const handleClick = function () {
         onLessonChange(alphabet, kana.title)
+
+        history.push('/play')
     }
 
     return (<a

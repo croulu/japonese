@@ -6,11 +6,8 @@ import {PlayItem} from "./Learn/PlayItem/PlayItem";
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
     const handleLesson = (alphabet, lesson) => {
-        //const history = useHistory()
-
         console.log(alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"))
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
-        //history.push('/play')
     };
 
     return (

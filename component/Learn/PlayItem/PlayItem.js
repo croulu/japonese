@@ -6,8 +6,9 @@ import {stopLesson} from "../../../component_legacy/lesson";
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}) => {
 
-    console.log("playItem")
-    console.log({alphabet}, {lesson})
+    const letters = lesson
+        .split(" ")
+        .map(letter => letter = {txt: letter})
 
     const handleOnTimeout = () => {
         const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
@@ -20,7 +21,7 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
-        <PlayKana nbChoice={5} letters={[{txt: "a"}, {txt: "i"}, {txt: "u"}, {txt: "o"}, {txt: "e"}]}
+        <PlayKana nbChoice={5} letters={letters}
                   onClick={handleChange}/>
     </div>);
 }

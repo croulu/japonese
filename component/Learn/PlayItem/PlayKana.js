@@ -2,12 +2,14 @@ import React from "react";
 
 import {Choice} from "./Choice";
 
-export const PlayKana = ({nbChoice, letters}) => {
+export const PlayKana = ({nbChoice, letters, alphabet}) => {
+
     if (nbChoice === 5) {
         return <div id="playKana">
             <div className="playKana">
                 {letters.map(letter => {
-                    return <Choice key={letter.txt} letter={letter}/>
+                    const imageCss = alphabet.toUpperCase() + letter.txt
+                    return <Choice key={letter.txt} letter={letter} imageCss={imageCss}/>
                 })}
                 <div className="w3-hover-none">
                     <div className="w3-red playKanaChoice w3-hover-none" id="playItemKana"><span id="kanaImg"></span>

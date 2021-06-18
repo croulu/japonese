@@ -22,14 +22,15 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     alphabets={alphabets}
                     oneLesson={oneLesson}
                     oneGuess={oneGuess}
-                    onLessonChange={handleLesson} />
+                    onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
                 <PlayItem
                     oneLesson={oneLesson}
                     oneGuess={oneGuess}
                     onLessonChange={handleLesson}
-                    lesson={lesson} />
+                    alphabet={alphabet}
+                    lesson={lesson}/>
             </Route>
         </Router>
     );

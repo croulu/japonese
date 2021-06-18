@@ -302,7 +302,7 @@ class Lesson {
     this.displayReloadForward(oneGuess)
 
     //oneChoiceGroup.disableChoice()
-    this.displayButtonLesson()
+    //this.displayButtonLesson()
   }
 
   displayReloadForward (oneGuess) {

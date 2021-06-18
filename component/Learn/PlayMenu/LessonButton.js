@@ -1,7 +1,7 @@
 import React from "react";
 import {useHistory} from 'react-router-dom'
 
-export const LessonButton = ({alphabet, kana, oneLesson, oneGuess, onLessonChange}) => {
+export const LessonButton = ({alphabet, kana, onLessonChange}) => {
 
     const history = useHistory()
 

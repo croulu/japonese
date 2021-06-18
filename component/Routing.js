@@ -29,7 +29,6 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     oneLesson={oneLesson}
                     oneGuess={oneGuess}
                     onLessonChange={handleLesson}
-                    alphabet={alphabet}
                     lesson={lesson} />
             </Route>
         </Router>

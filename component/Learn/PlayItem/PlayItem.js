@@ -4,7 +4,7 @@ import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
 
-export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}) => {
+export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
 
     const letters = lesson
         .split(" ")

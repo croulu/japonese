@@ -1,8 +1,9 @@
 import React from "react";
 
-export const Choice = ({letter, imageCss}) => {
+export const Choice = ({letter, alphabet}) => {
 
-    const divCss = "playKanaChoice" + " " + imageCss
+    const imageNameCss = alphabet.toUpperCase() + letter.txt
+    const divCss = "playKanaChoice" + " " + imageNameCss
 
     return <div id="choice1">
         <div className="playKanaChoice"><span id="choice1Txt">{letter.txt}</span></div>

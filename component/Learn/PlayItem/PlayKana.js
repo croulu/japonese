@@ -7,10 +7,7 @@ export const PlayKana = ({nbChoice, letters, alphabet}) => {
     if (nbChoice === 5) {
         return <div id="playKana">
             <div className="playKana">
-                {letters.map(letter => {
-                    const createImageNameCss = () => alphabet.toUpperCase() + letter.txt
-                    return <Choice key={letter.txt} letter={letter} imageCss={createImageNameCss()}/>
-                })}
+                {letters.map(letter => <Choice key={letter.txt} letter={letter} alphabet={alphabet}/>)}
                 <div className="w3-hover-none">
                     <div className="w3-red playKanaChoice w3-hover-none" id="playItemKana"><span id="kanaImg"></span>
                     </div>

@@ -21,7 +21,7 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
-        <PlayKana nbChoice={5} letters={letters} alphabet={alphabet}
+        <PlayKana letters={letters} alphabet={alphabet}
                   onClick={handleChange}/>
     </div>);
 }

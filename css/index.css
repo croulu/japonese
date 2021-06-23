@@ -61,6 +61,8 @@
 .playKanaChoice {
     align-content: center;
     text-align: center;
+    width: 100px;
+    height: 100px;
 }
 
 .playKanaChoiceItem {

@@ -15,6 +15,8 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
     };
 
+    const guessWhat="kana"
+
     return (
         <Router>
             <Route exact path='/'>
@@ -30,7 +32,8 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     oneGuess={oneGuess}
                     onLessonChange={handleLesson}
                     alphabet={alphabet}
-                    lesson={lesson}/>
+                    lesson={lesson}
+                    guessWhat={guessWhat}/>
             </Route>
         </Router>
     );

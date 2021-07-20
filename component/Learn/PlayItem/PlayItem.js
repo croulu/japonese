@@ -4,7 +4,7 @@ import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
 
-export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}) => {
+export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson, guessWhat}) => {
 
     const letters = lesson
         .split(" ")
@@ -22,6 +22,6 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
         <PlayKana letters={letters} alphabet={alphabet}
-                  onClick={handleChange}/>
+                  onClick={handleChange} guessWhat={guessWhat} />
     </div>);
 }

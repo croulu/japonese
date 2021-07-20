@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {LessonButton} from "./LessonButton";
 
 export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLessonChange}) =>

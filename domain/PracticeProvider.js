@@ -1,5 +1,7 @@
 import {Practice} from './Practice';
 import {Guess} from "./Guess";
+import {Kana} from "./Kana";
+
 
 
 
@@ -11,8 +13,12 @@ export class PracticeProvider {
         return practice
     }
 
-    fromLessonCatalog(lessons) {
-        const practice = new Practice()
+    fromLessonTitleAndAlphabet(lessonTitle, alphabet) {
+        const kanas = lessonTitle
+            .split(" ")
+            .map(syllable => new Kana(alphabet, syllable))
+        const guesses = kanas.map(k => new Guess(k, kanas))
+        const practice = new Practice(guesses)
         return practice
     }
 

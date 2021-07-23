@@ -10,7 +10,7 @@ export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLes
                 lessons.map((lesson, index) =>
                     <LessonButton
                         key={index}
-                        kana={lesson} alphabet={letter} oneLesson={oneLesson}
+                        lesson={lesson} alphabet={letter} oneLesson={oneLesson}
                         oneGuess={oneGuess}
                         onLessonChange={onLessonChange}/>)
             }

@@ -36,7 +36,6 @@ describe('Practice', function () {
         )
         const guess = sut.next()
         const proposedKanas = guess.proposedKanas
-        console.log(proposedKanas)
         assert.deepEqual([kanas[1], kanas[2], kanas[0]], proposedKanas);
     })
 

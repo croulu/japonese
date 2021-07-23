@@ -1,23 +1,23 @@
 import React from "react";
 import {useHistory} from 'react-router-dom'
 
-export const LessonButton = ({alphabet, kana, onLessonChange}) => {
+export const LessonButton = ({alphabet, lesson, onLessonChange}) => {
 
     const history = useHistory()
 
     const handleClick = function () {
-        onLessonChange(alphabet, kana.title)
+        onLessonChange(alphabet, lesson.title)
 
         history.push('/play')
     }
 
     return (<a
-            id={`btnGuess${alphabet}${kana.id}`}
+            id={`btnGuess${alphabet}${lesson.id}`}
             className="w3-button w3-white w3-hover-opacity bigButton"
             onClick={handleClick}
         >
-            <span className={`kanaAlphabetIco ico${alphabet}${kana.img}`}/>
+            <span className={`kanaAlphabetIco ico${alphabet}${lesson.img}`}/>
             <br/>
-            {kana.title}
+            {lesson.title}
         </a>);
 };

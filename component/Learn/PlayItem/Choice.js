@@ -10,7 +10,7 @@ export const Choice = ({letter, alphabet, guessWhat}) => {
         console.log("choice")
     }
 
-    if (guessWhat==="kana") {
+    if (guessWhat === "kana") {
         return (
             <div id={choiceName}>
                 <a onClick={handleClick}>

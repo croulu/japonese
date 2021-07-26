@@ -18,6 +18,7 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson,
         this.props.onLessonChange(event.target.value)
     }
 
+
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>

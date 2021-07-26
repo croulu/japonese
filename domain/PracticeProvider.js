@@ -2,9 +2,6 @@ import {Practice} from './Practice';
 import {Guess} from "./Guess";
 import {Kana} from "./Kana";
 
-
-
-
 export class PracticeProvider {
 
     fromLesson(lesson) {

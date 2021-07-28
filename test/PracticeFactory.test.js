@@ -1,15 +1,11 @@
 import {PracticeFactory} from "../domain/PracticeFactory";
 import {Practice} from "../domain/Practice";
 import {Kana} from "../domain/Kana";
-import {Guess} from "../domain/Guess";
-import {Lesson} from "../domain/Lesson";
-
 
 import assert from "assert";
-
+import {randomizeKanaToGuess} from "../domain/randomizeKanaToGuess";
 
 describe('SeanceProvider', function () {
-
 
     it('should provide practice from lesson title', function () {
         const alphabet = "hiragana"
@@ -20,16 +16,14 @@ describe('SeanceProvider', function () {
             new Kana(alphabet, 'i'),
             new Kana(alphabet, 'u')
         ];
-        const randomizeKanaToGuess = () => {}
-        const randomizeKanasProposals = () => []
 
-        const actual = sut.createPractice(lessonTitle, alphabet, randomizeKanaToGuess, randomizeKanasProposals);
+        const actual = sut.createPractice(lessonTitle, alphabet);
 
         const expected = new Practice([
             new Kana(alphabet, 'a'),
             new Kana(alphabet, 'i'),
             new Kana(alphabet, 'u')
-        ], randomizeKanaToGuess, randomizeKanasProposals);
+        ], randomizeKanaToGuess,randomizeKanaToGuess);
         assert.deepEqual(actual, expected);
     });
 

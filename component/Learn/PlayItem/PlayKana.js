@@ -4,6 +4,10 @@ import {Choice} from "./Choice";
 
 export const PlayKana = ({letters, alphabet, guessWhat, guessKana}) => {
 
+    if (guessWhat === "kana") {
+        console.log("kana")
+    }
+
     return <div id="playKana">
         <div className="playKana">
             <div className="w3-hover-none">

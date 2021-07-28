@@ -4,7 +4,10 @@ import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
 
+const practiceProviderFunction = require("./practiceProviderFunction");
+
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson, guessWhat}) => {
+
 
     const letters = lesson
         .split(" ")

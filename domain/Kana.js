@@ -5,8 +5,8 @@ export class Kana {
     this.syllable = syllable
   }
 
-  determineKanaImageWithAlphabetAndSyllable(alphabet, syllable) {
-    return alphabet.toUpperCase() + syllable
+  determineKanaImageWithAlphabetAndSyllable() {
+    return this.alphabet.toUpperCase() + this.syllable
   }
 
 }

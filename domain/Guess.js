@@ -6,7 +6,6 @@ export class Guess {
     }
 
     validateChoice(kanaChoosen) {
-
         return this.equals(this.kanaToGuess, kanaChoosen)
     }
 

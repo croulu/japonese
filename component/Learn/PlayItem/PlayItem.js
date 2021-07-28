@@ -20,14 +20,14 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson,
         this.props.onLessonChange(event.target.value)
     }
 
-    const practiceProvider = new PracticeFactory();
-    const practice = practiceProvider.createPractice(lesson, alphabet)
-    console.log(practice);
+    const createPractice = (lesson, alphabet) => {
+        return new PracticeFactory().createPractice(lesson, alphabet);
+    }
 
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
         <PlayKana letters={letters} alphabet={alphabet}
-                  onClick={handleChange} guessWhat={guessWhat} guessKana={"ka"}/>
+                  onClick={handleChange} guessWhat={guessWhat} practice={createPractice(lesson,alphabet)}/>
     </div>);
 }

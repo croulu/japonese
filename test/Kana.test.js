@@ -9,7 +9,7 @@ describe('Kana', function () {
         const syllable = romanji
         const sut = new Kana(alphabet, syllable)
 
-        const actual = sut.determineKanaImageWithAlphabetAndSyllable(alphabet, syllable)
+        const actual = sut.determineKanaImageWithAlphabetAndSyllable()
 
         const expected = imageName
         assert.deepEqual(actual, expected)

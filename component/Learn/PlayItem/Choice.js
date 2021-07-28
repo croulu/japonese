@@ -1,19 +1,13 @@
 import React from "react";
 
-export const Choice = ({letter, alphabet, guessWhat}) => {
-
-    const imageNameCss = alphabet.toUpperCase() + letter.txt
-    const divCssImg = "playKanaChoice" + " " + imageNameCss + " "
-    const choiceName = "choice" + letter.txt
-
-    const handleClick = function () {
-        console.log("choice")
-    }
+export const Choice = ({kana, guessWhat, handleClick}) => {
+    const divCssImg = "playKanaChoice" + " " + kana.determineKanaImageWithAlphabetAndSyllable() + " "
+    const choiceName = "choice" + kana.syllable
 
     if (guessWhat === "kana") {
         return (
             <div id={choiceName}>
-                <a onClick={handleClick}>
+                <a value={kana} onClick={() => handleClick(kana)}>
                     <div className={divCssImg}><span id="choice1Img"></span></div>
                 </a>
             </div>

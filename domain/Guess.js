@@ -11,8 +11,8 @@ export class Guess {
     }
 
     equals(kana1, kana2) {
-        return kana1.alphabet === kana2.alphabet &&
-            kana2.syllable === kana2.syllable
+        return (kana1.alphabet === kana2.alphabet &&
+            kana1.syllable === kana2.syllable)
     }
 
 }

@@ -1,7 +1,7 @@
 import {Guess} from "./Guess";
 
 
-class Practice {
+export class Practice {
 
     constructor(kanas, randomizeKanaToGuess, randomizeKanasProposals) {
         this.kanas = kanas
@@ -16,6 +16,3 @@ class Practice {
     }
 }
 
-export {
-    Practice
-}

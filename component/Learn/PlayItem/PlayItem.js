@@ -3,7 +3,7 @@ import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
-import {PracticeProvider} from "../../../domain/PracticeProvider";
+import {PracticeFactory} from "../../../domain/PracticeFactory";
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson, guessWhat}) => {
 
@@ -20,8 +20,8 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson,
         this.props.onLessonChange(event.target.value)
     }
 
-    const practiceProvider = new PracticeProvider();
-    const practice = practiceProvider.fromLessonTitleAndAlphabet(lesson, alphabet)
+    const practiceProvider = new PracticeFactory();
+    const practice = practiceProvider.createPractice(lesson, alphabet)
     console.log(practice);
 
     return (<div id="playItem">

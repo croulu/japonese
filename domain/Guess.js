@@ -1,7 +1,5 @@
 
-import deepEqual from "deep-equal";
-
-class Guess {
+export class Guess {
     constructor(kanaToGuess, proposedKanas) {
         this.kanaToGuess = kanaToGuess
         this.proposedKanas = proposedKanas
@@ -9,15 +7,13 @@ class Guess {
 
     validateChoice(kanaChoosen) {
 
-
-        const result = deepEqual(this.kanaToGuess, kanaChoosen)
-        return result
+        return this.equals(this.kanaToGuess, kanaChoosen)
     }
 
-
+    equals(kana1, kana2) {
+        return kana1.alphabet === kana2.alphabet &&
+            kana2.syllable === kana2.syllable
+    }
 
 }
 
-export {
-    Guess
-}

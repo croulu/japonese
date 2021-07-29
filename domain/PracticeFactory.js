@@ -2,9 +2,9 @@ import {Practice} from './Practice';
 import {Kana} from "./Kana";
 import {randomizeKanaToGuess} from "./randomizeKanaToGuess";
 
-export class PracticeFactory {
+export  class  PracticeFactory {
 
-    createPractice(lessonTitle, alphabet) {
+    static createPractice(lessonTitle, alphabet) {
         const kanas = lessonTitle
             .split(" ")
             .map(syllable => new Kana(alphabet, syllable))

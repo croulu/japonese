@@ -10,14 +10,13 @@ describe('SeanceProvider', function () {
     it('should provide practice from lesson title', function () {
         const alphabet = "hiragana"
         const lessonTitle = "a i u"
-        const sut = new PracticeFactory();
         const kanas = [
             new Kana(alphabet, 'a'),
             new Kana(alphabet, 'i'),
             new Kana(alphabet, 'u')
         ];
 
-        const actual = sut.createPractice(lessonTitle, alphabet);
+        const actual = PracticeFactory.createPractice(lessonTitle, alphabet);
 
         const expected = new Practice([
             new Kana(alphabet, 'a'),

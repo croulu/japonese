@@ -21,7 +21,7 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson,
     }
 
     const createPractice = (lesson, alphabet) => {
-        return new PracticeFactory().createPractice(lesson, alphabet);
+        return PracticeFactory.createPractice(lesson, alphabet);
     }
 
     return (<div id="playItem">

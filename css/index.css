@@ -65,6 +65,13 @@
     height: 100px;
 }
 
+.playItemKana {
+    align-content: center;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
+
 .playKanaChoiceItem {
     border: 1px solid white;
 }

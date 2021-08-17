@@ -15,7 +15,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
     };
 
-    const guessWhat = "kana"
+    const guessWhat = "romanji"
 
     return (
         <Router>

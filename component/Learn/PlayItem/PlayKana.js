@@ -14,8 +14,12 @@ export const PlayKana = ({letters, alphabet, guessWhat, practice}) => {
             setIsChoiceValid(undefined)
             setGuess(practice.next());
         }, 1000);
-
     }
+
+    const divCssImg = () => {
+        return "playItemKana" + " " + guess.kanaToGuess.determineKanaImageWithAlphabetAndSyllable()
+    }
+
     return <div id="playKana">
         <div
             style={{
@@ -31,17 +35,17 @@ export const PlayKana = ({letters, alphabet, guessWhat, practice}) => {
                 ""}
         </div>
         <div className="playKana">
-            <div className="w3-hover-none">
+            <div>
                 {
-                    isKana ? <div className={"w3-red w3-text-black playKanaChoice w3-hover-none"}
-                                  id="playItemRomanji">{guess.kanaToGuess.syllable}</div> :
-                        <div className="w3-red playKanaChoice w3-hover-none"
-                             id="playItemKana"><span id="kanaImg"></span></div>
+                    isKana ? <div id="playItemRomanji">{guess.kanaToGuess.syllable}</div> :
+                        <div id="playItemKana" className={divCssImg()}></div>
 
                 }
             </div>
-            {letters.map(letter => <Choice key={letter.txt} kana={new Kana(alphabet, letter.txt)}
-                                           guessWhat={guessWhat} handleClick={handleChoiceClick}/>)}
+            {letters.map(letter => <Choice key={letter.txt}
+                                           kana={new Kana(alphabet, letter.txt)}
+                                           guessWhat={guessWhat}
+                                           handleClick={handleChoiceClick} />)}
         </div>
     </div>
 }

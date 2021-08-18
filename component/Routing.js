@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
+import {randomizeWhatToGuess} from "../domain/randomizeWhatToGuess";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
@@ -11,11 +12,8 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     const handleLesson = (alphabet, lesson) => {
         setAlphabet(alphabet)
         setLesson(lesson)
-        console.log(alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"))
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
     };
-
-    const guessWhat = "romanji"
 
     return (
         <Router>
@@ -32,8 +30,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     oneGuess={oneGuess}
                     onLessonChange={handleLesson}
                     alphabet={alphabet}
-                    lesson={lesson}
-                    guessWhat={guessWhat}/>
+                    lesson={lesson} />
             </Route>
         </Router>
     );

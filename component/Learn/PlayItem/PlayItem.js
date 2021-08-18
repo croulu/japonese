@@ -28,6 +28,6 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson,
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
         <PlayKana letters={letters} alphabet={alphabet}
-                  onClick={handleChange} guessWhat={guessWhat} practice={createPractice(lesson,alphabet)}/>
+                  onClick={handleChange} practice={createPractice(lesson,alphabet)}/>
     </div>);
 }

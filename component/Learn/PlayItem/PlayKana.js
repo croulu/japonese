@@ -2,10 +2,14 @@ import React, {useState} from "react";
 
 import {Choice} from "./Choice";
 import {Kana} from "../../../domain/Kana";
+import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 
-export const PlayKana = ({letters, alphabet, guessWhat, practice}) => {
+export const PlayKana = ({letters, alphabet, practice}) => {
+    const guessWhat = randomizeWhatToGuess()
+
     const [guess, setGuess] = useState(practice.next())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
+
     const isKana = guessWhat === "kana"
 
     const handleChoiceClick = (chosenKana) => {

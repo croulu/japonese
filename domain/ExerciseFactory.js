@@ -1,14 +1,14 @@
-import {Practice} from './Practice';
+import {Exercise} from './Exercise';
 import {Kana} from "./Kana";
 import {randomizeKanaToGuess} from "./randomizeKanaToGuess";
 
-export class PracticeFactory {
+export class ExerciseFactory {
 
-    createPractice(lessonTitle, alphabet) {
+    createExercise(lessonTitle, alphabet) {
         const kanas = lessonTitle
             .split(" ")
             .map(syllable => new Kana(alphabet, syllable))
-        return new Practice(kanas, randomizeKanaToGuess, randomizeKanaToGuess)
+        return new Exercise(kanas, randomizeKanaToGuess, randomizeKanaToGuess)
     }
 
 }

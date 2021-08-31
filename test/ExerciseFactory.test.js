@@ -1,25 +1,25 @@
-import {PracticeFactory} from "../domain/PracticeFactory";
-import {Practice} from "../domain/Practice";
+import {ExerciseFactory} from "../domain/ExerciseFactory";
+import {Exercise} from "../domain/Exercise";
 import {Kana} from "../domain/Kana";
 
 import assert from "assert";
 import {randomizeKanaToGuess} from "../domain/randomizeKanaToGuess";
 
-describe('SeanceProvider', function () {
+describe('ExerciseFactory', function () {
 
-    it('should provide practice from lesson title', function () {
+    it('should provide exercise from lesson title', function () {
         const alphabet = "hiragana"
         const lessonTitle = "a i u"
-        const sut = new PracticeFactory();
+        const sut = new ExerciseFactory();
         const kanas = [
             new Kana(alphabet, 'a'),
             new Kana(alphabet, 'i'),
             new Kana(alphabet, 'u')
         ];
 
-        const actual = sut.createPractice(lessonTitle, alphabet);
+        const actual = sut.createExercise(lessonTitle, alphabet);
 
-        const expected = new Practice([
+        const expected = new Exercise([
             new Kana(alphabet, 'a'),
             new Kana(alphabet, 'i'),
             new Kana(alphabet, 'u')

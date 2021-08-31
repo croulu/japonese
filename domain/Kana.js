@@ -1,12 +1,12 @@
+import {Syllable} from "./Syllable";
 
-export class Kana {
-  constructor (alphabet, syllable) {
-    this.alphabet = alphabet
-    this.syllable = syllable
+export class Kana extends Syllable {
+  constructor (alphabet, consonant, vowel) {
+    super(alphabet, consonant, vowel);
   }
 
-  determineKanaImageWithAlphabetAndSyllable() {
-    return this.alphabet.toUpperCase() + this.syllable
+  determineKanaImage() {
+    return this.alphabet.toUpperCase() + this.consonant + this.vowel
   }
 
 }

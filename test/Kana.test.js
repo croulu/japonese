@@ -3,13 +3,15 @@ import {Kana} from "../domain/Kana";
 
 describe('Kana', function () {
 
-    [["ka","h", "Hka"], ["ki","h","Hki"], ["ki","k","Kki"]].map(([romanji,alphabetInput,imageName]) =>
-    it('should provide kana in image mode with romanji:' + romanji, function () {
+    [["h", "k", "a", "Hka"], ["h", "k", "i","Hki"], ["k", "k", "i", "Kki"], ["h", "s", "i", "Hsi"]]
+        .map(([alphabetInput, consonantInput, vowelInput, imageName]) =>
+    it('should provide kana in image mode for : ' + imageName, function () {
         const alphabet = alphabetInput
-        const syllable = romanji
-        const sut = new Kana(alphabet, syllable)
+        const consonant = consonantInput
+        const vowel = vowelInput
+        const sut = new Kana(alphabet, consonant, vowel)
 
-        const actual = sut.determineKanaImageWithAlphabetAndSyllable()
+        const actual = sut.determineKanaImage()
 
         const expected = imageName
         assert.deepEqual(actual, expected)

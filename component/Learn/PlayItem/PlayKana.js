@@ -4,24 +4,28 @@ import {Choice} from "./Choice";
 import {Kana} from "../../../domain/Kana";
 import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 
-export const PlayKana = ({letters, alphabet, practice}) => {
-    const guessWhat = randomizeWhatToGuess()
-
-    const [guess, setGuess] = useState(practice.next())
+export const PlayKana = ({letters, alphabet, exercise}) => {
+    const [guess, setGuess] = useState(exercise.next())
+    const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
+
+    console.log({guess})
 
     const isKana = guessWhat === "kana"
 
     const handleChoiceClick = (chosenKana) => {
+        console.log("ici dans handleChoiceClick")
         setIsChoiceValid(guess.validateChoice(chosenKana))
         setTimeout(() => {
             setIsChoiceValid(undefined)
-            setGuess(practice.next());
+            setGuess(exercise.next());
+            setGuessWhat(randomizeWhatToGuess())
         }, 1000);
+
     }
 
     const divCssImg = () => {
-        return "playItemKana" + " " + guess.kanaToGuess.determineKanaImageWithAlphabetAndSyllable()
+        return "playItemKana" + " " + guess.kanaToGuess.determineKanaImage()
     }
 
     return <div id="playKana">

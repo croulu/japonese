@@ -1,7 +1,8 @@
-import {Exercise} from "../domain/Exercise";
+import {Practice} from "../domain/Practice";
 import {Kana} from "../domain/Kana";
 
 import assert from "assert";
+
 
 const kanas = [
     new Kana('hiragana', 'k', 'a'),
@@ -9,10 +10,10 @@ const kanas = [
     new Kana('hiragana', 'k', 'u')
 ];
 
-describe('Exercice', function () {
+describe('Practice', function () {
 
     it('should provide GuessSyllable within Kana lesson or Romaji lesson', function () {
-        const sut = new Exercise(
+        const sut = new Practice(
             kanas,
             list => list[0],
             list => list)
@@ -21,7 +22,7 @@ describe('Exercice', function () {
     })
 
     it('should randomize kana to guess', function () {
-        const sut = new Exercise(
+        const sut = new Practice(
             kanas,
             list => list[1],
             list => list)
@@ -30,7 +31,7 @@ describe('Exercice', function () {
     })
 
     it('should randomize proposed kanas', function () {
-        const sut = new Exercise(
+        const sut = new Practice(
             kanas,
             list => list[0],
             list => [list[1], list[2], list[0]]

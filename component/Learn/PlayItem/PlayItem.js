@@ -3,14 +3,12 @@ import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
-import {ExerciseFactory} from "../../../domain/ExerciseFactory";
+import {PracticeFactory} from "../../../domain/PracticeFactory";
 
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}) => {
 
-    const letters = lesson
-        .split(" ")
-        .map(letter => letter = {txt: letter});
+    const letters = lesson.title
 
     const handleOnTimeout = () => {
         const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
@@ -20,15 +18,14 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}
         this.props.onLessonChange(event.target.value);
     }
 
-    const createExercise = (lesson, alphabet) => {
-        console.log({lesson, alphabet})
-        return new ExerciseFactory().createExercise(lesson, alphabet);
+    const createPractice = (lesson, alphabet) => {
+        return new PracticeFactory().createPractice(lesson, alphabet);
     }
 
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
         <PlayKana letters={letters} alphabet={alphabet}
-                  onClick={handleChange} exercise={createExercise(lesson,alphabet)}/>
+                  onClick={handleChange} practice={createPractice(lesson, alphabet)}/>
     </div>);
 }

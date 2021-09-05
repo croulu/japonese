@@ -4,12 +4,13 @@ import {Choice} from "./Choice";
 import {Kana} from "../../../domain/Kana";
 import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 
-export const PlayKana = ({letters, alphabet, exercise}) => {
-    const [guess, setGuess] = useState(exercise.next())
+export const PlayKana = ({letters, alphabet, practice}) => {
+    const [guess, setGuess] = useState(practice.next())
     const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
 
     console.log({guess})
+    console.log({guessWhat})
 
     const isKana = guessWhat === "kana"
 
@@ -18,14 +19,16 @@ export const PlayKana = ({letters, alphabet, exercise}) => {
         setIsChoiceValid(guess.validateChoice(chosenKana))
         setTimeout(() => {
             setIsChoiceValid(undefined)
-            setGuess(exercise.next());
+            setGuess(practice.next());
             setGuessWhat(randomizeWhatToGuess())
         }, 1000);
 
     }
 
     const divCssImg = () => {
-        return "playItemKana" + " " + guess.kanaToGuess.determineKanaImage()
+        console.log(guess.syllable)
+
+        return "playItemKana" + " " + guess.syllable.display()
     }
 
     return <div id="playKana">
@@ -45,13 +48,13 @@ export const PlayKana = ({letters, alphabet, exercise}) => {
         <div className="playKana">
             <div>
                 {
-                    isKana ? <div id="playItemRomanji">{guess.kanaToGuess.syllable}</div> :
+                    isKana ? <div id="playItemRomanji">{guess.syllable}</div> :
                         <div id="playItemKana" className={divCssImg()}></div>
 
                 }
             </div>
-            {letters.map(letter => <Choice key={letter.txt}
-                                           kana={new Kana(alphabet, letter.txt)}
+            { guess.syllables.map(syllable => <Choice key={syllable.consonant + syllable.vowel}
+                                           kana={new Kana(alphabet, syllable.consonant, syllable.vowel)}
                                            guessWhat={guessWhat}
                                            handleClick={handleChoiceClick} />)}
         </div>

@@ -11,7 +11,7 @@ describe('Kana', function () {
         const vowel = vowelInput
         const sut = new Kana(alphabet, consonant, vowel)
 
-        const actual = sut.determineKanaImage()
+        const actual = sut.display()
 
         const expected = imageName
         assert.deepEqual(actual, expected)

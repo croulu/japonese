@@ -6,7 +6,7 @@ export const LessonButton = ({alphabet, lesson, onLessonChange}) => {
     const history = useHistory()
 
     const handleClick = function () {
-        onLessonChange(alphabet, lesson.title)
+        onLessonChange(alphabet, lesson.syllables)
 
         history.push('/play')
     }

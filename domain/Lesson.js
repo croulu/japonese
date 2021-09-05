@@ -1,8 +1,8 @@
 
 
 export class Lesson {
-    constructor(kanas) {
-        this.kanas = kanas
+    constructor(lessons) {
+        this.lessons = lessons
     }
 
 

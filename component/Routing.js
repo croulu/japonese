@@ -12,7 +12,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     const handleLesson = (alphabet, lesson) => {
         setAlphabet(alphabet)
         setLesson(lesson)
-        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.split(" ").join("-"), oneGuess);
+        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.code, oneGuess);
     };
 
     return (

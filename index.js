@@ -17,6 +17,7 @@ import {App} from "./component/App";
 import {initClickOnCountdown} from "./js/timerCountDown";
 
 
+
 const lessonCatalog = new LessonCatalog()
 
 const oneLesson = new Lesson()

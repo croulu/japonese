@@ -5,7 +5,7 @@ export class Kana extends Syllable {
     super(alphabet, consonant, vowel);
   }
 
-  determineKanaImage() {
+  display() {
     return this.alphabet.toUpperCase() + this.consonant + this.vowel
   }
 

@@ -5,4 +5,7 @@ export class Romaji extends Syllable {
         super(alphabet, consonant, vowel);
     }
 
+    display() {
+        return this.consonant + this.vowel
+    }
 }

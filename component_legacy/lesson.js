@@ -232,7 +232,6 @@ class Lesson {
     let arrayToWrite = []
 
     const oneMenu = new Menu()
-    console.log(oneMenu)
 
     this.prepareLesson(codeLesson, typeLesson)
 

@@ -6,9 +6,7 @@ import {stopLesson} from "../../../component_legacy/lesson";
 import {PracticeFactory} from "../../../domain/PracticeFactory";
 
 
-export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}) => {
-
-    const letters = lesson.title
+export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
 
     const handleOnTimeout = () => {
         const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
@@ -18,14 +16,13 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, alphabet, lesson}
         this.props.onLessonChange(event.target.value);
     }
 
-    const createPractice = (lesson, alphabet) => {
-        return new PracticeFactory().createPractice(lesson, alphabet);
+    const createPractice = (lesson) => {
+        return new PracticeFactory().createPractice(lesson);
     }
 
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
-        <PlayKana letters={letters} alphabet={alphabet}
-                  onClick={handleChange} practice={createPractice(lesson, alphabet)}/>
+        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
     </div>);
 }

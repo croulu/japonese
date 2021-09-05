@@ -2,9 +2,10 @@ import React, {useState} from "react";
 
 import {Choice} from "./Choice";
 import {Kana} from "../../../domain/Kana";
+import {Romaji} from "../../../domain/Romaji";
 import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 
-export const PlayKana = ({letters, alphabet, practice}) => {
+export const PlayKana = ({practice}) => {
     const [guess, setGuess] = useState(practice.next())
     const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
@@ -53,8 +54,8 @@ export const PlayKana = ({letters, alphabet, practice}) => {
 
                 }
             </div>
-            { guess.syllables.map(syllable => <Choice key={syllable.consonant + syllable.vowel}
-                                           kana={new Kana(alphabet, syllable.consonant, syllable.vowel)}
+            { guess.syllables.map(syllable => <Choice key={syllable.alphabet + syllable.consonant + syllable.vowel}
+                                           kana={new Kana(syllable.alphabet, syllable.consonant, syllable.vowel)}
                                            guessWhat={guessWhat}
                                            handleClick={handleChoiceClick} />)}
         </div>

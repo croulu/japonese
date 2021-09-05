@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Choice = ({kana, guessWhat, handleClick}) => {
-    const divCssImg = "playKanaChoice" + " " + kana.determineKanaImage() + " "
+    const divCssImg = "playKanaChoice" + " " + kana.display() + " "
 
     if (guessWhat === "kana") {
         return (

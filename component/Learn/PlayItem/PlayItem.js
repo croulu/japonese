@@ -3,17 +3,10 @@ import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
-import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 import {Practice} from "../../../domain/Practice";
-import {randomizeSyllableToGuess} from "../../../domain/randomizeSyllableToGuess";
-import {randomizeSyllablesToPropose} from "../../../domain/randomizeSyllablesToPropoze";
 
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
-
-    const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
-    //const guessWhat = randomizeWhatToGuess()
-    console.log({guessWhat})
 
     const handleOnTimeout = () => {
         const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
@@ -23,13 +16,13 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
         this.props.onLessonChange(event.target.value);
     }
 
-    const createPractice = (lesson, guessWhat) => {
-        return new Practice(lesson, randomizeSyllableToGuess, randomizeSyllablesToPropose, guessWhat)
+    const createPractice = (lesson) => {
+        return new Practice(lesson)
     }
 
     return (<div id="playItem">
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
-        <PlayKana onClick={handleChange} practice={createPractice(lesson, guessWhat)} guessWhat={guessWhat}/>
+        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
     </div>);
 }

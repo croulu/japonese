@@ -2,14 +2,17 @@ import {GuessRomaji} from "./GuessRomaji";
 import {GuessKana} from "./GuessKana";
 import {Romaji} from "./Romaji";
 import {Kana} from "./Kana";
+import {randomizeWhatToGuess} from "./randomizeWhatToGuess";
+import {randomizeSyllableToGuess} from "./randomizeSyllableToGuess";
+import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
 
 export class Practice {
 
-    constructor(lesson, randomizeSyllableToGuess, randomizeSyllablesProposals, guessWhat) {
+    constructor(lesson) {
         this.syllables = lesson
         this.randomizeSyllableToGuess = randomizeSyllableToGuess;
-        this.randomizeSyllablesProposals = randomizeSyllablesProposals;
-        this.guessWhat = guessWhat;
+        this.randomizeSyllablesProposals = randomizeSyllablesToPropoze;
+        this.guessWhat = randomizeWhatToGuess();
     }
 
     next() {

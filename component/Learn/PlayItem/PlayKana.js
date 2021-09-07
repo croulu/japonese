@@ -2,9 +2,11 @@ import React, {useState} from "react";
 
 import {Choice} from "./Choice";
 
-export const PlayKana = ({practice, guessWhat}) => {
+export const PlayKana = ({practice}) => {
     const [guess, setGuess] = useState(practice.next())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
+
+    const guessWhat = practice.guessWhat
 
     console.log({guess})
     console.log({guessWhat})

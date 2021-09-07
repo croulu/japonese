@@ -1,44 +1,36 @@
 import {Practice} from "../domain/Practice";
+import {Syllable} from "../domain/Syllable";
 import {Kana} from "../domain/Kana";
+import {randomizeSyllableToGuess} from "../domain/randomizeSyllableToGuess";
 
 import assert from "assert";
 
-
-const kanas = [
-    new Kana('hiragana', 'k', 'a'),
-    new Kana('hiragana', 'k', 'i'),
-    new Kana('hiragana', 'k', 'u')
+const lesson = [
+    new Syllable('hiragana', 'k', 'a'),
+    new Syllable('hiragana', 'k', 'i'),
+    new Syllable('hiragana', 'k', 'u'),
+    new Syllable('hiragana', 'k', 'e'),
+    new Syllable('hiragana', 'k', 'o'),
 ];
 
 describe('Practice', function () {
 
-    it('should provide GuessSyllable within Kana lesson or Romaji lesson', function () {
-        const sut = new Practice(
-            kanas,
+    /*
+    it('should provide GuessKana within Kana lesson', function () {
+        const guessWhat = "kana";
+        const list = randomizeSyllableToGuess();
+        const sut = new Practice(lesson,
             list => list[0],
-            list => list)
-        const guess = sut.next()
-        assert.ok(kanas.includes(guess.syllable))
+            list => list,
+            guessWhat)
+        const guessRomaji = sut.next();
+        assert.ok(lesson.includes(guessRomaji.syllable))
     })
 
-    it('should randomize kana to guess', function () {
-        const sut = new Practice(
-            kanas,
-            list => list[1],
-            list => list)
-        const guess = sut.next()
-        assert.deepEqual(kanas[1], guess.syllable)
-    })
+    it('should provide GuessRomaji within Romaji lesson', function () {
 
-    it('should randomize proposed kanas', function () {
-        const sut = new Practice(
-            kanas,
-            list => list[0],
-            list => [list[1], list[2], list[0]]
-        )
-        const guess = sut.next()
-        const proposedKanas = guess.syllables
-        assert.deepEqual([kanas[1], kanas[2], kanas[0]], proposedKanas);
-    })
+    }
+
+*/
 
 })

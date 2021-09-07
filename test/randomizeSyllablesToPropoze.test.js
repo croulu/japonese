@@ -1,5 +1,5 @@
 import assert from "assert";
-import {randomizeSyllablesToPropose} from "../domain/randomizeSyllablesToPropoze";
+import {randomizeSyllablesToPropoze} from "../domain/randomizeSyllablesToPropoze";
 
 
 describe('randomizeSyllablesToPropoze', function () {

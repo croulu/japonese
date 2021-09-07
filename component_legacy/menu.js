@@ -56,9 +56,6 @@ class Menu {
     this.setNoneToAll()
     this.home.style.display = 'block'
 
-    btnContinue.innerText = setLessonTitle(lastLessonType, lastLessonName)
-    continueButton(lastLessonName, lastLessonType)
-
     this.play.style.display = 'block'
     this.playMenu.style.display = 'block'
 

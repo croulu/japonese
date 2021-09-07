@@ -1,15 +1,13 @@
 import React from "react";
 import {GuessAlphabet} from "./GuessAlphabet";
-import {Continue} from "./Continue";
-import {Alllearned} from "./Alllearned";
+import {IncludePreviousCheckBox} from "./IncludePreviousCheckBox";
+
 
 export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
     <>
         <div id="playMenu">
 
-            <Continue/>
-
-            <Alllearned/>
+            <IncludePreviousCheckBox />
 
             {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
                 <GuessAlphabet

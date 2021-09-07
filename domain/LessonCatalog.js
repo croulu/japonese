@@ -33,6 +33,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "s", vowel: "a"},
+                            {alphabet: "h", consonant: "s", vowel: "i"},
+                            {alphabet: "h", consonant: "s", vowel: "u"},
+                            {alphabet: "h", consonant: "s", vowel: "e"},
+                            {alphabet: "h", consonant: "s", vowel: "o"},
                         ],
                         title: "sa shi su se so",
                         img: "sa",
@@ -41,6 +45,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "t", vowel: "a"},
+                            {alphabet: "h", consonant: "t", vowel: "i"},
+                            {alphabet: "h", consonant: "t", vowel: "u"},
+                            {alphabet: "h", consonant: "t", vowel: "e"},
+                            {alphabet: "h", consonant: "t", vowel: "o"},
                         ],
                         title: "ta chi tsu te to",
                         img: "ta",
@@ -49,6 +57,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "n", vowel: "a"},
+                            {alphabet: "h", consonant: "n", vowel: "i"},
+                            {alphabet: "h", consonant: "n", vowel: "u"},
+                            {alphabet: "h", consonant: "n", vowel: "e"},
+                            {alphabet: "h", consonant: "n", vowel: "o"},
                         ],
                         title: "na ni nu ne no",
                         img: "na",
@@ -57,6 +69,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "h", vowel: "a"},
+                            {alphabet: "h", consonant: "h", vowel: "i"},
+                            {alphabet: "h", consonant: "h", vowel: "u"},
+                            {alphabet: "h", consonant: "h", vowel: "e"},
+                            {alphabet: "h", consonant: "h", vowel: "o"},
                         ],
                         title: "ha hi fu he ho",
                         img: "ha",
@@ -65,6 +81,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "m", vowel: "a"},
+                            {alphabet: "h", consonant: "m", vowel: "i"},
+                            {alphabet: "h", consonant: "m", vowel: "u"},
+                            {alphabet: "h", consonant: "m", vowel: "e"},
+                            {alphabet: "h", consonant: "m", vowel: "o"},
                         ],
                         title: "ma mi mu me mo",
                         img: "ma",
@@ -73,6 +93,8 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "y", vowel: "a"},
+                            {alphabet: "h", consonant: "y", vowel: "u"},
+                            {alphabet: "h", consonant: "y", vowel: "o"},
                         ],
                         title: "ya yu yo",
                         img: "ya",
@@ -81,6 +103,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "r", vowel: "a"},
+                            {alphabet: "h", consonant: "r", vowel: "i"},
+                            {alphabet: "h", consonant: "r", vowel: "u"},
+                            {alphabet: "h", consonant: "r", vowel: "e"},
+                            {alphabet: "h", consonant: "r", vowel: "o"},
                         ],
                         title: "ra ri ru re ro",
                         img: "ra",
@@ -89,6 +115,8 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "w", vowel: "a"},
+                            {alphabet: "h", consonant: "w", vowel: "o"},
+                            {alphabet: "h", consonant: "", vowel: "n"},
                         ],
                         title: "wa wo n",
                         img: "wa",
@@ -99,6 +127,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "g", vowel: "a"},
+                            {alphabet: "h", consonant: "g", vowel: "i"},
+                            {alphabet: "h", consonant: "g", vowel: "u"},
+                            {alphabet: "h", consonant: "g", vowel: "e"},
+                            {alphabet: "h", consonant: "g", vowel: "o"},
                         ],
                         title: "ga gi gu ge go",
                         img: "ga",
@@ -107,6 +139,10 @@ export class LessonCatalog {
                     withHiraganaId({
                         syllables: [
                             {alphabet: "h", consonant: "z", vowel: "a"},
+                            {alphabet: "h", consonant: "z", vowel: "i"},
+                            {alphabet: "h", consonant: "z", vowel: "u"},
+                            {alphabet: "h", consonant: "z", vowel: "e"},
+                            {alphabet: "h", consonant: "z", vowel: "o"},
                         ],
                         title: "za ji zu ze zo",
                         img: "za",

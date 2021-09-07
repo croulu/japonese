@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
-import {randomizeWhatToGuess} from "../domain/randomizeWhatToGuess";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
@@ -10,8 +9,8 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     const [lesson, setLesson] = useState("")
 
     const handleLesson = (alphabet, lesson) => {
-        setAlphabet(alphabet)
-        setLesson(lesson)
+        setAlphabet(alphabet);
+        setLesson(lesson);
         oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + lesson.code, oneGuess);
     };
 

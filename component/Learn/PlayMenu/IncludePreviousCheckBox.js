@@ -8,6 +8,10 @@ export const IncludePreviousCheckBox = () => {
         setChecked(!checked);
     };
 
+    const isChecked = () => {
+        return checked ? 1 : 0;
+    }
+
     return (
         <div>
             <Checkbox

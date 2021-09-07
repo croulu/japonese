@@ -3,8 +3,10 @@ import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
 import {stopLesson} from "../../../component_legacy/lesson";
-import {PracticeFactory} from "../../../domain/PracticeFactory";
 import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
+import {Practice} from "../../../domain/Practice";
+import {randomizeSyllableToGuess} from "../../../domain/randomizeSyllableToGuess";
+import {randomizeSyllablesToPropose} from "../../../domain/randomizeSyllablesToPropoze";
 
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
@@ -23,7 +25,7 @@ console.log({guessWhat})
     }
 
     const createPractice = (lesson, guessWhat) => {
-        return new PracticeFactory().createPractice(lesson, guessWhat);
+        return new Practice(lesson, randomizeSyllableToGuess, randomizeSyllablesToPropose, guessWhat)
     }
 
     return (<div id="playItem">

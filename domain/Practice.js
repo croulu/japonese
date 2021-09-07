@@ -5,8 +5,8 @@ import {Kana} from "./Kana";
 
 export class Practice {
 
-    constructor(syllables, randomizeSyllableToGuess, randomizeSyllablesProposals, guessWhat) {
-        this.syllables = syllables
+    constructor(lesson, randomizeSyllableToGuess, randomizeSyllablesProposals, guessWhat) {
+        this.syllables = lesson
         this.randomizeSyllableToGuess = randomizeSyllableToGuess;
         this.randomizeSyllablesProposals = randomizeSyllablesProposals;
         this.guessWhat = guessWhat;

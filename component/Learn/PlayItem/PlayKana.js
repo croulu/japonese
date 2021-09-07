@@ -1,20 +1,15 @@
 import React, {useState} from "react";
 
 import {Choice} from "./Choice";
-import {Kana} from "../../../domain/Kana";
-import {Romaji} from "../../../domain/Romaji";
-import {randomizeWhatToGuess} from "../../../domain/randomizeWhatToGuess";
 
-export const PlayKana = ({practice}) => {
+export const PlayKana = ({practice, guessWhat}) => {
     const [guess, setGuess] = useState(practice.next())
-    const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
 
     console.log({guess})
     console.log({guessWhat})
 
-    const isKana = "romaji"
-//    const isKana = guessWhat === "romaji"
+    const isKanaToGuess = guessWhat === "kana"
 
     const handleChoiceClick = (chosenKana) => {
         console.log("ici dans handleChoiceClick")
@@ -22,7 +17,6 @@ export const PlayKana = ({practice}) => {
         setTimeout(() => {
             setIsChoiceValid(undefined)
             setGuess(practice.next());
-            setGuessWhat(randomizeWhatToGuess())
         }, 1000);
 
     }
@@ -50,8 +44,9 @@ export const PlayKana = ({practice}) => {
         <div className="playKana">
             <div>
                 {
-                    isKana ? <div id="playItemRomanji">{guess.syllable.display()}</div> :
-                        <div id="playItemKana" className={divCssImg()}></div>
+                    isKanaToGuess ? <div id="playItemKana" className={divCssImg()}></div> :
+                        <div id="playItemRomanji">{guess.syllable.display()}</div>
+
 
                 }
             </div>

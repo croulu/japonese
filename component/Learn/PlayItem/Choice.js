@@ -3,7 +3,7 @@ import React from "react";
 export const Choice = ({syllable, guessWhat, handleClick}) => {
     const divCssImg = "playKanaChoice" + " " + syllable.display() + " "
 
-    if (guessWhat === "kana") {
+    if (guessWhat === "romaji") {
         return (
             <div>
                 <a onClick={() => handleClick(syllable)}>
@@ -15,7 +15,7 @@ export const Choice = ({syllable, guessWhat, handleClick}) => {
         return (
             <div>
                 <a onClick={() => handleClick(syllable)}>
-                    <div>{syllable.display()}</div>
+                    { syllable.display() }
                 </a>
             </div>
         );

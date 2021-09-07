@@ -6,6 +6,6 @@ export class Romaji extends Syllable {
     }
 
     display() {
-        return "TO CONVERT -> " + this.consonant + this.vowel
+        return this.consonant + this.vowel
     }
 }

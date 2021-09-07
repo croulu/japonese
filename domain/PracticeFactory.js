@@ -4,10 +4,10 @@ import {randomizeSyllablesToPropose} from "./randomizeSyllablesToPropoze";
 
 export class PracticeFactory {
 
-    createPractice(syllables) {
+    createPractice(syllables, guessWhat) {
 
 
-        return new Practice(syllables, randomizeSyllableToGuess, randomizeSyllablesToPropose)
+        return new Practice(syllables, randomizeSyllableToGuess, randomizeSyllablesToPropose, guessWhat)
     }
 
 }

@@ -11,6 +11,8 @@ export class GuessKana extends GuessSyllable {
             this.syllable.vowel === romaji.vowel)
     }
 
-
+    validateChoice(kanaChosen) {
+        return this.equals(kanaChosen)
+    }
 
 }

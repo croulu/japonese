@@ -6,6 +6,8 @@ export class Kana extends Syllable {
   }
 
   display() {
+
+    //TODO: mapping pour trouver la bonne image dans les cas exceptions comme shi
     return this.alphabet.toUpperCase() + this.consonant + this.vowel
   }
 

@@ -17,6 +17,7 @@ export class LessonCatalog {
                         title: "a i u e o",
                         img: "a",
                         code: "a-i-u-e-o",
+                        order: 1,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -29,6 +30,7 @@ export class LessonCatalog {
                         title: "ka ki ku ke ko",
                         img: "ka",
                         code: "ka-ki-ku-ke-ko",
+                        order: 2,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -41,6 +43,7 @@ export class LessonCatalog {
                         title: "sa shi su se so",
                         img: "sa",
                         code: "sa-shi-su-se-so",
+                        order: 3,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -53,6 +56,7 @@ export class LessonCatalog {
                         title: "ta chi tsu te to",
                         img: "ta",
                         code: "ta-chi-tsu-te-to",
+                        order: 4,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -65,6 +69,7 @@ export class LessonCatalog {
                         title: "na ni nu ne no",
                         img: "na",
                         code: "na-ni-nu-ne-no",
+                        order: 5,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -77,6 +82,7 @@ export class LessonCatalog {
                         title: "ha hi fu he ho",
                         img: "ha",
                         code: "ha-hi-fu-he-ho",
+                        order: 6,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -89,6 +95,7 @@ export class LessonCatalog {
                         title: "ma mi mu me mo",
                         img: "ma",
                         code: "ma-mi-mu-me-mo",
+                        order: 7,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -99,6 +106,7 @@ export class LessonCatalog {
                         title: "ya yu yo",
                         img: "ya",
                         code: "ya-yu-yo",
+                        order: 8,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -111,6 +119,7 @@ export class LessonCatalog {
                         title: "ra ri ru re ro",
                         img: "ra",
                         code: "ra-ri-ru-re-ro",
+                        order: 9,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -121,6 +130,7 @@ export class LessonCatalog {
                         title: "wa wo n",
                         img: "wa",
                         code: "wa-wo-n",
+                        order: 10,
                     }),
                 ],
                 dakuon: [
@@ -135,6 +145,7 @@ export class LessonCatalog {
                         title: "ga gi gu ge go",
                         img: "ga",
                         code: "ga-gi-gu-ge-go",
+                        order: 11,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -147,6 +158,7 @@ export class LessonCatalog {
                         title: "za ji zu ze zo",
                         img: "za",
                         code: "za-ji-zu-ze-zo",
+                        order: 12,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -155,6 +167,7 @@ export class LessonCatalog {
                         title: "da ji zu de do",
                         img: "da",
                         code: "da-ji-zu-de-do",
+                        order: 13,
                     }),
                     withHiraganaId({
                         syllables: [
@@ -163,6 +176,7 @@ export class LessonCatalog {
                         title: "ba bi bu be bo",
                         img: "ba",
                         code: "ba-bi-bu-be-bo",
+                        order: 14,
                     }),
                 ],
                 handakuon: [
@@ -173,6 +187,7 @@ export class LessonCatalog {
                         title: "pa pi pu pe po",
                         img: "pa",
                         code: "pa-pi-pu-pe-po",
+                        order: 15,
                     }),
                 ]
             },
@@ -185,6 +200,7 @@ export class LessonCatalog {
                         title: "a i u e o",
                         img: "a",
                         code: "a-i-u-e-o",
+                        order: 1,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -193,6 +209,7 @@ export class LessonCatalog {
                         title: "ka ki ku ke ko",
                         img: "ka",
                         code: "a-i-u-e-o",
+                        order: 2,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -201,6 +218,7 @@ export class LessonCatalog {
                         title: "sa shi su se so",
                         img: "sa",
                         code: "a-i-u-e-o",
+                        order: 3,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -209,6 +227,7 @@ export class LessonCatalog {
                         title: "ta chi tsu te to",
                         img: "ta",
                         code: "a-i-u-e-o",
+                        order: 4,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -217,6 +236,7 @@ export class LessonCatalog {
                         title: "na ni nu ne no",
                         img: "na",
                         code: "a-i-u-e-o",
+                        order: 5,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -225,6 +245,7 @@ export class LessonCatalog {
                         title: "ha hi fu he ho",
                         img: "ra",
                         code: "a-i-u-e-o",
+                        order: 6,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -233,6 +254,7 @@ export class LessonCatalog {
                         title: "ma mi mu me mo",
                         img: "ma",
                         code: "a-i-u-e-o",
+                        order: 7,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -241,6 +263,7 @@ export class LessonCatalog {
                         title: "ya yu yo",
                         img: "ya",
                         code: "a-i-u-e-o",
+                        order: 8,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -249,6 +272,7 @@ export class LessonCatalog {
                         title: "ra ri ru re ro",
                         img: "ra",
                         code: "a-i-u-e-o",
+                        order: 9,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -257,6 +281,7 @@ export class LessonCatalog {
                         title: "wa wo n",
                         img: "wa",
                         code: "a-i-u-e-o",
+                        order: 10,
                     }),
                 ],
                 dakuon: [
@@ -267,6 +292,7 @@ export class LessonCatalog {
                         title: "ga gi gu ge go",
                         img: "ga",
                         code: "a-i-u-e-o",
+                        order: 11,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -275,6 +301,7 @@ export class LessonCatalog {
                         title: "za ji zu ze zo",
                         img: "za",
                         code: "a-i-u-e-o",
+                        order: 12,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -283,6 +310,7 @@ export class LessonCatalog {
                         title: "da ji zu de do",
                         img: "da",
                         code: "a-i-u-e-o",
+                        order: 13,
                     }),
                     withKatakanaId({
                         syllables: [
@@ -291,6 +319,7 @@ export class LessonCatalog {
                         title: "ba bi bu be bo",
                         img: "ba",
                         code: "a-i-u-e-o",
+                        order: 14,
                     }),
                 ],
                 handakuon: [
@@ -301,6 +330,7 @@ export class LessonCatalog {
                         title: "pa pi pu pe po",
                         img: "pa",
                         code: "a-i-u-e-o",
+                        order: 15,
                     }),
                 ],
             }

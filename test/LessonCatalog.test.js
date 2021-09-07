@@ -14,4 +14,19 @@ describe('LessonCatalog', function () {
         assert.deepEqual(4, result.katakana.dakuon.length)
         assert.deepEqual(1, result.katakana.handakuon.length)
     })
+
+    it( `should provide lesson requested plus it previous lessons`, function () {
+        const sut = new LessonCatalog();
+        const alphabet = "hiragana";
+        const lessons = sut.list();
+
+        console.log(lessons[alphabet].basic)
+
+        const result = lessons[alphabet].basic.filter(lesson => lesson[alphabet].basic.order < 3);
+
+        console.log(result);
+
+
+    })
+
 })

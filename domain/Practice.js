@@ -25,7 +25,6 @@ export class Practice {
             this.syllables :
             this.randomizeSyllablesProposals(this.syllables);
 
-
         const objectsToPropose = isKanaToGuess ?
             proposals.map(proposal => new Romaji(proposal.alphabet, proposal.consonant, proposal.vowel)) :
             proposals.map(proposal => new Kana(proposal.alphabet, proposal.consonant, proposal.vowel))

@@ -11,10 +11,9 @@ import {randomizeSyllablesToPropose} from "../../../domain/randomizeSyllablesToP
 
 export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
 
-    const guessWhat = randomizeWhatToGuess()
-console.log({guessWhat})
-
-//    setGuessWhat(randomizeWhatToGuess())
+    const [guessWhat, setGuessWhat] = useState(randomizeWhatToGuess())
+    //const guessWhat = randomizeWhatToGuess()
+    console.log({guessWhat})
 
     const handleOnTimeout = () => {
         const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;

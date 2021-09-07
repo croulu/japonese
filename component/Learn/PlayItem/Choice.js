@@ -1,12 +1,12 @@
 import React from "react";
 
-export const Choice = ({kana, guessWhat, handleClick}) => {
-    const divCssImg = "playKanaChoice" + " " + kana.display() + " "
+export const Choice = ({syllable, guessWhat, handleClick}) => {
+    const divCssImg = "playKanaChoice" + " " + syllable.display() + " "
 
     if (guessWhat === "kana") {
         return (
             <div>
-                <a onClick={() => handleClick(kana)}>
+                <a onClick={() => handleClick(syllable)}>
                     <div className={divCssImg}></div>
                 </a>
             </div>
@@ -14,8 +14,8 @@ export const Choice = ({kana, guessWhat, handleClick}) => {
     } else {
         return (
             <div>
-                <a onClick={() => handleClick(kana)}>
-                    <div>{kana.syllable}</div>
+                <a onClick={() => handleClick(syllable)}>
+                    <div>{syllable.display()}</div>
                 </a>
             </div>
         );

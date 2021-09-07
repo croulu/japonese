@@ -6,6 +6,10 @@ export class Syllable {
         this.vowel = vowel;
     }
 
+    key() {
+        return this.alphabet + this.consonant + this.vowel;
+    }
+
     equals(syllable) {
         return (this.alphabet === syllable.alphabet &&
             this.consonant === syllable.consonant &&

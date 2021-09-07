@@ -13,7 +13,8 @@ export const PlayKana = ({practice}) => {
     console.log({guess})
     console.log({guessWhat})
 
-    const isKana = guessWhat === "kana"
+    const isKana = "romaji"
+//    const isKana = guessWhat === "romaji"
 
     const handleChoiceClick = (chosenKana) => {
         console.log("ici dans handleChoiceClick")
@@ -49,15 +50,17 @@ export const PlayKana = ({practice}) => {
         <div className="playKana">
             <div>
                 {
-                    isKana ? <div id="playItemRomanji">{guess.syllable}</div> :
+                    isKana ? <div id="playItemRomanji">{guess.syllable.display()}</div> :
                         <div id="playItemKana" className={divCssImg()}></div>
 
                 }
             </div>
-            { guess.syllables.map(syllable => <Choice key={syllable.alphabet + syllable.consonant + syllable.vowel}
-                                           kana={new Kana(syllable.alphabet, syllable.consonant, syllable.vowel)}
-                                           guessWhat={guessWhat}
-                                           handleClick={handleChoiceClick} />)}
+                {
+                    guess.syllables.map(syllable => <Choice key={syllable.key()}
+                                                            syllable={syllable}
+                                                            guessWhat={guessWhat}
+                                                            handleClick={handleChoiceClick} />)
+                }
         </div>
     </div>
 }

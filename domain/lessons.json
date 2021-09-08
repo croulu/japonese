@@ -1,10 +1,35 @@
 {
   "1": {
-    "syllables": [{
-      "alphabet": "h",
-      "consonne": "k",
-      "voyelle": "a"
-    }],
-    "titre": "titre";
+    "alphabet": "hiragana",
+    "type": "basic",
+    "titre": "a i u e o",
+    "img": "a",
+    "syllables": [
+      {
+        "alphabet": "h",
+        "consonne": "",
+        "voyelle": "a"
+      },
+      {
+        "alphabet": "h",
+        "consonne": "",
+        "voyelle": "i"
+      },
+      {
+        "alphabet": "h",
+        "consonne": "",
+        "voyelle": "u"
+      },
+      {
+        "alphabet": "h",
+        "consonne": "",
+        "voyelle": "e"
+      },
+      {
+        "alphabet": "h",
+        "consonne": "k",
+        "voyelle": "o"
+      }
+    ]
   }
 }

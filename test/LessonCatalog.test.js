@@ -2,6 +2,11 @@ import {LessonCatalog} from "../domain/LessonCatalog";
 
 import assert from "assert";
 
+const alphabet = "hiragana";
+const maxOrderLesson = 3;
+const codesPreviousLessonOrder = ["a-i-u-e-o", "ka-ki-ku-ke-ko"];
+
+
 describe('LessonCatalog', function () {
     it(`should provide lessons structured in alphabets and groups`, function () {
         const sut = new LessonCatalog()
@@ -15,18 +20,20 @@ describe('LessonCatalog', function () {
         assert.deepEqual(1, result.katakana.handakuon.length)
     })
 
-    it( `should provide lesson requested plus it previous lessons`, function () {
+    it(`should provide hiragana lessons plus its previous lessons with lesson order < ${maxOrderLesson}`, function () {
         const sut = new LessonCatalog();
-        const alphabet = "hiragana";
-        const lessons = sut.list();
+        const lessons = sut.listPrevious(alphabet, maxOrderLesson);
+        const result = [];
+        lessons.map(lesson => result.push(lesson.code));
 
-        console.log(lessons[alphabet].basic)
-
-        const result = lessons[alphabet].basic.filter(lesson => lesson[alphabet].basic.order < 3);
-
-        console.log(result);
-
-
+        assert.deepEqual(codesPreviousLessonOrder, result);
     })
 
+    it(`should randomize syllables of various lessons`, function () {
+        const sut = new LessonCatalog();
+        const lessons = sut.listPrevious(alphabet, maxOrderLesson);
+        const result = sut.randomizeListPrevious(lessons);
+
+        assert.deepEqual(codesPreviousLessonOrder, result);
+    }
 })

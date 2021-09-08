@@ -2,6 +2,16 @@ const withHiraganaId = lesson => ({...lesson, id: lesson.title.split(" ").join("
 const withKatakanaId = lesson => ({...lesson, id: lesson.title.split(" ").join("")});
 
 export class LessonCatalog {
+    listPrevious(alphabet, order) {
+        const lessons = Object.values(this.list()[alphabet].basic);
+
+        return lessons.filter(lesson => lesson.order < order);
+    }
+
+    randomizeListPrevious() {
+        return "rrr";
+    }
+
     list() {
         return {
             hiragana: {

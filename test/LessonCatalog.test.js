@@ -1,10 +1,13 @@
 import {LessonCatalog} from "../domain/LessonCatalog";
+import {Syllable} from "../domain/Syllable";
 
 import assert from "assert";
 
+
 const alphabet = "hiragana";
 const maxOrderLesson = 3;
-const codesPreviousLessonOrder = ["a-i-u-e-o", "ka-ki-ku-ke-ko"];
+
+const syllableHa = new Syllable("h", "", "a");
 
 
 describe('LessonCatalog', function () {
@@ -26,14 +29,13 @@ describe('LessonCatalog', function () {
         const result = [];
         lessons.map(lesson => result.push(lesson.code));
 
-        assert.deepEqual(codesPreviousLessonOrder, result);
+        assert.deepEqual(maxOrderLesson - 1, result.length)
     })
 
     it(`should randomize syllables of various lessons`, function () {
         const sut = new LessonCatalog();
-        const lessons = sut.listPrevious(alphabet, maxOrderLesson);
-        const result = sut.randomizeListPrevious(lessons);
+        const result = sut.randomizeListPrevious(alphabet, maxOrderLesson);
 
-        assert.deepEqual(codesPreviousLessonOrder, result);
-    }
+        assert.ok(result.includes(syllableHa))
+    })
 })

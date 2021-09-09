@@ -8,9 +8,19 @@ export class LessonCatalog {
         return lessons.filter(lesson => lesson.order < order);
     }
 
-    randomizeListPrevious() {
-        return "rrr";
+    randomizeListPrevious(alphabet, order)
+    {
+        const syllables = [];
+
+        const lessons = this.listPrevious(alphabet, order);
+        lessons.map(lesson => syllables.push(lesson.syllables));
+
+        
+        console.log(syllables)
+
+        return syllables;
     }
+
 
     list() {
         return {
@@ -348,6 +358,3 @@ export class LessonCatalog {
     }
 
 }
-
-
-

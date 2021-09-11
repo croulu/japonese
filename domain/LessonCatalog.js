@@ -1,26 +1,42 @@
+import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
+
 const withHiraganaId = lesson => ({...lesson, id: lesson.title.split(" ").join("")});
 const withKatakanaId = lesson => ({...lesson, id: lesson.title.split(" ").join("")});
+
+const maxSyllables = 5;
 
 export class LessonCatalog {
     listPrevious(alphabet, order) {
         const lessons = Object.values(this.list()[alphabet].basic);
 
-        return lessons.filter(lesson => lesson.order < order);
+        return lessons.filter(lesson => lesson.order <= order);
     }
 
-    randomizeListPrevious(alphabet, order)
-    {
+    randomizeListPrevious(alphabet, order) {
         const syllables = [];
 
         const lessons = this.listPrevious(alphabet, order);
         lessons.map(lesson => syllables.push(lesson.syllables));
 
-        
-        console.log(syllables)
+        const randomFlatSyllables = randomizeSyllablesToPropoze(syllables.flat());
+
+        return randomFlatSyllables;
+    }
+
+    randomizeListPreviousButNoMoreThanNb (alphabet, order) {
+        const syllables = this.randomizeListPrevious(alphabet, order).slice(0, maxSyllables);
 
         return syllables;
     }
 
+    codeWithSyllablesList(syllables) {
+        const syllablesCodes = syllables.map(syllable => syllable.consonant + syllable.vowel)
+
+        const reducer = (previousValue, currentValue) => previousValue + "-" + currentValue ;
+        const codeWithLegacyFormat = syllablesCodes.reduce(reducer);
+
+        return codeWithLegacyFormat;
+    }
 
     list() {
         return {

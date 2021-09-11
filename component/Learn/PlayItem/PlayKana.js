@@ -12,12 +12,9 @@ export const PlayKana = ({practice}) => {
             setIsChoiceValid(undefined)
             setGuess(practice.next());
         }, 1000);
-
     }
 
     const divCssImg = () => {
-        console.log(guess.syllable)
-
         return "playItemKana" + " " + guess.syllable.display()
     }
 

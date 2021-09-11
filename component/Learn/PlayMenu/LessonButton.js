@@ -1,12 +1,12 @@
 import React from "react";
 import {useHistory} from 'react-router-dom'
 
-export const LessonButton = ({alphabet, lesson, onLessonChange}) => {
+export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) => {
 
     const history = useHistory()
 
     const handleClick = function () {
-        onLessonChange(alphabet, lesson.syllables)
+        onLessonChange(alphabet, lesson.syllables, lesson.order, alphabetName)
 
         history.push('/play')
     }

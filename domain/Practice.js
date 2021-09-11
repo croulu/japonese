@@ -9,7 +9,7 @@ import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
 export class Practice {
 
     constructor(lesson) {
-        this.syllables = lesson
+        this.syllables = lesson;
     }
 
     next() {
@@ -30,12 +30,6 @@ export class Practice {
         const objectsToPropose = isKanaToGuess ?
             proposals.map(proposal => new Romaji(proposal.alphabet, proposal.consonant, proposal.vowel)) :
             proposals.map(proposal => new Kana(proposal.alphabet, proposal.consonant, proposal.vowel))
-
-        console.log("---- next ----")
-        console.log({randomSyllableToGuess})
-        console.log({proposals})
-        console.log(guessWhat)
-        console.log("====")
 
         const returnGuess = isKanaToGuess ? new GuessKana(objectToGuess, objectsToPropose) :
             new GuessRomaji(objectToGuess, objectsToPropose)

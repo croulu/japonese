@@ -12,7 +12,7 @@ export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
             {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
                 <GuessAlphabet
                     key={alphabetName}
-                    title={alphabetName}
+                    alphabetName={alphabetName}
                     alphabet={alphabet}
                     alphabetLetter={alphabetName.charAt(0).toUpperCase()}
                     oneLesson={oneLesson}

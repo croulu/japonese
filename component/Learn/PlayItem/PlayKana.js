@@ -6,15 +6,7 @@ export const PlayKana = ({practice}) => {
     const [guess, setGuess] = useState(practice.next())
     const [isChoiceValid, setIsChoiceValid] = useState(undefined)
 
-    const guessWhat = practice.guessWhat
-
-    console.log({guess})
-    console.log({guessWhat})
-
-    const isKanaToGuess = guessWhat === "kana"
-
     const handleChoiceClick = (chosenKana) => {
-        console.log("ici dans handleChoiceClick")
         setIsChoiceValid(guess.validateChoice(chosenKana))
         setTimeout(() => {
             setIsChoiceValid(undefined)
@@ -38,7 +30,7 @@ export const PlayKana = ({practice}) => {
                 fontSize: "40px",
                 color: "white",
                 minHeight: "60px",
-                margin:"10px"
+                margin: "10px"
             }}>
             {isChoiceValid ? <span>Bingo :D !</span> : isChoiceValid === false ? <span>Nope :(</span> :
                 ""}
@@ -46,18 +38,18 @@ export const PlayKana = ({practice}) => {
         <div className="playKana">
             <div>
                 {
-                    isKanaToGuess ? <div id="playItemKana" className={divCssImg()}></div> :
+                    guess.isKana() ? <div id="playItemKana" className={divCssImg()}></div> :
                         <div id="playItemRomanji">{guess.syllable.display()}</div>
 
 
                 }
             </div>
-                {
-                    guess.syllables.map(syllable => <Choice key={syllable.key()}
-                                                            syllable={syllable}
-                                                            guessWhat={guessWhat}
-                                                            handleClick={handleChoiceClick} />)
-                }
+            {
+                guess.syllables.map(syllable => <Choice key={syllable.key()}
+                                                        syllable={syllable}
+                                                        guessWhat={guess.isKana() ? "kana" : "romaji"}
+                                                        handleClick={handleChoiceClick}/>)
+            }
         </div>
     </div>
 }

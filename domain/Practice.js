@@ -10,15 +10,14 @@ export class Practice {
 
     constructor(lesson) {
         this.syllables = lesson
-        this.randomizeSyllableToGuess = randomizeSyllableToGuess;
-        this.randomizeSyllablesProposals = randomizeSyllablesToPropoze;
-        this.guessWhat = randomizeWhatToGuess();
     }
 
     next() {
-        const randomSyllableToGuess = this.randomizeSyllableToGuess(this.syllables);
+        const randomSyllableToGuess = randomizeSyllableToGuess(this.syllables);
 
-        const isKanaToGuess = this.guessWhat === "kana"
+        const guessWhat = randomizeWhatToGuess();
+
+        const isKanaToGuess = guessWhat === "kana";
 
         const objectToGuess = isKanaToGuess ?
             new Kana(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel) :
@@ -26,7 +25,7 @@ export class Practice {
 
         const proposals = isKanaToGuess ?
             this.syllables :
-            this.randomizeSyllablesProposals(this.syllables);
+            randomizeSyllablesToPropoze(this.syllables);
 
         const objectsToPropose = isKanaToGuess ?
             proposals.map(proposal => new Romaji(proposal.alphabet, proposal.consonant, proposal.vowel)) :
@@ -35,7 +34,7 @@ export class Practice {
         console.log("---- next ----")
         console.log({randomSyllableToGuess})
         console.log({proposals})
-        console.log(this.guessWhat)
+        console.log(guessWhat)
         console.log("====")
 
         const returnGuess = isKanaToGuess ? new GuessKana(objectToGuess, objectsToPropose) :

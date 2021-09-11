@@ -1,7 +1,7 @@
 import {GuessSyllable} from "./GuessSyllable";
 
 export class GuessRomaji extends GuessSyllable {
-    constructor (romaji, kanas) {
+    constructor(romaji, kanas) {
         super(romaji, kanas)
     }
 
@@ -15,4 +15,7 @@ export class GuessRomaji extends GuessSyllable {
         return this.equals(romajiChosen)
     }
 
+    isKana() {
+        return false;
+    }
 }

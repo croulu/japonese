@@ -2,7 +2,6 @@ import React from "react";
 
 export const Choice = ({syllable, guessWhat, handleClick}) => {
     const divCssImg = "playKanaChoice" + " " + syllable.display() + " "
-
     if (guessWhat === "romaji") {
         return (
             <div>

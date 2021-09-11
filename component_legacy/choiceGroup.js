@@ -97,46 +97,9 @@ class ChoiceGroup {
   }
 
   displayButtonChoice () {
-    this.deleteChoice()
-    this.clearChoice()
-    this.enableChoice()
     this.displayCorrectNumberOfChoice()
   }
 
-  disableChoice () {
-    for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
-      this.aChoice[i].style.pointerEvents = 'none'
-    }
-  }
-
-  enableChoice () {
-    for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
-      this.aChoice[i].style.pointerEvents = 'auto'
-    }
-  }
-
-  // remove the choice button
-  deleteChoice () {
-    for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].style.display = 'none'
-    }
-  }
-
-  // remove the color of the choice buttons
-  clearChoice () {
-    for (let i = 0; i < this.aChoice.length; i++) {
-      this.aChoice[i].className = 'w3-text-black playKanaChoiceItem colorClearButton'
-    }
-  }
-
-  // remove the text in the choice
-  eraseChoice () {
-    for (let i = 0; i < this.aChoiceTxt.length; i++) {
-      this.aChoiceTxt[i].innerText = ''
-    }
-  }
 
   displayCorrectNumberOfChoice () {
     // TODO fonction à revoir dans le cas d'un nombre de choix supérieur à 5

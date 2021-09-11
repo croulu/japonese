@@ -55,12 +55,8 @@ oneMenu.displayHome()
 
 oneLesson.setAllLesson()
 
-
 if (oneLesson.getNbDoneLessons() === 0) {
     setInitLessons()
-    // oneLesson.setActivateLessons()
-} else {
-    //  oneLesson.displayButtonLesson()
 }
 
 bigMenuHome.addEventListener('click', () => oneMenu.displayHome())

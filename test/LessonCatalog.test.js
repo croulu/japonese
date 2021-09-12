@@ -2,7 +2,6 @@ import {LessonCatalog} from "../domain/LessonCatalog";
 import {Syllable} from "../domain/Syllable";
 
 import assert from "assert";
-import {Lesson} from "../component_legacy/lesson";
 
 
 const alphabet = "hiragana";
@@ -14,6 +13,12 @@ const syllableHki = new Syllable("h", "k", "i");
 const romajiHki = "ki";
 const syllableHsi = new Syllable("h", "s", "i");
 const romajiHsi = "shi";
+
+const syllablesToMap = [
+    [syllableHa.alphabet, syllableHa.consonant, syllableHa.vowel, romajiHa],
+    [syllableHki.alphabet, syllableHki.consonant, syllableHki.vowel, romajiHki],
+    [syllableHsi.alphabet, syllableHsi.consonant, syllableHsi.vowel, romajiHsi],
+];
 
 const maxSyllables = 5;
 
@@ -71,27 +76,15 @@ describe('LessonCatalog', function () {
         const result = sut.codeWithSyllablesList(syllablesRandomLessonHk);
 
         assert.deepEqual(codeLessonHk, result);
-    })
+    });
 
-    it(`should provide romaji with syllable ${syllableHa.alphabet}, ${syllableHa.consonant}, ${syllableHa.vowel}`, function () {
-        const sut = new LessonCatalog();
-        const result = sut.romajiWithSyllable(syllableHa);
+    syllablesToMap.map(([alphabet, consonant, vowel, romaji]) =>
+        it(`should provide romaji with syllable ${alphabet}, ${consonant}, ${vowel}`, function () {
+            const sut = new LessonCatalog();
+            const result = sut.romajiWithSyllable(new Syllable(alphabet, consonant, vowel));
 
-        assert.deepEqual(result, romajiHa);
-    })
-
-    it(`should provide romaji with syllable ${syllableHki.alphabet}, ${syllableHki.consonant}, ${syllableHki.vowel}`, function () {
-        const sut = new LessonCatalog();
-        const result = sut.romajiWithSyllable(syllableHki);
-
-        assert.deepEqual(result, romajiHki);
-    })
-
-    it(`should provide romaji with syllable ${syllableHsi.alphabet}, ${syllableHsi.consonant}, ${syllableHsi.vowel}`, function () {
-        const sut = new LessonCatalog();
-        const result = sut.romajiWithSyllable(syllableHsi);
-
-        assert.deepEqual(result, romajiHsi);
-    })
+            assert.deepEqual(result, romaji);
+        })
+    )
 
 })

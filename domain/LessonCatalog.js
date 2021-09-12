@@ -45,8 +45,6 @@ export class LessonCatalog {
             element.syllable.consonant === syllableToFind.consonant &&
             element.syllable.vowel === syllableToFind.vowel );
 
-        console.log(found.romaji);
-
         return found.romaji;
     }
 

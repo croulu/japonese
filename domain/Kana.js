@@ -1,4 +1,5 @@
 import {Syllable} from "./Syllable";
+import {LessonCatalog} from "./LessonCatalog";
 
 export class Kana extends Syllable {
   constructor (alphabet, consonant, vowel) {
@@ -7,8 +8,13 @@ export class Kana extends Syllable {
 
   display() {
 
-    //TODO: mapping pour trouver la bonne image dans les cas exceptions comme shi
-    return this.alphabet.toUpperCase() + this.consonant + this.vowel
+    const syllableToDisplay = new Syllable(this.alphabet, this.consonant, this.vowel);
+
+    const unicodeForThisKana = new LessonCatalog().unicodeWithSyllable(syllableToDisplay);
+
+    // unicodeForThisKana.charAt(0);
+
+    return unicodeForThisKana;
   }
 
 }

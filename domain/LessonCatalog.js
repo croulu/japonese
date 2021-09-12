@@ -29,6 +29,7 @@ export class LessonCatalog {
         return syllables;
     }
 
+    // TODO: Obsolete with legacy, to remove
     codeWithSyllablesList(syllables) {
         const syllablesCodes = syllables.map(syllable => syllable.consonant + syllable.vowel)
 
@@ -43,64 +44,96 @@ export class LessonCatalog {
         const found = listMapSyllableRomajiUnicode.mapping.find(element =>
             element.syllable.alphabet === syllableToFind.alphabet &&
             element.syllable.consonant === syllableToFind.consonant &&
-            element.syllable.vowel === syllableToFind.vowel );
+            element.syllable.vowel === syllableToFind.vowel);
 
         return found.romaji;
+    }
+
+    unicodeWithSyllable(syllableToFind) {
+        const listMapSyllableRomajiUnicode = this.mapSyllableRomajiUnicode();
+        const found = listMapSyllableRomajiUnicode.mapping.find(element =>
+            element.syllable.alphabet === syllableToFind.alphabet &&
+            element.syllable.consonant === syllableToFind.consonant &&
+            element.syllable.vowel === syllableToFind.vowel);
+
+        return found.unicode;
     }
 
     mapSyllableRomajiUnicode() {
         return {
             mapping: [
-                {
-                    syllable: {alphabet: "h", consonant: "", vowel: "a"},
-                    romaji: "a",
-                    unicode: "\u3042",
-                },
-                {
-                    syllable: {alphabet: "h", consonant: "", vowel: "i"},
-                    romaji: "i",
-                    unicode: "\u3044",
-                },
-                {
-                    syllable: {alphabet: "h", consonant: "k", vowel: "i"},
-                    romaji: "ki",
-                    unicode: "\u304D",
-                },
-                {
-                    syllable: {alphabet: "h", consonant: "s", vowel: "i"},
-                    romaji: "shi",
-                    unicode: "\u3057",
-                },
-                {
-                    syllable: {alphabet: "k", consonant: "", vowel: "a"},
-                    romaji: "ka",
-                    unicode: "\u30A2",
-                },
-                {
-                    syllable: {alphabet: "k", consonant: "", vowel: "i"},
-                    romaji: "ki",
-                    unicode: "\u30A4",
-                },
-                {
-                    syllable: {alphabet: "h", consonant: "g", vowel: "a"},
-                    romaji: "ga",
-                    unicode: "\u304C",
-                },
-                {
-                    syllable: {alphabet: "k", consonant: "g", vowel: "a"},
-                    romaji: "ga",
-                    unicode: "\u30AC",
-                },
-                {
-                    syllable: {alphabet: "h", consonant: "p", vowel: "a"},
-                    romaji: "pa",
-                    unicode: "\u3071",
-                },
-                {
-                    syllable: {alphabet: "k", consonant: "p", vowel: "a"},
-                    romaji: "pa",
-                    unicode: "\u30D1",
-                }]
+                {syllable: {alphabet: "h", consonant: "", vowel: "a"}, romaji: "a", unicode: "\u3042"},
+                {syllable: {alphabet: "h", consonant: "", vowel: "i"}, romaji: "i", unicode: "\u3044"},
+                {syllable: {alphabet: "h", consonant: "", vowel: "u"}, romaji: "u", unicode: "\u3046"},
+                {syllable: {alphabet: "h", consonant: "", vowel: "e"}, romaji: "e", unicode: "\u3048"},
+                {syllable: {alphabet: "h", consonant: "", vowel: "o"}, romaji: "o", unicode: "\u304A"},
+                {syllable: {alphabet: "h", consonant: "k", vowel: "a"}, romaji: "ka", unicode: "\u304B"},
+                {syllable: {alphabet: "h", consonant: "k", vowel: "i"}, romaji: "ki", unicode: "\u304D"},
+                {syllable: {alphabet: "h", consonant: "k", vowel: "u"}, romaji: "ku", unicode: "\u304F"},
+                {syllable: {alphabet: "h", consonant: "k", vowel: "e"}, romaji: "ke", unicode: "\u3051"},
+                {syllable: {alphabet: "h", consonant: "k", vowel: "o"}, romaji: "ko", unicode: "\u3053"},
+                {syllable: {alphabet: "h", consonant: "s", vowel: "a"}, romaji: "sa", unicode: "\u3055"},
+                {syllable: {alphabet: "h", consonant: "s", vowel: "i"}, romaji: "shi", unicode: "\u3057"},
+                {syllable: {alphabet: "h", consonant: "s", vowel: "u"}, romaji: "su", unicode: "\u3059"},
+                {syllable: {alphabet: "h", consonant: "s", vowel: "e"}, romaji: "se", unicode: "\u305B"},
+                {syllable: {alphabet: "h", consonant: "s", vowel: "o"}, romaji: "so", unicode: "\u305D"},
+                {syllable: {alphabet: "h", consonant: "t", vowel: "a"}, romaji: "ta", unicode: "\u305F"},
+                {syllable: {alphabet: "h", consonant: "t", vowel: "i"}, romaji: "chi", unicode: "\u3061"},
+                {syllable: {alphabet: "h", consonant: "t", vowel: "u"}, romaji: "tsu", unicode: "\u3064"},
+                {syllable: {alphabet: "h", consonant: "t", vowel: "e"}, romaji: "te", unicode: "\u3066"},
+                {syllable: {alphabet: "h", consonant: "t", vowel: "o"}, romaji: "to", unicode: "\u3068"},
+                {syllable: {alphabet: "h", consonant: "n", vowel: "a"}, romaji: "na", unicode: "\u306A"},
+                {syllable: {alphabet: "h", consonant: "n", vowel: "i"}, romaji: "ni", unicode: "\u306B"},
+                {syllable: {alphabet: "h", consonant: "n", vowel: "u"}, romaji: "nu", unicode: "\u306C"},
+                {syllable: {alphabet: "h", consonant: "n", vowel: "e"}, romaji: "ne", unicode: "\u306D"},
+                {syllable: {alphabet: "h", consonant: "n", vowel: "o"}, romaji: "no", unicode: "\u306E"},
+                {syllable: {alphabet: "h", consonant: "h", vowel: "a"}, romaji: "ha", unicode: "\u306F"},
+                {syllable: {alphabet: "h", consonant: "h", vowel: "i"}, romaji: "hi", unicode: "\u3072"},
+                {syllable: {alphabet: "h", consonant: "h", vowel: "u"}, romaji: "fu", unicode: "\u3075"},
+                {syllable: {alphabet: "h", consonant: "h", vowel: "e"}, romaji: "he", unicode: "\u3078"},
+                {syllable: {alphabet: "h", consonant: "h", vowel: "o"}, romaji: "ho", unicode: "\u307B"},
+                {syllable: {alphabet: "h", consonant: "m", vowel: "a"}, romaji: "ma", unicode: "\u307E"},
+                {syllable: {alphabet: "h", consonant: "m", vowel: "i"}, romaji: "mi", unicode: "\u307F"},
+                {syllable: {alphabet: "h", consonant: "m", vowel: "u"}, romaji: "mu", unicode: "\u3080"},
+                {syllable: {alphabet: "h", consonant: "m", vowel: "e"}, romaji: "me", unicode: "\u3081"},
+                {syllable: {alphabet: "h", consonant: "m", vowel: "o"}, romaji: "mo", unicode: "\u3082"},
+                {syllable: {alphabet: "h", consonant: "y", vowel: "a"}, romaji: "ya", unicode: "\u3084"},
+                {syllable: {alphabet: "h", consonant: "y", vowel: "u"}, romaji: "yu", unicode: "\u3086"},
+                {syllable: {alphabet: "h", consonant: "y", vowel: "o"}, romaji: "yo", unicode: "\u3088"},
+                {syllable: {alphabet: "h", consonant: "r", vowel: "a"}, romaji: "ra", unicode: "\u3089"},
+                {syllable: {alphabet: "h", consonant: "r", vowel: "i"}, romaji: "ri", unicode: "\u308A"},
+                {syllable: {alphabet: "h", consonant: "r", vowel: "u"}, romaji: "ru", unicode: "\u308B"},
+                {syllable: {alphabet: "h", consonant: "r", vowel: "e"}, romaji: "re", unicode: "\u308C"},
+                {syllable: {alphabet: "h", consonant: "r", vowel: "o"}, romaji: "ro", unicode: "\u308D"},
+                {syllable: {alphabet: "h", consonant: "w", vowel: "a"}, romaji: "wa", unicode: "\u308F"},
+                {syllable: {alphabet: "h", consonant: "w", vowel: "o"}, romaji: "wo", unicode: "\u3092"},
+                {syllable: {alphabet: "h", consonant: "", vowel: "n"}, romaji: "n", unicode: "\u3093"},
+                {syllable: {alphabet: "h", consonant: "g", vowel: "a"}, romaji: "ga", unicode: "\u304C"},
+                {syllable: {alphabet: "h", consonant: "g", vowel: "i"}, romaji: "gi", unicode: "\u304E"},
+                {syllable: {alphabet: "h", consonant: "g", vowel: "u"}, romaji: "gu", unicode: "\u3050"},
+                {syllable: {alphabet: "h", consonant: "g", vowel: "e"}, romaji: "ge", unicode: "\u3052"},
+                {syllable: {alphabet: "h", consonant: "g", vowel: "o"}, romaji: "go", unicode: "\u3054"},
+                {syllable: {alphabet: "h", consonant: "z", vowel: "a"}, romaji: "za", unicode: "\u3056"},
+                {syllable: {alphabet: "h", consonant: "z", vowel: "i"}, romaji: "ji", unicode: "\u3058"},
+                {syllable: {alphabet: "h", consonant: "z", vowel: "u"}, romaji: "zu", unicode: "\u305A"},
+                {syllable: {alphabet: "h", consonant: "z", vowel: "e"}, romaji: "ze", unicode: "\u305C"},
+                {syllable: {alphabet: "h", consonant: "z", vowel: "o"}, romaji: "zo", unicode: "\u305E"},
+                {syllable: {alphabet: "h", consonant: "d", vowel: "a"}, romaji: "da", unicode: "\u3060"},
+                {syllable: {alphabet: "h", consonant: "d", vowel: "i"}, romaji: "ji", unicode: "\u3062"},
+                {syllable: {alphabet: "h", consonant: "d", vowel: "u"}, romaji: "zu", unicode: "\u3065"},
+                {syllable: {alphabet: "h", consonant: "d", vowel: "e"}, romaji: "de", unicode: "\u3067"},
+                {syllable: {alphabet: "h", consonant: "d", vowel: "o"}, romaji: "do", unicode: "\u3069"},
+                {syllable: {alphabet: "h", consonant: "b", vowel: "a"}, romaji: "ba", unicode: "\u3070"},
+                {syllable: {alphabet: "h", consonant: "b", vowel: "i"}, romaji: "bi", unicode: "\u3073"},
+                {syllable: {alphabet: "h", consonant: "b", vowel: "u"}, romaji: "bu", unicode: "\u3076"},
+                {syllable: {alphabet: "h", consonant: "b", vowel: "e"}, romaji: "be", unicode: "\u3079"},
+                {syllable: {alphabet: "h", consonant: "b", vowel: "o"}, romaji: "bo", unicode: "\u307C"},
+                {syllable: {alphabet: "h", consonant: "p", vowel: "a"}, romaji: "pa", unicode: "\u3071"},
+                {syllable: {alphabet: "h", consonant: "p", vowel: "i"}, romaji: "pi", unicode: "\u3074"},
+                {syllable: {alphabet: "h", consonant: "p", vowel: "u"}, romaji: "pu", unicode: "\u3077"},
+                {syllable: {alphabet: "h", consonant: "p", vowel: "e"}, romaji: "pe", unicode: "\u307A"},
+                {syllable: {alphabet: "h", consonant: "p", vowel: "o"}, romaji: "po", unicode: "\u307D"},
+            ]
         }
     }
 

@@ -14,10 +14,6 @@ export const PlayKana = ({practice}) => {
         }, 1000);
     }
 
-    const divCssImg = () => {
-        return "playItemKana" + " " + guess.syllable.display()
-    }
-
     return <div id="playKana">
         <div
             style={{
@@ -34,17 +30,11 @@ export const PlayKana = ({practice}) => {
         </div>
         <div className="playKana">
             <div>
-                {
-                    guess.isKana() ? <div id="playItemKana" className={divCssImg()}></div> :
-                        <div id="playItemRomanji">{guess.syllable.display()}</div>
-
-
-                }
+                <div id="playItemRomanji">{guess.syllable.display()}</div>
             </div>
             {
                 guess.syllables.map(syllable => <Choice key={syllable.key()}
                                                         syllable={syllable}
-                                                        guessWhat={guess.isKana() ? "kana" : "romaji"}
                                                         handleClick={handleChoiceClick}/>)
             }
         </div>

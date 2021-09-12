@@ -9,15 +9,18 @@ const maxOrderLesson = 3;
 
 const syllableHa = new Syllable("h", "", "a");
 const romajiHa = "a";
+const unicodeHa = "\u3042";
 const syllableHki = new Syllable("h", "k", "i");
 const romajiHki = "ki";
+const unicodeHki = "\u304D";
 const syllableHsi = new Syllable("h", "s", "i");
 const romajiHsi = "shi";
+const unicodeHsi = "\u3057";
 
 const syllablesToMap = [
-    [syllableHa.alphabet, syllableHa.consonant, syllableHa.vowel, romajiHa],
-    [syllableHki.alphabet, syllableHki.consonant, syllableHki.vowel, romajiHki],
-    [syllableHsi.alphabet, syllableHsi.consonant, syllableHsi.vowel, romajiHsi],
+    [syllableHa.alphabet, syllableHa.consonant, syllableHa.vowel, romajiHa, unicodeHa],
+    [syllableHki.alphabet, syllableHki.consonant, syllableHki.vowel, romajiHki, unicodeHki],
+    [syllableHsi.alphabet, syllableHsi.consonant, syllableHsi.vowel, romajiHsi, unicodeHsi],
 ];
 
 const maxSyllables = 5;
@@ -84,6 +87,15 @@ describe('LessonCatalog', function () {
             const result = sut.romajiWithSyllable(new Syllable(alphabet, consonant, vowel));
 
             assert.deepEqual(result, romaji);
+        })
+    )
+
+    syllablesToMap.map(([alphabet, consonant, vowel, romaji, unicode]) =>
+        it(`should provide unicode with syllable ${alphabet}, ${consonant}, ${vowel}`, function () {
+            const sut = new LessonCatalog();
+            const result = sut.unicodeWithSyllable(new Syllable(alphabet, consonant, vowel));
+
+            assert.deepEqual(result, unicode);
         })
     )
 

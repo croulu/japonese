@@ -12,10 +12,6 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
     }
 
 
-    const sentence = '\u30A2';
-    const index = 0;
-
-
     return (<a
             id={`btnGuess${alphabet}${lesson.id}`}
             className="w3-button w3-white w3-hover-opacity bigButton"
@@ -23,7 +19,6 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
         >
             <span className={`kanaAlphabetIco ico${alphabet}${lesson.img}`}/>
             <br/>
-        { sentence.charAt(index) }
         { lesson.title }
         </a>);
 };

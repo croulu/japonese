@@ -12,6 +12,8 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
         history.push('/play')
     }
 
+    // TODO: syllables et pas kana
+    // a exploiter avec le test
     let imgLesson = "";
     lesson.syllables.map(syllable => {
         const kanaToDisplay = new Kana(syllable.alphabet, syllable.consonant, syllable.vowel);

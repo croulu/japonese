@@ -2,6 +2,7 @@ import {LessonCatalog} from "../domain/LessonCatalog";
 import {Syllable} from "../domain/Syllable";
 
 import assert from "assert";
+import {Kana} from "../domain/Kana";
 
 
 const alphabet = "hiragana";
@@ -34,6 +35,16 @@ const syllablesRandomLessonHk = [
 ]
 
 const codeLessonHk = "ku-a-i-ke-o";
+
+const lessonHka = [
+    new Kana("h",  "k",  "a"),
+    new Kana( "h",  "k", "i"),
+    new Kana( "h",  "k", "u"),
+    new Kana( "h",  "k", "e"),
+    new Kana( "h",  "k", "o")
+]
+
+const kanaHka = new Kana("h", "k", "a")
 
 
 describe('LessonCatalog', function () {
@@ -98,5 +109,12 @@ describe('LessonCatalog', function () {
             assert.deepEqual(result, unicode);
         })
     )
+
+    it('should provide one kana to display for a lesson', function () {
+        const sut = new LessonCatalog();
+        const result = sut.kanaToDisplayForLesson(lessonHka);
+
+        assert.deepEqual(kanaHka.display(), result);
+    });
 
 })

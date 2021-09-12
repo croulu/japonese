@@ -19,6 +19,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
         const codeWithThisLesson = previousLesson.codeWithSyllablesList(syllablesPreviousLesson);
         // const codeWithThisLesson = lesson.code
+        // a-i-u-e-o
 
         setLesson(syllablesPreviousLesson);
         // setLesson(lesson);

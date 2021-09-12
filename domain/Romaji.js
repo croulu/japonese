@@ -1,4 +1,5 @@
 import {Syllable} from "./Syllable";
+import {LessonCatalog} from "./LessonCatalog";
 
 export class Romaji extends Syllable {
     constructor (alphabet, consonant, vowel) {
@@ -6,6 +7,10 @@ export class Romaji extends Syllable {
     }
 
     display() {
-        return this.consonant + this.vowel
+        const syllableToDisplay = new Syllable(this.alphabet, this.consonant, this.vowel);
+
+        const goodRomajiForThisRomaji = new LessonCatalog().romajiWithSyllable(syllableToDisplay);
+
+        return goodRomajiForThisRomaji;
     }
 }

@@ -17,7 +17,7 @@ export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
                     alphabetLetter={alphabetName.charAt(0).toUpperCase()}
                     oneLesson={oneLesson}
                     oneGuess={oneGuess}
-                    onLessonChange={onLessonChange}/>
+                    onLessonChange={onLessonChange} />
             )}
         </div>
     </>

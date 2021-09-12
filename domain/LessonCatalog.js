@@ -23,7 +23,7 @@ export class LessonCatalog {
         return randomFlatSyllables;
     }
 
-    randomizeListPreviousButNoMoreThanNb (alphabet, order) {
+    randomizeListPreviousButNoMoreThanNb(alphabet, order) {
         const syllables = this.randomizeListPrevious(alphabet, order).slice(0, maxSyllables);
 
         return syllables;
@@ -32,10 +32,78 @@ export class LessonCatalog {
     codeWithSyllablesList(syllables) {
         const syllablesCodes = syllables.map(syllable => syllable.consonant + syllable.vowel)
 
-        const reducer = (previousValue, currentValue) => previousValue + "-" + currentValue ;
+        const reducer = (previousValue, currentValue) => previousValue + "-" + currentValue;
         const codeWithLegacyFormat = syllablesCodes.reduce(reducer);
 
         return codeWithLegacyFormat;
+    }
+
+    romajiWithSyllable(syllableToFind) {
+        const listMapSyllableRomajiUnicode = this.mapSyllableRomajiUnicode();
+        const found = listMapSyllableRomajiUnicode.mapping.find(element =>
+            element.syllable.alphabet === syllableToFind.alphabet &&
+            element.syllable.consonant === syllableToFind.consonant &&
+            element.syllable.vowel === syllableToFind.vowel );
+
+        console.log(found.romaji);
+
+        return found.romaji;
+    }
+
+    mapSyllableRomajiUnicode() {
+        return {
+            mapping: [
+                {
+                    syllable: {alphabet: "h", consonant: "", vowel: "a"},
+                    romaji: "a",
+                    unicode: "\u3042",
+                },
+                {
+                    syllable: {alphabet: "h", consonant: "", vowel: "i"},
+                    romaji: "i",
+                    unicode: "\u3044",
+                },
+                {
+                    syllable: {alphabet: "h", consonant: "k", vowel: "i"},
+                    romaji: "ki",
+                    unicode: "\u304D",
+                },
+                {
+                    syllable: {alphabet: "h", consonant: "s", vowel: "i"},
+                    romaji: "shi",
+                    unicode: "\u3057",
+                },
+                {
+                    syllable: {alphabet: "k", consonant: "", vowel: "a"},
+                    romaji: "ka",
+                    unicode: "\u30A2",
+                },
+                {
+                    syllable: {alphabet: "k", consonant: "", vowel: "i"},
+                    romaji: "ki",
+                    unicode: "\u30A4",
+                },
+                {
+                    syllable: {alphabet: "h", consonant: "g", vowel: "a"},
+                    romaji: "ga",
+                    unicode: "\u304C",
+                },
+                {
+                    syllable: {alphabet: "k", consonant: "g", vowel: "a"},
+                    romaji: "ga",
+                    unicode: "\u30AC",
+                },
+                {
+                    syllable: {alphabet: "h", consonant: "p", vowel: "a"},
+                    romaji: "pa",
+                    unicode: "\u3071",
+                },
+                {
+                    syllable: {alphabet: "k", consonant: "p", vowel: "a"},
+                    romaji: "pa",
+                    unicode: "\u30D1",
+                }]
+        }
     }
 
     list() {

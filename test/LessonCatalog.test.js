@@ -2,12 +2,18 @@ import {LessonCatalog} from "../domain/LessonCatalog";
 import {Syllable} from "../domain/Syllable";
 
 import assert from "assert";
+import {Lesson} from "../component_legacy/lesson";
 
 
 const alphabet = "hiragana";
 const maxOrderLesson = 3;
 
 const syllableHa = new Syllable("h", "", "a");
+const romajiHa = "a";
+const syllableHki = new Syllable("h", "k", "i");
+const romajiHki = "ki";
+const syllableHsi = new Syllable("h", "s", "i");
+const romajiHsi = "shi";
 
 const maxSyllables = 5;
 
@@ -60,11 +66,32 @@ describe('LessonCatalog', function () {
         assert.deepEqual(maxSyllables, result.length)
     })
 
-    it ('should provide code lesson with syllables list', function () {
-       const sut = new LessonCatalog();
-       const result = sut.codeWithSyllablesList(syllablesRandomLessonHk);
+    it('should provide code lesson with syllables list', function () {
+        const sut = new LessonCatalog();
+        const result = sut.codeWithSyllablesList(syllablesRandomLessonHk);
 
-       assert.deepEqual(codeLessonHk, result);
+        assert.deepEqual(codeLessonHk, result);
+    })
+
+    it(`should provide romaji with syllable ${syllableHa.alphabet}, ${syllableHa.consonant}, ${syllableHa.vowel}`, function () {
+        const sut = new LessonCatalog();
+        const result = sut.romajiWithSyllable(syllableHa);
+
+        assert.deepEqual(result, romajiHa);
+    })
+
+    it(`should provide romaji with syllable ${syllableHki.alphabet}, ${syllableHki.consonant}, ${syllableHki.vowel}`, function () {
+        const sut = new LessonCatalog();
+        const result = sut.romajiWithSyllable(syllableHki);
+
+        assert.deepEqual(result, romajiHki);
+    })
+
+    it(`should provide romaji with syllable ${syllableHsi.alphabet}, ${syllableHsi.consonant}, ${syllableHsi.vowel}`, function () {
+        const sut = new LessonCatalog();
+        const result = sut.romajiWithSyllable(syllableHsi);
+
+        assert.deepEqual(result, romajiHsi);
     })
 
 })

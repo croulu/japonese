@@ -21,8 +21,8 @@ export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
     }
 
     return (<div id="playItem">
+        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
         <Timer2 onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
-        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
     </div>);
 }

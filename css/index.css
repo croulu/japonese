@@ -2,6 +2,27 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+.kanaHomePage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    min-height: 40px;
+    margin: 0px
+}
+
+.resultPlayKana {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    min-height: 60px;
+    margin: 10px
+}
+
 .bigButton {
     height: 100px;
     width: 160px;

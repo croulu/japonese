@@ -20,17 +20,7 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
             className="w3-button w3-white w3-hover-opacity bigButton"
             onClick={handleClick}
         >
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "30px",
-                fontWeight: "bold",
-                color: "black",
-                minHeight: "40px",
-                margin: "0px"
-            }}>{ catalog.kanaToDisplayForLesson(lesson.syllables) }</div>
+        <div className="kanaHomePage" >{ catalog.kanaToDisplayForLesson(lesson.syllables) }</div>
         { lesson.title }
         </a>);
 };

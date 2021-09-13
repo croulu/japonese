@@ -15,18 +15,8 @@ export const PlayKana = ({practice}) => {
     }
 
     return <div id="playKana">
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "40px",
-                color: "white",
-                minHeight: "60px",
-                margin: "10px"
-            }}>
-            {isChoiceValid ? <span>Bingo :D !</span> : isChoiceValid === false ? <span>Nope :(</span> :
-                ""}
+        <div className="resultPlayKana">
+            {isChoiceValid ? <span>Bingo :D !</span> : isChoiceValid === false ? <span>Nope :(</span> : ""}
         </div>
         <div className="playKana">
             <div>

@@ -20,7 +20,8 @@
     font-size: 40px;
     color: white;
     min-height: 60px;
-    margin: 10px
+    margin: 10px;
+   /* border: 1px solid black; */
 }
 
 .bigButton {
@@ -41,7 +42,7 @@
 }
 
 .info {
-    height: 34vh;
+    height: 12vh;
     font-size: 22px;
     /* border: 5px solid goldenrod; */
 }
@@ -63,7 +64,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
-    /* border: 5px solid greenyellow; */
+   /* border: 1px solid greenyellow; */
 }
 .playKana > * {
     display: flex;

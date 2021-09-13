@@ -1,6 +1,5 @@
 import React from "react";
 
-import {Kana} from "../../../domain/Kana";
 import {LessonCatalog} from "../../../domain/LessonCatalog";
 
 import {useHistory} from 'react-router-dom'
@@ -21,8 +20,17 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
             className="w3-button w3-white w3-hover-opacity bigButton"
             onClick={handleClick}
         >
-        { catalog.kanaToDisplayForLesson(lesson.syllables) }
-            <br/>
+        <div
+            style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "30px",
+                fontWeight: "bold",
+                color: "black",
+                minHeight: "40px",
+                margin: "0px"
+            }}>{ catalog.kanaToDisplayForLesson(lesson.syllables) }</div>
         { lesson.title }
         </a>);
 };

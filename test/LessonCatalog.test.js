@@ -37,11 +37,11 @@ const syllablesRandomLessonHk = [
 const codeLessonHk = "ku-a-i-ke-o";
 
 const lessonHka = [
-    new Kana("h",  "k",  "a"),
-    new Kana( "h",  "k", "i"),
-    new Kana( "h",  "k", "u"),
-    new Kana( "h",  "k", "e"),
-    new Kana( "h",  "k", "o")
+    {alphabet: "h", consonant: "k", vowel: "a"},
+    {alphabet: "h", consonant: "k", vowel: "i"},
+    {alphabet: "h", consonant: "k", vowel: "u"},
+    {alphabet: "h", consonant: "k", vowel: "e"},
+    {alphabet: "h", consonant: "k", vowel: "o"}
 ]
 
 const kanaHka = new Kana("h", "k", "a")

@@ -1,4 +1,5 @@
 import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
+import {Kana} from "./Kana";
 
 const withHiraganaId = lesson => ({...lesson, id: lesson.title.split(" ").join("")});
 const withKatakanaId = lesson => ({...lesson, id: lesson.title.split(" ").join("")});
@@ -60,7 +61,11 @@ export class LessonCatalog {
     }
 
     kanaToDisplayForLesson(lesson) {
-        return lesson[0].display();
+        const lessonWithKanaObjects = [];
+        lesson.map(syllable =>
+            lessonWithKanaObjects.push(new Kana(syllable.alphabet, syllable.consonant, syllable.vowel)));
+
+        return lessonWithKanaObjects[0].display();
     }
 
     mapSyllableRomajiUnicode() {

@@ -20,7 +20,7 @@ export const PlayKana = ({practice}) => {
         </div>
         <div className="playKana">
             <div>
-                <div id="playItemRomanji">{guess.syllable.display()}</div>
+                <div id="playItemKana">{guess.syllable.display()}</div>
             </div>
             {
                 guess.syllables.map(syllable => <Choice key={syllable.key()}

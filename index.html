@@ -1,297 +1,303 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="css/index.css" />
-  <link rel="stylesheet" type="text/css" href="css/sanitize.css" />
-  <link rel="stylesheet" type="text/css" href="css/draw.css" />
-  <link rel="stylesheet" type="text/css" href="css/alphabet.css" />
-  <link rel="stylesheet" type="text/css" href="css/w3.css">
-  <link rel="stylesheet" type="text/css" href="css/responsive.css">
-  <link rel="stylesheet" type="text/css" href="fontawesome-free-5.13.0-web/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sanitize.css"/>
+    <link rel="stylesheet" type="text/css" href="css/draw.css"/>
+    <link rel="stylesheet" type="text/css" href="css/alphabet.css"/>
+    <link rel="stylesheet" type="text/css" href="css/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome-free-5.13.0-web/css/all.min.css">
 
-  <script defer type="module" src="index.js" charset="utf-8"></script>
-  <script defer type="module" src="js/draw.js"></script>
+    <script defer type="module" src="index.js" charset="utf-8"></script>
+    <script defer type="module" src="js/draw.js"></script>
 </head>
-<body class="w3-red">
+<body>
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="img/japan.png" style="width:100%">
-  <a id="bigMenuHome" class="w3-bar-item w3-button w3-padding-large w3-red">
-    <i class="fa fa-language w3-xxlarge"></i>
-    <p>LEARN</p>
-  </a>
-  <a id="bigMenuLearn" class="w3-bar-item w3-button w3-padding-large w3-hover-red">
-    <i class="fa fa-book-reader w3-xxlarge"></i>
-    <p>LESSONS</p>
-  </a>
-</nav>
+<div class="page-block bb">
+    <header class="header-main page-block-content">
+        <p class="logo-main">
+            <img src="img/japan.png" class="logo-main">
+        </p>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-dark-red w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a id="bigMenuHomeSmallScreen" class="w3-bar-item w3-button" style="width:50% !important">LEARN</a>
-    <a id="bigMenuLearnSmallScreen" class="w3-bar-item w3-button" style="width:50% !important">LESSONS</a>
-  </div>
+        <nav class="menu-main hamburger-navigation">
+
+            <label for="hamburger">&#9776</label>
+            <input type="checkbox" id="hamburger">
+
+            <div class="hamburger-items">
+                <a class="menu-main-item" href="#">Practice !</a>
+                <a class="menu-main-item" href="#">Hiragana</a>
+                <a class="menu-main-item" href="#">Katakana</a>
+            </div>
+        </nav>
+
+    </header>
 </div>
 
-<!-- Page Content -->
-<div class="w3-padding-large w3-red" id="main">
-  <!-- Header/Home -->
 
-    <header class="w3-container w3-padding-32 w3-center w3-red" id="home">
-      <h1 class="w3-jumbo"><span class="w3-hide-small">Learn</span><span class="mainTitle"></span> Japanese</h1>
-    </header>
-
-  <!-- Play Section -->
-  <div class="w3-padding-16 w3-content w3-justify w3-text-black" id="play">
+<!-- Play Section -->
+<div class="page-block-content" id="play">
 
     <div id="app"></div>
 
-
-    <!-- End play Section -->
-  </div>
-
-  <!-- Learn Section -->
-  <div class="w3-padding-32 w3-content w3-text-grey" id="learn">
-
-    <div id="learnMenu" class="scrollmenu">
-      <a class="w3-button w3-section w3-white w3-center w3-hover-opacity bigButton" id="btnAlphabetKanaComplet">kana</a>
-      <a class="w3-button w3-white w3-center w3-hover-opacity bigButton" id="btnAlphabetHiragana">hiragana</a>
-      <a class="w3-button w3-white w3-center w3-hover-opacity bigButton" id="btnAlphabetKatakana">katakana</a>
-      <a class="w3-button w3-white w3-center w3-hover-opacity bigButton" id="btnAlphabetRomanji">romanji</a>
-    </div>
-
-    <div id="learnItemKana">
-      <div align="center"><img src="img/kanacomplete.png" class="imgBig"></div>
-    </div>
-
-    <div id="learnItemHiragana">
-      <div class="kana">
-        <div class="alphabet">
-          <div></div>
-          <div id="r-h-a" class="w3-text-white">a</div>
-          <div id="r-h-i" class="w3-text-white">i</div>
-          <div id="r-h-u" class="w3-text-white">u</div>
-          <div id="r-h-e" class="w3-text-white">e</div>
-          <div id="r-h-o" class="w3-text-white">o</div>
-          <div id="r-h-c" class="w3-text-white"></div>
-          <div data-key="h-a"><img src="img/hiragana/a.png" id="h-a" class="alphabetImg"></div>
-          <div data-key="h-i"><img src="img/hiragana/i.png" id="h-i" class="alphabetImg"></div>
-          <div data-key="h-u"><img src="img/hiragana/u.png" id="h-u" class="alphabetImg"></div>
-          <div data-key="h-e"><img src="img/hiragana/e.png" id="h-e" class="alphabetImg"></div>
-          <div data-key="h-o"><img src="img/hiragana/o.png" id="h-o" class="alphabetImg"></div>
-          <div id="r-h-ck" class="w3-text-white">k</div>
-          <div data-key="h-ka"><img src="img/hiragana/ka.png" id="h-ka" class="alphabetImg"></div>
-          <div data-key="h-ki"><img src="img/hiragana/ki.png" id="h-ki" class="alphabetImg"></div>
-          <div data-key="h-ku"><img src="img/hiragana/ku.png" id="h-ku" class="alphabetImg"></div>
-          <div data-key="h-ke"><img src="img/hiragana/ke.png" id="h-ke" class="alphabetImg"></div>
-          <div data-key="h-ko"><img src="img/hiragana/ko.png" id="h-ko" class="alphabetImg"></div>
-          <div id="r-h-cs" class="w3-text-white">s</div>
-          <div data-key="h-sa"><img src="img/hiragana/sa.png" id="h-sa" class="alphabetImg"></div>
-          <div data-key="h-shi"><img src="img/hiragana/shi.png" id="h-shi" class="alphabetImg"><div id="r-h-shi" class="w3-text-white">shi</div></div>
-          <div data-key="h-su"><img src="img/hiragana/su.png" id="h-su" class="alphabetImg"></div>
-          <div data-key="h-se"><img src="img/hiragana/se.png" id="h-se" class="alphabetImg"></div>
-          <div data-key="h-so"><img src="img/hiragana/so.png" id="h-so" class="alphabetImg"></div>
-          <div id="r-h-ct" class="w3-text-white">t</div>
-          <div data-key="h-ta"><img src="img/hiragana/ta.png" id="h-ta" class="alphabetImg"></div>
-          <div data-key="h-chi"><img src="img/hiragana/chi.png" id="h-chi" class="alphabetImg"><div id="r-h-chi" class="w3-text-white">chi</div></div>
-          <div data-key="h-tsu"><img src="img/hiragana/tsu.png" id="h-tsu" class="alphabetImg"><div id="r-h-tsu" class="w3-text-white">tsu</div></div>
-          <div data-key="h-te"><img src="img/hiragana/te.png" id="h-te" class="alphabetImg"></div>
-          <div data-key="h-to"><img src="img/hiragana/to.png" id="h-to" class="alphabetImg"></div>
-          <div id="r-h-cn" class="w3-text-white">n</div>
-          <div data-key="h-na"><img src="img/hiragana/na.png" id="h-na" class="alphabetImg"></div>
-          <div data-key="h-ni"><img src="img/hiragana/ni.png" id="h-ni" class="alphabetImg"></div>
-          <div data-key="h-nu"><img src="img/hiragana/nu.png" id="h-nu" class="alphabetImg"></div>
-          <div data-key="h-ne"><img src="img/hiragana/ne.png" id="h-ne" class="alphabetImg"></div>
-          <div data-key="h-no"><img src="img/hiragana/no.png" id="h-no" class="alphabetImg"></div>
-          <div id="r-h-ch" class="w3-text-white">h</div>
-          <div data-key="h-ha"><img src="img/hiragana/ha.png" id="h-ha" class="alphabetImg"></div>
-          <div data-key="h-hi"><img src="img/hiragana/hi.png" id="h-hi" class="alphabetImg"></div>
-          <div data-key="h-fu"><img src="img/hiragana/fu.png" id="h-fu" class="alphabetImg"><div id="r-h-fu" class="w3-text-white">fu</div></div>
-          <div data-key="h-he"><img src="img/hiragana/he.png" id="h-he" class="alphabetImg"></div>
-          <div data-key="h-ho"><img src="img/hiragana/ho.png" id="h-fo" class="alphabetImg"></div>
-          <div id="r-h-cm" class="w3-text-white">m</div>
-          <div data-key="h-ma"><img src="img/hiragana/ma.png" id="h-ma" class="alphabetImg"></div>
-          <div data-key="h-mi"><img src="img/hiragana/mi.png" id="h-mi" class="alphabetImg"></div>
-          <div data-key="h-mu"><img src="img/hiragana/mu.png" id="h-mu" class="alphabetImg"></div>
-          <div data-key="h-me"><img src="img/hiragana/me.png" id="h-me" class="alphabetImg"></div>
-          <div data-key="h-mo"><img src="img/hiragana/mo.png" id="h-mo" class="alphabetImg"></div>
-          <div id="r-h-cy" class="w3-text-white">y</div>
-          <div data-key="h-ya"><img src="img/hiragana/ya.png" id="h-ya" class="alphabetImg"></div>
-          <div></div>
-          <div data-key="h-yu"><img src="img/hiragana/yu.png" id="h-yu" class="alphabetImg"></div>
-          <div></div>
-          <div data-key="h-yo"><img src="img/hiragana/yo.png" id="h-yo" class="alphabetImg"></div>
-          <div id="r-h-cr" class="w3-text-white">r</div>
-          <div data-key="h-ra"><img src="img/hiragana/ra.png" id="h-ra" class="alphabetImg"></div>
-          <div data-key="h-ri"><img src="img/hiragana/ri.png" id="h-ri" class="alphabetImg"></div>
-          <div data-key="h-ru"><img src="img/hiragana/ru.png" id="h-ru" class="alphabetImg"></div>
-          <div data-key="h-re"><img src="img/hiragana/re.png" id="h-re" class="alphabetImg"></div>
-          <div data-key="h-ro"><img src="img/hiragana/ro.png" id="h-ro" class="alphabetImg"></div>
-          <div id="r-h-cw" class="w3-text-white">w</div>
-          <div data-key="h-wa"><img src="img/hiragana/wa.png" id="h-wa" class="alphabetImg"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div data-key="h-wo"><img src="img/hiragana/wo.png" id="h-wo" class="alphabetImg"></div>
-          <div id="r-h-cnn"></div>
-          <div data-key="h-n"><img src="img/hiragana/n.png" id="h-n" class="alphabetImg"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div id="r-h-cg" class="w3-text-white">g</div>
-          <div data-key="h-ga"><img src="img/hiragana/ga.png" id="h-ga" class="alphabetImg"></div>
-          <div data-key="h-gi"><img src="img/hiragana/gi.png" id="h-gi" class="alphabetImg"></div>
-          <div data-key="h-gu"><img src="img/hiragana/gu.png" id="h-gu" class="alphabetImg"></div>
-          <div data-key="h-ge"><img src="img/hiragana/ge.png" id="h-ge" class="alphabetImg"></div>
-          <div data-key="h-go"><img src="img/hiragana/go.png" id="h-go" class="alphabetImg"></div>
-          <div id="r-h-cz" class="w3-text-white">z</div>
-          <div data-key="h-za"><img src="img/hiragana/za.png" id="h-za" class="alphabetImg"></div>
-          <div data-key="h-ji"><img src="img/hiragana/ji.png" id="h-ji" class="alphabetImg"><div id="r-h-ji" class="w3-text-white">ji</div></div>
-          <div data-key="h-zu"><img src="img/hiragana/zu.png" id="h-zu" class="alphabetImg"></div>
-          <div data-key="h-ze"><img src="img/hiragana/ze.png" id="h-ze" class="alphabetImg"></div>
-          <div data-key="h-zo"><img src="img/hiragana/zo.png" id="h-zo" class="alphabetImg"></div>
-          <div id="r-h-cd" class="w3-text-white">d</div>
-          <div data-key="h-da"><img src="img/hiragana/da.png" id="h-da" class="alphabetImg"></div>
-          <div data-key="h-dzi"><img src="img/hiragana/dzi.png" id="h-dzi" class="alphabetImg"><div id="r-h-dzi" class="w3-text-white">dzi</div></div>
-          <div data-key="h-dzu"><img src="img/hiragana/dzu.png" id="h-dzu" class="alphabetImg"><div id="r-h-dzu" class="w3-text-white">dzu</div></div>
-          <div data-key="h-de"><img src="img/hiragana/de.png" id="h-de" class="alphabetImg"></div>
-          <div data-key="h-do"><img src="img/hiragana/do.png" id="h-do" class="alphabetImg"></div>
-          <div id="r-h-cb" class="w3-text-white">b</div>
-          <div data-key="h-ba"><img src="img/hiragana/ba.png" id="h-ba" class="alphabetImg"></div>
-          <div data-key="h-bi"><img src="img/hiragana/bi.png" id="h-bi" class="alphabetImg"></div>
-          <div data-key="h-bu"><img src="img/hiragana/bu.png" id="h-bu" class="alphabetImg"></div>
-          <div data-key="h-be"><img src="img/hiragana/be.png" id="h-be" class="alphabetImg"></div>
-          <div data-key="h-bo"><img src="img/hiragana/bo.png" id="h-bo" class="alphabetImg"></div>
-          <div id="r-h-cp" class="w3-text-white">p</div>
-          <div data-key="h-pa"><img src="img/hiragana/pa.png" id="h-pa" class="alphabetImg"></div>
-          <div data-key="h-pi"><img src="img/hiragana/pi.png" id="h-pi" class="alphabetImg"></div>
-          <div data-key="h-pu"><img src="img/hiragana/pu.png" id="h-pu" class="alphabetImg"></div>
-          <div data-key="h-pe"><img src="img/hiragana/pe.png" id="h-pe" class="alphabetImg"></div>
-          <div data-key="h-po"><img src="img/hiragana/po.png" id="h-po" class="alphabetImg"></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="learnItemKatakana">
-      <div class="kana">
-        <div class="alphabet">
-          <div></div>
-          <div id="r-k-a" class="w3-text-white">a</div>
-          <div id="r-k-i" class="w3-text-white">i</div>
-          <div id="r-k-u" class="w3-text-white">u</div>
-          <div id="r-k-e" class="w3-text-white">e</div>
-          <div id="r-k-o" class="w3-text-white">o</div>
-          <div id="r-k-c"></div>
-          <div data-key="k-a"><img src="img/katakana/a.png" id="k-a" class="alphabetImg"></div>
-          <div data-key="k-i"><img src="img/katakana/i.png" id="k-i" class="alphabetImg"></div>
-          <div data-key="k-u"><img src="img/katakana/u.png" id="k-u" class="alphabetImg"></div>
-          <div data-key="k-e"><img src="img/katakana/e.png" id="k-e" class="alphabetImg"></div>
-          <div data-key="k-o"><img src="img/katakana/o.png" id="k-o" class="alphabetImg"></div>
-          <div id="r-k-ck" class="w3-text-white">k</div>
-          <div data-key="k-ka"><img src="img/katakana/ka.png" id="k-ka" class="alphabetImg"></div>
-          <div data-key="k-ki"><img src="img/katakana/ki.png" id="k-ki" class="alphabetImg"></div>
-          <div data-key="k-ku"><img src="img/katakana/ku.png" id="k-ku" class="alphabetImg"></div>
-          <div data-key="k-ke"><img src="img/katakana/ke.png" id="k-ke" class="alphabetImg"></div>
-          <div data-key="k-ko"><img src="img/katakana/ko.png" id="k-ko" class="alphabetImg"></div>
-          <div id="r-k-cs" class="w3-text-white">s</div>
-          <div data-key="k-sa"><img src="img/katakana/sa.png" id="k-sa" class="alphabetImg"></div>
-          <div data-key="k-shi"><img src="img/katakana/shi.png" id="k-shi" class="alphabetImg"><div id="r-k-shi" class="w3-text-white">shi</div></div>
-          <div data-key="k-su"><img src="img/katakana/su.png" id="k-su" class="alphabetImg"></div>
-          <div data-key="k-se"><img src="img/katakana/se.png" id="k-se" class="alphabetImg"></div>
-          <div data-key="k-so"><img src="img/katakana/so.png" id="k-so" class="alphabetImg"></div>
-          <div id="r-k-ct" class="w3-text-white">t</div>
-          <div data-key="k-ta"><img src="img/katakana/ta.png" id="k-ta" class="alphabetImg"></div>
-          <div data-key="k-chi"><img src="img/katakana/chi.png" id="k-chi" class="alphabetImg"><div id="r-k-chi" class="w3-text-white">chi</div></div>
-          <div data-key="k-tsu"><img src="img/katakana/tsu.png" id="k-tsu" class="alphabetImg"><div id="r-k-tsu" class="w3-text-white">tsu</div></div>
-          <div data-key="k-te"><img src="img/katakana/te.png" id="k-te" class="alphabetImg"></div>
-          <div data-key="k-to"><img src="img/katakana/to.png" id="k-to" class="alphabetImg"></div>
-          <div id="r-k-cn" class="w3-text-white">n</div>
-          <div data-key="k-na"><img src="img/katakana/na.png" id="k-na" class="alphabetImg"></div>
-          <div data-key="k-ni"><img src="img/katakana/ni.png" id="k-ni" class="alphabetImg"></div>
-          <div data-key="k-nu"><img src="img/katakana/nu.png" id="k-nu" class="alphabetImg"></div>
-          <div data-key="k-ne"><img src="img/katakana/ne.png" id="k-ne" class="alphabetImg"></div>
-          <div data-key="k-no"><img src="img/katakana/no.png" id="k-no" class="alphabetImg"></div>
-          <div id="r-k-ch" class="w3-text-white">h</div>
-          <div data-key="k-ha"><img src="img/katakana/ha.png" id="k-ha" class="alphabetImg"></div>
-          <div data-key="k-hi"><img src="img/katakana/hi.png" id="k-hi" class="alphabetImg"></div>
-          <div data-key="k-fu"><img src="img/katakana/fu.png" id="k-fu" class="alphabetImg"><div id="r-k-fu" class="w3-text-white">fu</div></div>
-          <div data-key="k-he"><img src="img/katakana/he.png" id="k-he" class="alphabetImg"></div>
-          <div data-key="k-ho"><img src="img/katakana/ho.png" id="k-fo" class="alphabetImg"></div>
-          <div id="r-k-cm" class="w3-text-white">m</div>
-          <div data-key="k-ma"><img src="img/katakana/ma.png" id="k-ma" class="alphabetImg"></div>
-          <div data-key="k-mi"><img src="img/katakana/mi.png" id="k-mi" class="alphabetImg"></div>
-          <div data-key="k-mu"><img src="img/katakana/mu.png" id="k-mu" class="alphabetImg"></div>
-          <div data-key="k-me"><img src="img/katakana/me.png" id="k-me" class="alphabetImg"></div>
-          <div data-key="k-mo"><img src="img/katakana/mo.png" id="k-mo" class="alphabetImg"></div>
-          <div id="r-k-cy" class="w3-text-white">y</div>
-          <div data-key="k-ya"><img src="img/katakana/ya.png" id="k-ya" class="alphabetImg"></div>
-          <div></div>
-          <div data-key="k-yu"><img src="img/katakana/yu.png" id="k-yu" class="alphabetImg"></div>
-          <div></div>
-          <div data-key="k-yo"><img src="img/katakana/yo.png" id="k-yo" class="alphabetImg"></div>
-          <div id="r-k-cr" class="w3-text-white">r</div>
-          <div data-key="k-ra"><img src="img/katakana/ra.png" id="k-ra" class="alphabetImg"></div>
-          <div data-key="k-ri"><img src="img/katakana/ri.png" id="k-ri" class="alphabetImg"></div>
-          <div data-key="k-ru"><img src="img/katakana/ru.png" id="k-ru" class="alphabetImg"></div>
-          <div data-key="k-re"><img src="img/katakana/re.png" id="k-re" class="alphabetImg"></div>
-          <div data-key="k-ro"><img src="img/katakana/ro.png" id="k-ro" class="alphabetImg"></div>
-          <div id="r-k-cw" class="w3-text-white">w</div>
-          <div data-key="k-wa"><img src="img/katakana/wa.png" id="k-wa" class="alphabetImg"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div data-key="k-wo"><img src="img/katakana/wo.png" id="k-wo" class="alphabetImg"></div>
-          <div id="r-k-cnn"></div>
-          <div data-key="k-n"><img src="img/katakana/n.png" id="k-n" class="alphabetImg"></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div id="r-k-cg" class="w3-text-white">g</div>
-          <div data-key="k-ga"><img src="img/katakana/ga.png" id="k-ga" class="alphabetImg"></div>
-          <div data-key="k-gi"><img src="img/katakana/gi.png" id="k-gi" class="alphabetImg"></div>
-          <div data-key="k-gu"><img src="img/katakana/gu.png" id="k-gu" class="alphabetImg"></div>
-          <div data-key="k-ge"><img src="img/katakana/ge.png" id="k-ge" class="alphabetImg"></div>
-          <div data-key="k-go"><img src="img/katakana/go.png" id="k-go" class="alphabetImg"></div>
-          <div id="r-k-cz" class="w3-text-white">z</div>
-          <div data-key="k-za"><img src="img/katakana/za.png" id="k-za" class="alphabetImg"></div>
-          <div data-key="k-ji"><img src="img/katakana/ji.png" id="k-ji" class="alphabetImg"><div id="r-k-ji" class="w3-text-white">ji</div></div>
-          <div data-key="k-zu"><img src="img/katakana/zu.png" id="k-zu" class="alphabetImg"></div>
-          <div data-key="k-ze"><img src="img/katakana/ze.png" id="k-ze" class="alphabetImg"></div>
-          <div data-key="k-zo"><img src="img/katakana/zo.png" id="k-zo" class="alphabetImg"></div>
-          <div id="r-k-cd" class="w3-text-white">d</div>
-          <div data-key="k-da"><img src="img/katakana/da.png" id="k-da" class="alphabetImg"></div>
-          <div data-key="k-dzi"><img src="img/katakana/dzi.png" id="k-dzi" class="alphabetImg"><div id="r-k-dzi" class="w3-text-white">dzi</div></div>
-          <div data-key="k-dzu"><img src="img/katakana/dzu.png" id="k-dzu" class="alphabetImg"><div id="r-k-dzu" class="w3-text-white">dzu</div></div>
-          <div data-key="k-de"><img src="img/katakana/de.png" id="k-de" class="alphabetImg"></div>
-          <div data-key="k-do"><img src="img/katakana/do.png" id="k-do" class="alphabetImg"></div>
-          <div id="r-k-cb" class="w3-text-white">b</div>
-          <div data-key="k-ba"><img src="img/katakana/ba.png" id="k-ba" class="alphabetImg"></div>
-          <div data-key="k-bi"><img src="img/katakana/bi.png" id="k-bi" class="alphabetImg"></div>
-          <div data-key="k-bu"><img src="img/katakana/bu.png" id="k-bu" class="alphabetImg"></div>
-          <div data-key="k-be"><img src="img/katakana/be.png" id="k-be" class="alphabetImg"></div>
-          <div data-key="k-bo"><img src="img/katakana/bo.png" id="k-bo" class="alphabetImg"></div>
-          <div id="r-k-cp" class="w3-text-white">p</div>
-          <div data-key="k-pa"><img src="img/katakana/pa.png" id="k-pa" class="alphabetImg"></div>
-          <div data-key="k-pi"><img src="img/katakana/pi.png" id="k-pi" class="alphabetImg"></div>
-          <div data-key="k-pu"><img src="img/katakana/pu.png" id="k-pu" class="alphabetImg"></div>
-          <div data-key="k-pe"><img src="img/katakana/pe.png" id="k-pe" class="alphabetImg"></div>
-          <div data-key="k-po"><img src="img/katakana/po.png" id="k-po" class="alphabetImg"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- End Learn Section -->
-  </div>
-
-<!-- END PAGE CONTENT -->
 </div>
+
+
+<div class="bb" id="learnItemKana">
+    <div align="center"><img src="img/kanacomplete.png" class="imgBig"></div>
+</div>
+
+<div class="bb" id="learnItemHiragana">
+    <div class="kana">
+        <div class="alphabet">
+            <div></div>
+            <div id="r-h-a">a</div>
+            <div id="r-h-i">i</div>
+            <div id="r-h-u">u</div>
+            <div id="r-h-e">e</div>
+            <div id="r-h-o">o</div>
+            <div id="r-h-c"></div>
+            <div data-key="h-a"><img src="img/hiragana/a.png" id="h-a" class="alphabetImg"></div>
+            <div data-key="h-i"><img src="img/hiragana/i.png" id="h-i" class="alphabetImg"></div>
+            <div data-key="h-u"><img src="img/hiragana/u.png" id="h-u" class="alphabetImg"></div>
+            <div data-key="h-e"><img src="img/hiragana/e.png" id="h-e" class="alphabetImg"></div>
+            <div data-key="h-o"><img src="img/hiragana/o.png" id="h-o" class="alphabetImg"></div>
+            <div id="r-h-ck">k</div>
+            <div data-key="h-ka"><img src="img/hiragana/ka.png" id="h-ka" class="alphabetImg"></div>
+            <div data-key="h-ki"><img src="img/hiragana/ki.png" id="h-ki" class="alphabetImg"></div>
+            <div data-key="h-ku"><img src="img/hiragana/ku.png" id="h-ku" class="alphabetImg"></div>
+            <div data-key="h-ke"><img src="img/hiragana/ke.png" id="h-ke" class="alphabetImg"></div>
+            <div data-key="h-ko"><img src="img/hiragana/ko.png" id="h-ko" class="alphabetImg"></div>
+            <div id="r-h-cs">s</div>
+            <div data-key="h-sa"><img src="img/hiragana/sa.png" id="h-sa" class="alphabetImg"></div>
+            <div data-key="h-shi"><img src="img/hiragana/shi.png" id="h-shi" class="alphabetImg">
+                <div id="r-h-shi">shi</div>
+            </div>
+            <div data-key="h-su"><img src="img/hiragana/su.png" id="h-su" class="alphabetImg"></div>
+            <div data-key="h-se"><img src="img/hiragana/se.png" id="h-se" class="alphabetImg"></div>
+            <div data-key="h-so"><img src="img/hiragana/so.png" id="h-so" class="alphabetImg"></div>
+            <div id="r-h-ct">t</div>
+            <div data-key="h-ta"><img src="img/hiragana/ta.png" id="h-ta" class="alphabetImg"></div>
+            <div data-key="h-chi"><img src="img/hiragana/chi.png" id="h-chi" class="alphabetImg">
+                <div id="r-h-chi">chi</div>
+            </div>
+            <div data-key="h-tsu"><img src="img/hiragana/tsu.png" id="h-tsu" class="alphabetImg">
+                <div id="r-h-tsu">tsu</div>
+            </div>
+            <div data-key="h-te"><img src="img/hiragana/te.png" id="h-te" class="alphabetImg"></div>
+            <div data-key="h-to"><img src="img/hiragana/to.png" id="h-to" class="alphabetImg"></div>
+            <div id="r-h-cn">n</div>
+            <div data-key="h-na"><img src="img/hiragana/na.png" id="h-na" class="alphabetImg"></div>
+            <div data-key="h-ni"><img src="img/hiragana/ni.png" id="h-ni" class="alphabetImg"></div>
+            <div data-key="h-nu"><img src="img/hiragana/nu.png" id="h-nu" class="alphabetImg"></div>
+            <div data-key="h-ne"><img src="img/hiragana/ne.png" id="h-ne" class="alphabetImg"></div>
+            <div data-key="h-no"><img src="img/hiragana/no.png" id="h-no" class="alphabetImg"></div>
+            <div id="r-h-ch">h</div>
+            <div data-key="h-ha"><img src="img/hiragana/ha.png" id="h-ha" class="alphabetImg"></div>
+            <div data-key="h-hi"><img src="img/hiragana/hi.png" id="h-hi" class="alphabetImg"></div>
+            <div data-key="h-fu"><img src="img/hiragana/fu.png" id="h-fu" class="alphabetImg">
+                <div id="r-h-fu">fu</div>
+            </div>
+            <div data-key="h-he"><img src="img/hiragana/he.png" id="h-he" class="alphabetImg"></div>
+            <div data-key="h-ho"><img src="img/hiragana/ho.png" id="h-fo" class="alphabetImg"></div>
+            <div id="r-h-cm">m</div>
+            <div data-key="h-ma"><img src="img/hiragana/ma.png" id="h-ma" class="alphabetImg"></div>
+            <div data-key="h-mi"><img src="img/hiragana/mi.png" id="h-mi" class="alphabetImg"></div>
+            <div data-key="h-mu"><img src="img/hiragana/mu.png" id="h-mu" class="alphabetImg"></div>
+            <div data-key="h-me"><img src="img/hiragana/me.png" id="h-me" class="alphabetImg"></div>
+            <div data-key="h-mo"><img src="img/hiragana/mo.png" id="h-mo" class="alphabetImg"></div>
+            <div id="r-h-cy">y</div>
+            <div data-key="h-ya"><img src="img/hiragana/ya.png" id="h-ya" class="alphabetImg"></div>
+            <div></div>
+            <div data-key="h-yu"><img src="img/hiragana/yu.png" id="h-yu" class="alphabetImg"></div>
+            <div></div>
+            <div data-key="h-yo"><img src="img/hiragana/yo.png" id="h-yo" class="alphabetImg"></div>
+            <div id="r-h-cr">r</div>
+            <div data-key="h-ra"><img src="img/hiragana/ra.png" id="h-ra" class="alphabetImg"></div>
+            <div data-key="h-ri"><img src="img/hiragana/ri.png" id="h-ri" class="alphabetImg"></div>
+            <div data-key="h-ru"><img src="img/hiragana/ru.png" id="h-ru" class="alphabetImg"></div>
+            <div data-key="h-re"><img src="img/hiragana/re.png" id="h-re" class="alphabetImg"></div>
+            <div data-key="h-ro"><img src="img/hiragana/ro.png" id="h-ro" class="alphabetImg"></div>
+            <div id="r-h-cw">w</div>
+            <div data-key="h-wa"><img src="img/hiragana/wa.png" id="h-wa" class="alphabetImg"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div data-key="h-wo"><img src="img/hiragana/wo.png" id="h-wo" class="alphabetImg"></div>
+            <div id="r-h-cnn"></div>
+            <div data-key="h-n"><img src="img/hiragana/n.png" id="h-n" class="alphabetImg"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div id="r-h-cg">g</div>
+            <div data-key="h-ga"><img src="img/hiragana/ga.png" id="h-ga" class="alphabetImg"></div>
+            <div data-key="h-gi"><img src="img/hiragana/gi.png" id="h-gi" class="alphabetImg"></div>
+            <div data-key="h-gu"><img src="img/hiragana/gu.png" id="h-gu" class="alphabetImg"></div>
+            <div data-key="h-ge"><img src="img/hiragana/ge.png" id="h-ge" class="alphabetImg"></div>
+            <div data-key="h-go"><img src="img/hiragana/go.png" id="h-go" class="alphabetImg"></div>
+            <div id="r-h-cz">z</div>
+            <div data-key="h-za"><img src="img/hiragana/za.png" id="h-za" class="alphabetImg"></div>
+            <div data-key="h-ji"><img src="img/hiragana/ji.png" id="h-ji" class="alphabetImg">
+                <div id="r-h-ji">ji</div>
+            </div>
+            <div data-key="h-zu"><img src="img/hiragana/zu.png" id="h-zu" class="alphabetImg"></div>
+            <div data-key="h-ze"><img src="img/hiragana/ze.png" id="h-ze" class="alphabetImg"></div>
+            <div data-key="h-zo"><img src="img/hiragana/zo.png" id="h-zo" class="alphabetImg"></div>
+            <div id="r-h-cd">d</div>
+            <div data-key="h-da"><img src="img/hiragana/da.png" id="h-da" class="alphabetImg"></div>
+            <div data-key="h-dzi"><img src="img/hiragana/dzi.png" id="h-dzi" class="alphabetImg">
+                <div id="r-h-dzi">dzi</div>
+            </div>
+            <div data-key="h-dzu"><img src="img/hiragana/dzu.png" id="h-dzu" class="alphabetImg">
+                <div id="r-h-dzu">dzu</div>
+            </div>
+            <div data-key="h-de"><img src="img/hiragana/de.png" id="h-de" class="alphabetImg"></div>
+            <div data-key="h-do"><img src="img/hiragana/do.png" id="h-do" class="alphabetImg"></div>
+            <div id="r-h-cb">b</div>
+            <div data-key="h-ba"><img src="img/hiragana/ba.png" id="h-ba" class="alphabetImg"></div>
+            <div data-key="h-bi"><img src="img/hiragana/bi.png" id="h-bi" class="alphabetImg"></div>
+            <div data-key="h-bu"><img src="img/hiragana/bu.png" id="h-bu" class="alphabetImg"></div>
+            <div data-key="h-be"><img src="img/hiragana/be.png" id="h-be" class="alphabetImg"></div>
+            <div data-key="h-bo"><img src="img/hiragana/bo.png" id="h-bo" class="alphabetImg"></div>
+            <div id="r-h-cp">p</div>
+            <div data-key="h-pa"><img src="img/hiragana/pa.png" id="h-pa" class="alphabetImg"></div>
+            <div data-key="h-pi"><img src="img/hiragana/pi.png" id="h-pi" class="alphabetImg"></div>
+            <div data-key="h-pu"><img src="img/hiragana/pu.png" id="h-pu" class="alphabetImg"></div>
+            <div data-key="h-pe"><img src="img/hiragana/pe.png" id="h-pe" class="alphabetImg"></div>
+            <div data-key="h-po"><img src="img/hiragana/po.png" id="h-po" class="alphabetImg"></div>
+        </div>
+    </div>
+</div>
+
+<div class="bb" id="learnItemKatakana">
+    <div class="kana">
+        <div class="alphabet">
+            <div></div>
+            <div id="r-k-a">a</div>
+            <div id="r-k-i">i</div>
+            <div id="r-k-u">u</div>
+            <div id="r-k-e">e</div>
+            <div id="r-k-o">o</div>
+            <div id="r-k-c"></div>
+            <div data-key="k-a"><img src="img/katakana/a.png" id="k-a" class="alphabetImg"></div>
+            <div data-key="k-i"><img src="img/katakana/i.png" id="k-i" class="alphabetImg"></div>
+            <div data-key="k-u"><img src="img/katakana/u.png" id="k-u" class="alphabetImg"></div>
+            <div data-key="k-e"><img src="img/katakana/e.png" id="k-e" class="alphabetImg"></div>
+            <div data-key="k-o"><img src="img/katakana/o.png" id="k-o" class="alphabetImg"></div>
+            <div id="r-k-ck">k</div>
+            <div data-key="k-ka"><img src="img/katakana/ka.png" id="k-ka" class="alphabetImg"></div>
+            <div data-key="k-ki"><img src="img/katakana/ki.png" id="k-ki" class="alphabetImg"></div>
+            <div data-key="k-ku"><img src="img/katakana/ku.png" id="k-ku" class="alphabetImg"></div>
+            <div data-key="k-ke"><img src="img/katakana/ke.png" id="k-ke" class="alphabetImg"></div>
+            <div data-key="k-ko"><img src="img/katakana/ko.png" id="k-ko" class="alphabetImg"></div>
+            <div id="r-k-cs">s</div>
+            <div data-key="k-sa"><img src="img/katakana/sa.png" id="k-sa" class="alphabetImg"></div>
+            <div data-key="k-shi"><img src="img/katakana/shi.png" id="k-shi" class="alphabetImg">
+                <div id="r-k-shi">shi</div>
+            </div>
+            <div data-key="k-su"><img src="img/katakana/su.png" id="k-su" class="alphabetImg"></div>
+            <div data-key="k-se"><img src="img/katakana/se.png" id="k-se" class="alphabetImg"></div>
+            <div data-key="k-so"><img src="img/katakana/so.png" id="k-so" class="alphabetImg"></div>
+            <div id="r-k-ct">t</div>
+            <div data-key="k-ta"><img src="img/katakana/ta.png" id="k-ta" class="alphabetImg"></div>
+            <div data-key="k-chi"><img src="img/katakana/chi.png" id="k-chi" class="alphabetImg">
+                <div id="r-k-chi">chi</div>
+            </div>
+            <div data-key="k-tsu"><img src="img/katakana/tsu.png" id="k-tsu" class="alphabetImg">
+                <div id="r-k-tsu">tsu</div>
+            </div>
+            <div data-key="k-te"><img src="img/katakana/te.png" id="k-te" class="alphabetImg"></div>
+            <div data-key="k-to"><img src="img/katakana/to.png" id="k-to" class="alphabetImg"></div>
+            <div id="r-k-cn">n</div>
+            <div data-key="k-na"><img src="img/katakana/na.png" id="k-na" class="alphabetImg"></div>
+            <div data-key="k-ni"><img src="img/katakana/ni.png" id="k-ni" class="alphabetImg"></div>
+            <div data-key="k-nu"><img src="img/katakana/nu.png" id="k-nu" class="alphabetImg"></div>
+            <div data-key="k-ne"><img src="img/katakana/ne.png" id="k-ne" class="alphabetImg"></div>
+            <div data-key="k-no"><img src="img/katakana/no.png" id="k-no" class="alphabetImg"></div>
+            <div id="r-k-ch">h</div>
+            <div data-key="k-ha"><img src="img/katakana/ha.png" id="k-ha" class="alphabetImg"></div>
+            <div data-key="k-hi"><img src="img/katakana/hi.png" id="k-hi" class="alphabetImg"></div>
+            <div data-key="k-fu"><img src="img/katakana/fu.png" id="k-fu" class="alphabetImg">
+                <div id="r-k-fu">fu</div>
+            </div>
+            <div data-key="k-he"><img src="img/katakana/he.png" id="k-he" class="alphabetImg"></div>
+            <div data-key="k-ho"><img src="img/katakana/ho.png" id="k-fo" class="alphabetImg"></div>
+            <div id="r-k-cm">m</div>
+            <div data-key="k-ma"><img src="img/katakana/ma.png" id="k-ma" class="alphabetImg"></div>
+            <div data-key="k-mi"><img src="img/katakana/mi.png" id="k-mi" class="alphabetImg"></div>
+            <div data-key="k-mu"><img src="img/katakana/mu.png" id="k-mu" class="alphabetImg"></div>
+            <div data-key="k-me"><img src="img/katakana/me.png" id="k-me" class="alphabetImg"></div>
+            <div data-key="k-mo"><img src="img/katakana/mo.png" id="k-mo" class="alphabetImg"></div>
+            <div id="r-k-cy">y</div>
+            <div data-key="k-ya"><img src="img/katakana/ya.png" id="k-ya" class="alphabetImg"></div>
+            <div></div>
+            <div data-key="k-yu"><img src="img/katakana/yu.png" id="k-yu" class="alphabetImg"></div>
+            <div></div>
+            <div data-key="k-yo"><img src="img/katakana/yo.png" id="k-yo" class="alphabetImg"></div>
+            <div id="r-k-cr">r</div>
+            <div data-key="k-ra"><img src="img/katakana/ra.png" id="k-ra" class="alphabetImg"></div>
+            <div data-key="k-ri"><img src="img/katakana/ri.png" id="k-ri" class="alphabetImg"></div>
+            <div data-key="k-ru"><img src="img/katakana/ru.png" id="k-ru" class="alphabetImg"></div>
+            <div data-key="k-re"><img src="img/katakana/re.png" id="k-re" class="alphabetImg"></div>
+            <div data-key="k-ro"><img src="img/katakana/ro.png" id="k-ro" class="alphabetImg"></div>
+            <div id="r-k-cw">w</div>
+            <div data-key="k-wa"><img src="img/katakana/wa.png" id="k-wa" class="alphabetImg"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div data-key="k-wo"><img src="img/katakana/wo.png" id="k-wo" class="alphabetImg"></div>
+            <div id="r-k-cnn"></div>
+            <div data-key="k-n"><img src="img/katakana/n.png" id="k-n" class="alphabetImg"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div id="r-k-cg">g</div>
+            <div data-key="k-ga"><img src="img/katakana/ga.png" id="k-ga" class="alphabetImg"></div>
+            <div data-key="k-gi"><img src="img/katakana/gi.png" id="k-gi" class="alphabetImg"></div>
+            <div data-key="k-gu"><img src="img/katakana/gu.png" id="k-gu" class="alphabetImg"></div>
+            <div data-key="k-ge"><img src="img/katakana/ge.png" id="k-ge" class="alphabetImg"></div>
+            <div data-key="k-go"><img src="img/katakana/go.png" id="k-go" class="alphabetImg"></div>
+            <div id="r-k-cz">z</div>
+            <div data-key="k-za"><img src="img/katakana/za.png" id="k-za" class="alphabetImg"></div>
+            <div data-key="k-ji"><img src="img/katakana/ji.png" id="k-ji" class="alphabetImg">
+                <div id="r-k-ji">ji</div>
+            </div>
+            <div data-key="k-zu"><img src="img/katakana/zu.png" id="k-zu" class="alphabetImg"></div>
+            <div data-key="k-ze"><img src="img/katakana/ze.png" id="k-ze" class="alphabetImg"></div>
+            <div data-key="k-zo"><img src="img/katakana/zo.png" id="k-zo" class="alphabetImg"></div>
+            <div id="r-k-cd">d</div>
+            <div data-key="k-da"><img src="img/katakana/da.png" id="k-da" class="alphabetImg"></div>
+            <div data-key="k-dzi"><img src="img/katakana/dzi.png" id="k-dzi" class="alphabetImg">
+                <div id="r-k-dzi">dzi</div>
+            </div>
+            <div data-key="k-dzu"><img src="img/katakana/dzu.png" id="k-dzu" class="alphabetImg">
+                <div id="r-k-dzu">dzu</div>
+            </div>
+            <div data-key="k-de"><img src="img/katakana/de.png" id="k-de" class="alphabetImg"></div>
+            <div data-key="k-do"><img src="img/katakana/do.png" id="k-do" class="alphabetImg"></div>
+            <div id="r-k-cb">b</div>
+            <div data-key="k-ba"><img src="img/katakana/ba.png" id="k-ba" class="alphabetImg"></div>
+            <div data-key="k-bi"><img src="img/katakana/bi.png" id="k-bi" class="alphabetImg"></div>
+            <div data-key="k-bu"><img src="img/katakana/bu.png" id="k-bu" class="alphabetImg"></div>
+            <div data-key="k-be"><img src="img/katakana/be.png" id="k-be" class="alphabetImg"></div>
+            <div data-key="k-bo"><img src="img/katakana/bo.png" id="k-bo" class="alphabetImg"></div>
+            <div id="r-k-cp">p</div>
+            <div data-key="k-pa"><img src="img/katakana/pa.png" id="k-pa" class="alphabetImg"></div>
+            <div data-key="k-pi"><img src="img/katakana/pi.png" id="k-pi" class="alphabetImg"></div>
+            <div data-key="k-pu"><img src="img/katakana/pu.png" id="k-pu" class="alphabetImg"></div>
+            <div data-key="k-pe"><img src="img/katakana/pe.png" id="k-pe" class="alphabetImg"></div>
+            <div data-key="k-po"><img src="img/katakana/po.png" id="k-po" class="alphabetImg"></div>
+        </div>
+    </div>
+</div>
+
+
+
 
 </body>
 </html>

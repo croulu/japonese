@@ -83,7 +83,7 @@ class ChoiceGroup {
 
   randomizeChoice (guessWhat, kanaToStudy) {
     let arrayChoice = []
- 
+
     for (let i = 0; i < kanaToStudy.length; i++) {
       arrayChoice.push(kanaToStudy[i])
     }

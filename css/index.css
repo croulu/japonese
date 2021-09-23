@@ -1,6 +1,72 @@
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+:root {
+    --bg-color: #ef534e;
+    --text-color: #000000;
+    --text-color-light: #000000;
+    --main-color: #00000;
+    --main-color-hover: #FFFFFF;
+    --main-color-light-hover: #f4f9fc;
+    --hairline-color: #e3e3e3;
+    --footer-bg-color: #f5f5f5;
 }
+
+body {
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.page-block {
+    padding: 0 1rem;
+    background-color: var(--bg-color);
+}
+
+.page-block-content {
+    max-width: 80rem;
+    margin: auto;
+}
+
+
+/* header */
+
+.logo-main {
+    width: 100px;
+}
+
+.menu-main {
+    color: black;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.menu-main-item {
+    font-weight: 300;
+    text-decoration: none;
+    padding: 0 0.5rem;
+    color: var(--text-color-light);
+}
+
+.menu-main-item:hover {
+    color: var(--main-color-hover);
+}
+
+
+/* helpers */
+
+.bb {
+    border-bottom: 1px solid var(--hairline-color);
+}
+
+
+/* --------------- */
+/* legacy */
+/* --------------- */
+
+
 
 .kanaHomePage {
     display: flex;
@@ -18,7 +84,7 @@
     align-items: center;
     justify-content: center;
     font-size: 40px;
-    color: white;
+    color: #000000;
     min-height: 60px;
     margin: 10px;
    /* border: 1px solid black; */
@@ -92,6 +158,7 @@
     text-align: center;
     width: 100px;
     height: 100px;
+    font-size: 44px;
 }
 
 .playKanaChoiceItem {

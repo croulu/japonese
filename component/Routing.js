@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
 import {LessonCatalog} from "../domain/LessonCatalog";
+import {LearnMenu} from "./Lessons/LearnMenu";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
@@ -43,6 +44,9 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     onLessonChange={handleLesson}
                     alphabet={alphabet}
                     lesson={lesson}/>
+            </Route>
+            <Route exact path='/lesson'>
+                <LearnMenu></LearnMenu>
             </Route>
         </Router>
     );

@@ -19,8 +19,8 @@ export const PlayKana = ({practice}) => {
             {isChoiceValid ? <span>Bingo :D !</span> : isChoiceValid === false ? <span>Nope :(</span> : ""}
         </div>
         <div className="playKana">
-            <div>
-                <div id="playItemKana">{guess.syllable.display()}</div>
+            <div className="playItemKana" id="playItemKana">
+               {guess.syllable.display()}
             </div>
             {
                 guess.syllables.map(syllable => <Choice key={syllable.key()}

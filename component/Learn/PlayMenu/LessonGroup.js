@@ -3,9 +3,6 @@ import {LessonButton} from "./LessonButton";
 
 export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLessonChange, alphabetName}) =>
     <>
-        {title}
-        <br/>
-        <div className="lessons">
             {
                 lessons.map((lesson, index) =>
                     <LessonButton
@@ -14,5 +11,4 @@ export const LessonsGroup = ({title, lessons, letter, oneLesson, oneGuess, onLes
                         oneGuess={oneGuess}
                         onLessonChange={onLessonChange} alphabetName={alphabetName}/>)
             }
-        </div>
     </>

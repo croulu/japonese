@@ -100,11 +100,35 @@ body {
     }
 }
 
+/* heo */
+
+.hero-main {
+    text-align: center;
+}
+
+.hero-main-title {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.hero-main-subtitle {
+    margin-block-start: 0em;
+    font-size: 1.2rem;
+}
+
+
 /* sections */
 
 .playMenu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh;
+}
+
+.playKana {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
 }
@@ -129,6 +153,14 @@ body {
 
 .bb {
     border-bottom: 1px solid var(--hairline-color);
+}
+
+.mb {
+    margin-bottom: 3rem;
+}
+
+.mt {
+    margin-top: 2rem;
 }
 
 
@@ -183,13 +215,6 @@ body {
     align-content: center;
 }
 
-.playKana {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 1vh;
-    /* border: 1px solid greenyellow; */
-}
 
 .playKana > * {
     display: flex;
@@ -210,7 +235,6 @@ body {
     width: 100px;
     height: 100px;
 }
-
 
 
 .playKanaChoiceItem {
@@ -237,14 +261,5 @@ body {
     width: 50%;
 }
 
-.colorClearButton {
-    background-color: #f44336;
-}
 
-.colorTrueButton {
-    background-color: #16ca52;
-}
 
-.colorFalseButton {
-    background-color: #cc1906;
-}

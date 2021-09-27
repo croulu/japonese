@@ -1,3 +1,5 @@
+import '@fortawesome/fontawesome-free/js/all.js'
+
 import {LessonCatalog} from "./domain/LessonCatalog";
 import {Lesson} from "./component_legacy/lesson";
 import {Guess} from "./component_legacy/guess";

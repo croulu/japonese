@@ -55,6 +55,53 @@ body {
     color: var(--main-color-hover);
 }
 
+/* menu */
+
+.hamburger-navigation label, #hamburger {
+    display: none;
+    color: var(--text-color-light);
+}
+
+@media screen and (max-width: 760px) {
+    .menu-main {
+        order: 1;
+        flex: 0;
+    }
+
+    .logo-main {
+        flex: 1;
+    }
+
+    .hamburger-navigation label {
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .hamburger-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+        background-color: var(--bg-color);
+        /* border: 1px solid green; */
+    }
+
+    .hamburger-items a {
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--hairline-color);
+    }
+
+    .hamburger-navigation input:checked ~ .hamburger-items {
+        display: flex;
+    }
+}
+
+/* sections */
+
 .playMenu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

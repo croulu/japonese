@@ -1,10 +1,9 @@
 :root {
-    --bg-color: #ef534e;
+    --menu-color: #ef534f;
+    --menu-color-light: #ff867b;
+    --bg-color: #FFFFFF;
     --text-color: #000000;
-    --text-color-light: #000000;
-    --main-color: #00000;
-    --main-color-hover: #FFFFFF;
-    --main-color-light-hover: #f4f9fc;
+    --text-color-light: #FFFFFF;
     --hairline-color: #e3e3e3;
     --footer-bg-color: #f5f5f5;
 }
@@ -17,7 +16,7 @@ body {
 
 .page-block {
     padding: 0 1rem 0 1rem;
-    background-color: var(--bg-color);
+    background-color: var(--menu-color);
 }
 
 .page-block-content {
@@ -48,18 +47,18 @@ body {
     font-weight: 300;
     text-decoration: none;
     padding: 0 0.5rem;
-    color: var(--text-color-light);
+    color: var(--text-color);
 }
 
 .menu-main-item:hover {
-    color: var(--main-color-hover);
+    color: var(--text-color-light);
 }
 
 /* menu */
 
 .hamburger-navigation label, #hamburger {
     display: none;
-    color: var(--text-color-light);
+    color: var(--text-color);
 }
 
 @media screen and (max-width: 760px) {
@@ -85,7 +84,7 @@ body {
         left: 0;
 
         width: 100%;
-        background-color: var(--bg-color);
+        background-color: var(--menu-color-light);
         /* border: 1px solid green; */
     }
 

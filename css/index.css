@@ -4,6 +4,7 @@
     --bg-color: #FFFFFF;
     --text-color: #000000;
     --text-color-light: #FFFFFF;
+    --text-color-highlight: #ef534f;
     --hairline-color: #e3e3e3;
     --footer-bg-color: #f5f5f5;
 }
@@ -108,6 +109,11 @@ body {
     grid-gap: 1vh;
 }
 
+.playItemKana {
+    font-size: 5em;
+    color: var(--text-color-highlight);
+}
+
 .kanaToPlay {
     font-size: 3rem;
     text-align: center;
@@ -205,10 +211,7 @@ body {
     height: 100px;
 }
 
-.playItemKana {
-    font-size: 5em;
-    color: var(--bg-color);
-}
+
 
 .playKanaChoiceItem {
     font-size: 3em;

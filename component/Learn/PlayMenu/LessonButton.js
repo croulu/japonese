@@ -15,12 +15,10 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
         history.push('/play')
     }
 
-    return (<a
-            id={`btnGuess${alphabet}${lesson.id}`}
-            className="w3-button w3-white w3-hover-opacity bigButton"
-            onClick={handleClick}
-        >
-        <div className="kanaHomePage" >{ catalog.kanaToDisplayForLesson(lesson.syllables) }</div>
-        { lesson.title }
-        </a>);
+    return (<a onClick={handleClick}>
+            <div className="kanaToPlay">
+                {catalog.kanaToDisplayForLesson(lesson.syllables)}</div>
+            <div className="labelForKanaToPlay">{lesson.title}</div>
+        </a>
+    );
 };

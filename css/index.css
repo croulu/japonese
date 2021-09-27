@@ -16,12 +16,13 @@ body {
 }
 
 .page-block {
-    padding: 0 1rem;
+    padding: 0 1rem 0 1rem;
     background-color: var(--bg-color);
 }
 
 .page-block-content {
     max-width: 80rem;
+    padding: 0 1rem 0 1rem;
     margin: auto;
 }
 
@@ -54,6 +55,23 @@ body {
     color: var(--main-color-hover);
 }
 
+.playMenu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-gap: 1vh;
+}
+
+.kanaToPlay {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.labelForKanaToPlay {
+    font-size: 1rem;
+    text-align: center;
+}
+
 
 /* helpers */
 
@@ -67,18 +85,6 @@ body {
 /* --------------- */
 
 
-
-.kanaHomePage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-    min-height: 40px;
-    margin: 0px
-}
-
 .resultPlayKana {
     display: flex;
     align-items: center;
@@ -87,7 +93,7 @@ body {
     color: #000000;
     min-height: 60px;
     margin: 10px;
-   /* border: 1px solid black; */
+    /* border: 1px solid black; */
 }
 
 .bigButton {
@@ -103,7 +109,7 @@ body {
 .countdownTimer {
     font-size: 2em;
     color: #000000;
-    float:right;
+    float: right;
     /* border: 1px solid grey;     */
 }
 
@@ -130,8 +136,9 @@ body {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-gap: 1vh;
-   /* border: 1px solid greenyellow; */
+    /* border: 1px solid greenyellow; */
 }
+
 .playKana > * {
     display: flex;
     justify-content: center;

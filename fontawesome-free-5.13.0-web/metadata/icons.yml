@@ -1037,7 +1037,7 @@ audio-description:
     - '4.6'
     - 5.0.0
     - 5.10.2
-  label: Audio Description
+  label: Audio HomeHero
   search:
     terms:
       - blind

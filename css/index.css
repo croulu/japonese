@@ -30,7 +30,10 @@ body {
 /* header */
 
 .logo-main {
-    width: 100px;
+    height: 100px;
+    width: 120px;
+    background-image : url("../img/japan.png");
+    background-size: cover;
 }
 
 .menu-main {
@@ -66,10 +69,6 @@ body {
     .menu-main {
         order: 1;
         flex: 0;
-    }
-
-    .logo-main {
-        flex: 1;
     }
 
     .hamburger-navigation label {

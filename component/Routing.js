@@ -4,7 +4,8 @@ import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
 import {LessonCatalog} from "../domain/LessonCatalog";
 import {LearnMenu} from "./Lessons/LearnMenu";
-import {Home} from "./Home/Home";
+import {HomeHero} from "./Home/HomeHero";
+import {HomeMenu} from "./Home/HomeMenu";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
@@ -32,7 +33,8 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     return (
         <Router>
             <Route exact path='/'>
-                <Home />
+                <HomeMenu />
+                <HomeHero />
                 <PlayMenu
                     alphabets={alphabets}
                     oneLesson={oneLesson}
@@ -40,6 +42,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                     onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
+                <HomeMenu />
                 <PlayItem
                     oneLesson={oneLesson}
                     oneGuess={oneGuess}

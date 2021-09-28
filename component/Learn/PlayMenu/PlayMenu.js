@@ -2,7 +2,7 @@ import React from "react";
 import {GuessAlphabet} from "./GuessAlphabet";
 
 
-export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
+export const PlayMenu = ({alphabets, onLessonChange}) =>
     <>
         <div id="playMenu" className="page-block-content">
 
@@ -12,8 +12,6 @@ export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
                     alphabetName={alphabetName}
                     alphabet={alphabet}
                     alphabetLetter={alphabetName.charAt(0).toUpperCase()}
-                    oneLesson={oneLesson}
-                    oneGuess={oneGuess}
                     onLessonChange={onLessonChange} />
             )}
         </div>

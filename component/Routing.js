@@ -7,7 +7,7 @@ import {LearnMenu} from "./Lessons/LearnMenu";
 import {HomeHero} from "./Home/HomeHero";
 import {HomeMenu} from "./Home/HomeMenu";
 
-export const Routing = ({alphabets, oneLesson, oneGuess}) => {
+export const Routing = ({alphabets}) => {
 
     const [alphabet, setAlphabet] = useState("")
     const [lesson, setLesson] = useState("")
@@ -20,8 +20,6 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
         setLesson(syllablesPreviousLesson);
         // setLesson(lesson);
-
-       // oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + codeWithThisLesson, oneGuess);
     };
 
     return (
@@ -31,15 +29,11 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
                 <HomeHero />
                 <PlayMenu
                     alphabets={alphabets}
-                    oneLesson={oneLesson}
-                    oneGuess={oneGuess}
                     onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
                 <HomeMenu />
                 <PlayItem
-                    oneLesson={oneLesson}
-                    oneGuess={oneGuess}
                     onLessonChange={handleLesson}
                     alphabet={alphabet}
                     lesson={lesson}/>

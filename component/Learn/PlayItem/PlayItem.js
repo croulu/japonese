@@ -2,14 +2,13 @@ import React, {useState} from "react";
 import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
 import {Timer2} from "./Timer2";
-import {stopLesson} from "../../../component_legacy/lesson";
 import {Practice} from "../../../domain/Practice";
 
 
-export const PlayItem = ({oneLesson, oneGuess, onLessonChange, lesson}) => {
+export const PlayItem = ({onLessonChange, lesson}) => {
 
     const handleOnTimeout = () => {
-        const statistiques = stopLesson(oneLesson, oneLesson.oneChoiceGroup, oneGuess).statistiques;
+        const statistiques = "";
     };
 
     const handleChange = (event) => {

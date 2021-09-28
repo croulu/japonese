@@ -12,10 +12,8 @@ export const HomeMenu = ({}) =>
                     <input type="checkbox" id="hamburger"/>
 
                     <div className="hamburger-items">
-                        <a className="menu-main-item" href="#">easy</a>
-                        <a className="menu-main-item" href="#">medium</a>
-                        <a className="menu-main-item" href="#">hard</a>
-                        <a className="menu-main-item" href="#">very hard</a>
+                        <a className="menu-main-item" href="#">Practice easy !</a>
+                        <a className="menu-main-item" href="#">Practice hard !</a>
                         <a className="menu-main-item" href="#">Lessons</a>
                     </div>
                 </nav>

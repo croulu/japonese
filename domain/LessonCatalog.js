@@ -30,16 +30,6 @@ export class LessonCatalog {
         return syllables;
     }
 
-    // TODO: Obsolete with legacy, to remove
-    codeWithSyllablesList(syllables) {
-        const syllablesCodes = syllables.map(syllable => syllable.consonant + syllable.vowel)
-
-        const reducer = (previousValue, currentValue) => previousValue + "-" + currentValue;
-        const codeWithLegacyFormat = syllablesCodes.reduce(reducer);
-
-        return codeWithLegacyFormat;
-    }
-
     romajiWithSyllable(syllableToFind) {
         const listMapSyllableRomajiUnicode = this.mapSyllableRomajiUnicode();
         const found = listMapSyllableRomajiUnicode.mapping.find(element =>

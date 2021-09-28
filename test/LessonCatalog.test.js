@@ -85,13 +85,6 @@ describe('LessonCatalog', function () {
         assert.deepEqual(maxSyllables, result.length)
     })
 
-    it('should provide code lesson with syllables list', function () {
-        const sut = new LessonCatalog();
-        const result = sut.codeWithSyllablesList(syllablesRandomLessonHk);
-
-        assert.deepEqual(codeLessonHk, result);
-    });
-
     syllablesToMap.map(([alphabet, consonant, vowel, romaji]) =>
         it(`should provide romaji with syllable ${alphabet}, ${consonant}, ${vowel}`, function () {
             const sut = new LessonCatalog();

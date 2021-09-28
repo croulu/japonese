@@ -1,18 +1,4 @@
-import {
-  setStatusLessonInStorage,
-  getInStorage,
-  setInStorage,
-  fnCall
-} from './helpers.js'
 
-import {
-  stopLesson,
-  Lesson
-} from '../component_legacy/lesson.js'
-
-import {
-  ChoiceGroup
-} from '../component_legacy/choiceGroup.js'
 
 function initClickOnCountdown() {
   const countdown = document.getElementById('countdownTimer')

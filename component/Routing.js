@@ -4,6 +4,7 @@ import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
 import {LessonCatalog} from "../domain/LessonCatalog";
 import {LearnMenu} from "./Lessons/LearnMenu";
+import {Home} from "./Home/Home";
 
 export const Routing = ({alphabets, oneLesson, oneGuess}) => {
 
@@ -31,6 +32,7 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     return (
         <Router>
             <Route exact path='/'>
+                <Home />
                 <PlayMenu
                     alphabets={alphabets}
                     oneLesson={oneLesson}

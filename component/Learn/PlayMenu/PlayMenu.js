@@ -5,7 +5,7 @@ import {IncludePreviousCheckBox} from "./IncludePreviousCheckBox";
 
 export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
     <>
-        <div id="playMenu">
+        <div id="playMenu" className="page-block-content">
 
             <IncludePreviousCheckBox />
 

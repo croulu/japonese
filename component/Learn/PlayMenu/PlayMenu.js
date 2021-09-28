@@ -1,13 +1,10 @@
 import React from "react";
 import {GuessAlphabet} from "./GuessAlphabet";
-import {IncludePreviousCheckBox} from "./IncludePreviousCheckBox";
 
 
 export const PlayMenu = ({alphabets, oneLesson, oneGuess, onLessonChange}) =>
     <>
         <div id="playMenu" className="page-block-content">
-
-            <IncludePreviousCheckBox />
 
             {Object.entries(alphabets).map(([alphabetName, alphabet]) =>
                 <GuessAlphabet

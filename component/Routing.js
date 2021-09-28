@@ -15,19 +15,13 @@ export const Routing = ({alphabets, oneLesson, oneGuess}) => {
     const handleLesson = (alphabet, lesson, order, alphabetName) => {
         setAlphabet(alphabet);
 
-        // TODO: si checkbox "include previous lesson(s) cochée" alors ce qui suit
-        // sinon = lesson.code (sur laquelle on a cliqué)
         const previousLesson = new LessonCatalog();
         const syllablesPreviousLesson = previousLesson.randomizeListPreviousButNoMoreThanNb(alphabetName, order);
-
-        const codeWithThisLesson = previousLesson.codeWithSyllablesList(syllablesPreviousLesson);
-        // const codeWithThisLesson = lesson.code
-        // a-i-u-e-o
 
         setLesson(syllablesPreviousLesson);
         // setLesson(lesson);
 
-        oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + codeWithThisLesson, oneGuess);
+       // oneLesson.launchLesson('simple', alphabet.toLowerCase() + '-' + codeWithThisLesson, oneGuess);
     };
 
     return (

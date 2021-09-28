@@ -1,5 +1,4 @@
 import { Kana } from './kana.js'
-import { Menu } from './menu.js'
 import { ChoiceGroup } from './choiceGroup.js'
 
 import {

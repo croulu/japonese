@@ -2,8 +2,8 @@ import React from "react";
 
 export const HomeMenu = ({}) =>
     <>
-        <div className="page-block bb">
-            <header className="header-main page-block-content">
+        <div className="page-block">
+            <header className="header-main">
                 <div className="logo-main"></div>
 
                 <nav className="menu-main hamburger-navigation">

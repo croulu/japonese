@@ -18,11 +18,12 @@ body {
 .page-block {
     padding: 0 1rem 0 1rem;
     background-color: var(--menu-color);
+    width: 100%;
 }
 
 .page-block-content {
     max-width: 80rem;
-    padding: 0 1rem 0 1rem;
+    padding: 0;
     margin: auto;
 }
 

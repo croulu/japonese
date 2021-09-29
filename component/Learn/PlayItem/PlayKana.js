@@ -14,9 +14,12 @@ export const PlayKana = ({practice}) => {
         }, 1000);
     }
 
+    const styleResultTrue = "resultPlayKana resultTrue";
+    const styleResultFalse = "resultPlayKana resultFalse";
+
     return <div id="playKana">
-        <div className="resultPlayKana">
-            {isChoiceValid ? <span>Bingo :D !</span> : isChoiceValid === false ? <span>Nope :(</span> : ""}
+        <div className={isChoiceValid ? styleResultTrue : styleResultFalse}>
+            {isChoiceValid ? <span>yes !</span> : isChoiceValid === false ? <span>no</span> : ""}
         </div>
         <div className="playKana">
             <div className="playItemKana" id="playItemKana">

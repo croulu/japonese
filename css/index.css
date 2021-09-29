@@ -28,10 +28,10 @@ body {
     margin: auto;
 }
 
-.page-block-buttons {
+.page-block-button {
     display: flex;
-    max-width: 70rem;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 1rem 0 1rem 0;
 }
 
 /* header */
@@ -39,7 +39,7 @@ body {
 .logo-main {
     height: 100px;
     width: 120px;
-    background-image : url("../img/japan.png");
+    background-image: url("../img/japan.png");
     background-size: cover;
 }
 

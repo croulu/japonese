@@ -54,7 +54,8 @@ export const Routing = ({alphabets}) => {
             </Route>
             <Route exact path='/lesson'>
                 <HomeMenu/>
-                <LearnMenu></LearnMenu>
+                <LearnMenu
+                    alphabets={alphabets}/>
             </Route>
         </Router>
     );

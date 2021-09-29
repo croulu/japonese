@@ -58,7 +58,7 @@ describe('LessonCatalog', function () {
         assert.deepEqual(10, result.katakana.basic.length)
         assert.deepEqual(4, result.katakana.dakuon.length)
         assert.deepEqual(1, result.katakana.handakuon.length)
-    })
+    });
 
     it(`should provide hiragana lessons plus its previous lessons with lesson order < ${maxOrderLesson}`, function () {
         const sut = new LessonCatalog();
@@ -67,7 +67,7 @@ describe('LessonCatalog', function () {
         lessons.map(lesson => result.push(lesson.code));
 
         assert.deepEqual(maxOrderLesson, result.length)
-    })
+    });
 
     it(`should randomize syllables of various lessons`, function () {
         const sut = new LessonCatalog();
@@ -76,38 +76,39 @@ describe('LessonCatalog', function () {
         // TODO : pas le bon test
 
 //        assert.ok(result.includes(syllableHa))
-    })
+    });
 
     it(`should provide no more than ${maxSyllables} proposals`, function () {
         const sut = new LessonCatalog();
         const result = sut.randomizeListPreviousButNoMoreThanNb(alphabet, maxOrderLesson);
 
         assert.deepEqual(maxSyllables, result.length)
-    })
+    });
 
     syllablesToMap.map(([alphabet, consonant, vowel, romaji]) =>
         it(`should provide romaji with syllable ${alphabet}, ${consonant}, ${vowel}`, function () {
             const sut = new LessonCatalog();
             const result = sut.romajiWithSyllable(new Syllable(alphabet, consonant, vowel));
 
-            assert.deepEqual(result, romaji);
+            assert.deepEqual(romaji, result);
         })
-    )
+    );
 
     syllablesToMap.map(([alphabet, consonant, vowel, romaji, unicode]) =>
         it(`should provide unicode with syllable ${alphabet}, ${consonant}, ${vowel}`, function () {
             const sut = new LessonCatalog();
             const result = sut.unicodeWithSyllable(new Syllable(alphabet, consonant, vowel));
 
-            assert.deepEqual(result, unicode);
+            assert.deepEqual(unicode, result);
         })
-    )
+    );
 
     it('should provide one kana to display for a lesson', function () {
         const sut = new LessonCatalog();
         const result = sut.kanaToDisplayForLesson(lessonHka);
 
-        assert.deepEqual(kanaHka.display(), result);
+        assert.deepEqual(result, kanaHka.display());
     });
+
 
 })

@@ -182,6 +182,14 @@ body {
 }
 
 
+/* lessons */
+.lessonKanas {
+    height: 1100px;
+    width: 700px;
+    background-image: url("../img/kanacomplete.png");
+    background-size: cover;
+}
+
 /* helpers */
 
 .bb {

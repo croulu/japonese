@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LearnMenu = ({}) =>
+export const LearnMenu = ({alphabets}) =>
     <>
-lessons TODO
+        <div className="lessonKanas"></div>
     </>

@@ -1,8 +1,7 @@
 import React from "react";
+import {useHistory} from 'react-router-dom'
 
 import {LessonCatalog} from "../../../domain/LessonCatalog";
-
-import {useHistory} from 'react-router-dom'
 
 export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) => {
 
@@ -10,9 +9,9 @@ export const LessonButton = ({alphabet, lesson, onLessonChange, alphabetName}) =
     const catalog = new LessonCatalog();
 
     const handleClick = function () {
-        onLessonChange(alphabet, lesson.syllables, lesson.order, alphabetName)
+        onLessonChange(alphabet, lesson.syllables, lesson.order, alphabetName);
 
-        history.push('/play')
+        history.push('/play');
     }
 
     return (<a onClick={handleClick}>

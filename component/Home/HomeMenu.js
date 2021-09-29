@@ -1,14 +1,31 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 
-export const HomeMenu = ({onEasyLessonChange, onHardLessonChange}) => {
+export const HomeMenu = ({onLevelLessonChange}) => {
 
+    const history = useHistory();
 
+    const handleHomeClick = function () {
+        history.push('/');
+    }
+
+    const handleEasyLevelClick = function () {
+        onLevelLessonChange(true);
+
+        history.push('/practice');
+    }
+
+    const handleHardLevelClick = function () {
+        onLevelLessonChange(false);
+
+        history.push('/practice');
+    }
 
     return (
         <>
             <div className="page-block">
                 <header className="header-main">
-                    <div className="logo-main"></div>
+                    <a onClick={handleHomeClick}><div className="logo-main"></div></a>
 
                     <nav className="menu-main hamburger-navigation">
 
@@ -16,15 +33,14 @@ export const HomeMenu = ({onEasyLessonChange, onHardLessonChange}) => {
                         <input type="checkbox" id="hamburger"/>
 
                         <div className="hamburger-items">
-                            <a className="menu-main-item" onClick={onEasyLessonChange}>Practice easy !</a>
-                            <a className="menu-main-item" onClick={onHardLessonChange}>Practice hard !</a>
+                            <a className="menu-main-item" onClick={handleEasyLevelClick}>Practice easy !</a>
+                            <a className="menu-main-item" onClick={handleHardLevelClick}>Practice hard !</a>
                             <a className="menu-main-item" href="#">Lessons</a>
                         </div>
                     </nav>
 
                 </header>
             </div>
-
         </>
     )
 }

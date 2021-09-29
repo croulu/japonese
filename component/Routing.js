@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 import {PlayMenu} from "./Learn/PlayMenu/PlayMenu";
 import {PlayItem} from "./Learn/PlayItem/PlayItem";
 import {LessonCatalog} from "../domain/LessonCatalog";
@@ -26,31 +27,35 @@ export const Routing = ({alphabets}) => {
         }
     };
 
-    const handleEasyLesson = () => {
-        setEasyLesson(true);
+    const handleLevelLesson = (levelLesson) => {
+        setEasyLesson(levelLesson);
     };
 
-    const handleHardLesson = () => {
-        setEasyLesson(false);
-    };
+    console.log(easyLesson);
 
     return (
         <Router>
             <Route exact path='/'>
-                <HomeMenu onEasyLessonChange={handleEasyLesson} onHardLessonChange={handleHardLesson}/>
+                <HomeMenu onLevelLessonChange={handleLevelLesson} />
                 <HomeHero/>
+            </Route>
+            <Route exact path='/practice'>
+                <HomeMenu/>
                 <PlayMenu
                     alphabets={alphabets}
+                    easyLesson={easyLesson}
                     onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
                 <HomeMenu/>
                 <PlayItem
                     onLessonChange={handleLesson}
+                    easyLesson={easyLesson}
                     alphabet={alphabet}
                     lesson={lesson}/>
             </Route>
             <Route exact path='/lesson'>
+                <HomeMenu/>
                 <LearnMenu></LearnMenu>
             </Route>
         </Router>

@@ -31,8 +31,6 @@ export const Routing = ({alphabets}) => {
         setEasyLesson(levelLesson);
     };
 
-    console.log(easyLesson);
-
     return (
         <Router>
             <Route exact path='/'>

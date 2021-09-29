@@ -21,6 +21,10 @@ export const HomeMenu = ({onLevelLessonChange}) => {
         history.push('/practice');
     }
 
+    const handleLessonClick = function () {
+        history.push('/lesson');
+    }
+
     return (
         <>
             <div className="page-block">
@@ -35,7 +39,7 @@ export const HomeMenu = ({onLevelLessonChange}) => {
                         <div className="hamburger-items">
                             <a className="menu-main-item" onClick={handleEasyLevelClick}>Practice easy !</a>
                             <a className="menu-main-item" onClick={handleHardLevelClick}>Practice hard !</a>
-                            <a className="menu-main-item" href="#">Lessons</a>
+                            <a className="menu-main-item" onClick={handleLessonClick}>Lessons</a>
                         </div>
                     </nav>
 

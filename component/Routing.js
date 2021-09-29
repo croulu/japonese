@@ -35,7 +35,7 @@ export const Routing = ({alphabets}) => {
         <Router>
             <Route exact path='/'>
                 <HomeMenu onLevelLessonChange={handleLevelLesson} />
-                <HomeHero/>
+                <HomeHero onLevelLessonChange={handleLevelLesson} />
             </Route>
             <Route exact path='/practice'>
                 <HomeMenu/>

@@ -1,6 +1,7 @@
 :root {
     --menu-color: #ef534f;
     --menu-color-light: #ff867b;
+    --menu-color-very-light: #FFFFFF;
     --bg-color: #FFFFFF;
     --text-color: #000000;
     --text-color-light: #FFFFFF;
@@ -27,6 +28,11 @@ body {
     margin: auto;
 }
 
+.page-block-buttons {
+    display: flex;
+    max-width: 70rem;
+    justify-content: space-between;
+}
 
 /* header */
 
@@ -99,6 +105,33 @@ body {
         display: flex;
     }
 }
+
+/* button */
+
+.button {
+    font-weight: 700;
+    text-decoration: none;
+    background-color: var(--menu-color);
+    border: 1px solid var(--menu-color);
+    color: var(--text-color-light);
+    padding: 0.6rem 1rem;
+    border-radius: 0.1rem;
+    transition: 200ms;
+}
+
+.button:hover {
+    background-color: var(--menu-color-light);
+}
+
+.button-primary {
+    background-color: var(--menu-color-very-light);
+    color: var(--text-color);
+}
+
+.button-primary:hover {
+    background-color: var(--menu-color-light);
+}
+
 
 /* hero */
 

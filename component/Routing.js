@@ -11,28 +11,40 @@ export const Routing = ({alphabets}) => {
 
     const [alphabet, setAlphabet] = useState("")
     const [lesson, setLesson] = useState("")
+    const [easyLesson, setEasyLesson] = useState("")
 
     const handleLesson = (alphabet, lesson, order, alphabetName) => {
-        setAlphabet(alphabet);
+        if (easyLesson) {
+            setLesson(lesson);
+        } else {
+            setAlphabet(alphabet);
 
-        const previousLesson = new LessonCatalog();
-        const syllablesPreviousLesson = previousLesson.randomizeListPreviousButNoMoreThanNb(alphabetName, order);
+            const previousLesson = new LessonCatalog();
+            const syllablesPreviousLesson = previousLesson.randomizeListPreviousButNoMoreThanNb(alphabetName, order);
 
-        setLesson(syllablesPreviousLesson);
-        // setLesson(lesson);
+            setLesson(syllablesPreviousLesson);
+        }
+    };
+
+    const handleEasyLesson = () => {
+        setEasyLesson(true);
+    };
+
+    const handleHardLesson = () => {
+        setEasyLesson(false);
     };
 
     return (
         <Router>
             <Route exact path='/'>
-                <HomeMenu />
-                <HomeHero />
+                <HomeMenu onEasyLessonChange={handleEasyLesson} onHardLessonChange={handleHardLesson}/>
+                <HomeHero/>
                 <PlayMenu
                     alphabets={alphabets}
                     onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
-                <HomeMenu />
+                <HomeMenu/>
                 <PlayItem
                     onLessonChange={handleLesson}
                     alphabet={alphabet}

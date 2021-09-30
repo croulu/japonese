@@ -33,7 +33,7 @@ export const HomeHero = ({onLevelLessonChange}) => {
                     <a onClick={handleHardLevelClick} className="button">Entrainement difficile</a>
                 </div>
                 <div className="page-block-button">
-                    <a onClick={handleLessonClick} className="button button-primary">Voir la lesson</a>
+                    <a onClick={handleLessonClick} className="button button-primary">Voir la leçon</a>
                 </div>
             </div>
         </>

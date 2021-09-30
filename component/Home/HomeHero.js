@@ -27,13 +27,13 @@ export const HomeHero = ({onLevelLessonChange}) => {
                 <p className=" hero-main hero-main-subtitle">Bon, d'accord ce n'est pas facile, nous allons vous aider
                     ;)</p>
                 <div className="page-block-button">
-                    <a onClick={handleEasyLevelClick} className="button">Start easy practice !</a>
+                    <a onClick={handleEasyLevelClick} className="button">Entrainement facile</a>
                 </div>
                 <div className="page-block-button">
-                    <a onClick={handleHardLevelClick} className="button">Start hard practice !</a>
+                    <a onClick={handleHardLevelClick} className="button">Entrainement difficile</a>
                 </div>
                 <div className="page-block-button">
-                    <a onClick={handleLessonClick} className="button button-primary">See lessons</a>
+                    <a onClick={handleLessonClick} className="button button-primary">Voir la lesson</a>
                 </div>
             </div>
         </>

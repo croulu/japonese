@@ -37,8 +37,8 @@ export const HomeMenu = ({onLevelLessonChange}) => {
                         <input type="checkbox" id="hamburger"/>
 
                         <div className="hamburger-items">
-                            <a className="menu-main-item" onClick={handleEasyLevelClick}>Practice easy !</a>
-                            <a className="menu-main-item" onClick={handleHardLevelClick}>Practice hard !</a>
+                            <a className="menu-main-item" onClick={handleEasyLevelClick}>Entraînement facile</a>
+                            <a className="menu-main-item" onClick={handleHardLevelClick}>Entrainement difficile</a>
                             <a className="menu-main-item" onClick={handleLessonClick}>Lessons</a>
                         </div>
                     </nav>

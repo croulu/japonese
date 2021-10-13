@@ -31,6 +31,16 @@ export const Routing = ({alphabets}) => {
         setEasyLesson(levelLesson);
     };
 
+    // TODO : practices et non pas practice
+    // practices/play
+    // arborescence REST
+
+    // TODO le titre dans le menu ?
+
+    // TODO est ce vraiment nécessaire d'avoir le burger ?
+
+    // TODO site cassé (playMenu bougé), pas de tests KO
+
     return (
         <Router>
             <Route exact path='/'>

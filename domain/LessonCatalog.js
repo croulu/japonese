@@ -30,6 +30,8 @@ export class LessonCatalog {
         return syllables;
     }
 
+    // TODO verbe (nom de la fonction)
+
     romajiWithSyllable(syllableToFind) {
         const listMapSyllableRomajiUnicode = this.mapSyllableRomajiUnicode();
         const found = listMapSyllableRomajiUnicode.mapping.find(element =>
@@ -39,6 +41,8 @@ export class LessonCatalog {
 
         return found.romaji;
     }
+
+    // TODO verbe (nom de la fonction)
 
     unicodeWithSyllable(syllableToFind) {
         const listMapSyllableRomajiUnicode = this.mapSyllableRomajiUnicode();
@@ -50,6 +54,9 @@ export class LessonCatalog {
         return found.unicode;
     }
 
+    // TODO verbe (nom de la fonction)
+    // c'est une fonction pure, elle n'a pas besoin de manipuler lesson
+
     kanaToDisplayForLesson(lesson) {
         const lessonWithKanaObjects = [];
         lesson.map(syllable =>
@@ -57,6 +64,11 @@ export class LessonCatalog {
 
         return lessonWithKanaObjects[0].display();
     }
+
+    // TODO tester tous les cas particuliers
+    // le test est aussi de la doc
+
+    // TODO aujouter un test sur les romajis identhiques (cas de "ji")
 
     mapSyllableRomajiUnicode() {
         return {

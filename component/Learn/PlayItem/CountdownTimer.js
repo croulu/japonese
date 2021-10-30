@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 export const CountdownTimer = ({onTimeout} ) => {
-    const [countdown, setCountdown] = useState(700);
+    const [countdown, setCountdown] = useState(60);
     useEffect(() => {
         const interval = setInterval(() => {
             setCountdown(countdown => {

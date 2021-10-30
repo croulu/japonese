@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import {Toolbar} from "./Toolbar";
 import {PlayKana} from "./PlayKana";
-import {Timer2} from "./Timer2";
+import {CountdownTimer} from "./CountdownTimer";
 import {Practice} from "../../../domain/Practice";
-
 
 export const PlayItem = ({onLessonChange, easyLesson, lesson}) => {
 
@@ -12,18 +11,16 @@ export const PlayItem = ({onLessonChange, easyLesson, lesson}) => {
     };
 
     const handleChange = (event) => {
-        this.props.onLessonChange(event.target.value);
+        onLessonChange(event.target.value);
     }
 
-    const createPractice = (lesson) => {
-        return new Practice(lesson)
-    }
+    const createPractice = (lesson) => new Practice(lesson)
 
     const levelChoosen = easyLesson ? "Level easy" : "Level hard";
 
     return (<div id="playItem"> {levelChoosen}
         <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
-        <Timer2 onTimeout={handleOnTimeout}/>
+        <CountdownTimer onTimeout={handleOnTimeout}/>
         <Toolbar statistiques={"STATS TODO"}/>
     </div>);
 }

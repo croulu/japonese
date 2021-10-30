@@ -21,7 +21,6 @@
     "core-js": "^3.13.1",
     "deep-equal": "^2.0.5",
     "esm": "^3.2.25",
-    "img": "^3.0.3",
     "ngx-countdown": "^9.0.1",
     "node-sass": "^5.0.0",
     "postcss-modules": "^4.1.0",

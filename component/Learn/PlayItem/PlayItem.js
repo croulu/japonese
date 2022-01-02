@@ -18,9 +18,11 @@ export const PlayItem = ({onLessonChange, easyLesson, lesson}) => {
 
     const levelChoosen = easyLesson ? "Level easy" : "Level hard";
 
+    // Statistics TODO
+
     return (<div id="playItem"> {levelChoosen}
-        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
         <CountdownTimer onTimeout={handleOnTimeout}/>
-        <Toolbar statistiques={"STATS TODO"}/>
+        <Toolbar statistiques={""}/>
+        <PlayKana onClick={handleChange} practice={createPractice(lesson)}/>
     </div>);
 }

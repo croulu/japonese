@@ -21,7 +21,7 @@ export const Routing = ({alphabets}) => {
             setAlphabet(alphabet);
 
             const previousLesson = new LessonCatalog();
-            const syllablesPreviousLesson = previousLesson.randomizeListPreviousButNoMoreThanNb(alphabetName, order);
+            const syllablesPreviousLesson = previousLesson.randomizeListPrevious(alphabetName, order);
 
             setLesson(syllablesPreviousLesson);
         }

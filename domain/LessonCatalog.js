@@ -30,6 +30,13 @@ export class LessonCatalog {
         return syllables;
     }
 
+    randomizeLessonWithAFewProposals(syllablesForLesson, maxSyllables) {
+
+        const randomFlatSyllables = randomizeSyllablesToPropoze(syllablesForLesson).slice(0, maxSyllables);
+
+        return randomFlatSyllables;
+    }
+
     // TODO verbe (nom de la fonction)
 
     romajiWithSyllable(syllableToFind) {

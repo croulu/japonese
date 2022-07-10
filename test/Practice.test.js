@@ -15,7 +15,6 @@ const lesson = [
 
 describe('Practice', function () {
 
-    /*
     it('should provide GuessKana within Kana lesson', function () {
         const guessWhat = "kana";
         const list = randomizeSyllableToGuess();
@@ -25,12 +24,11 @@ describe('Practice', function () {
             guessWhat)
         const guessRomaji = sut.next();
         assert.ok(lesson.includes(guessRomaji.syllable))
-    })
+    });
 
+   /*
     it('should provide GuessRomaji within Romaji lesson', function () {
 
-    }
-
+    })
 */
-
 })

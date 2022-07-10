@@ -5,14 +5,23 @@ import {Kana} from "./Kana";
 import {randomizeWhatToGuess} from "./randomizeWhatToGuess";
 import {randomizeSyllableToGuess} from "./randomizeSyllableToGuess";
 import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
+import {LessonCatalog} from "./LessonCatalog";
 
 export class Practice {
 
     constructor(lesson) {
+        // TODO avoir une liste plus grosse que 5 éléments
+        this.allSyllabesToPractice = lesson;
         this.syllables = lesson;
     }
 
     next() {
+
+        if (this.allSyllabesToPractice.length > 5) {
+            const onePartOfLessonForPractice = new LessonCatalog();
+            this.syllables = onePartOfLessonForPractice.randomizeLessonWithAFewProposals(this.allSyllabesToPractice, 5);
+        }
+
         const randomSyllableToGuess = randomizeSyllableToGuess(this.syllables);
 
         const guessWhat = randomizeWhatToGuess();

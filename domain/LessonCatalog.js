@@ -73,7 +73,6 @@ export class LessonCatalog {
     }
 
     // TODO tester tous les cas particuliers
-    // le test est aussi de la doc
 
     // TODO aujouter un test sur les romajis identhiques (cas de "ji")
 

@@ -1,6 +1,6 @@
 import {GuessSyllable} from "./GuessSyllable";
 
-export class GuessRomaji extends GuessSyllable {
+export class GuessRomajiSyllable extends GuessSyllable {
     constructor(romaji, kanas) {
         super(romaji, kanas)
     }

@@ -1,7 +1,7 @@
 import {Syllable} from "./Syllable";
 import {LessonCatalog} from "./LessonCatalog";
 
-export class Romaji extends Syllable {
+export class RomajiSyllable extends Syllable {
     constructor (alphabet, consonant, vowel) {
         super(alphabet, consonant, vowel);
     }

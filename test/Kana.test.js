@@ -1,5 +1,5 @@
 import assert from "assert";
-import {Kana} from "../domain/Kana";
+import {KanaSyllable} from "../domain/KanaSyllable";
 
 
 const alphabet = "h";
@@ -11,7 +11,7 @@ describe('Kana', function () {
 
 
     it(`should provide unicode for kana ${alphabet}, ${consonant}, ${vowel}`, function () {
-        const sut = new Kana(alphabet, consonant, vowel);
+        const sut = new KanaSyllable(alphabet, consonant, vowel);
 
         const actual = sut.display();
 

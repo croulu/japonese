@@ -2,7 +2,7 @@ import {LessonCatalog} from "../domain/LessonCatalog";
 import {Syllable} from "../domain/Syllable";
 
 import assert from "assert";
-import {Kana} from "../domain/Kana";
+import {KanaSyllable} from "../domain/KanaSyllable";
 
 
 const alphabet = "hiragana";
@@ -44,7 +44,7 @@ const lessonHka = [
     {alphabet: "h", consonant: "k", vowel: "o"}
 ]
 
-const kanaHka = new Kana("h", "k", "a")
+const kanaHka = new KanaSyllable("h", "k", "a")
 
 
 describe('LessonCatalog', function () {

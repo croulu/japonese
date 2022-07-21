@@ -1,6 +1,6 @@
 import {Practice} from "../domain/Practice";
 import {Syllable} from "../domain/Syllable";
-import {Kana} from "../domain/Kana";
+import {KanaSyllable} from "../domain/KanaSyllable";
 import {randomizeSyllableToGuess} from "../domain/randomizeSyllableToGuess";
 
 import assert from "assert";
@@ -15,7 +15,7 @@ const lesson = [
 
 describe('Practice', function () {
 
-    it('should provide GuessKana within Kana lesson', function () {
+    it('should provide GuessKanaSyllable within KanaSyllable lesson', function () {
         const guessWhat = "kana";
         const list = randomizeSyllableToGuess();
         const sut = new Practice(lesson,
@@ -27,7 +27,7 @@ describe('Practice', function () {
     });
 
    /*
-    it('should provide GuessRomaji within Romaji lesson', function () {
+    it('should provide GuessRomajiSyllable within RomajiSyllable lesson', function () {
 
     })
 */

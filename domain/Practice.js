@@ -1,7 +1,7 @@
-import {GuessRomaji} from "./GuessRomaji";
-import {GuessKana} from "./GuessKana";
-import {Romaji} from "./Romaji";
-import {Kana} from "./Kana";
+import {GuessRomajiSyllable} from "./GuessRomajiSyllable";
+import {GuessKanaSyllable} from "./GuessKanaSyllable";
+import {RomajiSyllable} from "./RomajiSyllable";
+import {KanaSyllable} from "./KanaSyllable";
 import {randomizeWhatToGuess} from "./randomizeWhatToGuess";
 import {randomizeSyllableToGuess} from "./randomizeSyllableToGuess";
 import {randomizeSyllablesToPropoze} from "./randomizeSyllablesToPropoze";
@@ -39,20 +39,20 @@ export class Practice {
     }
 
     createGuessKanaOrGuessRomaji(isKanaToGuess, objectToGuess, objectsToPropose) {
-        return isKanaToGuess ? new GuessKana(objectToGuess, objectsToPropose) :
-            new GuessRomaji(objectToGuess, objectsToPropose);
+        return isKanaToGuess ? new GuessKanaSyllable(objectToGuess, objectsToPropose) :
+            new GuessRomajiSyllable(objectToGuess, objectsToPropose);
     }
 
     createProposalsKanaOrRomaji(isKanaToGuess, proposals) {
         return isKanaToGuess ?
-            proposals.map(proposal => new Romaji(proposal.alphabet, proposal.consonant, proposal.vowel)) :
-            proposals.map(proposal => new Kana(proposal.alphabet, proposal.consonant, proposal.vowel));
+            proposals.map(proposal => new RomajiSyllable(proposal.alphabet, proposal.consonant, proposal.vowel)) :
+            proposals.map(proposal => new KanaSyllable(proposal.alphabet, proposal.consonant, proposal.vowel));
     }
 
     createKanaOrRomaji(isKanaToGuess, randomSyllableToGuess) {
         return isKanaToGuess ?
-            new Kana(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel) :
-            new Romaji(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel);
+            new KanaSyllable(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel) :
+            new RomajiSyllable(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel);
     }
 
     newSyllablesIfMoreThanExpectedProposals() {

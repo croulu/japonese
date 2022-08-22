@@ -23,6 +23,7 @@ export class Practice {
 
         const objectToGuess = this.createKanaOrRomaji(isKanaToGuess, randomSyllableToGuess);
 
+        // TODO if expet level, proposals do not include good proposal
         const proposals = randomizeSyllablesToPropoze(this.syllables);
 
         const objectsToPropose = this.createProposalsKanaOrRomaji(isKanaToGuess, proposals);

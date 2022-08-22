@@ -5,13 +5,19 @@ export const HomeHero = ({onLevelLessonChange}) => {
     const history = useHistory();
 
     const handleEasyLevelClick = function () {
-        onLevelLessonChange(true);
+        onLevelLessonChange('easy');
 
         history.push('/practice');
     }
 
     const handleHardLevelClick = function () {
-        onLevelLessonChange(false);
+        onLevelLessonChange('hard');
+
+        history.push('/practice');
+    }
+
+    const handleExpertLevelClick = function () {
+        onLevelLessonChange('expert');
 
         history.push('/practice');
     }
@@ -31,6 +37,9 @@ export const HomeHero = ({onLevelLessonChange}) => {
                 </div>
                 <div className="page-block-button">
                     <a onClick={handleHardLevelClick} className="button">Entrainement difficile</a>
+                </div>
+                <div className="page-block-button">
+                    <a onClick={handleExpertLevelClick} className="button">Entrainement expert</a>
                 </div>
                 <div className="page-block-button">
                     <a onClick={handleLessonClick} className="button button-primary">Voir la leçon</a>

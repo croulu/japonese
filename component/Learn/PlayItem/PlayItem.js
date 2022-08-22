@@ -4,7 +4,7 @@ import {PlayKana} from "./PlayKana";
 import {CountdownTimer} from "./CountdownTimer";
 import {Practice} from "../../../domain/Practice";
 
-export const PlayItem = ({onLessonChange, easyLesson, lesson}) => {
+export const PlayItem = ({onLessonChange, levelLessonToPlay, lesson}) => {
 
     const handleOnTimeout = () => {
         const statistiques = "";
@@ -16,7 +16,7 @@ export const PlayItem = ({onLessonChange, easyLesson, lesson}) => {
 
     const createPractice = (lesson) => new Practice(lesson)
 
-    const levelChoosen = easyLesson ? "Level easy" : "Level hard";
+    const levelChoosen = levelLessonToPlay;
 
     // Statistics TODO
 

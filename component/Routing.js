@@ -12,10 +12,10 @@ export const Routing = ({alphabets}) => {
 
     const [alphabet, setAlphabet] = useState("")
     const [lesson, setLesson] = useState("")
-    const [easyLesson, setEasyLesson] = useState("")
+    const [levelLessonToPlay, setLevelLessonToPlay] = useState("")
 
     const handleLesson = (alphabet, lesson, order, alphabetName) => {
-        if (easyLesson) {
+        if (levelLessonToPlay === 'easy') {
             setLesson(lesson);
         } else {
             setAlphabet(alphabet);
@@ -28,7 +28,7 @@ export const Routing = ({alphabets}) => {
     };
 
     const handleLevelLesson = (levelLesson) => {
-        setEasyLesson(levelLesson);
+        setLevelLessonToPlay(levelLesson);
     };
 
     // TODO : practices et non pas practice
@@ -44,21 +44,21 @@ export const Routing = ({alphabets}) => {
     return (
         <Router>
             <Route exact path='/'>
-                <HomeMenu onLevelLessonChange={handleLevelLesson} />
-                <HomeHero onLevelLessonChange={handleLevelLesson} />
+                <HomeMenu onLevelLessonChange={handleLevelLesson}/>
+                <HomeHero onLevelLessonChange={handleLevelLesson}/>
             </Route>
             <Route exact path='/practice'>
                 <HomeMenu/>
                 <PlayMenu
                     alphabets={alphabets}
-                    easyLesson={easyLesson}
+                    levelLessonToPlay={levelLessonToPlay}
                     onLessonChange={handleLesson}/>
             </Route>
             <Route exact path='/play'>
                 <HomeMenu/>
                 <PlayItem
                     onLessonChange={handleLesson}
-                    easyLesson={easyLesson}
+                    levelLessonToPlay={levelLessonToPlay}
                     alphabet={alphabet}
                     lesson={lesson}/>
             </Route>

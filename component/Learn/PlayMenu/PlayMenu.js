@@ -2,9 +2,9 @@ import React from "react";
 import {GuessAlphabet} from "./GuessAlphabet";
 
 
-export const PlayMenu = ({alphabets, easyLesson, onLessonChange}) => {
+export const PlayMenu = ({alphabets, levelLessonToPlay, onLessonChange}) => {
 
-    const levelChoosen = easyLesson ? "Level easy" : "Level hard";
+    const levelChoosen = levelLessonToPlay;
 
     return(
         <>

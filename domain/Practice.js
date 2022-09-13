@@ -15,7 +15,8 @@ export class Practice {
     }
 
     next() {
-        this.newSyllablesIfMoreThanExpectedProposals();
+        const NO_MORE_THAN = 5;
+        this.syllables = this.newSyllablesIfMoreThanExpectedProposals(this.allSyllabesToPractice, NO_MORE_THAN);
 
         const randomSyllableToGuess = randomizeSyllableToGuess(this.syllables);
 
@@ -23,7 +24,7 @@ export class Practice {
 
         const objectToGuess = this.createKanaOrRomaji(isKanaToGuess, randomSyllableToGuess);
 
-        // TODO if expet level, proposals do not include good proposal
+        // TODO if expert level, proposals do not include good proposal
         const proposals = randomizeSyllablesToPropoze(this.syllables);
 
         const objectsToPropose = this.createProposalsKanaOrRomaji(isKanaToGuess, proposals);
@@ -56,10 +57,10 @@ export class Practice {
             new RomajiSyllable(randomSyllableToGuess.alphabet, randomSyllableToGuess.consonant, randomSyllableToGuess.vowel);
     }
 
-    newSyllablesIfMoreThanExpectedProposals() {
-        if (this.allSyllabesToPractice.length > 5) {
+    newSyllablesIfMoreThanExpectedProposals(allSyllables, noMoreThan) {
+        if (allSyllables.length > noMoreThan) {
             const onePartOfLessonForPractice = new LessonCatalog();
-            this.syllables = onePartOfLessonForPractice.randomizeLessonWithAFewProposals(this.allSyllabesToPractice, 5);
+            return onePartOfLessonForPractice.randomizeLessonWithAFewProposals(allSyllables, noMoreThan);
         }
     }
 }

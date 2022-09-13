@@ -110,9 +110,8 @@ describe('LessonCatalog', function () {
         assert.deepEqual(result, kanaHka.display());
     });
 
-//     it ('should provide lesson with good proposal', function () {
-//     it ('should provide lesson without good proposal', function () {
-//     it ('should provide lesson with ou without good proposal', function () {
+//     it ('should provide the good proposal in the list of proposals', function () {
+//     it ('should provide the list of proposals without the good proposal', function () {
 
 
 })
